@@ -1,0 +1,8 @@
+<p id="h114" hidden>
+ID: 114
+CHOICE 1: Take what will and leave the shop to continue west
+DESTINATION: 196
+HISTORY
+There are three bejewelled rings under the counter and 13 Gold 
+Pieces in a drawer.
+</p>

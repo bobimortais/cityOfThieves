@@ -1,0 +1,15 @@
+<p id="h57" hidden>
+ID: 57
+FIGHT
+ENEMY 1: WOLF DOG;SKILL 7;STAMINA 7
+ENEMY 1: WOLF DOG;SKILL 7;STAMINA 5
+DESTINATION: 360
+HISTORY
+The Dwarf jumps up off his stool, his face full of hatred. He
+calls out two names loudly and two huge black dogs immediately
+appear from under a table with long fangs protruding from their
+slavering mouths. Wraggins points a finger at you, shouting 
+'Kill the friend of Nicodemus!' and the dogs leap at you, 
+barking wildly. You must fight them for your life, one at a time.
+
+</p>

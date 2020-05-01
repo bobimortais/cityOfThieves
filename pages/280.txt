@@ -1,0 +1,10 @@
+<p id="h280" hidden>
+ID: 280
+CHOICE 1: If you wish to enter the shop
+ACTION 1: 213
+CHOICE 2: If you would rather keep going east
+ACTION 2: 100
+HISTORY
+Further along the street on the left is another shop. A sign 
+outside reads 'Ben Borryman, Silversmith'.
+</p>

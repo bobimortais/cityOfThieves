@@ -1,0 +1,12 @@
+<p id="h139" hidden>
+ID: 139
+CHOICE 1: If you wish to enter the house to find out what the argument is about
+ACTION 1: 113
+CHOICE 2: If you would rather ignore the argument and continue east
+ACTION 2: 375
+HISTORY
+Walking along the street you are suddenly halted by a plant pot 
+smashing on to the cobblestones in front of you. You look to 
+the left and see an open window. Inside, voices can be heard 
+arguing. The door to the house is open.
+</p>

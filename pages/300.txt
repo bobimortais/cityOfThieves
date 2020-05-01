@@ -1,0 +1,18 @@
+<p id="h300" hidden>
+ID: 300
+CHOICE 1: If you want to obey the instruction, make the necessary deduction on your Adventure Sheet.
+STATUS 1: LUCK;DECREASE;2
+ACTION 1: 347
+CHOICE 2: If you want to keep walking without leaving the gold
+ACTION 2: 137
+HISTORY
+The street makes a sudden right turn and heads north. You pass 
+a cluster of small houses and are aware of unseen people watching 
+walk by. Then the door to one of the houses opens and a small boy 
+dressed in rags runs out and hand a piece of paper. Without 
+stopping, he runs off and disappears round the corner. The 
+paper has a message on it which reads 'Arrows from six bows 
+are pointed at you. Leave 10 Gold Pieces in the middle of the 
+street and keep walking.'
+
+</p>

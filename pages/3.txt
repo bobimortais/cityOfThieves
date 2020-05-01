@@ -1,0 +1,11 @@
+<p id="h3" hidden>
+ID: 3
+CHOICE 1: If you Wish to pay the musician
+ACTION 1: turn to 37
+CHOICE 2: If you do not believe him, you may walk to the next stal
+ACTION 2: turn to 398
+HISTORY
+The man stops playing and tells you that he can bring you 
+good fortune. For the sum of 3 Gold Pieces he will sing you 
+a song that will bring you luck.
+</p>

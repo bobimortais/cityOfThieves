@@ -1,0 +1,13 @@
+<p id="h287" hidden>
+ID: 287
+CHOICE 1: If you wish to stop and listen
+ACTION 1: 3
+CHOICE 2: If you would rather walk past him
+ACTION 2: 398
+HISTORY
+The food stalls are selling fruit, vegetables, meat and hot 
+soup, corn and chestnuts for hungry shoppers. You may eat some
+hot food if you wish. Pay 1 Gold Piece and increase your STAMINA 
+by 2 points. Walking north along the west side of the square
+you see a man dressed in purple velvet playing a lyre.
+</p>

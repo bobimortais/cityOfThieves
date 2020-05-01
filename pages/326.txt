@@ -1,0 +1,23 @@
+<p id="h326" hidden>
+ID: 326
+FIGHT
+ENEMY 1: WILD DOG;SKILL 4;STAMINA 4
+ENEMY 1: WILD DOG;SKILL 4;STAMINA 3
+CHOICE 1: If you win
+ACTION 1: 184
+CHOICE 2: You may Escape by running backup the alleyway and turning west into Harbour Street.
+ACTION 2: 180
+HISTORY
+Ahead the alleyway is strewn with rubbish and discarded 
+possessions. Suddenly you hear growling and you see movement 
+amongst the rubbish. You draw your sword just in time as two 
+WILD DOGS, each a metre and a half long, leap at you. Fight 
+both clogs at the same time. Both dogs will make a separate 
+attack on you in each Attack Round, but you must choose which
+of the two you will fight. Attack your chosen dog as in a 
+normal battle. Against the other you will throw for your 
+Attack Strength in the normal way, but you will not wound it 
+if your Attack Strength is greater; you must just count this 
+as though you have defended yourself against its bite. 
+Of course if its Attack Strength is greater, it will wound you.
+</p>

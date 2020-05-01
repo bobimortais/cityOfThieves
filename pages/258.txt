@@ -1,0 +1,18 @@
+<p id="h258" hidden>
+ID: 258
+CHOICE 1: If you are wearing an ivory skull around your neck
+ACTION 1: 318
+CHOICE 2: If you do not have this item
+ACTION 2: 47
+HISTORY
+Stepping over the Fire Imp, you walk back to the stairs to see
+if its master is still in the house. You descend the stairs 
+slowly, sword drawn. When you reach the bottom you are somewhat
+surprised to see a fat man, richly dressed, sitting in an 
+ornate chair looking directly at you. He appears very relaxed,
+quite unperturbed by your drawn sword. Then he speaks, slowly
+and coldly, saying, 'For killing my pet you shall pay with 
+your life.' He raises his right hand in the air and from his 
+outstretched fingers shoot ragged white bolts Of lightning.
+
+</p>

@@ -1,0 +1,7 @@
+<p id="h257" hidden>
+ID: 257
+CHOICE 1: If you are wearing the Ring Of the Golden Eye
+ACTION 1: 385
+CHOICE 2: If not
+ACTION 2: 70
+</p>

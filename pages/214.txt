@@ -1,0 +1,12 @@
+<p id="h214" hidden>
+ID: 214
+TEST: LUCK
+SUCESS: If you are Lucky, you manage to jump back out of reach of the swinging axe.
+DESTINATION: 158
+FAIL: If you are Unlucky, the blade cuts into your left arm.
+DESTINATION: 379
+HISTORY
+As soon as you touch the battle-axe, the Suit of Armour starts
+to move. In a series of quick, jerky movements it swings the 
+battle-axe in a attempt to strike you. Test your Luck.
+</p>

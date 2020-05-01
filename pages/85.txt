@@ -1,0 +1,10 @@
+<p id="h85" hidden>
+ID: 85
+CHOICE 1: Outside you set off east once again.
+DESTINATION: 100
+HISTORY
+You pay the silversmith and wait patiently while he makes a 
+silver arrow for you. Finally he presents you with it and 
+assures you that it will be completely accurate in flight. You
+thank him for his trouble and leave his shop.
+</p>

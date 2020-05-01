@@ -1,0 +1,10 @@
+<p id="h77" hidden>
+ID: 77
+CHOICE 1: If you wish to open the door
+ACTION 1: 292
+CHOICE 2: If you wish to climb up to the third floor
+ACTION 2: 310
+HISTORY
+You walk quietly back to the staircase and climb up to the second 
+floor. Again there is a door at the end of the landing.
+</p>

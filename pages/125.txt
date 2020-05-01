@@ -1,0 +1,9 @@
+<p id="h125" hidden>
+ID: 125
+STATUS: SKILL;DECREASE;1
+CHOICE 1: Unable to rid yourself of this handicap, you walk over to the spiral staircase and climb up it
+DESTINATION: 21
+HISTORY
+This shield is cursed by Zanbar Bone. Anybody who is not 
+undead will suffer if they use it. Lose 1 SKILL point.
+</p>

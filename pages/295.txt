@@ -1,0 +1,13 @@
+<p id="h295" hidden>
+ID: 295
+MONEY: INCREASE;12
+STATUS: LUCK:INCREASE;1
+CHOICE 1: ou leave the house and continue your walk along Stable Street.
+DESTINATION: 333
+HISTORY
+You sheathe your sword and start to search the Serpent Queen'search
+house. You find a brown leather bag which you pick up and shake.
+The contents make a jingling sound. Inside you find 12 Gold 
+Pieces. Add 1 LUCK point.
+
+</p>

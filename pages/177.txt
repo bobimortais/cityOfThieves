@@ -1,0 +1,14 @@
+<p id="h177" hidden>
+ID: 177
+FIGHT
+ENEMY 1: ROBBER;SKILL 7;STAMINA 8
+ENEMY 2: ROBBER;SKILL 8;STAMINA 6
+CHOICE 1: If you win
+ACTION 1: 51
+HISTORY
+You draw your sword and rush to help the old man. He is lying 
+on the ground and the other two men are beating him and trying
+to take his leather bag. You call out and they turn and attack
+you. Fight them one at a time.
+
+</p>

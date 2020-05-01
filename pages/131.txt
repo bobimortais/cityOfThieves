@@ -1,0 +1,14 @@
+<p id="h131" hidden>
+ID: 131
+CHOICE 1: Tell her you are delivering flowers 
+ACTION 1: 67
+CHOICE 2: Tell her you have come to collect old rags
+ACTION 2: 6
+CHOICE 3: Tell her you are a tax collector
+ACTION 3: 179
+HISTORY
+You walk into a room with sparse furnishings and a polished 
+floor. Silk curtains hang down over an archway on the far wall.
+As you start to walk across the wooden floor, a woman's voice
+calls out 'Who is it?' You may:
+</p>

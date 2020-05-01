@@ -1,0 +1,33 @@
+<p id="h354" hidden>
+ID: 354
+CHOICE 1: If you have enough money for the price of a tattoo
+ACTION 1: 316
+CHOICE 2: If you still cannot afford one, you will have to come back again later. You walk back up the lane and turn left into Mill Street. 
+ACTION 2: 307
+HISTORY
+The tattooist looks at you with a bored expression on his face
+and says, 'Well, you don't expect me to do it for free, 
+do you? If you've got anything worth selling, go next door. 
+My step-brother lives there and he's a pawnbroker. Tell him I
+sent you and maybe he'll give you a good price.' You walk 
+outside and knock on the wooden door of the next house. A 
+squint-eyed man opens the door and you tell him that you want
+to sell some items so that you can afford to have a tattoo. The 
+man asks you to come into his house and you enter a room piled 
+high with all kinds of objects, furniture, armour, curios and
+pottery. He explains that he has a stall in the market which
+he rents once a week. He then tells you what he is currently 
+interested in buying, and the prices he is offering:
+Silver goblet 	        8 Gold Pieces
+Skeleton key	       15 Gold Pieces
+Scorpion brooch	       10 Gold Pieces
+Magic ring	           12 Gold Pieces
+Silver bracelet	        5 Gold Pieces
+Helmet	                7 Gold Pieces
+Silver flute	        5 Gold Pieces
+Eye-patch	            1 Gold Piece
+Knucklebones          	1 Gold Piece
+Mirror	                1 Gold Piece 
+You may sell the pawnbroker any of your passessions. You bid 
+him farewell and walkoutside.
+</p>

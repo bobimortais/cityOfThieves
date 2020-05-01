@@ -1,0 +1,14 @@
+<p id="h197" hidden>
+ID: 197
+CHOICE 1: Inspect the suit of armour
+ACTION 1: 301
+CHOICE 2: Open the door
+ACTION 2: 122
+CHOICE 3: Carry on up the stairs
+ACTION 3: 207
+HISTORY
+On the next landing there is a door with a black tower carved
+in ebony attached to it. There is a black suit of armour 
+standing outside the door. Will you:
+
+</p>

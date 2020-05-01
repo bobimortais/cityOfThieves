@@ -1,0 +1,9 @@
+<p id="h172" hidden>
+ID: 172
+CHOICE 1: Outside you set off north along Stable Street.
+DESTINATION: 333
+HISTORY
+You take the bunch of flowers out of your backpack and hand it
+to the Serpent Queen. She thanks you and hands you a tip of 2
+Gold Pieces before showing you to the front door.
+</p>

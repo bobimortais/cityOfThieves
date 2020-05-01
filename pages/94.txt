@@ -1,0 +1,13 @@
+<p id="h94" hidden>
+ID: 94
+STATUS 1: STAMINA;INCREASE;6
+CHOICE 1: With strength returned you feel you can now deal with Zanbar Bone and ask the little man of his whereabouts.
+ACTION 1: 234
+HISTORY
+The little man smiles and says, 'Easy.' He reaches into his 
+pocket and produces some sparkling dust which he throws up at
+you. As it settles on your clothes, a feeling of strength 
+surges through your body. Add 6 STAMINA points. He then tells
+you that as he is feeling particularly grateful he will grant
+you another wish.
+</p>

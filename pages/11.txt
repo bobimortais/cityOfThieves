@@ -1,0 +1,16 @@
+<p id="h11" hidden>
+ID: 11
+STATUS 1: SKILL;DECREASE;1
+STATUS 2: SKILL;DECREASE;2
+DESTINATION: 358
+HISTORY
+The Trolls see what you are doing and run towards the tree. 
+You are forced to leave your shield behind. After climbing 
+quickly up the tree you realize that you must jump a distance
+of two metres between the branch and the top of the wall. 
+If you are wearing a chainmail coat you will have to take it 
+off in order to jump safely across to to the wall. Below, you
+see the two Trolls running round the tree waving their swords
+at you. There is no alternative but to jump.
+
+</p>

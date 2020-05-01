@@ -1,0 +1,11 @@
+<p id="h58" hidden>
+ID: 58
+STATUS 1: STAMINA;DECREASE;1
+CHOICE 1: You set off west again.
+DESTINATION: 171
+HISTORY
+As the carriage thunders by, the driver lashes out at you with
+his whip. Lose 1 STAMINA point. You curse the driver of the 
+carriage as it races out of view, rubbing your neck where the
+whip has raised a weal. You set off west again.
+</p>

@@ -1,0 +1,20 @@
+<p id="h217" hidden>
+ID: 217
+FIGHT
+ENEMY 1: MOON DOG;SKILL 9;STAMINA 10
+ENEMY 2: MOON DOG;SKILL 11;STAMINA 9
+CHOICE 1: If you win
+ACTION 1: 259
+HISTORY
+You walk all day until you reach the hill shown on Nicodemus'
+map upon which the Night Prince's tower stands. All is quiet
+and there is an unpleasant smell of decay in the air. Shadows
+start to creep along the ground as the moon rises into the
+night sky and you see the foreboding silhouetted shap of
+Zanbar Bone's tower pointing up into the sky like a black
+finger. You check all your possessions before drawing your
+sword and marching towards the arched wooden entrance door.
+Suddenly you hear a shrill howl and swing round to see two
+pairs of eyes staring at you. They belong to MOON DOGS. 
+Zanbar Bone's trained killer hounds. Fight them one at a time.
+</p>

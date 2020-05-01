@@ -1,0 +1,8 @@
+<p id="h285" hidden>
+ID: 285
+CHOICE 1: Make a note of what you wish to keep and set off north again.
+DESTINATION: 227
+HISTORY
+You make a rapid search through the guards' possessions and 
+find 7 Gold Pieces, a set of keys and a piece of stale bread.
+</p>

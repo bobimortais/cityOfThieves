@@ -1,0 +1,12 @@
+<p id="h236" hidden>
+ID: 236
+CHOICE 1: that you are on a mission from Silverton and need the help of Nicodemus
+ACTION 1: 57
+CHOICE 2: or that you want to kill Nicodemus
+ACTION 2: 218
+HISTORY
+Your question produces a suspicious look on the face of the 
+Dwarf and he raises one eyebrow. Then he says, 'I know 
+Nicodemus but what do you want of him?' You may reply by 
+telling him either
+</p>

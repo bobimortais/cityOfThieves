@@ -1,0 +1,9 @@
+<p id="h158" hidden>
+ID: 158
+CHOICE 1: If you wish to open the door in front of you
+ACTION 1: 122
+CHOICE 2: If you wish to run back to the staircase and climb up to the next floor
+ACTION 2: 207
+HISTORY
+You must react quickly to escape the advancing Suit of Armour.
+</p>

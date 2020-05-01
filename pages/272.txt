@@ -1,0 +1,12 @@
+<p id="h272" hidden>
+ID: 272
+CHOICE 1: If you wish to try to remove the grill
+ACTION 1: 377
+CHOICE 2: If you wish to walk back to the entrance hole
+ACTION 2: 174
+HISTORY
+You manage to squeeze yourself between the dead Centipede and
+the roof of the tunnel. You walk further down the tunnel and 
+see that it ends at an iron grill through which the sewage 
+water runs.
+</p>

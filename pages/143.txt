@@ -1,0 +1,11 @@
+<p id="h143" hidden>
+ID: 143
+CHOICE 1: If you wish to continue with your feigned illness and tell them that you think you've got the plague
+ACTION 1: 306
+CHOICE 2: If you wish to fight them unarmed
+ACTION 2: 157
+HISTORY
+When you hear the guards coming down the stairs, you lie on 
+the floor and start to groan. They unlock the cell door and 
+enter.
+</p>

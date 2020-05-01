@@ -1,0 +1,15 @@
+<p id="h159" hidden>
+ID: 159
+CHOICE 1: Search the room you are in
+ACTION 1: 278
+CHOICE 2: Walk through the archway
+ACTION 2: 107
+CHOICE 3: Climb the stairs
+ACTION 3: 60
+HISTORY
+The owner of the house is obviously quite wealthy. Lavish 
+furnishing and fine objects d'art adorn the marble-floored 
+room in which you stand. An archway leads into a back room 
+and stairs to your right lead up to another floor. Will you:
+
+</p>

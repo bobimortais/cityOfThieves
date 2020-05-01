@@ -1,0 +1,13 @@
+<p id="h130" hidden>
+ID: 130
+FIGHT
+ENEMY 1: CITY GUARD;SKILL 6;STAMINA 6
+ENEMY 2: CITY GUARD;SKILL 7;STAMINA 5
+DESTINATION: 74
+HISTORY
+As the guard slumps to the ground, two more armed men appear 
+from a stone guardhouse by the gate, obviously attracted by 
+the noise of your battle. There is no time to run so you must
+fight them one at a time.
+
+</p>

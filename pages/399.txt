@@ -1,0 +1,11 @@
+<p id="h399" hidden>
+ID: 399
+CHOICE 1: If you wish to board the ship by climbing the rope ladder
+ACTION 1: 87
+CHOICE 2: If you wish to walk straight up the gangplank
+ACTION 2: 294
+HISTORY
+A rope ladder hangs down from the stern of the ship to the
+jetty. There is also a gangplank leading up the side of the
+ship.
+</p>

@@ -1,0 +1,10 @@
+<p id="h396" hidden>
+ID: 396
+CHOICE 1: If you wish to enter the Shop
+ACTION 1: 145
+CHOICE 2: If you prefer to keep walking west
+ACTION 2: 24
+HISTORY
+On the left side of the street is a flower shop. The window 
+is filled with exotic and colourful flowers.
+</p>

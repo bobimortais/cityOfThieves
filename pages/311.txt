@@ -1,0 +1,24 @@
+<p id="h311" hidden>
+ID: 311
+FIGHT 1
+ENEMY 1: CITY GUARD;SKILL 8;STAMINA 7
+FIGHT 2
+ENEMY 2: CITY GUARD;SKILL 6;STAMINA 6
+ENEMY 3: CITY GUARD;SKILL 7;STAMINA 5
+CHOICE 1: If you win
+ACTION 1: 74
+HISTORY
+As you start your fight with the GUARD, you see two more armed
+men appear from a stone guardhouse by the gate. They draw their 
+swords and await the outcome of your battle. If you defeat the 
+first city guard, you must now fight the other two as a pair. 
+Both have a separate attack on you in each Attack Round, but 
+you must choose which of the two you will fight. Attack your
+nominated target as in a normal battle. Against the other you
+will throw for Attack Strength in the normal way, but you will
+not wound him if your Attack Strength is greater - you must 
+just count this as though you have parried his blow. Of course
+if his Attack Strength is greater, he will have wounded you in the 
+normal way.
+
+</p>

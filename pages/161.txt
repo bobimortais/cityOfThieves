@@ -1,0 +1,13 @@
+<p id="h161" hidden>
+ID: 161
+CHOICE 1: If you wish to enter the house
+ACTION 1: 245
+CHOICE 2: If you wish to keep gomg northwards
+ACTION 2: 282
+HISTORY
+The street makes a sudden left turn and continues north as far
+as you can see. However, you notice that round the corner the 
+houses are much bigger, with doorways some four metres high. On
+the left side of the street you see that a door to one of the 
+houses is open. 
+</p>

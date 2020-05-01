@@ -1,0 +1,17 @@
+<p id="h33" hidden>
+ID: 33
+CHOICE 1: Tell him that you know the chalices are cursed and should only be examined by a mage
+ACTION 1: 381
+CHOICE 2: Try to run past the guard into the main street
+ACTION 2: 291
+CHOICE 3: Attack him quickly with your sword
+ACTION 3: 49
+HISTORY
+You tell the guard that you wish to sell some silver chalices
+that you stole from a tavern in Silverton and that you will 
+pay him a Gold Piece for his advice as to where to go for the
+best price. The guard looks at you suspiciously, saying, 'Let
+me look at these chalices in your backpack before I admit you.' 
+Will you:
+
+</p>

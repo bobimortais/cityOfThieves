@@ -1,0 +1,9 @@
+<p id="h240" hidden>
+ID: 240
+CHOICE 1: If you now wish to inquire about the price of his rings
+ACTION 1: 36
+CHOICE 2: If you have had enough of transactions for the time being, you leave the shop and head west.
+ACTION 2: 196
+HISTORY
+The man hands you the gold and puts the gems under the counter.
+</p>

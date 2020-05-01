@@ -1,0 +1,12 @@
+<p id="h343" hidden>
+ID: 343
+ITEMS: SILVER;DECREASE;ALL]
+STATUS 1: STAMINA;DECREASE;3
+DESTINATION: 100
+HISTORY
+You fall to the floor, unconscious. Lose 3 STAMINA points. If 
+you are still alive, you awake to find yourself lying outside
+the shop in Clog Street. You will find that any silver items 
+you had are missing. You stand up and set off angrily along 
+the street.
+</p>

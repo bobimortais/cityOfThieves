@@ -1,0 +1,7 @@
+<p id="h174" hidden>
+ID: 174
+CHOICE 1: Back at the entrance hole you may either climb up the ladder to the street in order to continue east
+ACTION 1: 205
+CHOICE 2: or, if you have not done so already, you may walk north along the sewer.
+ACTION 2: 356
+</p>

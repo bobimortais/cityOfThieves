@@ -1,0 +1,8 @@
+<p id="h337" hidden>
+ID: 337
+DESTINATION: 400
+HISTORY
+Congratulations - you have killed Zanbar Bone, the infamous 
+Night Prince. He decays before your eyes, becoming nothing 
+more than a small pile of powder on the floor.
+</p>

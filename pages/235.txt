@@ -1,0 +1,8 @@
+<p id="h235" hidden>
+ID: 235
+CHOICE 1: You stand up, walk over to the staircase and climb up to the next floor.
+DESTINATION: 65
+HISTORY
+You decide not to risk any further possible danger to yourself
+and crawl out of the room.
+</p>

@@ -1,0 +1,15 @@
+<p id="h96" hidden>
+ID: 96
+CHOICE 1: Walk over to the chest
+ACTION 1: 257
+CHOICE 2: Close the door and open the white door (if you have not done so already) 
+ACTION 2: 319
+CHOICE 3: Close the door and walk back to the staircase to climb up to the next floor
+ACTION 3: 197
+HISTORY
+You open the door and enter a room which is adorned with 
+macabre objects and paintings. A black cat is sitting in front
+of a table covered in black cloth. Two black candles are 
+burning on either side of a mirror on the far wall. On the 
+table lies an open chest containing a golden skull. Will you:
+</p>

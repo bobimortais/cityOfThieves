@@ -1,0 +1,9 @@
+<p id="h297" hidden>
+ID: 297
+CHOICE 1: You walk back to the staircase to climb up to the next floor.
+DESTINATION: 207
+HISTORY
+There is nothing of use to you in the room. The smell of the 
+Zombies and the debris is terrible, so you decide to leave 
+immediately.  
+</p>

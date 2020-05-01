@@ -1,0 +1,13 @@
+<p id="h293" hidden>
+ID: 293
+CHOICE 1: Whether you trade or not, you then leave the shop and head west.
+DESTINATION: 24
+HISTORY
+She explains that she has just picked one of her golden flowers.
+There are ten golden petals on the flower, and you are told 
+that if dipped in dog's blood, each petal, plucked and thrown
+on the ground, will change into a Gold Piece. Mrs Pipe asks for
+any magic item, piece of armour or food (two  portions of your 
+Provisions) in exchange for the golden flower. If you wish to trade with 
+Mrs Pipe, make the necessary changes to your Adventure Sheet.
+</p>

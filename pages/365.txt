@@ -1,0 +1,15 @@
+<p id="h365" hidden>
+ID: 365
+CHOICE 1: If you wish to apologize and tell him that you are a lost traveller
+ACTION 1: 339
+CHOICE 2: If you wish to attack him with your sword
+ACTION 2: 35
+HISTORY
+You charge the door several times before it splinters. Unfortunately, 
+you injure your shoulder in the process. Lose 1 SKILL point. 
+Through the broken door you see a thin, pale-skinned man with 
+dark, hollow eyes, wearing a servant's uniform. In a cold, 
+hissing voice he Says, 'Really, do you have to make such a 
+dramatic entry? Could you not have pulled the bell cord like 
+everybody else?'
+</p>

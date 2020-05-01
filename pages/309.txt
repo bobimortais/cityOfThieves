@@ -1,0 +1,11 @@
+<p id="h309" hidden>
+ID: 309
+FIGHT
+ENEMY 1: WOLF;SKILL 5;STAMINA 5
+CHOICE 1: If you win
+DESTINATION: 97
+HISTORY
+You shake the WOLF off your arm and draw your sword. The wolf
+snarls and leaps at you again.
+
+</p>

@@ -1,0 +1,10 @@
+<p id="h310" hidden>
+iD: 310
+CHOICE 1: If you wish to open the door
+ACTION 1: 263
+CHOICE 2: If you wish to climb to the next floor
+ACTION 2: 65
+HISTORY
+You climb up to the third foor and see another door at the end 
+of the landing.
+</p>

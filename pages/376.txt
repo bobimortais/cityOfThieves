@@ -1,0 +1,11 @@
+<p id="h376" hidden>
+ID: 377
+STATUS 1: LUCK;INCREASE;1
+DESTINATION: 161
+HISTORY
+The helmet fits on your head perfectly, as had been specially
+made for you. It has magic properties also, and will allow you
+to add 1 point to all future dice rolls when computing your
+Attack Strength during combat as long as you wear it - add 1
+LUCK point. You set Off east again.
+</p>

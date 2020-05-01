@@ -1,0 +1,12 @@
+<p id="h264" hidden>
+ID: 264
+CHOICE 1: You wish to give the Ogre some of your food, deduct 2 from the Provisions on your Adventure Sheet
+FOOD: DECREASE;2
+ACTION 1: 121
+CHOICE 2: If you wish to refuse his request
+ACTION 2: 357
+HISTORY
+Before you are able to speak a word, the Ogre's voice booms out, 
+saying, 'Somebody has stolen all my food. Will you give me 
+some of yours?'
+</p>

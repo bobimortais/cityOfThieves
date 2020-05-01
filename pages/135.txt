@@ -1,0 +1,14 @@
+<p id="h135" hidden>
+ID: 135
+CHOICE 1: If you still wish to attack him
+ACTION 1: 229
+CHOICE 2: If you wish to run of the Shop and go further up Clog Street
+ACTION 2: 100
+HISTORY
+When you draw your sword the man cries out and runs into a 
+back room. You follow him into the room. He is apparently 
+unarmed, but is holding an egg and a small key in his hands. 
+He warns you that the egg contains a deadly gas and he will 
+throw it at you. He also threatens to swallow the key to his 
+silver cupboard. 
+</p>

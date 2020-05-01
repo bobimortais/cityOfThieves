@@ -1,0 +1,12 @@
+<p id="h249" hidden>
+ID: 249
+FIGHT
+ENEMY 1: SERPENT QUEEN;SKILL 9;STAMINA 7
+CHOICE 1: If you win
+ACTION 1: 295
+HISTORY
+The Serpent Queen's head darts about you very quickly as she 
+tries to bite you with her poisonous fangs. She will be 
+difficult to defeat.
+
+</p>

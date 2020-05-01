@@ -1,0 +1,16 @@
+<p id="h349" hidden>
+ID: 349
+FIGHT
+ENEMY 1: FIRE IMP;SKILL 9;STAMINA 4
+CHOICE 1: If you win
+ACTION 1: 258
+CHOICE 2: You may Escape by jumping out of the window to the street below
+ACTION 2: 192
+HISTORY
+Suddenly you are confronted by a small winged creature no more 
+than a metre in length, hovering before you. It is red in colour
+and has two horns protruding from its head and a small tail 
+hanging down from its back. It will be difficult to defeat as
+it flies quickly about your head spitting fire at you!
+
+</p>

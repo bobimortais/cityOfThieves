@@ -1,0 +1,10 @@
+<p id="h109" hidden>
+ID: 109
+DESTINATION: 151
+HISTORY
+The guards lock at each other and burst out laughing. Then one
+says, 'Do you think we would risk letting you in Port Blacksand
+for the sake of 5  Gold Pieces? If Lord Azzur found out that 
+we let you in without a pass, we would be dead men. Leys hear
+no more about bribes, it's the dungeon for you.'
+</p>

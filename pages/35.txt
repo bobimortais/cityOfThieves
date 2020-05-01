@@ -1,0 +1,21 @@
+<p id="h35" hidden>
+ID: 35
+CHOICE 1: Fire the silver arrow at him
+ACTION 1: 189
+CHOICE 2: Reflect his stare in your mirror (if you have one)
+ACTION 2: 305
+CHOICE 3: Fire your Ring of Ice at him (if you have one)
+ACTION 3: 382
+HISTORY
+You push the man through the doorway and run him through with 
+your sword. Much to your surprise he is unaffected by the 
+wound. Slowly he advances towards you, trying touch your skin
+with his skeletal, decayed hands. He grabs your arm but you 
+manage to kick him away. He has left a mark on your arm which
+looks like burn, but it emits a revolting smell of putrid 
+flesh. Lose 2 STAMINA points. Then you realize that before you
+stands a Spirit Stalker, one of the faithful servants of 
+Zanbar  Bone. As he advances towards you again with  his arms
+outstretched, you try to remember what you must do. Will you:
+
+</p>

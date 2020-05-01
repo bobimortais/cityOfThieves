@@ -1,0 +1,10 @@
+<p id="h147" hidden>
+ID: 147
+CHOICE 1: If you wish to drink the liquid
+ACTION 1: 338
+CHOICE 2: If you would rather just take the gold and press on northwards
+ACTION 2: 105
+HISTORY
+A search through the leather bags of the thieves produces 16 
+Gold Pieces and a glass phial containing a green liquid.
+</p>

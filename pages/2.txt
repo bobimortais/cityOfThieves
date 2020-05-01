@@ -1,0 +1,18 @@
+<p id="h2" hidden>
+ID: 2
+CHOICE 1: If wish to remove the grill
+ACTION 1: turn to 377
+CHOICE 2: If you wish to walk back to the entrance hole
+ACTION 2: turn to 174
+HISTORY
+You remove the bracelet from your wrist and toss it at the 
+monster.It lands on its annour-like shell and sticks to it 
+like glue. You then watch as the bracelet starts to burn its
+way through the Shell into the body of the Giant Centipede. 
+Smoke rises from the neat round hole and as the bracelet
+burns deeper you can see from the frantic movements of the 
+Centipede that it its death throes. Finally it is still and 
+you manage to squeeze yourself between its body and the roof
+of the tunnel. You walk further down the tunnel, which ends 
+at an iron grill through which the sewage runs.
+</p>

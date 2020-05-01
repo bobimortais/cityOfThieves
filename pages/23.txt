@@ -1,0 +1,9 @@
+<p id="h23" hidden>
+ID: 23
+FIGHT
+ENEMY 1: SILVERSMITH;SKILL 4;STAMINA 8
+DESTINATION: 146
+HISTORY
+The man grabs a wooden club from behind a chair and prepares
+to fight you. He is strong but not a good fighter.
+</p>

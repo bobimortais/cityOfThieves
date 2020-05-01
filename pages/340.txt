@@ -1,0 +1,15 @@
+<p id="h340" hidden>
+ID: 340
+STATUS 1: LUCK;INCREASE;1
+MONEY: INCREASE;25
+CHOICE 1: You may now either climb the stairs to the floor above
+ACTION 1: 60
+CHOICE 2: or leave the house to head north
+ACTION 2: 304
+HISTORY
+Once more you poke the wire inside the lock and finally it turns.
+Add 1 LUCK point. Raising the lid of the chest you see, to your 
+delight, 25 Gold Pieces and a magnificent shield. If you use 
+this shield in battle, it will increase your Attack Strength by
+1 during each Attack Round.
+</p>

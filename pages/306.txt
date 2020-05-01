@@ -1,0 +1,13 @@
+<p id="h306" hidden>
+ID: 306
+DESTINATION: 74
+HISTORY
+The two guards look at each other in horror and run out of the
+cell up the stairs, screaming 'Plague!' at the top of their 
+voices. Smilling to yourself you walk calmly out of the cell
+and pick up your sword off the table. Upstairs you find that
+the guards have fled;a search of the room reveals 2 Gold Pieces 
+and a merchant's pass to trade in Port Blacksand. Taking your
+findings, move over to the door and creep outside into the 
+city.
+</p>

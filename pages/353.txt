@@ -1,0 +1,12 @@
+<p id="h353" hidden>
+ID: 353
+CHOICE 1: If you have an iron key
+ACTION 1: 181
+CHOICE 2: If you do not, you may either try to force the door open
+ACTION 2: 389
+CHOICE 3: or return to the street to head north
+ACTION 3: 304
+HISTORY
+You try to turn the large brass handle on the door but it is 
+locked.
+</p>

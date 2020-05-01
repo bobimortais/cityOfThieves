@@ -1,0 +1,15 @@
+<p id="h222" hidden>
+ID: 222
+CHOICE 1: If you wish to go into the gardens
+MONEY: DECREASE;1
+ACTION 1: 370
+CHOICE 2: If you would rather keep on walking 
+ACTION 2: 133
+HISTORY
+On the right-hand side the houses are separated the street by
+a wooden fence with shrubs, trees, bushes and flowers behind it.
+There is a turnstile in the middle of the fence, by the side 
+of which is a sign reading: 'Public Gardens. Entry Fee 1 Gold
+Piece'
+
+</p>

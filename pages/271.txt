@@ -1,0 +1,16 @@
+<p id="h271" hidden>
+ID: 271
+CHOICE 1: If you wish to creep up and try to cut it loose
+ACTION 1: 162
+CHOICE 2: If you would rather close the door again, and not take any risks
+ACTION 2: 284
+HISTORY
+Asleep in their bunks are three pirates. Their room is small 
+and contains only clothing and a few personal possessions. It
+looks as if the pirates have been drinking and gambling - there
+is an uncorked bottle of rum, a mug and a pack of cards on top
+of a barrel in the centre of the room. You see that one of the
+pirates is wearing a small leather pouch around his neck.
+
+
+</p>

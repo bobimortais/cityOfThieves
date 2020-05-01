@@ -1,0 +1,14 @@
+<p id="h74" hidden>
+ID: 74
+CHOICE 1: Go west down Key Street
+ACTION 1: 95
+CHOICE 2: Head north along Market Street
+ACTION 2: 116
+CHOICE 3: Go eastdown Clock Street
+ACTION 3: 17
+HISTORY
+Through the main gates you see that the rubbish-filled streets
+of the port are narrow and cobbled. Old and decrepit buildings
+line them closely, with their upper storeys overhanging
+menacingly. You may:
+</p>

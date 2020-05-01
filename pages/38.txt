@@ -1,0 +1,11 @@
+<p id="h38" hidden>
+ID: 38
+CHOICE 1: After placing the bracelet on your wrist you leave the tavern and head north again.
+DESTINATION: 296
+HISTORY
+One of the men reaches into a pocket inside his green jacket 
+and produces a thin silver bracelet. He gives to you and you
+see the outline of an insect etched into its surface. The man 
+explains that the insect bracelet has the power to kill even 
+giant insects.
+</p>

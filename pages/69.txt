@@ -1,0 +1,11 @@
+<p id="h69" hidden>
+ID: 69
+TEST: SKILL
+SUCESS: If the number rolled is less than or equal to your SKILL score, you succeed
+DESTINATION: 355
+FAIL: If the number rolled is greater than your SKILL, you fail to release yourself, and are led away
+DESTINATION: 151
+HISTORY
+Just as the guards are about to lead you away, you try with 
+all your might to pull your arms from their grip. Roll two dice.
+</p>

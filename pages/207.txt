@@ -1,0 +1,16 @@
+<p id="h207" hidden>
+ID: 207
+FIGHT
+ENEMY 1: DEATH HAWK;SKILL 4;STAMINA 5
+ENEMY 2: DEATH HAWK;SKILL 4;STAMINA 4
+CHOICE 1: If you win
+ACTION 1: 314
+HISTORY
+The staircase ends at a door. You turn the handle slowly and 
+the door opens, much to your surprise, into open air. You walk
+outside on to the flat roof of the tower. Suddenly you are 
+aware of movement in the sky and look up to see two large 
+birds in the moonlight with long beaks and talons swooping 
+down on you. There is no time to run for cover, and  you must
+fight the DEATH HAWKS.Fight them one at a time.
+</p>

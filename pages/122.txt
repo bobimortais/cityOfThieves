@@ -1,0 +1,12 @@
+<p id="h122" hidden>
+ID: 122
+CHOICE 1: If you wish to back out of the room and shut them in
+ACTION 1: 277
+CHOICE 2: If you wish to attack them
+ACTION 2: 361
+HISTORY
+The room you enter is full of debris and rotting food. 
+Standing in the middle of all the mess are two men wearing 
+tattered clothing. They have hollow eyes and vacant expressions.
+On seeing you, they pick up wooden sticks and advance towards you.
+</p>

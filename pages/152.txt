@@ -1,0 +1,14 @@
+<p id="h152" hidden>
+ID: 152
+FIGHT
+ENEMY 1: PIRATE;SKILL 7;STAMINA 5
+ATTACK: Attack Strength;DECREASE;2;ROUND
+CHOICE 1: If you win
+ACTION 1: 20
+The PIRATE draws his cutlass. As he approaches, his toothless
+grin unnerves you a little. You do not have time to draw your 
+sword and must fight the pirate with the wooden stick. During
+each Attack Round you must deduct 2 points from your Attack 
+Strength.
+
+</p>

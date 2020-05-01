@@ -1,0 +1,11 @@
+<p id="h123" hidden>
+ID: 123
+STATUS 1: LUCK;INCREASE;1
+DESTINATION: 300
+HISTORY
+Inside a box on  a wooden Shelf you find 3 Gold Pieces and 
+an iron key. On examining it you realize that it is a very 
+special key. It is a skeletom key that will open just about 
+any lock you care to try. Add 1 LUCK point and leave the shop
+to head west.
+</p>

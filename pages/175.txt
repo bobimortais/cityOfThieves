@@ -1,0 +1,12 @@
+<p id="h175" hidden>
+ID: 175
+TEST: LUCK
+SUCESS: If you are Lucky, the tail stabs the goblet.
+DESTINATION: 204
+FAIL: If you are Unlucky, the barb on its tail sinks into your hand.
+DESTINATION: 373
+HISTORY
+Slowly lifting the goblet, you are surprised to see a yellow 
+scorpion underneath. It darts forward and tries to sting you 
+on the hand with its poisonous tail. Test your Luck.
+</p>

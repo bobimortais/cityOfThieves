@@ -1,0 +1,10 @@
+<p id="h8" hidden>
+ID: 8
+STATUS 1: LUCK;INCREASE;2
+CHOICE 1: Pleased with your purchase you leave the house and head north.
+ACTION 1: turn to 334
+HISTORY
+The creature pins the golden brooch to your leather tunic and
+you pay the price demanded. 
+You have boughta lucky charm — add 2 LUCK points to your total. 
+</p>

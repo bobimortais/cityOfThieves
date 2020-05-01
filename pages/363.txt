@@ -1,0 +1,9 @@
+<p id="h363" hidden>
+ID: 363
+CHOICE 1: If you wish to lift the manhole cover to see where it leads to 
+ACTION 1: 48
+CHOICE 2: If you wish to keep walking east
+ACTION 2: 205
+HISTORY
+In the middle of the street you see a large manhole cover.
+</p>

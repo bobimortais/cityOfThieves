@@ -1,0 +1,14 @@
+<p id="h273" hidden>
+ID: 273
+STATUS 1: LUCKY;INCREASE;2
+CHOICE 1: You may, if you have not already done so, pick up the silver scorpion
+ACTION 1: 13
+CHOICE 2: If you would rather ignore it you may either climb the stairs
+ACTION 2: 80
+CHOICE 3: or leave the house and head north
+ACTION 3: 334
+HISTORY
+Inspecting the scorpion you see that it is a brooch. You decide 
+top pin it to your leather tunic. It is a lucky charm. Add 2 
+LUCK points to your total. What will you do next?
+</p>

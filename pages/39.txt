@@ -1,0 +1,13 @@
+<p id="h39" hidden>
+ID: 39
+CHOICE 1: If you wish to run to the front
+ACTION 1: 32
+CHOICE 2: If you wish to draw your sword to attack tite Serpent Queen
+ACTION 2: 249
+HISTORY
+You open your backpack and pretend to search for the silver item. 
+The Serpent Queen starts to fidget and you can see her becoming
+increasingly impatient. You cannot think of a good plan and 
+start to panic.
+
+</p>

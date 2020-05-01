@@ -1,0 +1,10 @@
+<p id="h78" hidden>
+ID: 78
+CHOICE 1: If you wish to continue north up Harbour Street 
+ACTION 1: 256
+CHOICE 2: If you wish to walk east along Clog Street
+ACTION 2: 216
+HISTORY
+The street runs north along the quayside for a few hundred 
+metres before arriving at a junction.
+</p>

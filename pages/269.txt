@@ -1,0 +1,8 @@
+<p id="h269" hidden>
+ID: 269
+CHOICE 1: There does not appear to be an easy way to catch him, so you walk under the bridge and continue east.
+DESTINATION: 30
+HISTORY
+The man with the crossbow curses before ning into the building
+on your left.
+</p>

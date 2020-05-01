@@ -1,0 +1,9 @@
+<p id="h165" hidden>
+ID: 165
+CHOICE 1: Turn right down Candle Street
+ACTION 1: 139
+CHOICE 2: Walk back to the junction and go down Harbour Street
+ACTION 2: 91
+You may either turn right down Candle Street or walk back to the 
+junction and go down Harbour Street
+</p>

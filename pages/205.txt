@@ -1,0 +1,12 @@
+<p id="h205" hidden>
+ID: 205
+CHOICE 1: If you wish to walk round the corner
+ACTION 1: 44
+CHOICE 2: If wish to walk back to the junction and turn right into Tower Street 
+ACTION 2: 127
+HISTORY
+After replacing the manhole cover you set off east again. 
+Everything seems a little too quiet and you begin to feel 
+nervous. Ahead you see that Stable Street turns sharply to the
+left.
+</p>

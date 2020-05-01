@@ -1,0 +1,9 @@
+<p id="h347" hidden>
+ID: 347
+DESTINATION: 112
+HISTORY
+You hurry on down the street but glance back after hearing 
+cries of jubilation behind you. Some people are linked arm in
+arm and are dancing in a circle round your 10 Gold Pieces. 
+You curse this thieving city and press on north.
+</p>

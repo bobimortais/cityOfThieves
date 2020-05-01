@@ -1,0 +1,16 @@
+<p id="h245" hidden>
+ID: 245
+CHOICE 1: If you want to walk through the archway
+ACTION 1: 178
+CHOICE 2: If you wish to leave the house and continue north
+ACTION 2: 282
+HISTORY
+You enter a large room with brown walls and a straw-covered 
+floor. There is a musty smell hanging in the air which reminds
+you of the dirty old Cave Trolls that live on the northern borders.
+In the middle of the room is a table made from half a barrel 
+with some roughly made stools round it. A high archway leads 
+through the room to the back of the house, from where you hear
+a low murmuring voice.
+
+</p>

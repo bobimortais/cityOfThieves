@@ -1,0 +1,14 @@
+<p id="h357" hidden>
+ID: 357
+FIGHT
+ENEMY 1: OGRE;SKILL 8;STAMINA 9
+CHOICE 1: If you defeat him
+ACTION 1: 71
+CHOICE 2: After the third Attack Round, you may Escape by running out of the house and heading north.
+ACTION 2: 282
+HISTORY
+The OGRE is mad with hunger and picks up a large bone off the
+floor. He raises it above his head and lumbers towards you.
+
+
+</p>

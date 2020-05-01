@@ -1,0 +1,13 @@
+<p id="h219" hidden>
+ID: 219
+CHOICE 1: If you wish to answer 'Yes'
+ACTION 1: 150
+CHOICE 2: If you wish to answer 'No'
+ACTION 2: 393
+HISTORY
+The larger of the two Trolls tells you that his name is 
+Sourbelly and it is his duty to track down unwelcome visitors 
+to Port Blacksand. He looks at the pass and says, 'You don't 
+look much like a merchant to me. Are you one of those fancy 
+folk who have been attending the spice sales in Pepper Street?'
+</p>

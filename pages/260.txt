@@ -1,0 +1,8 @@
+<p id="h260" hidden>
+ID: 260
+CHOICE 1: You hurry on in case he tries to implicate you.
+DESTINATION: 222
+HISTORY
+The guards take their bribe and let you go. As you walk north
+you hear the angry shouts of the captured murderer behind you.
+</p>

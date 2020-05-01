@@ -1,0 +1,8 @@
+<p id="h303" hidden>
+ID: 303
+CHOICE 1: You put the hair safely in your backpack and walk back down the tunnel to the entrance hole.
+DESTINATION: 104
+HISTORY
+You bend over the motionless body of the dead Hag and you cut
+off a tuft of her hair with your sword.
+</p>

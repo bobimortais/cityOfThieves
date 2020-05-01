@@ -1,0 +1,9 @@
+<p id="h138" hidden>
+ID: 138
+CHOICE 1: If fought the Ape Man
+ACTION 1: 312
+CHOICE 2: If you fought any of the other creatures
+ACTION 2: 283
+HISTORY
+What is you choice:
+</p>

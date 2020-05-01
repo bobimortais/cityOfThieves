@@ -1,0 +1,10 @@
+<p id="h193" hidden>
+ID: 193
+CHOICE 1: If you have a Ring Of Fire, it will be the best weapon against the Mummy.
+ACTION 1: 286
+CHOICE 2: Otherwise you must use your sword.
+FIGHT
+ENEMY 1: MUMMY;SKILL 7;STAMINA 12
+ACTION 2: 163
+
+</p>

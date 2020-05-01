@@ -1,0 +1,13 @@
+<p id="h348" hidden>
+ID: 348
+CHOICE 1: If you wish to call out to them
+ACTION 1: 251
+CHOICE 2: If you wish to walk under the bridge and continue east
+ACTION 2: 30
+HISTORY
+Tower Street makes a sharp turn to the right, going east 
+between tall buildings. An iron bridge crosses two of the overhead 
+between two of the buildings and you see movement on it. Small
+cloaked people are carrying sacks between the buildings, 
+apparently in a great hurry.
+</p>

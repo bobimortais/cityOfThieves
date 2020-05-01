@@ -1,0 +1,11 @@
+<p id="h238" hidden>
+ID: 238
+CHOICE 1: If you wish to walk down the alley and open the door
+ACTION 1: 27
+CHOICE 2: If you would rather continue east
+ACTION 2: 139
+HISTORY
+On the right side of the street you see a small alleyway 
+between two houses. The alley soon ends at a doorway with six
+skulls painted on it; one black and five white.
+</p>

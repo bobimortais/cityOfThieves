@@ -1,0 +1,18 @@
+<p id="h323" hidden>
+ID: 323
+FIGHT
+ENEMY 1: BLACKSMITH;SKILL 9;STAMINA 9
+DAMAGE: STAMINA;DECREASE;3
+CHOICE 1: If you win
+ACTION 1: 395
+CHOICE 2: You may Escape by running out of the shop and west along the street.
+ACTION 2: 196
+HISTORY
+The blacksmith looks surprised at your unprovoked aggression 
+and pulls another red-hot iron bar from the fire with his 
+gloved hand. He is very angry and lunges at you with the bar.
+If the blacksmith wounds you during any Attack Round, you must
+subtract 3 points from your STAMINA score because of the bum 
+caused by the iron bar. 
+
+</p>

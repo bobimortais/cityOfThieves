@@ -1,0 +1,12 @@
+<p id="h22" hidden>
+ID: 22
+FIGHT
+ENEMY 1: GOBLIN;SKILL 4;STAMINA 5
+ENEMY 2: GOBLIN;SKILL 5;STAMINA 5
+DESTINATION: 198
+HISTORY
+AS you sit down at the table, the GOBLINS stop their quarreling
+and stare at you coldly. You see hatred in their brown warty faces.
+Suddenly they stand up and draw their swords. You must fight 
+them one at a time.
+</p>

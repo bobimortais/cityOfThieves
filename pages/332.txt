@@ -1,0 +1,8 @@
+<p id="h332" hidden>
+ID: 332
+STATUS 1: LUCK;INCREASE;1
+DESTINATION: 124
+HISTORY
+The beggar tips his hat in gratitude and mumbles a few words.
+Add 1 LUCK point before continuing west.
+</p>

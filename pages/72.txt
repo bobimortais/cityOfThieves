@@ -1,0 +1,12 @@
+<p id="h72" hidden>
+ID: 72
+FIGHT
+ENEMY 1: GOBLIN;SKILL 5;STAMINA 4
+DESTINATION: 208
+HISTORY
+As you bend down to help the injured boy, he suddenly rolls 
+over and you see the flashing blade of a dagger before your 
+eyes. The boy is in fact a GOBLIN thief and you must fight him
+for your life.
+
+</p>

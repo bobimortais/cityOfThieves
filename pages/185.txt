@@ -1,0 +1,10 @@
+<p id="h185" hidden>
+ID: 185
+CHOICE 1: open the door in front of you
+ACTION 1: 122
+CHOICE 2: or walk back to the staircase and climb up to the next floor
+ACTION 2: 207
+HISTORY
+The suit of armour breaks up as it crashes on to the floor.
+It is no threat to you and you may either
+</p>

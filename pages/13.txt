@@ -1,0 +1,15 @@
+<p id="h13" hidden>
+ID: 13
+EQUIP 1: SILVER SCORPION;STAMINA;INCREASE AB;1
+CHOICE 1: You may, if you have not already done so, pick up the golden scorpion
+ACTION 1: 273
+CHOICE 2: If you would rather ignore it, you may either climb the stairs
+ACTION 2: 80
+CHOICE 3: Leave the house and head north
+ACTION 3: 334
+HISTORY
+Inspecting the scorpion you see that it is a brooch. You 
+decide to pin it to your leather tunic. The brooch has magic 
+healing properties: after any battle brooch will immediately 
+restore 1 STAMINA point to your total. What will you do next?
+</p>

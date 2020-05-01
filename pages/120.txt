@@ -1,0 +1,12 @@
+<p id="h120" hidden>
+ID: 120
+TEST: LUCK
+SUCESS: If you are Lucky, he does not hear you approach and you hit him on the back of the head. He falls to the deck unconscious and you begin your search.
+DESTINATION: 84
+FAIL: If you are Unlucky, you stumble on a coil of rope and the pirate turns to face you.
+DESTINATION: 152
+HISTORY
+You pick up a piece of wood and run as quietly as possible 
+over to the pirate to try to knock him unconscious. Test your 
+Luck.
+</p>

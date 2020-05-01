@@ -1,0 +1,14 @@
+<p id="h183" hidden>
+ID: 183
+CHOICE 1: Buy some smoking mixture
+ACTION 1: 366
+CHOICE 2: Buy some healing mixture
+ACTION 2: 167
+CHOICE 3: Leave the shop and head north
+ACTION 3: 93
+HISTORY
+You are told that smoking mixture and a pipe costs 1 Gold 
+Piece, and healing mixture costs 4 Gold Pieces per portion. 
+You may:
+
+</p>

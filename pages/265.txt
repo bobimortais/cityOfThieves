@@ -1,0 +1,18 @@
+<p id="h265" hidden>
+ID: 265
+CHOICE 1: If you have this item
+ACTION 1: 82
+CHOICE 2: If you do not
+ACTION 2: 390
+HISTORY
+With your sword still dripping with the blood of the Rats you
+walk further along the tunnel. The ledge you are walking along
+is narrow and slippery, and you have to tread carefully so as
+not to fall into the slow-flowing sewage channel. The tunnel 
+gradually bends round to the right and as you follow it round,
+the silence is suddenly shattered by the sound of running feet
+and a wailing scream. Coming straight at you, wild-eyed, with
+flailing arms and contorted face, uttering demon sorcery, is 
+a white-haired old woman dressed in rags. She is a Hag. Do you 
+possess a Potion of Mind Control?
+</p>

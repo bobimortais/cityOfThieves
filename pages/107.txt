@@ -1,0 +1,10 @@
+<p id="h107" hidden>
+ID: 107
+CHOICE 1: If you wish to try to pick the lock
+ACTION 1: 163
+CHOICE 2: If you wish to leave the room and climb the stairs to the floor above
+ACTION 2: 231
+The back room is as lavishly furnished as the front room. 
+In the far corner you see a wooden chest bolted to the floor.
+It is securely locked.
+</p>

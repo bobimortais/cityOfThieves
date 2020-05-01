@@ -1,0 +1,11 @@
+<p id="h6" hidden>
+ID: 6
+CHOICE 1: If you wish to abey her, leave the house and head furthernorth along Stable Street
+ACTION 1: turn to 333
+CHOICE 2: If you wish to go through the curtains and see who is being so rude to you
+ACTION 2: turn to 88
+HISTORY
+Her tone becomes unpleasant and she tells you to get out of 
+her house because there are certainly no rags in it, nor any
+other kind of jumble for thal matter.
+</p>

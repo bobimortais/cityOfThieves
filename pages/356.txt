@@ -1,0 +1,17 @@
+<p id="h356" hidden>
+ID: 356
+FIGHT
+ENEMY 1: RAT;SKILL 4;STAMINA 4
+ENEMY 2: RAT;SKILL 5;STAMINA 4
+ENEMY 3: RAT;SKILL 5;STAMINA 5
+CHOICE 1: If you win
+ACTION 1: 28
+HISTORY
+Ahead you hear the sound of squealing and frantic splashing. 
+Long shadows are cast by moving objects coming towards you. 
+Then you see the sleek, glistening shapes of three GIANT RATS
+only a few metres away from you. You draw your sword hastily
+and fight each of the Rats in turn.
+
+
+</p>

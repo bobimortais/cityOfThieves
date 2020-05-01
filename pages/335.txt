@@ -1,0 +1,16 @@
+<p id="h335" hidden>
+ID: 335
+CHOICE 1: If you wish to pay the fine and be thrown out of the city
+ACTION 1: 367
+CHOICE 2: If you wish to resist arrest
+ACTION 2: 73
+HISTORY
+The larger of the Trolls tells you that you are under arrest 
+for being in Port Blacksand without authorization. He tells 
+you that he is feeling generous, however, and offers you a 
+choice. You can pay a fine of all the gold in your backpack 
+and be thrown out of the city, or spend a year with rats and 
+cockroaches in a dirty dungeon cell. The other Troll bursts out
+laughing, saying, 'Generous? Ho! Ho! HO! Ah, you've got such a 
+sense ff humour!'
+</p>

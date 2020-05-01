@@ -1,0 +1,9 @@
+<p id="h34" hidden>
+ID: 34
+CHOICE 1: As the noise of the carriage fades into the distance, you step out to the street and continue west.
+DESTINATION: 171
+HISTORY
+The carriage thunders by and you see its driver urging on the
+four horses as though his life depended on it.
+
+</p>

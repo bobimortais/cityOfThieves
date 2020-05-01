@@ -1,0 +1,9 @@
+<p id="h100" hidden>
+ID: 100
+CHOICE 1: If you wish to turn north into Tower Street
+ACTION 1: 127
+CHOICE 2: If you wish to continue east into Stable Street
+ACTION 2: 246
+HISTORY
+You soon arrive at a junction.
+</p>

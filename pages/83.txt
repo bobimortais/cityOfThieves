@@ -1,0 +1,13 @@
+<p id="h83" hidden>
+ID: 83
+DICE: 1;INCREASE;STAMINA
+CHOICE 1: If you wish to continue searching the shop
+ACTION 1: 322
+CHOICE 2: If you would rather leave the shop to head north
+ACTION 2: 93
+HISTORY
+Fortunately, the contents of the jar are as the label reads, 
+although the strength of the mixture is unpredictable. Roll 
+1 dice. The number rolled is the number of STAMINA points that 
+will be restored.
+</p>

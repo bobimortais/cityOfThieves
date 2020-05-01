@@ -1,0 +1,10 @@
+<p id="h386" hidden>
+ID: 386
+FIGHT
+ENEMY 1: PIRATE;SKILL 7;STAMINA 5
+CHOICE 1: If you win
+DESTINATION: 20
+HISTORY
+The PIRATE seems pleased that you wish to fight him and grins,
+revealing a toothless mouth which unnerves you a little.
+</p>

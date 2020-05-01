@@ -1,0 +1,12 @@
+<p id="h49" hidden>
+ID: 49
+TEST: LUCK
+SUCESS: If you are lucky he misses the bell, curses, and turns to fight you with his pike.
+DESTINATION: 10
+FAIL: If you are Unlucky, he manages to grab the bell and rings it loudly before turning to fight you with his pike.
+DESTINATION: 311
+HISTORY
+As you draw your sword the guard leaps to his right and 
+attempts to ring a small bell on the wall of the guardhouse. 
+Test your Luck.
+</p>

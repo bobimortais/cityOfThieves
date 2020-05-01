@@ -1,0 +1,5 @@
+<p id="h283" hidden>
+ID: 283
+CHOICE 1: There is nothing useful to he found on the dead creature, so you decide to press on northwards.
+DESTINATION: 217
+</p>

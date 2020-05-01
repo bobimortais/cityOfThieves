@@ -1,0 +1,19 @@
+<p id="h278" hidden>
+ID: 278
+CHOICE 1: Pick up goblet A
+ACTION 1: 175
+CHOICE 2: Pick up goblet B
+ACTION 2: 209
+CHOICE 3: Pick up goblet C
+ACTION 3: 43
+CHOICE 4: Walk through the archway
+ACTION 4: 107
+CHOICE 5: Climb the stairs
+ACTION 5: 60
+HISTORY
+Although many of the items in the room are extremely valuable,
+they are not of much use to you on your quest. However, something
+strange catches your eye. On a mahogany card table lie three 
+upturned silver goblets. One is inscribed with the letter A, 
+another with B and another with C. Will you:
+</p>

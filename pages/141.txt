@@ -1,0 +1,12 @@
+<p id="h141" hidden>
+ID: 141
+CHOICE 1: If you wish to pick up a wooden spoon and drink some of the soup
+ACTION 1: 68
+CHOICE 2: If you would rather leave the old ladies and continue east
+ACTION 2: 375
+HISTORY
+The women immediately start arguing again over your gift to 
+them, ignoring you completely. You look around the room and 
+see a table set for a meal. There are two bowls of hot soup on 
+top of the table waiting to be drunk.
+</p>

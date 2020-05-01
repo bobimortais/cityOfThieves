@@ -1,0 +1,11 @@
+<p id="h200" hidden>
+ID: 200
+CHOICE 1: If you wish to enter the tent
+ACTION 1: 394
+CHOICE 2: If you would rather continue north
+ACTION 2: 117
+HISTORY
+In the next stall area there is a small, brightly coloured 
+tent. Attached to it is a small sign which reads, 'Madame 
+Star, Clairvoyant'.
+</p>
