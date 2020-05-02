@@ -1,5 +1,7 @@
 <p id="h181" hidden>
 ID: 181
-CHOICE 1: The key fits the lock and the handle turns.
+CHOICE 1: Continue
 DESTINATION: 159
+HISTORY
+The key fits the lock and the handle turns.
 </p>

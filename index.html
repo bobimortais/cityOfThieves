@@ -1,101 +1,106 @@
 <html>
-	<head><title>City of Thieves</title>
-	<style>
-	div 
-	{
-		float: left;
-		padding: 5;
-	}
-	iframe
-	{
-		 max-width: 100%;
-	}
-	.atts
-	{
-		float: left;
-		border: 1px solid black;
-	}
-	.items
-	{
-		position: absolute;
-		bottom: 60%;
-		border: 1px solid black;
-	}
-	.golds
-	{
-		position: absolute;
-		margin-left: 12%;
-		bottom: 60%; 
-		border: 1px solid black;
-	}
-	.jewels
-	{
-		position: absolute;
-		margin-left: 12%;
-		bottom: 50%; 
-		border: 1px solid black;
-	}
-	.potions
-	{
-		position: absolute;
-		margin-left: 12%;
-		bottom: 40%; 
-		border: 1px solid black;
-	}
-	.provisions
-	{
-		position: absolute;
-		margin-left: 12%;
-		bottom: 30%; 
-		border: 1px solid black;
-	}
-	textarea
-	{
-		text-align: left;
-	}
-	.newgame
-	{
-		float: left;
-	}
-	.loadgame
-	{
-		float: left;
-	}
-	button
-	{
-		width: 120px;
-	}
-	.options
-	{
-		position: absolute;
-	}
-	.sheet
-	{
-		
-	}
-	.game
-	{
-		
-	}
-	.battle
-	{
-		
-	}
-	.test
-	{
-		position: relative;
-	}
-	div[disabled]
-	{
-	    pointer-events: none;
-		opacity: 0.7;
-	}
-	</style>
+	<head>
+		<title>City of Thieves</title>
+		<style>
+		gameoptions 
+		{
+			float: right;
+		}
+		.atts
+		{
+			float: left;
+			border: 1px solid black;
+		}
+		.items
+		{
+			position: absolute;
+			bottom: 60%;
+			border: 1px solid black;
+		}
+		.golds
+		{
+			position: absolute;
+			margin-left: 12%;
+			bottom: 60%; 
+			border: 1px solid black;
+		}
+		.jewels
+		{
+			position: absolute;
+			margin-left: 12%;
+			bottom: 50%; 
+			border: 1px solid black;
+		}
+		.potions
+		{
+			position: absolute;
+			margin-left: 12%;
+			bottom: 40%; 
+			border: 1px solid black;
+		}
+		.provisions
+		{
+			position: absolute;
+			margin-left: 12%;
+			bottom: 30%; 
+			border: 1px solid black;
+		}
+		textarea
+		{
+			text-align: left;
+		}
+		.newgame,.loadgame,.savegame
+		{
+			float: left;
+		}
+		button
+		{
+			width: 120px;
+		}
+		.options
+		{
+			position: absolute;
+		}
+		.sheet
+		{
+			float:left; 
+			padding: 5;
+		}
+		.game 
+		{
+			float:left; 
+			clear: left;
+			padding: 5;
+		}
+		.gameactions
+		{
+			float:left; 
+			padding: 5;
+		}
+		.battle
+		{
+			float:left; 
+			padding: 5;
+		}
+		.test
+		{
+			float:left; 
+			padding: 5;
+		}
+		div[disabled]
+		{
+			pointer-events: none;
+			opacity: 0.7;
+		}
+		</style>
 	</head>
 	<body>
-		<p>City of Thieves</p>
-		<button onclick="loadStart(this)" class="newgame" id="newgame">New Game</button>
-		<button class="loadgame">Load Game</button>
+		<div id="gameoptions" class="gameoptions">
+			<p>City of Thieves</p>
+			<button onclick="loadStart(this)" class="newgame" id="newgame">New Game</button>
+			<button class="loadgame">Load Game</button>
+			<button class="savegame">Save Game</button>
+		</div>
 		<div id="game" class="game">
 			<p>History</p>
 			<textarea id="narrative" rows="25" cols="50" readonly witdh>No Turn Over</textarea>
@@ -129,7 +134,7 @@
 				<button id="testdices" onclick="rollTestDice()">Roll Dices</button>
 			</div>
 		</div>
-		<div id="sheet" class="sheet" hidden>
+		<div id="sheet" class="sheet">
 			<p>Adventure Sheet</p>
 			<table class="atts">
 				<tr>
@@ -5372,7 +5377,7 @@ function loadNext(event)
 			}
 			else
 			{
-				//HANDLE FILE 160
+				//HANDLE FILE 160, 151
 			}
 		}
 		if(tag.includes("DESTINATION"))
@@ -5401,8 +5406,8 @@ function loadNext(event)
 
 function battle(tags,options)
 {
-	console.log("Battle logged");
 	document.getElementById("battle").removeAttribute("disabled");
+	document.getElementById("yourstamina").innerHTML = "Your Stamina: " + document.getElementById("staminacurrent").innerHTML;
 	console.log(tags);
 	
 	for(let i = 3; i < tags.length; i++)
