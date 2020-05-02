@@ -1,7 +1,12 @@
 <html>
-	<head>
+	<head> 
 		<title>City of Thieves</title>
 		<style>
+		.sheet
+		{
+			float:left; 
+			padding: 5;
+		}
 		.atts
 		{
 			float: left;
@@ -9,36 +14,23 @@
 		}
 		.items
 		{
-			position: absolute;
-			bottom: 60%;
 			border: 1px solid black;
+			clear: left;
 		}
 		.golds
-		{
-			position: absolute;
-			margin-left: 12%;
-			bottom: 60%; 
+		{ 
 			border: 1px solid black;
 		}
 		.jewels
 		{
-			position: absolute;
-			margin-left: 12%;
-			bottom: 50%; 
 			border: 1px solid black;
 		}
 		.potions
-		{
-			position: absolute;
-			margin-left: 12%;
-			bottom: 40%; 
+		{ 
 			border: 1px solid black;
 		}
 		.provisions
 		{
-			position: absolute;
-			margin-left: 12%;
-			bottom: 30%; 
 			border: 1px solid black;
 		}
 		textarea
@@ -57,11 +49,6 @@
 		.options
 		{
 			position: absolute;
-		}
-		.sheet
-		{
-			float:left; 
-			padding: 5;
 		}
 		.game 
 		{
@@ -93,9 +80,16 @@
 		{
 			 background: rgba(150, 203, 101, 0.6);
 		}
+		.itemsdiv
+		{
+			float:left; 
+			clear:left;
+		}
+		.belongings
+		{
+			float:left; 
+		}
 		</style>
-	</head>
-	<body>
 		<div class="gametop">
 			<p style="text-align: center;font-size:160%;">City of Thieves</p>
 			<div style="text-align:center">
@@ -104,6 +98,8 @@
 				<button class="savegame">Save Game</button>
 			</div>
 		</div>
+	</head>
+	<body>
 		<div id="gameactions" class="gameactions">
 			<div id="battle" class="battle" disabled>
 				<p>Battle</p>
@@ -179,46 +175,50 @@
 					<td id="luckcurrent">8</td>
 				</tr>
 			</table>
-			<table class="items">
-				<tr>
-					<th>EQUIPMENT LIST</th>
-				</tr>
-				<tr>
-					<td>Nada</td>
-				</tr>
-			</table>
-			<table class="golds">
-				<tr>
-					<th>GOLD</th>
-				</tr>
-				<tr>
-					<td id="goldtotal">0</td>
-				</tr>
-			</table>
-			<table class="jewels">
-				<tr>
-					<th>JEWELS</th>
-				</tr>
-				<tr>
-					<td>0</td>
-				</tr>
-			</table>
-			<table class="potions">
-				<tr>
-					<th>POTIONS</th>
-				</tr>
-				<tr>
-					<td>Fortune</td>
-				</tr>
-			</table>
-			<table class="provisions">
-				<tr>
-					<th>PROVISIONS REMAINING</th>
-				</tr>
-				<tr>
-					<td id="provisionstotal">0</td>
-				</tr>
-			</table>
+			<div class="itemsdiv">
+				<table class="items">
+					<tr>
+						<th>EQUIPMENT LIST</th>
+					</tr>
+					<tr>
+						<td>Nada</td>
+					</tr>
+				</table>
+			</div>
+			<div class="belongings">
+				<table class="golds">
+					<tr>
+						<th>GOLD</th>
+					</tr>
+					<tr>
+						<td id="goldtotal">0</td>
+					</tr>
+				</table>
+				<table class="jewels">
+					<tr>
+						<th>JEWELS</th>
+					</tr>
+					<tr>
+						<td>0</td>
+					</tr>
+				</table>
+				<table class="potions">
+					<tr>
+						<th>POTIONS</th>
+					</tr>
+					<tr>
+						<td>Fortune</td>
+					</tr>
+				</table>
+				<table class="provisions">
+					<tr>
+						<th>PROVISIONS REMAINING</th>
+					</tr>
+					<tr>
+						<td id="provisionstotal">0</td>
+					</tr>
+				</table>
+			</div>
 		</div>
 		<div id="histories" hidden>
 		<p id="h1" hidden>
