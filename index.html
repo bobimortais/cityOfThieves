@@ -103,6 +103,10 @@
 			resize: none;
 			font-size:15px;
 		}
+		li:hover
+		{
+			background-color: rgba(196, 216, 93, 0.4);
+		}
 		</style>
 		<div class="gametop">
 			<p style="text-align: center;font-size:160%;">City of Thieves</p>
@@ -196,17 +200,14 @@
 					</tr>
 					<tr>
 						<td>
-							<ul id="listofitems">
-								<li>Pera</li>
-								<li>Uva</li>
-								<li>Maça</li>
-								<li>Maça</li>
-								<li>Maça</li>
-								<li>Maça</li>
-								<li>Maça</li>
-								<li>Maça</li>
-								<li>Maça</li>
-								<li>Maça</li>
+							<ul id="listofitems" style="list-style: none;padding: 0;">
+								<!--li style="padding: 5px 10px;background-color: rgba(196, 216, 93, 0.3);">Pera</li-->
+								<li style="padding: 5px 10px;" onclick="itemSelected()">Uva</li>
+								<li style="padding: 5px 10px;">Maça</li>
+								<li style="padding: 5px 10px;">Maça</li>
+								<li style="padding: 5px 10px;">Maça</li>
+								<li style="padding: 5px 10px;">Maça</li>
+								<li style="padding: 5px 10px;">Maça</li>
 							</ul>
 						</td>
 					</tr>
@@ -5407,4 +5408,9 @@ function loadStart(event)
 		}
 	}
 }	
+
+function itemSelected()
+{
+	console.log("Item selecionado");
+}
 </script> 
