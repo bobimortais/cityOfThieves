@@ -1,7 +1,7 @@
 <p id="h192" hidden>
 ID: 192
 TEST: LUCK
-SUCESS: If you are Lucky, you escape injury and set off north again.
+SUCCESS: If you are Lucky, you escape injury and set off north again.
 DESTINATION: 304
 FAIL: If you are Unlucky, you twist your sword arm badly. Lose 1 SKILL point. Once again, you head north.
 STATUS 1: SKILL;DECREASE;1

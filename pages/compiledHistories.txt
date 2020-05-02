@@ -194,7 +194,7 @@ Ring Of Fire?
 <p id="h15" hidden>
 ID: 15
 TEST: LUCK
-SUCESS: If you are Lucky, you reach the door safely
+SUCCESS: If you are Lucky, you reach the door safely
 DESTINATION 1: 75
 FAIL: If you are Unlucky, one of the snakes strikes out and bites you on the leg
 DESTINATION 2: 298
@@ -225,7 +225,7 @@ hands and he looks thoroughly miserable.
 <p id="h18" hidden>
 ID: 18
 TEST: SKILL
-SUCESS: If the total is the same or less than your SKILL score, the knife sinks deep into the vagabond's chest, stopping him dead in his tracks
+SUCCESS: If the total is the same or less than your SKILL score, the knife sinks deep into the vagabond's chest, stopping him dead in his tracks
 DESTINATION: 102
 FAIL: If the total is greater than your SKILL score, the knife flies past ist target and you must fight all three vagabonds with your sword
 DESTINATION: 225
@@ -592,7 +592,7 @@ Add 2 SKILL points.
 <p id="h47" hidden>
 ID: 47
 TEST: SKILL
-SUCESS: If the number rolled is less than or equal to your SKILL score, the sword pierces the chest of the man and kills him.
+SUCCESS: If the number rolled is less than or equal to your SKILL score, the sword pierces the chest of the man and kills him.
 DESTINATION: 313
 FAIL: If the number is greater than your SKILL score, the sword flies past and clatters on to the marble floor.
 DESTINATION: 81
@@ -616,7 +616,7 @@ rises up from below.
 <p id="h49" hidden>
 ID: 49
 TEST: LUCK
-SUCESS: If you are lucky he misses the bell, curses, and turns to fight you with his pike.
+SUCCESS: If you are lucky he misses the bell, curses, and turns to fight you with his pike.
 DESTINATION: 10
 FAIL: If you are Unlucky, he manages to grab the bell and rings it loudly before turning to fight you with his pike.
 DESTINATION: 311
@@ -815,7 +815,7 @@ for showing you his beautiful candles.
 <p id="h64" hidden>
 ID: 64
 TEST: LUCK
-SUCESS: If you are Lucky, the chain pulls taut and the wolf jerks to a halt.
+SUCCESS: If you are Lucky, the chain pulls taut and the wolf jerks to a halt.
 DESTINATION: 353
 FAIL: If are Unlucky, the chain remains slack and the wolf leaps up and bites your arm.
 STATUS 1: STAMINA;DECREASE;1
@@ -876,7 +876,7 @@ The soup tastes absolutely disgusting.
 <p id="h69" hidden>
 ID: 69
 TEST: SKILL
-SUCESS: If the number rolled is less than or equal to your SKILL score, you succeed
+SUCCESS: If the number rolled is less than or equal to your SKILL score, you succeed
 DESTINATION: 355
 FAIL: If the number rolled is greater than your SKILL, you fail to release yourself, and are led away
 DESTINATION: 151
@@ -1023,7 +1023,7 @@ scorpion brooch?
 <p id="h81" hidden>
 ID: 81
 TEST: LUCK
-SUCESS: If you are Lucky, the lightning bolt misses you, and you manage to open the door and run north up the street. 
+SUCCESS: If you are Lucky, the lightning bolt misses you, and you manage to open the door and run north up the street. 
 DESTINATION: 304
 FAIL: If you are Unlucky, the lightning bolt thuds into your back and you cry out in pain.
 DESTINATION: 243
@@ -1498,7 +1498,7 @@ ills, wounds and diseases. To fill the mug costs 3 Gold Pieces.
 <p id="h120" hidden>
 ID: 120
 TEST: LUCK
-SUCESS: If you are Lucky, he does not hear you approach and you hit him on the back of the head. He falls to the deck unconscious and you begin your search.
+SUCCESS: If you are Lucky, he does not hear you approach and you hit him on the back of the head. He falls to the deck unconscious and you begin your search.
 DESTINATION: 84
 FAIL: If you are Unlucky, you stumble on a coil of rope and the pirate turns to face you.
 DESTINATION: 152
@@ -1595,7 +1595,7 @@ younger men appear to be attacking an older man with iron bars.
 ID: 128
 TEST: LUCK
 TEST: LUCK
-SUCESS: IIf you are Lucky both times, the darts bounce harmlessly off your armour. 
+SUCCESS: IIf you are Lucky both times, the darts bounce harmlessly off your armour. 
 DESTINATION: 340
 FAIL 1: If you are Unlucky once, a dart flies into your hand.
 DESTINATION 1: 149
@@ -2028,7 +2028,7 @@ houses is open.
 <p id="h162" hidden>
 ID: 162
 TEST: LUCK
-SUCESS: If you are Lucky, you manage to cut the pouch loose without waking the pirates. 
+SUCCESS: If you are Lucky, you manage to cut the pouch loose without waking the pirates. 
 DESTINATION: 7
 FAIL: If you are Unlucky, the man's eyes flick open as you try to cut the cord and he grabs hold of your arm while calling out to his mates for help.
 DESTINATION: 226
@@ -2089,7 +2089,7 @@ shop and walk north.
 <p id="h168" hidden>
 ID: 168
 TEST: SKILL
-SUCESS: If the number rolled is equal to or less than your SKILL score, you hit the ball powerfully in the middle of the bat and watch it soar over the wall.
+SUCCESS: If the number rolled is equal to or less than your SKILL score, you hit the ball powerfully in the middle of the bat and watch it soar over the wall.
 DESTINATION: 359
 FAIL: If the number rolled is greater than your SKILL score, the ball goes whistling by your midriff as you swing, and a voice behind you calls, 'You're out!'.
 DESTINATION: 266
@@ -2175,7 +2175,7 @@ ACTION 2: 356
 <p id="h175" hidden>
 ID: 175
 TEST: LUCK
-SUCESS: If you are Lucky, the tail stabs the goblet.
+SUCCESS: If you are Lucky, the tail stabs the goblet.
 DESTINATION: 204
 FAIL: If you are Unlucky, the barb on its tail sinks into your hand.
 DESTINATION: 373
@@ -2374,7 +2374,7 @@ hallway to the floor above. Will you:
 <p id="h190" hidden>
 ID: 190
 TEST: SKILL
-SUCESS: If the number rolled is less than or equal to your SKILL score, you succeed
+SUCCESS: If the number rolled is less than or equal to your SKILL score, you succeed
 DESTINATION: 38
 FAIL: if the number rolled is greater than your SKILL, you are unable to control the fast movement of the dagger and stab one of your fingers. You toss 5 Gold Pieces on the table and stand up to leave the tavern. Outside you head north again.
 MONEY: DECREASE;5
@@ -2403,7 +2403,7 @@ creature.
 <p id="h192" hidden>
 ID: 192
 TEST: LUCK
-SUCESS: If you are Lucky, you escape injury and set off north again.
+SUCCESS: If you are Lucky, you escape injury and set off north again.
 DESTINATION: 304
 FAIL: If you are Unlucky, you twist your sword arm badly. Lose 1 SKILL point. Once again, you head north.
 STATUS 1: SKILL;DECREASE;1
@@ -2570,7 +2570,7 @@ fool away to be shackled, and throw away the key.' Will you:
 <p id="h203" hidden>
 ID: 203
 TEST: LUCK
-SUCESS: If you are Lucky, the arrow finds its mark and pierces the Night Prince through his robed chest.
+SUCCESS: If you are Lucky, the arrow finds its mark and pierces the Night Prince through his robed chest.
 DESTINATION: 244
 FAIL: If you are Unlucky, the  arrow misses the Night Prince and he advances to touch your arm. His skeletal fingers are draining your life away. You are now one of his undead Servants.
 DESTINATION: GAMEOVER
@@ -2712,7 +2712,7 @@ You may:
 <p id="h214" hidden>
 ID: 214
 TEST: LUCK
-SUCESS: If you are Lucky, you manage to jump back out of reach of the swinging axe.
+SUCCESS: If you are Lucky, you manage to jump back out of reach of the swinging axe.
 DESTINATION: 158
 FAIL: If you are Unlucky, the blade cuts into your left arm.
 DESTINATION: 379
@@ -2924,7 +2924,7 @@ above. Will you:
 <p id="h229" hidden>
 ID: 229
 TEST: LUCK
-SUCESS: If you are Lucky, the egg misses you and breaks against a wall to release a green-coloured gas. 
+SUCCESS: If you are Lucky, the egg misses you and breaks against a wall to release a green-coloured gas. 
 DESTINATION: 23
 FAIL: If you are Unlucky, the egg breaks against your chest and you breathe in some of the green-coloured gas released.
 DESTINATION: 342
@@ -3166,7 +3166,7 @@ pay 2 Gold Pieces for a drink of his wonderful healing potion.
 <p id="h247" hidden>
 ID: 247
 TEST: LUCK
-SUCESS: If you are Lucky, you manage to duck to avoid the blow.
+SUCCESS: If you are Lucky, you manage to duck to avoid the blow.
 DESTINATION: 384
 FAIL: If you are Unlucky, the cudgel lands heavily on the back of your head, knocking you unconscious.
 DESTINATION: 134
@@ -3221,7 +3221,7 @@ Will you:
 <p id="h251" hidden>
 ID: 251
 TEST: LUCK
-SUCESS: If you are Lucky, the bolt thuds into the ground at your feet.
+SUCCESS: If you are Lucky, the bolt thuds into the ground at your feet.
 DESTINATION: 269
 FAIL: If you are Unlucky, the bolt lodges deeply in your shoulder.
 DESTINATION: 330
@@ -3234,7 +3234,7 @@ at you and fires a bolt. Test your Luck.
 <p id="h252" hidden>
 ID: 252
 TEST: LUCK
-SUCESS: If you are Lucky, you escape injury from the horses as you land in the gutter. 
+SUCCESS: If you are Lucky, you escape injury from the horses as you land in the gutter. 
 DESTINATION: 275
 FAIL: If you are Unlucky, you are trampled underfoot by one of the horses.
 DESTINATION: 155
@@ -3674,7 +3674,7 @@ see your pass.
 <p id="h291" hidden>
 ID: 291
 TEST: LUCK
-SUCESS: If you are Lucky, he misses and you are able to past him into the city
+SUCCESS: If you are Lucky, he misses and you are able to past him into the city
 DESTINATION: 74
 FAIL: If you are Unlucky, the pike pierces your arm.
 STATUS: STAMINA;DECREASE;2
@@ -4953,7 +4953,7 @@ of interest in the shop, you walk outside and continue east.
 <p id="h389" hidden>
 ID: 389
 TEST: SKILL
-SUCESS: If the rolled is less than or equal to your SKILL score, the door flies open. 
+SUCCESS: If the rolled is less than or equal to your SKILL score, the door flies open. 
 DESTINATION: 159
 FAIL: If the number rolled is greater than your SKILL, the door remains firmly shut. You decide not to risk injury to yourself and walk back to the street, continuing northwards.
 DESTINATION: 304
@@ -4964,7 +4964,7 @@ Roll two dice.
 <p id="h390" hidden>
 ID: 390
 TEST: LUCK
-SUCESS: If you are Lucky, a swipe from your sword cuts into the Hag. 
+SUCCESS: If you are Lucky, a swipe from your sword cuts into the Hag. 
 DESTINATION: 144
 FAIL: If you are Unlucky, your sword menrely cuts through the air. 
 DESTINATION: 59
@@ -4978,7 +4978,7 @@ laughing at you. Test your Luck.
 <p id="h391" hidden>
 ID: 391
 TEST: LUCK
-SUCESS: If you are Luck, you trip over the wire and fall on the floor; the crossbow bolt flies over your head and through the door.
+SUCCESS: If you are Luck, you trip over the wire and fall on the floor; the crossbow bolt flies over your head and through the door.
 DESTINATION: 235
 FAIL: If you are Unlucky, the bolt sinks into your chest.
 DESTINATION: 142

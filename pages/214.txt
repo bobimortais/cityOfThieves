@@ -1,7 +1,7 @@
 <p id="h214" hidden>
 ID: 214
 TEST: LUCK
-SUCESS: If you are Lucky, you manage to jump back out of reach of the swinging axe.
+SUCCESS: If you are Lucky, you manage to jump back out of reach of the swinging axe.
 DESTINATION: 158
 FAIL: If you are Unlucky, the blade cuts into your left arm.
 DESTINATION: 379

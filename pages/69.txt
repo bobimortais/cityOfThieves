@@ -1,7 +1,7 @@
 <p id="h69" hidden>
 ID: 69
 TEST: SKILL
-SUCESS: If the number rolled is less than or equal to your SKILL score, you succeed
+SUCCESS: If the number rolled is less than or equal to your SKILL score, you succeed
 DESTINATION: 355
 FAIL: If the number rolled is greater than your SKILL, you fail to release yourself, and are led away
 DESTINATION: 151

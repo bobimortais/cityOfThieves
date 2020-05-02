@@ -1,7 +1,7 @@
 <p id="h203" hidden>
 ID: 203
 TEST: LUCK
-SUCESS: If you are Lucky, the arrow finds its mark and pierces the Night Prince through his robed chest.
+SUCCESS: If you are Lucky, the arrow finds its mark and pierces the Night Prince through his robed chest.
 DESTINATION: 244
 FAIL: If you are Unlucky, the  arrow misses the Night Prince and he advances to touch your arm. His skeletal fingers are draining your life away. You are now one of his undead Servants.
 DESTINATION: GAMEOVER

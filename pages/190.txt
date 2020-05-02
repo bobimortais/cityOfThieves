@@ -1,7 +1,7 @@
 <p id="h190" hidden>
 ID: 190
 TEST: SKILL
-SUCESS: If the number rolled is less than or equal to your SKILL score, you succeed
+SUCCESS: If the number rolled is less than or equal to your SKILL score, you succeed
 DESTINATION: 38
 FAIL: if the number rolled is greater than your SKILL, you are unable to control the fast movement of the dagger and stab one of your fingers. You toss 5 Gold Pieces on the table and stand up to leave the tavern. Outside you head north again.
 MONEY: DECREASE;5

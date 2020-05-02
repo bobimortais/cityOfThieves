@@ -1,7 +1,7 @@
 <p id="h175" hidden>
 ID: 175
 TEST: LUCK
-SUCESS: If you are Lucky, the tail stabs the goblet.
+SUCCESS: If you are Lucky, the tail stabs the goblet.
 DESTINATION: 204
 FAIL: If you are Unlucky, the barb on its tail sinks into your hand.
 DESTINATION: 373

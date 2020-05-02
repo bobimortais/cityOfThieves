@@ -1,7 +1,7 @@
 <p id="h247" hidden>
 ID: 247
 TEST: LUCK
-SUCESS: If you are Lucky, you manage to duck to avoid the blow.
+SUCCESS: If you are Lucky, you manage to duck to avoid the blow.
 DESTINATION: 384
 FAIL: If you are Unlucky, the cudgel lands heavily on the back of your head, knocking you unconscious.
 DESTINATION: 134

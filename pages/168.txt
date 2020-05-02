@@ -1,7 +1,7 @@
 <p id="h168" hidden>
 ID: 168
 TEST: SKILL
-SUCESS: If the number rolled is equal to or less than your SKILL score, you hit the ball powerfully in the middle of the bat and watch it soar over the wall.
+SUCCESS: If the number rolled is equal to or less than your SKILL score, you hit the ball powerfully in the middle of the bat and watch it soar over the wall.
 DESTINATION: 359
 FAIL: If the number rolled is greater than your SKILL score, the ball goes whistling by your midriff as you swing, and a voice behind you calls, 'You're out!'.
 DESTINATION: 266

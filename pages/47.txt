@@ -1,7 +1,7 @@
 <p id="h47" hidden>
 ID: 47
 TEST: SKILL
-SUCESS: If the number rolled is less than or equal to your SKILL score, the sword pierces the chest of the man and kills him.
+SUCCESS: If the number rolled is less than or equal to your SKILL score, the sword pierces the chest of the man and kills him.
 DESTINATION: 313
 FAIL: If the number is greater than your SKILL score, the sword flies past and clatters on to the marble floor.
 DESTINATION: 81

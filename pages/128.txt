@@ -2,7 +2,7 @@
 ID: 128
 TEST: LUCK
 TEST: LUCK
-SUCESS: IIf you are Lucky both times, the darts bounce harmlessly off your armour. 
+SUCCESS: IIf you are Lucky both times, the darts bounce harmlessly off your armour. 
 DESTINATION: 340
 FAIL 1: If you are Unlucky once, a dart flies into your hand.
 DESTINATION 1: 149

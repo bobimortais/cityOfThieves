@@ -1,7 +1,7 @@
 <p id="h18" hidden>
 ID: 18
 TEST: SKILL
-SUCESS: If the total is the same or less than your SKILL score, the knife sinks deep into the vagabond's chest, stopping him dead in his tracks
+SUCCESS: If the total is the same or less than your SKILL score, the knife sinks deep into the vagabond's chest, stopping him dead in his tracks
 DESTINATION: 102
 FAIL: If the total is greater than your SKILL score, the knife flies past ist target and you must fight all three vagabonds with your sword
 DESTINATION: 225

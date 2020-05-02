@@ -1,7 +1,7 @@
 <p id="h389" hidden>
 ID: 389
 TEST: SKILL
-SUCESS: If the rolled is less than or equal to your SKILL score, the door flies open. 
+SUCCESS: If the rolled is less than or equal to your SKILL score, the door flies open. 
 DESTINATION: 159
 FAIL: If the number rolled is greater than your SKILL, the door remains firmly shut. You decide not to risk injury to yourself and walk back to the street, continuing northwards.
 DESTINATION: 304

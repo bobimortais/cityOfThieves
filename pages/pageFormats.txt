@@ -6,7 +6,7 @@ HISTORY
 
 ID: 49
 TEST: LUCK
-SUCESS: If you are lucky he misses the bell, curses, and turns to fight you with his pike.
+SUCCESS: If you are lucky he misses the bell, curses, and turns to fight you with his pike.
 DESTINATION: 10
 FAIL: If you are Unlucky, he manages to grab the bell and rings it loudly before turning to fight you with his pike.
 DESTINATION: 311

@@ -1,7 +1,7 @@
 <p id="h391" hidden>
 ID: 391
 TEST: LUCK
-SUCESS: If you are Luck, you trip over the wire and fall on the floor; the crossbow bolt flies over your head and through the door.
+SUCCESS: If you are Luck, you trip over the wire and fall on the floor; the crossbow bolt flies over your head and through the door.
 DESTINATION: 235
 FAIL: If you are Unlucky, the bolt sinks into your chest.
 DESTINATION: 142

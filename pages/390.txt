@@ -1,7 +1,7 @@
 <p id="h390" hidden>
 ID: 390
 TEST: LUCK
-SUCESS: If you are Lucky, a swipe from your sword cuts into the Hag. 
+SUCCESS: If you are Lucky, a swipe from your sword cuts into the Hag. 
 DESTINATION: 144
 FAIL: If you are Unlucky, your sword menrely cuts through the air. 
 DESTINATION: 59

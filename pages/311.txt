@@ -19,6 +19,5 @@ will throw for Attack Strength in the normal way, but you will
 not wound him if your Attack Strength is greater - you must 
 just count this as though you have parried his blow. Of course
 if his Attack Strength is greater, he will have wounded you in the 
-normal way.
-
+normal way
 </p>

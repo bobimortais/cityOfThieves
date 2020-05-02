@@ -1,7 +1,7 @@
 <p id="h64" hidden>
 ID: 64
 TEST: LUCK
-SUCESS: If you are Lucky, the chain pulls taut and the wolf jerks to a halt.
+SUCCESS: If you are Lucky, the chain pulls taut and the wolf jerks to a halt.
 DESTINATION: 353
 FAIL: If are Unlucky, the chain remains slack and the wolf leaps up and bites your arm.
 STATUS 1: STAMINA;DECREASE;1

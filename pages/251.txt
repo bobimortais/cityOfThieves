@@ -1,7 +1,7 @@
 <p id="h251" hidden>
 ID: 251
 TEST: LUCK
-SUCESS: If you are Lucky, the bolt thuds into the ground at your feet.
+SUCCESS: If you are Lucky, the bolt thuds into the ground at your feet.
 DESTINATION: 269
 FAIL: If you are Unlucky, the bolt lodges deeply in your shoulder.
 DESTINATION: 330
