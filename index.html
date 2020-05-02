@@ -46,9 +46,17 @@
 		{
 			width: 120px;
 		}
+		.buttonoption
+		{
+			display: block;
+			width: 350px;
+			margin-left: 10px;
+			margin-top: 5px;
+		}
 		.options
 		{
-			position: absolute;
+			position: relative;
+			display: block;
 		}
 		.game 
 		{
@@ -5370,6 +5378,7 @@ function loadNext(event)
 			if(tags[i + 1].includes("ACTION") || tags[i + 1].includes("DESTINATION"))
 			{
 				newOption.id = "id" + tags[i + 1].split(":")[1].trim();
+				newOption.className = "buttonoption";
 				newOption.onclick = function ()
 									{	
 										loadNext(this);
@@ -5386,6 +5395,7 @@ function loadNext(event)
 		if(tag.includes("DESTINATION"))
 		{
 			let newOption = document.createElement("button");
+			newOption.className = "buttonoption";
 			newOption.id = "id" + tag.split(":")[1].trim();
 			newOption.onclick = function ()
 								{	
@@ -5443,6 +5453,7 @@ function battle(tags,options)
 		{
 			let text = tags[i].split(":")[1];
 			let newOption = document.createElement("button");
+			newOption.className = "buttonoption";
 			
 			if(tags[i + 1].includes("ACTION") || tags[i + 1].includes("DESTINATION"))
 			{
@@ -5463,6 +5474,7 @@ function battle(tags,options)
 		if(tags[i].includes("DESTINATION"))
 		{
 			let newOption = document.createElement("button");
+			newOption.className = "buttonoption";
 			newOption.id = "id" + tags[i].split(":")[1].trim();
 			newOption.onclick = function ()
 								{	
@@ -5498,6 +5510,7 @@ function testAttribute(tags, options)
 		{
 			let text = tags[i].split(":")[1];
 			let newOption = document.createElement("button");
+			newOption.className = "buttonoption";
 			
 			if(tags[i + 1].includes("ACTION") || tags[i + 1].includes("DESTINATION"))
 			{
@@ -5735,6 +5748,7 @@ function loadStart(event)
 		{
 			let text = tag.split(":")[1];
 			let newOption = document.createElement("button");
+			newOption.className = "buttonoption";
 			newOption.id = "id" + tags[i + 1].split(":")[1].trim();
 			newOption.onclick = function ()
 								{	
