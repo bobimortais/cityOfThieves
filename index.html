@@ -113,15 +113,20 @@
 				</table>
 				<p id="yourdicevalues">Your Dice Values: </p>
 				<p id="enemydicesvalues">Enemy Dice Values: </p>
+				<p id="yourattack">Your Attack: </p>
+				<p id="enemyattack">Enemy Attack: </p>
 				<p id="attackresult">Computing Round...</p>
+				<p id="yourstamina">Your Stamina: </p>
 				<button onclick="rollAttackDices()">Roll Dices</button>
 				<button disabled>ESCAPE</button>
 			</div>
 			<div id="test" class="test" disabled>
 				<p>Test</p>
 				<p id="attributetest">Attribute to Test:</p>
-				<p id="testdicevalue">Dice Value: </p>
-				<button onclick="rollTestDice()">Roll Dice</button>
+				<p id="testdicevalue">Dices Values: </p>
+				<p id="yourattvalue">Your current attribute value: </p>
+				<p id="testresult"></p>
+				<button id="testdices" onclick="rollTestDice()">Roll Dices</button>
 			</div>
 		</div>
 		<div id="sheet" class="sheet" hidden>
@@ -132,11 +137,11 @@
 				</tr>
 				<tr>
 					<td>Initial</td>
-					<td id="skillinitial">0</td>
+					<td id="skillinitial">8</td>
 				</tr>
 				<tr>
 					<td>Current</td>
-					<td id="skillcurrent">6</td>
+					<td id="skillcurrent">8</td>
 				</tr>
 
 			</table>
@@ -146,11 +151,11 @@
 				</tr>
 				<tr>
 					<td>Initial</td>
-					<td id="staminainitial">0</td>
+					<td id="staminainitial">18</td>
 				</tr>
 				<tr>
 					<td>Current</td>
-					<td id="staminacurrent">12</td>
+					<td id="staminacurrent">18</td>
 				</tr>
 			</table>
 			<table class="atts">
@@ -159,11 +164,11 @@
 				</tr>
 				<tr>
 					<td>Initial</td>
-					<td id="luckinitial">0</td>
+					<td id="luckinitial">8</td>
 				</tr>
 				<tr>
 					<td>Current</td>
-					<td id="luckcurrent">0</td>
+					<td id="luckcurrent">8</td>
 				</tr>
 			</table>
 			<table class="items">
@@ -5464,13 +5469,20 @@ function battle(tags,options)
 
 function testAttribute(tags, options)
 {
-	console.log("Test logged");
 	document.getElementById("test").removeAttribute("disabled");
 	var options = document.getElementById("options");
 	let attribute = tags[2].split(":")[1].trim();
 	
 	var attributeToTest = document.getElementById("attributetest");
 	attributeToTest.innerHTML = "Attribute to Test: " + attribute;
+	var currentAttributeValue;
+	
+	if(attribute == "LUCK")
+		currentAttributeValue = parseInt(document.getElementById("luckcurrent").innerHTML);
+	if(attribute == "SKILL")
+		currentAttributeValue = parseInt(document.getElementById("skillcurrent").innerHTML)
+	
+	document.getElementById("yourattvalue").innerHTML = "Your current attribute value: " + currentAttributeValue;
 	
 	for(let i = 3; i < tags.length; i++)
 	{
@@ -5507,13 +5519,42 @@ function rollTestDice()
 	{
 		if (count == 100) 
 		{
+			let dicesValues = document.getElementById("testdicevalue").innerHTML.split(":")[1].trim();
+			let result = parseInt(dicesValues.split(" ")[0]) + parseInt(dicesValues.split(" ")[1]);
+			//Colocar o atributo correto sendo testado
+			var attributeToTest = document.getElementById("attributetest").innerHTML.split(":")[1].trim();
+			var currentAttributeValue;
+	
+			if(attributeToTest == "LUCK")
+				currentAttributeValue = parseInt(document.getElementById("luckcurrent").innerHTML);
+			if(attributeToTest == "SKILL")
+				currentAttributeValue = parseInt(document.getElementById("skillcurrent").innerHTML)
+			
+			
+			
+			if(result <= currentAttributeValue)
+			{
+				document.getElementById("testresult").innerHTML = "You succeded!";
+			}
+			else
+			{
+				document.getElementById("testresult").innerHTML = "You failed!";
+			}
+			
+			if(attributeToTest == "LUCK")
+				document.getElementById("luckcurrent").innerHTML = currentAttributeValue - 1;
+			if(attributeToTest == "SKILL")
+				document.getElementById("skillcurrent").innerHTML = currentAttributeValue - 1;
+
+			document.getElementById("testdices").setAttribute("disabled", true);
 			clearInterval(id);
 		} 
 		else 
 		{
-			let result = Math.floor(Math.random() * 6) + 1;
+			let resultDice1 = Math.floor(Math.random() * 6) + 1;
+			let resultDice2 = Math.floor(Math.random() * 6) + 1;
 			var diceValue = document.getElementById("testdicevalue");
-			diceValue.innerHTML = "Dice Value: " + result;
+			diceValue.innerHTML = "Dices Values: " + resultDice1 + " " + resultDice2;
 			count = count + 1;
 		}
 	}
@@ -5569,6 +5610,8 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 	yourDamage = yourDamage + skillCurrent;
 	
 	let computing = document.getElementById("attackresult");
+	document.getElementById("enemyattack").innerHTML = "Enemy Attack: " + enemyDamage;
+	document.getElementById("yourattack").innerHTML = "Your Attack: " + yourDamage;
 	
 	if(yourDamage > enemyDamage)
 	{
@@ -5592,6 +5635,7 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 		staminaCurrent = staminaCurrent - 2;
 		console.log("Your current stamina: " + staminaCurrent);
 		document.getElementById("staminacurrent").innerHTML = staminaCurrent;
+		document.getElementById("yourstamina").innerHTML = "Your Stamina: " + staminaCurrent;
 		checkEndOfBattle(null, staminaCurrent);
 	}
 	if(yourDamage == enemyDamage)
