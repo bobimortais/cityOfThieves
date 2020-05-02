@@ -2,10 +2,6 @@
 	<head>
 		<title>City of Thieves</title>
 		<style>
-		gameoptions 
-		{
-			float: right;
-		}
 		.atts
 		{
 			float: left;
@@ -51,7 +47,8 @@
 		}
 		.newgame,.loadgame,.savegame
 		{
-			float: left;
+			align-items: center;
+			justify-content: center;
 		}
 		button
 		{
@@ -65,21 +62,24 @@
 		{
 			float:left; 
 			padding: 5;
+			background: rgba(196, 216, 93, 0.6);
 		}
 		.game 
 		{
 			float:left; 
-			clear: left;
 			padding: 5;
+			background: rgba(196, 216, 93, 0.6);
 		}
 		.gameactions
 		{
 			float:left; 
 			padding: 5;
+			background: rgba(196, 216, 93, 0.6);
 		}
 		.battle
 		{
 			float:left; 
+			clear: left;
 			padding: 5;
 		}
 		.test
@@ -92,19 +92,19 @@
 			pointer-events: none;
 			opacity: 0.7;
 		}
+		.gametop
+		{
+			 background: rgba(150, 203, 101, 0.6);
+		}
 		</style>
 	</head>
 	<body>
-		<div id="gameoptions" class="gameoptions">
-			<p>City of Thieves</p>
-			<button onclick="loadStart(this)" class="newgame" id="newgame">New Game</button>
-			<button class="loadgame">Load Game</button>
-			<button class="savegame">Save Game</button>
-		</div>
-		<div id="game" class="game">
-			<p>History</p>
-			<textarea id="narrative" rows="25" cols="50" readonly witdh>No Turn Over</textarea>
-			<div id="options" class="options">
+		<div class="gametop">
+			<p style="text-align: center;font-size:160%;">City of Thieves</p>
+			<div style="text-align:center">
+				<button onclick="loadStart(this)" class="newgame">New Game</button>
+				<button class="loadgame">Load Game</button>
+				<button class="savegame">Save Game</button>
 			</div>
 		</div>
 		<div id="gameactions" class="gameactions">
@@ -132,6 +132,12 @@
 				<p id="yourattvalue">Your current attribute value: </p>
 				<p id="testresult"></p>
 				<button id="testdices" onclick="rollTestDice()">Roll Dices</button>
+			</div>
+		</div>
+		<div id="game" class="game">
+			<p>History</p>
+			<textarea id="narrative" rows="25" cols="50" readonly witdh>No Turn Over</textarea>
+			<div id="options" class="options">
 			</div>
 		</div>
 		<div id="sheet" class="sheet">
