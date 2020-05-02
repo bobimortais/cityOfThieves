@@ -50,7 +50,7 @@
 		{
 			display: block;
 			width: 350px;
-			margin-left: 10px;
+			margin-left: 60px;
 			margin-top: 5px;
 		}
 		.options
@@ -97,6 +97,12 @@
 		{
 			float:left; 
 		}
+		.historytext
+		{
+			font-family:Verdana;
+			resize: none;
+			font-size:15px;
+		}
 		</style>
 		<div class="gametop">
 			<p style="text-align: center;font-size:160%;">City of Thieves</p>
@@ -137,7 +143,7 @@
 		</div>
 		<div id="game" class="game">
 			<p>History</p>
-			<textarea id="narrative" rows="20" cols="50" readonly style="resize: none;">No Turn Over</textarea>
+			<textarea class="historytext" id="narrative" rows="20" cols="50" readonly>No Turn Over</textarea>
 			<div id="options" class="options">
 			</div>
 		</div>
@@ -190,9 +196,16 @@
 					</tr>
 					<tr>
 						<td>
-							<ul>
+							<ul id="listofitems">
 								<li>Pera</li>
 								<li>Uva</li>
+								<li>Maça</li>
+								<li>Maça</li>
+								<li>Maça</li>
+								<li>Maça</li>
+								<li>Maça</li>
+								<li>Maça</li>
+								<li>Maça</li>
 								<li>Maça</li>
 							</ul>
 						</td>
@@ -243,8 +256,7 @@ TAG:CHOICE 2: Tell him you wish to sell some stolen booty?
 TAG:ACTION 2: 33 
 TAG:CHOICE 3: Attack him quickly with your sword? 
 TAG:ACTION 3: 49
-TAG:HISTORY
-The walk to Port Blacksand takes you west some 
+TAG:HISTORY The walk to Port Blacksand takes you west some 
 fifty miles across plains and over hills; fortunately 
 without any harmful encounters. Eventually you 
 reach the coast and see the high city wall surrounding 
@@ -274,8 +286,7 @@ TAG:CHOICE 1: If wish to remove the grill
 TAG:ACTION 1: 377
 TAG:CHOICE 2: If you wish to walk back to the entrance hole
 TAG:ACTION 2: 174
-TAG:HISTORY
-You remove the bracelet from your wrist and toss it at the 
+TAG:HISTORY You remove the bracelet from your wrist and toss it at the 
 monster.It lands on its annour-like shell and sticks to it 
 like glue. You then watch as the bracelet starts to burn its
 way through the Shell into the body of the Giant Centipede. 
@@ -292,8 +303,7 @@ TAG:CHOICE 1: If you Wish to pay the musician
 TAG:ACTION 1: 37
 TAG:CHOICE 2: If you do not believe him, you may walk to the next stal
 TAG:ACTION 2: 398
-TAG:HISTORY
-The man stops playing and tells you that he can bring you 
+TAG:HISTORY The man stops playing and tells you that he can bring you 
 good fortune. For the sum of 3 Gold Pieces he will sing you 
 a song that will bring you luck.
 </p>
@@ -303,8 +313,7 @@ TAG:CHOICE 1: If you wish to tell him you are a lost traveller
 TAG:ACTION 1: 339
 TAG:CHOICE 2: If you Wish to attack him with your sword
 TAG:ACTION 2: 35
-TAG:HISTORY
-You hear a bell ring on the other side of the door and a 
+TAG:HISTORY You hear a bell ring on the other side of the door and a 
 few minutes later the door is opened by a thin, pale-skinned
 man with dark, hollow eyes, who is wearing a servant's 
 uniform. In a cold, hissing voice he says, 'Yes?'
@@ -314,8 +323,7 @@ TAG:ID: 5
 TAG:FIGHT
 TAG:ENEMY 1: MAN-ORC;SKILL 8;STAMINA 5
 TAG:DESTINATION: 371
-TAG:HISTORY
-Drawing your sword you leap over the counter to attack the 
+TAG:HISTORY Drawing your sword you leap over the counter to attack the 
 MAN-ORC, who swiftly grabs his hand axe. You soon realize 
 that the Man-Orc has used his weapon before.
 </p>
@@ -325,8 +333,7 @@ TAG:CHOICE 1: If you wish to abey her, leave the house and head furthernorth alo
 TAG:ACTION 1: 333
 TAG:CHOICE 2: If you wish to go through the curtains and see who is being so rude to you
 TAG:ACTION 2: 88
-TAG:HISTORY
-Her tone becomes unpleasant and she tells you to get out of 
+TAG:HISTORY Her tone becomes unpleasant and she tells you to get out of 
 her house because there are certainly no rags in it, nor any
 other kind of jumble for thal matter.
 </p>
@@ -337,8 +344,7 @@ TAG:ACTION 1: 232
 TAG:CHOICE 2: Leave the ship to continue your search of Port Blacksand by walking north up Harbour Street
 TAG:ACTION 2: 78
 TAG:STATUS 1: LUCK;INCREASE;2
-TAG:HISTORY
-You tiptoe quietly out of the room and close the door. In the
+TAG:HISTORY You tiptoe quietly out of the room and close the door. In the
 corridor you open the pouch and find six black pearls.
 </p>
 <p id="h8" hidden>
@@ -346,16 +352,14 @@ TAG:ID: 8
 TAG:STATUS 1: LUCK;INCREASE;2
 TAG:CHOICE 1: Pleased with your purchase you leave the house and head north.
 TAG:ACTION 1: 334
-TAG:HISTORY
-The creature pins the golden brooch to your leather tunic and
+TAG:HISTORY The creature pins the golden brooch to your leather tunic and
 you pay the price demanded. 
 You have boughta lucky charm — add 2 LUCK points to your total. 
 </p>
 <p id="h9" hidden>
 TAG:ID: 9
 TAG:GAMEOVER
-TAG:HISTORY
-You step back from the vile body of Zanbar Bone, waiting for 
+TAG:HISTORY You step back from the vile body of Zanbar Bone, waiting for 
 him to decay. However, you have chosen wrongly! He pulls the
 arrow from his chest and rubs the compound from his eyes. He 
 sees you and laughs. You are mesmerized by his power and are 
@@ -371,16 +375,14 @@ TAG:CHOICE 1: If you win and the fight lasts six Attack Rounds or less
 TAG:ACTION 1: 212
 TAG:CHOICE 2: If the fight lists longer than six Attack Rounds
 TAG:ACTION 2: 130
-TAG:HISTORY
-The GUARD is really annoyed and charges at you with his pike.
+TAG:HISTORY The GUARD is really annoyed and charges at you with his pike.
 </p>
 <p id="h11" hidden>
 TAG:ID: 11
 TAG:STATUS 1: SKILL;DECREASE;1
 TAG:STATUS 2: SKILL;DECREASE;2
 TAG:DESTINATION: 358
-TAG:HISTORY
-The Trolls see what you are doing and run towards the tree. 
+TAG:HISTORY The Trolls see what you are doing and run towards the tree. 
 You are forced to leave your shield behind. After climbing 
 quickly up the tree you realize that you must jump a distance
 of two metres between the branch and the top of the wall. 
@@ -395,8 +397,7 @@ TAG:CHOICE 1: If you wish to surprise him by drawing your sword and uttering a l
 TAG:ACTION 1: 176
 TAG:CHOICE 2: If you would rather creep out of the room back into the corridor while he submerges himself
 TAG:ACTION 2: 383
-TAG:HISTORY
-After a few minutes you hear footsteps coming down the 
+TAG:HISTORY After a few minutes you hear footsteps coming down the 
 corridor. The door opens and a man walks into the room 
 wearing nothing but a towel round his fat stomach. You watch 
 as he drops the towel and lowers himself gently into the tub 
@@ -411,8 +412,7 @@ TAG:CHOICE 2: If you would rather ignore it, you may either climb the stairs
 TAG:ACTION 2: 80
 TAG:CHOICE 3: Leave the house and head north
 TAG:ACTION 3: 334
-TAG:HISTORY
-Inspecting the scorpion you see that it is a brooch. You 
+TAG:HISTORY Inspecting the scorpion you see that it is a brooch. You 
 decide to pin it to your leather tunic. The brooch has magic 
 healing properties: after any battle brooch will immediately 
 restore 1 STAMINA point to your total. What will you do next?
@@ -435,16 +435,14 @@ TAG:SUCCESS: If you are Lucky, you reach the door safely
 TAG:DESTINATION 1: 75
 TAG:FAIL: If you are Unlucky, one of the snakes strikes out and bites you on the leg
 TAG:DESTINATION 2: 298
-TAG:HISTORY
-You leap over the snakes and run for the door. Test your Luck.
+TAG:HISTORY You leap over the snakes and run for the door. Test your Luck.
 </p>
 <p id="h16" hidden>
 TAG:ID: 16
 TAG:STATUS 1: LUCK;INCREASE;1
 TAG:CHOICE 1: You then walk further north along Stable Street
 TAG:DESTINATION: 333
-TAG:HISTORY
-The bag holds 12 Gold Pieces. Add 1 LUCK point. You leave the 
+TAG:HISTORY The bag holds 12 Gold Pieces. Add 1 LUCK point. You leave the 
 house quickly before the owner discovers you are not who you 
 say you are.
 </p>
@@ -454,8 +452,7 @@ TAG:CHOICE 1: If you wish to stop to talk to him
 TAG:ACTION 1: 331
 TAG:CHOICE 2: If you would rather continue walking east
 TAG:ACTION 2: 161
-TAG:HISTORY
-Walking along the narrow street you see a man wearing 
+TAG:HISTORY Walking along the narrow street you see a man wearing 
 tattered rags sitting in the gutter. His head rests on his
 hands and he looks thoroughly miserable.
 </p>
@@ -466,8 +463,7 @@ TAG:SUCCESS: If the total is the same or less than your SKILL score, the knife s
 TAG:DESTINATION: 102
 TAG:FAIL: If the total is greater than your SKILL score, the knife flies past ist target and you must fight all three vagabonds with your sword
 TAG:DESTINATION: 225
-TAG:HISTORY
-You take aim carefully and throw the knife at the leading 
+TAG:HISTORY You take aim carefully and throw the knife at the leading 
 vagabond. Roll two dice.
 </p>
 <p id="h19" hidden>
@@ -478,21 +474,18 @@ TAG:CHOICE 1: If you are still alive and wish to continue picking the lock
 TAG:ACTION 1: 340
 TAG:CHOICE 2: If you would rather leave the room and climb the stairs to the floor above
 TAG:ACTION 2: 60
-TAG:HISTORY
-The darts are poison-tipped. Lose 4 STAMINA points and 1 SKILL point.
+TAG:HISTORY The darts are poison-tipped. Lose 4 STAMINA points and 1 SKILL point.
 </p>
 <p id="h20" hidden>
 TAG:ID: 20
 TAG:DESTINATION: 84
-TAG:HISTORY
-The pirate's pockets contain nothing apart from a piece of 
+TAG:HISTORY The pirate's pockets contain nothing apart from a piece of 
 stale bread. You leave him to start a search of the wooden boxes
 and barrels on the ship's deck.
 </p>
 <p id="h21" hidden>
 TAG:ID: 21
-TAG:HISTORY
-TAG:CHOICE 1: If you wish to lock the door and go to sleep for the night
+TAG:HISTORY TAG:CHOICE 1: If you wish to lock the door and go to sleep for the night
 TAG:ACTION 1: 288
 TAG:CHOICE 2: If you wish to explore the tower further
 TAG:ACTION 2: 77
@@ -507,8 +500,7 @@ TAG:FIGHT
 TAG:ENEMY 1: GOBLIN;SKILL 4;STAMINA 5
 TAG:ENEMY 2: GOBLIN;SKILL 5;STAMINA 5
 TAG:DESTINATION: 198
-TAG:HISTORY
-AS you sit down at the table, the GOBLINS stop their quarreling
+TAG:HISTORY AS you sit down at the table, the GOBLINS stop their quarreling
 and stare at you coldly. You see hatred in their brown warty faces.
 Suddenly they stand up and draw their swords. You must fight 
 them one at a time.
@@ -518,8 +510,7 @@ TAG:ID: 23
 TAG:FIGHT
 TAG:ENEMY 1: SILVERSMITH;SKILL 4;STAMINA 8
 TAG:DESTINATION: 146
-TAG:HISTORY
-The man grabs a wooden club from behind a chair and prepares
+TAG:HISTORY The man grabs a wooden club from behind a chair and prepares
 to fight you. He is strong but not a good fighter.
 </p>
 <p id="h24" hidden>
@@ -528,8 +519,7 @@ TAG:CHOICE 1: If you want to enter the shop
 TAG:ACTION 1: 336
 TAG:CHOICE 2: If you wish to continue west, without looking into the shop
 TAG:ACTION 2: 196
-TAG:HISTORY
-There is another shop on the left side of the street. An iron
+TAG:HISTORY There is another shop on the left side of the street. An iron
 grill over the window prevents you seeing what kind of shop it
 is. You try the handle on the door and it turns.
 </p>
@@ -541,8 +531,7 @@ TAG:CHOICE 2: Attack him with your sword?
 TAG:ACTION 2: 323
 TAG:CHOICE 3: Leave him to his labours and and continue north?
 TAG:ACTION 3: 115
-TAG:HISTORY
-You soon realize you are in a stable when you see a large, 
+TAG:HISTORY You soon realize you are in a stable when you see a large, 
 bare-chested man wearing a grubby white apron busy at work at
 an open tire. He takes a red-hot iron bar from the fire with 
 his gloved hand and starts to hammer it into the shape of a 
@@ -552,8 +541,7 @@ toils with the hammer. Will you:
 <p id="h26" hidden>
 TAG:ID: 26
 TAG:DESTINATION: 296
-TAG:HISTORY
-You sheathe your sword and look round at the circle of 
+TAG:HISTORY You sheathe your sword and look round at the circle of 
 spectators. Having witnessed your excellent swordsmanship 
 each goes quietly back to his table, not wishing to anger you 
 any further. The innkeeper apologizes for his unfriendliness 
@@ -576,8 +564,7 @@ TAG:CHOICE 1: If you wish to play this deadly game
 TAG:ACTION 1: 223
 TAG:CHOICE 2: If you would rather leave this room and walk back up the alley to Candle Street
 TAG:ACTION 2: 165
-TAG:HISTORY
-You enter small candlelit room with no windows. It is empty 
+TAG:HISTORY You enter small candlelit room with no windows. It is empty 
 apart from a table and two chairs. A man wearing black robes 
 and a skullcap is standing in  corner. He smiles and asks you
 to sit down at the table. He sits opposite you and, after 
@@ -593,8 +580,7 @@ TAG:CHOICE 1: If you wish to continue further north along the tunnel
 TAG:ACTION 1: 265
 TAG:CHOICE 2: If you would rather turn round and walk back to the entrance hole
 TAG:ACTION 2: 104
-TAG:HISTORY
-While you were fighting the Giant Rats, you thought you saw 
+TAG:HISTORY While you were fighting the Giant Rats, you thought you saw 
 someone or something skulking in the shadows ahead.
 </p>
 <p id="h29" hidden>
@@ -603,15 +589,13 @@ TAG:CHOICE 1: If you wish to feign illness and throw the iron pail against the b
 TAG:ACTION 1: 143
 TAG:CHOICE 2: If you wish to inspect the cell closely in the hope of finding a secret escape route
 TAG:ACTION 2: 230
-TAG:HISTORY
-You squat down on the mattress and consider what to do next.
+TAG:HISTORY You squat down on the mattress and consider what to do next.
 </p>
 <p id="h30" hidden>
 TAG:ID: 30
 TAG:CHOICE 1: You decide to go north.
 TAG:DESTINATION: 76
-TAG:HISTORY
-Tower Street soon ends at a junction, where it meets Stable 
+TAG:HISTORY Tower Street soon ends at a junction, where it meets Stable 
 Street running north and south.
 </p>
 <p id="h31" hidden>
@@ -620,8 +604,7 @@ TAG:CHOICE 1: If you wish to climb down the steps
 TAG:ACTION 1: 329
 TAG:CHOICE 2: If you wish to wait to talk to the man
 TAG:ACTION 2: 364
-TAG:HISTORY
-Ahead you see a wooden bridge stretching over a dirty river. 
+TAG:HISTORY Ahead you see a wooden bridge stretching over a dirty river. 
 Various bits of rubbish are floating to the sea on its black 
 surface, and you squirm at the sight of a human hand passing by.
 The bridge supports and columns reach high above and you see 
@@ -638,8 +621,7 @@ TAG:STATUS 1: STAMINA;DECREASE;4
 TAG:STATUS 2: SKILL;DECREASE;1
 TAG:CHOICE 1: If you are still alive, you draw your sword to attack the Serpent Queen
 TAG:DESTINATION: 249
-TAG:HISTORY
-Before you reach the door, the Serpent Queen extends her head
+TAG:HISTORY Before you reach the door, the Serpent Queen extends her head
 and bites you on the neck, causing the loss of 4 STAMINA 
 points and 1 SKILL point.
 </p>
@@ -651,8 +633,7 @@ TAG:CHOICE 2: Try to run past the guard into the main street
 TAG:ACTION 2: 291
 TAG:CHOICE 3: Attack him quickly with your sword
 TAG:ACTION 3: 49
-TAG:HISTORY
-You tell the guard that you wish to sell some silver chalices
+TAG:HISTORY You tell the guard that you wish to sell some silver chalices
 that you stole from a tavern in Silverton and that you will 
 pay him a Gold Piece for his advice as to where to go for the
 best price. The guard looks at you suspiciously, saying, 'Let
@@ -663,8 +644,7 @@ Will you:
 TAG:ID: 34
 TAG:CHOICE 1: As the noise of the carriage fades into the distance, you step out to the street and continue west.
 TAG:DESTINATION: 171
-TAG:HISTORY
-The carriage thunders by and you see its driver urging on the
+TAG:HISTORY The carriage thunders by and you see its driver urging on the
 four horses as though his life depended on it.
 </p>
 <p id="h35" hidden>
@@ -675,8 +655,7 @@ TAG:CHOICE 2: Reflect his stare in your mirror (if you have one)
 TAG:ACTION 2: 305
 TAG:CHOICE 3: Fire your Ring of Ice at him (if you have one)
 TAG:ACTION 3: 382
-TAG:HISTORY
-You push the man through the doorway and run him through with 
+TAG:HISTORY You push the man through the doorway and run him through with 
 your sword. Much to your surprise he is unaffected by the 
 wound. Slowly he advances towards you, trying touch your skin
 with his skeletal, decayed hands. He grabs your arm but you 
@@ -691,8 +670,7 @@ outstretched, you try to remember what you must do. Will you:
 TAG:ID: 36
 TAG:CHOICE 1: Bidding the man farewell, you slip the ring on your finger and leave the shop to head west.
 TAG:DESTINATION: 196
-TAG:HISTORY
-The man leans on the counter and tells you that a 
+TAG:HISTORY The man leans on the counter and tells you that a 
 Ring of Invisibility costs 10 Gold Pieces, a Ring of
 Fire costs 8 Gold Pieces, and a Ring of Ice costs 7 Gold Pieces.
 If you wish to buy one of the rings, make the necessary 
@@ -703,8 +681,7 @@ TAG:ID: 37
 TAG:STATUS 1: LUCK;INCREASE;2
 TAG:CHOICE 1: Walk on to the next stall.
 TAG:DESTINATION 1: 398
-TAG:HISTORY
-The man strums his lyre and sings a merry song all about you and 
+TAG:HISTORY The man strums his lyre and sings a merry song all about you and 
 your good fortune - he does have the power to make you lucky. 
 Add 2 LUCK points.
 </p>
@@ -712,8 +689,7 @@ Add 2 LUCK points.
 TAG:ID: 38
 TAG:CHOICE 1: After placing the bracelet on your wrist you leave the tavern and head north again.
 TAG:DESTINATION: 296
-TAG:HISTORY
-One of the men reaches into a pocket inside his green jacket 
+TAG:HISTORY One of the men reaches into a pocket inside his green jacket 
 and produces a thin silver bracelet. He gives to you and you
 see the outline of an insect etched into its surface. The man 
 explains that the insect bracelet has the power to kill even 
@@ -725,8 +701,7 @@ TAG:CHOICE 1: If you wish to run to the front
 TAG:ACTION 1: 32
 TAG:CHOICE 2: If you wish to draw your sword to attack tite Serpent Queen
 TAG:ACTION 2: 249
-TAG:HISTORY
-You open your backpack and pretend to search for the silver item. 
+TAG:HISTORY You open your backpack and pretend to search for the silver item. 
 The Serpent Queen starts to fidget and you can see her becoming
 increasingly impatient. You cannot think of a good plan and 
 start to panic.
@@ -737,8 +712,7 @@ TAG:CHOICE 1: If you wish to ask to join in their game
 TAG:ACTION 1: 168
 TAG:CHOICE 2: If you would rather climb back down the wall,return to the junction and head west down Harbour Street
 TAG:ACTION 2: 91
-TAG:HISTORY
-From the top of the wall you see that it encircles a group 
+TAG:HISTORY From the top of the wall you see that it encircles a group 
 of brown creatures playing some kind of game with a wooden 
 stick and a small leather ball. One of the creatures has just
 hit the ball and is running towards a creature from the other
@@ -749,8 +723,7 @@ creatures are Bays playing their favourite game, Bays' Ball.
 TAG:ID: 41
 TAG:CHOICE 1: Repressing an urge to draw your sword you turn and walk into the city.
 TAG:DESTINATION: 74
-TAG:HISTORY
-The two guards holding you look at each other and then at the
+TAG:HISTORY The two guards holding you look at each other and then at the
 at the other guard for a decision. He nods at them and they 
 release their grip on you. As you pay him the 15 Gold Pieces 
 he gives a piercing look, saying, 'If Lord Azzur finds out that
@@ -762,8 +735,7 @@ yourself.'
 TAG:ID: 42
 TAG:CHOICE 1: Outside you set off east again
 TAG:DESTINATION: 100
-TAG:HISTORY
-You tell the man that cannot pay the price he is  asking. He 
+TAG:HISTORY You tell the man that cannot pay the price he is  asking. He 
 shrugs his shoulders and says, 'Well, do you have any food?' 
 You open your backpack and he takes all your remaining 
 Provisions. He then starts to cast the silver arrow and you
@@ -783,8 +755,7 @@ TAG:CHOICE 3: If you are not interested in the goblets, you may either walk thro
 TAG:ACTION 3: 107
 TAG:CHOICE 4: or climb the stairs
 TAG:ACTION 4: 60
-TAG:HISTORY
-You cry out in pain as the goblet changes into a burning coal
+TAG:HISTORY You cry out in pain as the goblet changes into a burning coal
 in your hand. You are badly burnt. Lose 2 SKILL and 2 LUCK 
 points.
 </p>
@@ -794,8 +765,7 @@ TAG:CHOICE 1: If you have a Throwing Knife you may be able to cut one down befor
 TAG:ACTION 1: 18
 TAG:CHOICE 2: If you do not have Throwing Knife you will have to fight all three with your sword.
 TAG:ACTION 2: 225
-TAG:HISTORY
-Standing in a line across the street are three tall men each
+TAG:HISTORY Standing in a line across the street are three tall men each
 armed witha spiked club. You notice that each has a red star 
 tattooed on his forehead. They are vagabonds intent on 
 robbing you.
@@ -806,8 +776,7 @@ TAG:CHOICE 1: If you wish to place it on your head
 TAG:ACTION 1: 376
 TAG:CHOICE 2: If you would rather leave it alone and set off east again
 TAG:ACTION 2: 161
-TAG:HISTORY
-The glass ball shatters on impact with the cobbled sheet. On 
+TAG:HISTORY The glass ball shatters on impact with the cobbled sheet. On 
 contact with the air the smoke turns a golden colour and begins
 to take the shape of a winged helmet. The helmet solidifies 
 and rests on the street, sparkling in the sunlight. Is is the 
@@ -818,8 +787,7 @@ TAG:ID: 46
 TAG:STATUS 1: SKILL;INCREASE;2
 TAG:CHOICE 1: You leave the stables with your new armour and continue north.
 TAG:DESTINATION: 115
-TAG:HISTORY
-The blacksmith takes your money and walks over to some bales 
+TAG:HISTORY The blacksmith takes your money and walks over to some bales 
 of hay in the corner. He lifts one up and underneath it you 
 see the chainmail coat. He turns to you and says, 'You have 
 to hide everything in this place. You can't trust anybody.' 
@@ -833,8 +801,7 @@ TAG:SUCCESS: If the number rolled is less than or equal to your SKILL score, the
 TAG:DESTINATION: 313
 TAG:FAIL: If the number is greater than your SKILL score, the sword flies past and clatters on to the marble floor.
 TAG:DESTINATION: 81
-TAG:HISTORY
-The lightning bolt slams into your chest and knocks you to 
+TAG:HISTORY The lightning bolt slams into your chest and knocks you to 
 the floor. Lose 3 STAMINA points. If you are still alive you 
 see the fat man roaring with laughter. Perhaps he is off his 
 guard? You decide to throw your sword at him from your prone 
@@ -846,8 +813,7 @@ TAG:CHOICE 1: If you wish to climb down the ladder
 TAG:ACTION 1: 321
 TAG:CHOICE 2: If you wish to replace the manhole cover  and continue east
 TAG:ACTION 2: 205
-TAG:HISTORY
-There is an iron ladder secured the rim of a hole, descending 
+TAG:HISTORY There is an iron ladder secured the rim of a hole, descending 
 into a tunnel below. It is dark, and a very unpleasant smell 
 rises up from below.
 </p>
@@ -858,8 +824,7 @@ TAG:SUCCESS: If you are lucky he misses the bell, curses, and turns to fight you
 TAG:DESTINATION: 10
 TAG:FAIL: If you are Unlucky, he manages to grab the bell and rings it loudly before turning to fight you with his pike.
 TAG:DESTINATION: 311
-TAG:HISTORY
-As you draw your sword the guard leaps to his right and 
+TAG:HISTORY As you draw your sword the guard leaps to his right and 
 attempts to ring a small bell on the wall of the guardhouse. 
 Test your Luck.
 </p>
@@ -869,8 +834,7 @@ TAG:CHOICE 1: If you wish to open the door on the left.
 TAG:ACTION 1: 271
 TAG:CHOICE 2: If you wish to open the door on the right.
 TAG:ACTION 2: 232
-TAG:HISTORY
-The stairs lead down into the ship's cargo hold. It is empty.
+TAG:HISTORY The stairs lead down into the ship's cargo hold. It is empty.
 Opposite you a corridor leads from the hold to two closed 
 doors. You walk along the corridor and listen at the doors. 
 From the on your you hear loud snoring. From the door on your
@@ -882,16 +846,14 @@ TAG:CHOICE 1: If you wish to go for a drink
 TAG:ACTION 1: 325
 TAG:CHOICE 2: If you would rather continue your quest
 TAG:ACTION 2: 348
-TAG:HISTORY
-You walk over to the old and help him to his feet. He is very
+TAG:HISTORY You walk over to the old and help him to his feet. He is very
 grateful and offers to buy you a drink at a nearby tavern.
 </p>
 <p id="h52" hidden>
 TAG:ID: 52
 TAG:CHOICE 1: You them walk north.
 TAG:DESTINATION: 200
-TAG:HISTORY
-Behind the next stall is a young man selling small weapons and
+TAG:HISTORY Behind the next stall is a young man selling small weapons and
 items of equipment. The prices of his wares are chalked up on
 a slate:
 Throwing Knife                 4 Gold Pieces
@@ -908,8 +870,7 @@ TAG:CHOICE 1: If you have a silver item in your backpack that you wish to give t
 TAG:ACTION 1: 328
 TAG:CHOICE 2: If you have not got a silver item that you wish to give away
 TAG:ACTION 2: 39
-TAG:HISTORY
-The silk curtains in front of the archway are pulled aside 
+TAG:HISTORY The silk curtains in front of the archway are pulled aside 
 and a strange creature steps into the room. It has a snake's 
 head, which sits oddly atop the body of a young woman wearing
 a lavish gown. Its mouth opens and a forked tongue darts in 
@@ -921,8 +882,7 @@ silver gift have you brought me?'
 TAG:ID: 54
 TAG:CHOICE 1: The guard at the main gate does not see you and you walk into the city.
 TAG:DESTINATION: 74
-TAG:HISTORY
-You search the guardhouse and find 2 Gold Pieces and a 
+TAG:HISTORY You search the guardhouse and find 2 Gold Pieces and a 
 merchant's pass permitting the holder to trade in Port Blacksand. 
 Taking your findings with you, you creep outside.
 </p>
@@ -930,16 +890,14 @@ Taking your findings with you, you creep outside.
 TAG:ID: 55
 TAG:CHOICE 1: You pick up the gold and walk back up the alleyway to Harbour Street, where you turn left
 TAG:DESTINATION: 180
-TAG:HISTORY
-You dip the petals of the flower in the spilled blood of the
+TAG:HISTORY You dip the petals of the flower in the spilled blood of the
 dead dogs. On contact with blood the petals sparkle and make 
 a popping noise. On the floor are 10 Gold Pieces.
 </p>
 <p id="h56" hidden>
 TAG:ID: 56
 TAG:GAMEOVER
-TAG:HISTORY
-There are over twenty guards coming to get you and is useless 
+TAG:HISTORY There are over twenty guards coming to get you and is useless 
 to put up a fight. They drag you off to a room at the bottom 
 of the tower and chain you to a wall. To your horror you see
 the two Trolls enter the room. They take it in turns to beat 
@@ -955,8 +913,7 @@ TAG:FIGHT
 TAG:ENEMY 1: WOLF DOG;SKILL 7;STAMINA 7
 TAG:ENEMY 1: WOLF DOG;SKILL 7;STAMINA 5
 TAG:DESTINATION: 360
-TAG:HISTORY
-The Dwarf jumps up off his stool, his face full of hatred. He
+TAG:HISTORY The Dwarf jumps up off his stool, his face full of hatred. He
 calls out two names loudly and two huge black dogs immediately
 appear from under a table with long fangs protruding from their
 slavering mouths. Wraggins points a finger at you, shouting 
@@ -968,8 +925,7 @@ TAG:ID: 58
 TAG:STATUS 1: STAMINA;DECREASE;1
 TAG:CHOICE 1: You set off west again.
 TAG:DESTINATION: 171
-TAG:HISTORY
-As the carriage thunders by, the driver lashes out at you with
+TAG:HISTORY As the carriage thunders by, the driver lashes out at you with
 his whip. Lose 1 STAMINA point. You curse the driver of the 
 carriage as it races out of view, rubbing your neck where the
 whip has raised a weal. You set off west again.
@@ -977,8 +933,7 @@ whip has raised a weal. You set off west again.
 <p id="h59" hidden>
 TAG:ID: 59
 TAG:GAMEOVER
-TAG:HISTORY
-The Hag laughs as she watches you in the throes of your 
+TAG:HISTORY The Hag laughs as she watches you in the throes of your 
 nightmare. Then from out of her clothing she pulls a 
 dagger with a long shimmering blade. You are helpless and 
 unable to stop her plunging the dagger into your chest.Tonight
@@ -991,8 +946,7 @@ TAG:CHOICE 1: If you wish to draw your sword in readiness
 TAG:ACTION 1: 349
 TAG:CHOICE 2: If you would rather make a break for it, you may jump out of the window at the head f the landing into the street below
 TAG:ACTION 2: 192
-TAG:HISTORY
-At the top of the stairs you reach a landing with two closed
+TAG:HISTORY At the top of the stairs you reach a landing with two closed
 doors. As you are deciding which door to enter, you hear a 
 noise from downstairs - somebody is entering the front door.
 Then you hear a man's voice saying, 'Off you fly, my little
@@ -1004,8 +958,7 @@ TAG:CHOICE 1: If you have a bunch Of flowers
 TAG:ACTION 1: 172
 TAG:CHOICE 2: If you do not have a bunch of flowers
 TAG:ACTION 2: 350
-TAG:HISTORY
-The silk curtains in front of the archway are pulled iside and
+TAG:HISTORY The silk curtains in front of the archway are pulled iside and
 a strange creature steps into the room. It has a snake's head,
 which sits oddly atop the body of a young woman wearing a 
 lavish gown. You feel uncomfortable and are undecided whether
@@ -1025,8 +978,7 @@ TAG:CHOICE 4: Sit down with three men who are sticking daggers quickly between t
 TAG:ACTION 4: 190
 TAG:CHOICE 5: Leave the tavern and walk north
 TAG:ACTION 5: 296
-TAG:HISTORY
-The old wooden doors open into a dingy, smoked filled room. 
+TAG:HISTORY The old wooden doors open into a dingy, smoked filled room. 
 There are eight round tables in the centre of the room with 
 some of the mean and shifty-looking rogues you have ever seen
 sitting at them. At the back of the tavern is long wooden bar
@@ -1041,8 +993,7 @@ TAG:MONEY: DECREASE;5
 TAG:ITEM: DECREASE;2
 TAG:CHOICE 1: Outside you head east again
 TAG:DESTINATION: 280
-TAG:HISTORY
-The Elf leads you into a room lit by purple candles, which 
+TAG:HISTORY The Elf leads you into a room lit by purple candles, which 
 a strange glow. You stand and stare blankly at the candles and
 drift off into a world of vivid dreams. While you are in this
 trance, the Elf takes two items and 5 Gold Pieces from your 
@@ -1058,8 +1009,7 @@ TAG:DESTINATION: 353
 TAG:FAIL: If are Unlucky, the chain remains slack and the wolf leaps up and bites your arm.
 TAG:STATUS 1: STAMINA;DECREASE;1
 TAG:DESTINATION: 309
-TAG:HISTORY
-You hear growls and loud barking coming from inside the kennel,
+TAG:HISTORY You hear growls and loud barking coming from inside the kennel,
 and suddenly an enormous black wolf rushes out of the kennel 
 straight at you. A long chain is attached to its collar and this
 may stop it rom reaching you. Test your Luck.
@@ -1084,8 +1034,7 @@ Ha! Ha! Ha!' Will you:
 TAG:ID: 66
 TAG:CHOICE 1: Whether or not you buy a key you leave the shop and continue west
 TAG:DESTINATION: 300
-TAG:HISTORY
-The Dwarf smiles and boasts that he can make a key to open
+TAG:HISTORY The Dwarf smiles and boasts that he can make a key to open
 any lock in Port Blacksand. He says that his special keys are
 priced at 10 Gold Pieces each. If you want to buy a key, make
 the necessary deduction on your Adventure Sheet. Whether or not
@@ -1097,8 +1046,7 @@ TAG:CHOICE 1: If you wish to tell her a name
 TAG:ACTION 1: 195
 TAG:CHOICE 2: If you wish to her that you do not know who they are from
 TAG:ACTION 2: 79
-TAG:HISTORY
-The woman's voice sounds excited as she calls through the curtains,
+TAG:HISTORY The woman's voice sounds excited as she calls through the curtains,
 'Oh, I wonder which kind dear has sent me flowers? Can you tell
 me who they are from?'
 </p>
@@ -1108,8 +1056,7 @@ TAG:CHOICE 1: If you wish to swallow it
 TAG:ACTION 1: 380
 TAG:CHOICE 2: If you wish to spit it out
 TAG:ACTION 2: 262
-TAG:HISTORY
-The soup tastes absolutely disgusting.
+TAG:HISTORY The soup tastes absolutely disgusting.
 </p>
 <p id="h69" hidden>
 TAG:ID: 69
@@ -1118,15 +1065,13 @@ TAG:SUCCESS: If the number rolled is less than or equal to your SKILL score, you
 TAG:DESTINATION: 355
 TAG:FAIL: If the number rolled is greater than your SKILL, you fail to release yourself, and are led away
 TAG:DESTINATION: 151
-TAG:HISTORY
-Just as the guards are about to lead you away, you try with 
+TAG:HISTORY Just as the guards are about to lead you away, you try with 
 all your might to pull your arms from their grip. Roll two dice.
 </p>
 <p id="h70" hidden>
 TAG:ID: 70
 TAG:GAMEOVER
-TAG:HISTORY
-As you reach the chest it disappears before your eyes. You 
+TAG:HISTORY As you reach the chest it disappears before your eyes. You 
 hear laughter behind you and suddenly see in the mirror the 
 hideous reflection of a black robed skeleton with green, 
 translucent eyes, wearinging a golden crown on its skull. You 
@@ -1140,8 +1085,7 @@ TAG:CHOICE 1: If you wish to smash it open with your sword
 TAG:ACTION 1: 324
 TAG:CHOICE 2: If you wish to leave the house to continue north, without trying to open the box
 TAG:ACTION 2: 282
-TAG:HISTORY
-The Ogre's room is full of clutter and discarded bits and pieces.
+TAG:HISTORY The Ogre's room is full of clutter and discarded bits and pieces.
 It does not appear to have been tidied for years. Rummaging 
 through the jumble, you find a polished wooden box with a 
 hand made of white shell inlaid on the lid. The box is locked
@@ -1152,8 +1096,7 @@ TAG:ID: 72
 TAG:FIGHT
 TAG:ENEMY 1: GOBLIN;SKILL 5;STAMINA 4
 TAG:DESTINATION: 208
-TAG:HISTORY
-As you bend down to help the injured boy, he suddenly rolls 
+TAG:HISTORY As you bend down to help the injured boy, he suddenly rolls 
 over and you see the flashing blade of a dagger before your 
 eyes. The boy is in fact a GOBLIN thief and you must fight him
 for your life.
@@ -1168,8 +1111,7 @@ TAG:ACTION 1: 110
 TAG:CHOICE 2: You may Escape after killing Sourbelly by throwing your shield at Fatnose and running off west along Mill Street.
 TAG:STATUS 1: SKILL;DECREASE;1
 TAG:ACTION 2: 239
-TAG:HISTORY
-You draw your sword and stand ready to fight the Trolls. They
+TAG:HISTORY You draw your sword and stand ready to fight the Trolls. They
 seem pleased that you are going to give hem a chance to 
 practise their beloved sport of killing humans, and advance 
 towards you swinging their battle-axs. Sourbelly snarls and 
@@ -1184,8 +1126,7 @@ TAG:CHOICE 2: Head north along Market Street
 TAG:ACTION 2: 116
 TAG:CHOICE 3: Go eastdown Clock Street
 TAG:ACTION 3: 17
-TAG:HISTORY
-Through the main gates you see that the rubbish-filled streets
+TAG:HISTORY Through the main gates you see that the rubbish-filled streets
 of the port are narrow and cobbled. Old and decrepit buildings
 line them closely, with their upper storeys overhanging
 menacingly. You may:
@@ -1193,8 +1134,7 @@ menacingly. You may:
 <p id="h75" hidden>
 TAG:ID: 75
 TAG:DESTINATION: 31
-TAG:HISTORY
-Outside the rain has stopped and you set off north again.
+TAG:HISTORY Outside the rain has stopped and you set off north again.
 </p>
 <p id="h76" hidden>
 TAG:ID: 76
@@ -1202,8 +1142,7 @@ TAG:CHOICE 1: If you wish to walk through the doors
 TAG:ACTION 1: 25
 TAG:CHOICE 2: If you would rather continue north
 TAG:ACTION 2: 115
-TAG:HISTORY
-To your left you see a large wooden barn set back from the 
+TAG:HISTORY To your left you see a large wooden barn set back from the 
 houses. Two horses are tied to a post outside the barn, and 
 smoke rises from a crooked chimney on top of its low flat roof.
 </p>
@@ -1213,8 +1152,7 @@ TAG:CHOICE 1: If you wish to open the door
 TAG:ACTION 1: 292
 TAG:CHOICE 2: If you wish to climb up to the third floor
 TAG:ACTION 2: 310
-TAG:HISTORY
-You walk quietly back to the staircase and climb up to the second 
+TAG:HISTORY You walk quietly back to the staircase and climb up to the second 
 floor. Again there is a door at the end of the landing.
 </p>
 <p id="h78" hidden>
@@ -1223,8 +1161,7 @@ TAG:CHOICE 1: If you wish to continue north up Harbour Street
 TAG:ACTION 1: 256
 TAG:CHOICE 2: If you wish to walk east along Clog Street
 TAG:ACTION 2: 216
-TAG:HISTORY
-The street runs north along the quayside for a few hundred 
+TAG:HISTORY The street runs north along the quayside for a few hundred 
 metres before arriving at a junction.
 </p>
 <p id="h79" hidden>
@@ -1232,8 +1169,7 @@ TAG:ID: 79
 TAG:FIGHT
 TAG:ENEMY 1: SERPENT QUEEN;SKILL 9;STAMINA 7
 TAG:DESTINATION: 295
-TAG:HISTORY
-Silk curtains in front of the archway are suddenly pulled 
+TAG:HISTORY Silk curtains in front of the archway are suddenly pulled 
 aside and a strange creature steps into the room. It has a 
 snake's head, which sits oddly atop the body of a young woman
 wearing a lavish gown. Its mouth opens and a forked tongue 
@@ -1250,8 +1186,7 @@ TAG:CHOICE 1: If you are
 TAG:ACTION 1: 392
 TAG:CHOICE 2: If not
 TAG:ACTION 2: 215
-TAG:HISTORY
-The Stairs lead into a small room, again painted red. Sitting 
+TAG:HISTORY The Stairs lead into a small room, again painted red. Sitting 
 at a table is a strange creature with a long snout and deep
 red, scaly skin. From its jaw protude rows of sharp teeth and
 a long pink tongue darts quickly in and out between them. The
@@ -1265,8 +1200,7 @@ TAG:SUCCESS: If you are Lucky, the lightning bolt misses you, and you manage to 
 TAG:DESTINATION: 304
 TAG:FAIL: If you are Unlucky, the lightning bolt thuds into your back and you cry out in pain.
 TAG:DESTINATION: 243
-TAG:HISTORY
-The man laughs even louder and mocks your attempt to kill him.
+TAG:HISTORY The man laughs even louder and mocks your attempt to kill him.
 You to leap up and make a dash for the front door, picking up
 your sword as you run. The man sees what you are doing and 
 fires another lightning bolt at you. Test your Luck.
@@ -1275,8 +1209,7 @@ fires another lightning bolt at you. Test your Luck.
 TAG:ID: 82
 TAG:CHOICE 1: YOu throw the Hag into the sewer and walk back to the entrance hole.
 TAG:DESTINATION: 104
-TAG:HISTORY
-Before the Hag can complete her spell, you reach into your 
+TAG:HISTORY Before the Hag can complete her spell, you reach into your 
 backpack and take out the bottle containing the potion. You 
 gulp down the liquid and feel its effects immediately. The Hag
 is still mouthing her vile sorcery but you cannot hear her. 
@@ -1295,8 +1228,7 @@ TAG:CHOICE 1: If you wish to continue searching the shop
 TAG:ACTION 1: 322
 TAG:CHOICE 2: If you would rather leave the shop to head north
 TAG:ACTION 2: 93
-TAG:HISTORY
-Fortunately, the contents of the jar are as the label reads, 
+TAG:HISTORY Fortunately, the contents of the jar are as the label reads, 
 although the strength of the mixture is unpredictable. Roll 
 1 dice. The number rolled is the number of STAMINA points that 
 will be restored.
@@ -1307,8 +1239,7 @@ TAG:CHOICE 1: If you wish to walk over to the deck cabin to climb down the stair
 TAG:ACTION 1: 50
 TAG:CHOICE 2: If you would rather leave the ship, walk back along the jetty, turn left end walk north up Harbour Street
 TAG:ACTION 2: 78
-TAG:HISTORY
-The barrels all contain rotten fruit and the boxes contain 
+TAG:HISTORY The barrels all contain rotten fruit and the boxes contain 
 manacles and leg irons. Perhaps this is a slave-trading ship.
 There is nothing else of interest to you on deck.
 </p>
@@ -1316,8 +1247,7 @@ There is nothing else of interest to you on deck.
 TAG:ID: 85
 TAG:CHOICE 1: Outside you set off east once again.
 TAG:DESTINATION: 100
-TAG:HISTORY
-You pay the silversmith and wait patiently while he makes a 
+TAG:HISTORY You pay the silversmith and wait patiently while he makes a 
 silver arrow for you. Finally he presents you with it and 
 assures you that it will be completely accurate in flight. You
 thank him for his trouble and leave his shop.
@@ -1330,8 +1260,7 @@ TAG:CHOICE 2: Put the ball in your backpack.
 TAG:ACTION 2: 194
 TAG:CHOICE 3: Leave the ball behind and continue east.
 TAG:ACTION 3: 161
-TAG:HISTORY
-A leather pouch hanging round the neck of the man contains a 
+TAG:HISTORY A leather pouch hanging round the neck of the man contains a 
 small glass hall containing what looks like swirling smoke.
 Will you:
 </p>
@@ -1341,8 +1270,7 @@ TAG:CHOICE 1: If you wish to inspect any of the wooden boxes and barrels, you wi
 TAG:ACTION 1: 120
 TAG:CHOICE 2: If you wish to creep along the deck to the stairs
 TAG:ACTION 2: 50
-TAG:HISTORY
-You reach the top of the ladder and peer over the handrail to
+TAG:HISTORY You reach the top of the ladder and peer over the handrail to
 survey the ship's deck. There are two large masts rising into
 the air from the deck. Wooden boxes, barrels and coils of 
 rope lie all around, and one of the crew stands on guard at 
@@ -1358,8 +1286,7 @@ TAG:CHOICE 1: If you win
 TAG:ACTION 1: 295
 TAG:CHOICE 2: You may Escape after three Attack Rounds by running out of the house and north along Stable Street.
 TAG:ACTION 2: 333
-TAG:HISTORY
-You pull back the curtains and walk into a very lavish 
+TAG:HISTORY You pull back the curtains and walk into a very lavish 
 boudoir. In it is a young woman with her back towards you. As
 you approach her she spins round and you are stunned to see, 
 not the young woman's face you are expecting, but a large 
@@ -1373,8 +1300,7 @@ TAG:ID: 89
 TAG:STATUS 1: SKILL;DECREASE;2
 TAG:CHOICE 1: You curse and leave the house to head north.
 TAG:DESTINATION: 282
-TAG:HISTORY
-As you slide your hand into the glove, it seems to come alive
+TAG:HISTORY As you slide your hand into the glove, it seems to come alive
 and cling tightly to your hand. Then it changes texture and 
 becomes hot and you feel as though your hand is covered with 
 burning tar  which you are unable to shake off. Mercifully it
@@ -1387,8 +1313,7 @@ TAG:CHOICE 1: Tell them you have caught the escaped prisoner for them
 TAG:ACTION 1: 199
 TAG:CHOICE 2: Offer them a bribe to let you and the prisoner go free
 TAG:ACTION 2: 187
-TAG:HISTORY
-You swing your sword with all your strength and bring it down
+TAG:HISTORY You swing your sword with all your strength and bring it down
 on the heavy chain. Much to your surprise it bounces off. Before
 you have time to try again, you are surrounded by four town guards
 who are pointing their pikes at you. Will you:
@@ -1400,8 +1325,7 @@ TAG:MONEY: DECREASE;1
 TAG:ACTION 1: 332
 TAG:CHOICE 2: If you would rather walk past him
 TAG:ACTION 2: 124
-TAG:HISTORY
-You pass a beggar in the street. He is sitting in the gutter
+TAG:HISTORY You pass a beggar in the street. He is sitting in the gutter
 and holds an empty tin in his hand.
 </p>
 <p id="h92" hidden>
@@ -1409,8 +1333,7 @@ TAG:ID: 92
 TAG:CHOICE 1: You pack it away and walk back to the entrance hole.
 TAG:ITEM: ADD;MIRROR
 TAG:DESTINATION: 174
-TAG:HISTORY
-You are slowly feeling your way along the bricks when your 
+TAG:HISTORY You are slowly feeling your way along the bricks when your 
 hand comes into contact with a smooth flat object. You pull 
 it out and see that you are holding a mirror.
 </p>
@@ -1420,8 +1343,7 @@ TAG:CHOICE 1: If you wish to enter the tavern
 TAG:ACTION 1: 62
 TAG:CHOICE 2: If you would rather continue north
 TAG:ACTION 2: 296
-TAG:HISTORY
-On the right-hand side of the street you see a tavern called
+TAG:HISTORY On the right-hand side of the street you see a tavern called
 the Spotted Dog.
 </p>
 <p id="h94" hidden>
@@ -1429,8 +1351,7 @@ TAG:ID: 94
 TAG:STATUS 1: STAMINA;INCREASE;6
 TAG:CHOICE 1: With strength returned you feel you can now deal with Zanbar Bone and ask the little man of his whereabouts.
 TAG:ACTION 1: 234
-TAG:HISTORY
-The little man smiles and says, 'Easy.' He reaches into his 
+TAG:HISTORY The little man smiles and says, 'Easy.' He reaches into his 
 pocket and produces some sparkling dust which he throws up at
 you. As it settles on your clothes, a feeling of strength 
 surges through your body. Add 6 STAMINA points. He then tells
@@ -1443,8 +1364,7 @@ TAG:CHOICE 1: If you want to enter the shop
 TAG:ACTION 1: 24
 TAG:CHOICE 2: If you would rather continue walking west
 TAG:ACTION 2: 300
-TAG:HISTORY
-On the left side of the street you see a large iron key 
+TAG:HISTORY On the left side of the street you see a large iron key 
 hanging over the doorway of a small shop. A sign in window 
 reads 'J. B. Wraggins, Locksmith'.
 </p>
@@ -1456,8 +1376,7 @@ TAG:CHOICE 2: Close the door and open the white door (if you have not done so al
 TAG:ACTION 2: 319
 TAG:CHOICE 3: Close the door and walk back to the staircase to climb up to the next floor
 TAG:ACTION 3: 197
-TAG:HISTORY
-You open the door and enter a room which is adorned with 
+TAG:HISTORY You open the door and enter a room which is adorned with 
 macabre objects and paintings. A black cat is sitting in front
 of a table covered in black cloth. Two black candles are 
 burning on either side of a mirror on the far wall. On the 
@@ -1468,8 +1387,7 @@ TAG:ID: 97
 TAG:ITEM: ADD;KEY
 TAG:STATUS 1: LUCK;INCREASE;1
 TAG:DESTINATION: 353
-TAG:HISTORY
-You decide to take a quick look inside the kennel. Hanging on
+TAG:HISTORY You decide to take a quick look inside the kennel. Hanging on
 a hook is an iron key which you place in your pocket. Add 1
 LUCK point.
 </p>
@@ -1479,8 +1397,7 @@ TAG:STATUS 1: STAMINA;INCREASE;3
 TAG:STATUS 2: LUCK;INCREASE;1
 TAG:CHOICE 1: Well-refreshed, you set off east, bidding the old man farewell.
 TAG:DESTINATION: 363
-TAG:HISTORY
-You uncork the bottle with your teeth and take a long gulp 
+TAG:HISTORY You uncork the bottle with your teeth and take a long gulp 
 off the liquid. Fortunately the liquid is what the man claims
 it to be. Add 3 STAMINA points and 1 LUCK point.
 </p>
@@ -1490,8 +1407,7 @@ TAG:FIGHT
 TAG:ENEMY 1: CITY GUARD;SKILL 7;STAMINA 4
 TAG:ENEMY 2: CITY GUARD;SKILL 6;STAMINA 6
 TAG:DESTINATION: 285
-TAG:HISTORY
-You are unable to explain why you are in Port Blacksand and 
+TAG:HISTORY You are unable to explain why you are in Port Blacksand and 
 the guards draw their swords, telling you that you are under 
 arrest. You draw your sword and fight them one at a time.
 </p>
@@ -1501,8 +1417,7 @@ TAG:CHOICE 1: If you wish to turn north into Tower Street
 TAG:ACTION 1: 127
 TAG:CHOICE 2: If you wish to continue east into Stable Street
 TAG:ACTION 2: 246
-TAG:HISTORY
-You soon arrive at a junction.
+TAG:HISTORY You soon arrive at a junction.
 </p>
 <p id="h101" hidden>
 TAG:ID: 101
@@ -1510,8 +1425,7 @@ TAG:CHOICE 1: If you wish to attack the impudent Man-Orc
 TAG:ACTION 1: 5
 TAG:CHOICE 2: If you would rather leave the shop and head north again, containing your anger
 TAG:ACTION 2: 93
-TAG:HISTORY
-You enter the shop and see the Man-Orc standing behind the 
+TAG:HISTORY You enter the shop and see the Man-Orc standing behind the 
 counter. He is smiling at your misfortune and says, 'Huh, 
 can't even take Old Trollborn. And don't think I am going to 
 give you your money back.'
@@ -1520,8 +1434,7 @@ give you your money back.'
 TAG:ID: 102
 TAG:CHOICE 1: You walk quickly north before they have time to reappear with more of their gang.
 TAG:DESTINATION: 372
-TAG:HISTORY
-The other two vagabonds stop to aid their friend, but it is 
+TAG:HISTORY The other two vagabonds stop to aid their friend, but it is 
 too late, as he is already dead. They seem undecided as to 
 what to do next. After a brief conversation they pick up their
 dead friend and carry him off down a narrow alleyway to your 
@@ -1531,8 +1444,7 @@ right.
 TAG:ID: 103
 TAG:CHOICE 1: You decide to follow them.
 TAG:DESTINATION: 148
-TAG:HISTORY
-You arrive at a four-way junction in the street. The street 
+TAG:HISTORY You arrive at a four-way junction in the street. The street 
 continuing east changes its name to Clock Streetand the 
 street running north and south is called Market Street.
 Looking north you see a crowd of people walking up the street 
@@ -1552,8 +1464,7 @@ TAG:CHOICE 1: If you wish to approach the front door
 TAG:ACTION 1: 64
 TAG:CHOICE 2: If you wish to keep walking north
 TAG:ACTION 2: 304
-TAG:HISTORY
-Most of the houses in the street are joined in a long terrace,
+TAG:HISTORY Most of the houses in the street are joined in a long terrace,
 but you see one on the left side that stands alone and is set
 back. There appears to be a large wooden kennel outside the 
 heavy oak front door.
@@ -1564,8 +1475,7 @@ TAG:CHOICE 1: If you wish to inspect the open sarcophagus
 TAG:ACTION 1: 163
 TAG:CHOICE 2: If you wish to leave the room immediately
 TAG:ACTION 2: 231
-TAG:HISTORY
-The Lantern breaks on impact with the Mummy and covers it 
+TAG:HISTORY The Lantern breaks on impact with the Mummy and covers it 
 with burning oil. Flames spread quickly along the dry bandages
 and the Mummy is soon consumed by fire.
 </p>
@@ -1585,8 +1495,7 @@ TAG:CHOICE 1: If you have them all and have been tattooed
 TAG:ACTION 1: 201
 TAG:CHOICE 2: If you lack any of the items or have not been tattooed
 TAG:ACTION 2: 299
-TAG:HISTORY
-You lower yourself slowly to the ground. Above you the guards
+TAG:HISTORY You lower yourself slowly to the ground. Above you the guards
 are waving their fists at you from the battlements. You are 
 now outside Port Blacksand. Do you have all the necessary 
 items required to slay the Night Prince?
@@ -1594,8 +1503,7 @@ items required to slay the Night Prince?
 <p id="h109" hidden>
 TAG:ID: 109
 TAG:DESTINATION: 151
-TAG:HISTORY
-The guards lock at each other and burst out laughing. Then one
+TAG:HISTORY The guards lock at each other and burst out laughing. Then one
 says, 'Do you think we would risk letting you in Port Blacksand
 for the sake of 5  Gold Pieces? If Lord Azzur found out that 
 we let you in without a pass, we would be dead men. Leys hear
@@ -1605,8 +1513,7 @@ no more about bribes, it's the dungeon for you.'
 TAG:ID: 110
 TAG:CHOICE 1: It is dangerous to stay here any longer, so you run off west along Mill Street.
 TAG:DESTINATION: 239
-TAG:HISTORY
-Your fight attracted a group of onlookers. Some of the beggars
+TAG:HISTORY Your fight attracted a group of onlookers. Some of the beggars
 even cheered when you cut down old Sourbelly. But one 
 sly-looking character sloped off with the obvious intention of
 finding more guards.
@@ -1617,8 +1524,7 @@ TAG:CHOICE 1: open the other door if you have not done so already
 TAG:ACTION 1: 232
 TAG:CHOICE 2: or leave the ship and continue your search of Port Blacksand, walking north up Harbour  Street
 TAG:ACTION 2: 78
-TAG:HISTORY
-You cut the pouch from round the pirate's neck and open it. 
+TAG:HISTORY You cut the pouch from round the pirate's neck and open it. 
 Inside you find six black pearls. Add 2 LUCK points. You 
 leave the room with your valuable treasure. Outside in the 
 corridor you may either
@@ -1629,8 +1535,7 @@ TAG:CHOICE 1: If you wish to enter the house
 TAG:ACTION 1: 154
 TAG:CHOICE 2: If you prefer to keep walking north
 TAG:ACTION 2: 334
-TAG:HISTORY
-While most of the houses in the are small, cramped and dark, 
+TAG:HISTORY While most of the houses in the are small, cramped and dark, 
 you see one ahead that stands alone and is painted bright red.
 The door has a 'Welcome' sign hanging from it.
 </p>
@@ -1640,8 +1545,7 @@ TAG:CHOICE 1: If you wish to give them something from your backpack, make the ne
 TAG:ACTION 1: 141
 TAG:CHOICE 2: If you would rather leave these strange old ladies and continue east
 TAG:ACTION 2: 375
-TAG:HISTORY
-You enter the house and find yourself standing ina room full 
+TAG:HISTORY You enter the house and find yourself standing ina room full 
 of toys. But they are not ordinary toys. These are stuffed 
 creatures with nails through their heads, dolls' houses that 
 are made to look as if they are on fire, and many other 
@@ -1656,8 +1560,7 @@ toys!'
 TAG:ID: 114
 TAG:CHOICE 1: Take what will and leave the shop to continue west
 TAG:DESTINATION: 196
-TAG:HISTORY
-There are three bejewelled rings under the counter and 13 Gold 
+TAG:HISTORY There are three bejewelled rings under the counter and 13 Gold 
 Pieces in a drawer.
 </p>
 <p id="h115" hidden>
@@ -1666,8 +1569,7 @@ TAG:CHOICE 1: If you want to cut through his chains with your sword
 TAG:ACTION 1: 90
 TAG:CHOICE 2: If you want to hand him over to the town guards
 TAG:ACTION 2: 274
-TAG:HISTORY
-Coming towards you as fast as he is able is a man in tattered
+TAG:HISTORY Coming towards you as fast as he is able is a man in tattered
 rags with a ball and chain attached to his leg. He is 
 exhausted and collapses in your arms. His face is dirty and 
 unshaven. With great difficulty he manages to speak, saying,
@@ -1684,8 +1586,7 @@ TAG:CHOICE 1: If you wish to enter the shop
 TAG:ACTION 1: 250
 TAG:CHOICE 2: If you would rather continue walking north up Market Street
 TAG:ACTION 2: 93
-TAG:HISTORY
-Walking north along the street you see the entrance to a small
+TAG:HISTORY Walking north along the street you see the entrance to a small
 herbalist's shop to your left. Looking through the window you
 see a wooden counter with a pair of scales upon it, and many 
 sacks of different herbs crowding the floor. There is a small
@@ -1698,8 +1599,7 @@ TAG:CHOICE 1: If you wish to take refuge in the derelict house until the rain st
 TAG:ACTION 1: 188
 TAG:CHOICE 2: If you would rather press on ahead
 TAG:ACTION 2: 31
-TAG:HISTORY
-At the end of the market, a Street named Bridge Street runs 
+TAG:HISTORY At the end of the market, a Street named Bridge Street runs 
 north out of the square. You decide to walk down it in the 
 hope of finding the elusive Nicodemus. It starts to rain and 
 the tumbledown houses huddled together on either side of the 
@@ -1713,8 +1613,7 @@ TAG:CHOICE 1: If you do
 TAG:ACTION 1: 2
 TAG:CHOICE 2: If not
 TAG:ACTION 2: 166
-TAG:HISTORY
-You can hear some scratching sounds in the tunnel ahead. Then
+TAG:HISTORY You can hear some scratching sounds in the tunnel ahead. Then
 you see a long shadow appear on the curved brick wall. In the 
 dim light you can just make out the large shape of something 
 black and shiny moving towards you. The scratching becomes 
@@ -1728,8 +1627,7 @@ TAG:CHOICE 1: If you wish to drink the water
 TAG:ACTION 1: 233
 TAG:CHOICE 2: If you would rather keep your gold and walk north
 TAG:ACTION 2: 247
-TAG:HISTORY
-The small boy smiles and thrusts a tin mug into your hand. He
+TAG:HISTORY The small boy smiles and thrusts a tin mug into your hand. He
 tells you the barrel contains sparkling water which cures 
 ills, wounds and diseases. To fill the mug costs 3 Gold Pieces.
 </p>
@@ -1740,8 +1638,7 @@ TAG:SUCCESS: If you are Lucky, he does not hear you approach and you hit him on 
 TAG:DESTINATION: 84
 TAG:FAIL: If you are Unlucky, you stumble on a coil of rope and the pirate turns to face you.
 TAG:DESTINATION: 152
-TAG:HISTORY
-You pick up a piece of wood and run as quietly as possible 
+TAG:HISTORY You pick up a piece of wood and run as quietly as possible 
 over to the pirate to try to knock him unconscious. Test your 
 Luck.
 </p>
@@ -1751,8 +1648,7 @@ TAG:CHOICE 1: If you wish to obey the ungrateful Ogre, and leave the house headi
 TAG:ACTION 1: 282
 TAG:CHOICE 2: If you wish to draw your sword to teach him a lesson
 TAG:ACTION 2: 140
-TAG:HISTORY
-The Ogre gulps down the food in no time at all. Licking his 
+TAG:HISTORY The Ogre gulps down the food in no time at all. Licking his 
 lips, he turns to you and tells you to get out of his home.
 </p>
 <p id="h122" hidden>
@@ -1761,8 +1657,7 @@ TAG:CHOICE 1: If you wish to back out of the room and shut them in
 TAG:ACTION 1: 277
 TAG:CHOICE 2: If you wish to attack them
 TAG:ACTION 2: 361
-TAG:HISTORY
-The room you enter is full of debris and rotting food. 
+TAG:HISTORY The room you enter is full of debris and rotting food. 
 Standing in the middle of all the mess are two men wearing 
 tattered clothing. They have hollow eyes and vacant expressions.
 On seeing you, they pick up wooden sticks and advance towards you.
@@ -1771,8 +1666,7 @@ On seeing you, they pick up wooden sticks and advance towards you.
 TAG:ID: 123
 TAG:STATUS 1: LUCK;INCREASE;1
 TAG:DESTINATION: 300
-TAG:HISTORY
-Inside a box on  a wooden Shelf you find 3 Gold Pieces and 
+TAG:HISTORY Inside a box on  a wooden Shelf you find 3 Gold Pieces and 
 an iron key. On examining it you realize that it is a very 
 special key. It is a skeletom key that will open just about 
 any lock you care to try. Add 1 LUCK point and leave the shop
@@ -1784,16 +1678,14 @@ TAG:CHOICE 1: If you wish to walk down the alleyway
 TAG:ACTION 1: 326
 TAG:CHOICE 2: If you would rather continue along Harbour Street
 TAG:ACTION 2: 180
-TAG:HISTORY
-A narrow alleyway runs south off the street between two houses.
+TAG:HISTORY A narrow alleyway runs south off the street between two houses.
 </p>
 <p id="h125" hidden>
 TAG:ID: 125
 TAG:STATUS: SKILL;DECREASE;1
 TAG:CHOICE 1: Unable to rid yourself of this handicap, you walk over to the spiral staircase and climb up it
 TAG:DESTINATION: 21
-TAG:HISTORY
-This shield is cursed by Zanbar Bone. Anybody who is not 
+TAG:HISTORY This shield is cursed by Zanbar Bone. Anybody who is not 
 undead will suffer if they use it. Lose 1 SKILL point.
 </p>
 <p id="h126" hidden>
@@ -1802,8 +1694,7 @@ TAG:STATUS 1: STAMINA;INCREASE;2;ARROW
 TAG:STATUS 2: SKILL;DECREASE;1
 TAG:CHOICE 1: You leave the house and head north
 TAG:DESTINATION: 112
-TAG:HISTORY
-The little girl grabs hold of your arm and leads into a back
+TAG:HISTORY The little girl grabs hold of your arm and leads into a back
 room. Saying nothing, she motions you to lie down on a 
 sheepskin rug. Suddenly you are aware of a very old man 
 sitting opposite. He rises slowly from his rocking chair and 
@@ -1825,8 +1716,7 @@ TAG:CHOICE 1: If you wish to help the old man
 TAG:ACTION 1: 177
 TAG:CHOICE 2: If you would rather avoid the brawling men and continue north
 TAG:ACTION 2: 348
-TAG:HISTORY
-Just ahead of you, three men are involved in a fight - the two
+TAG:HISTORY Just ahead of you, three men are involved in a fight - the two
 younger men appear to be attacking an older man with iron bars.
 </p>
 <p id="h128" hidden>
@@ -1839,8 +1729,7 @@ TAG:FAIL 1: If you are Unlucky once, a dart flies into your hand.
 TAG:DESTINATION 1: 149
 TAG:FAIL 2: If you are Unlucky twice, both darts fly into your hand.
 TAG:DESTINATION 2: 19
-TAG:HISTORY
-As you try to turn the lock with a piece of bent wire, you are
+TAG:HISTORY As you try to turn the lock with a piece of bent wire, you are
 alarmed by the sound of clicks. Two tiny panels in the chest 
 flick open to expose two needle darts which shoot out at you.
 Test your LUCK twice, once for each dart.
@@ -1848,8 +1737,7 @@ Test your LUCK twice, once for each dart.
 <p id="h129" hidden>
 TAG:ID: 129
 TAG:GAMEOVER
-TAG:HISTORY
-You step back from the vile body of Zanbar Bone, waiting for 
+TAG:HISTORY You step back from the vile body of Zanbar Bone, waiting for 
 him to decay. However, you have chosen wrongly! He pulls the 
 arrow from his chest and rubs the compound from his eyes. He 
 sees you and laughs. You are mesmerized by his power and are
@@ -1864,8 +1752,7 @@ TAG:FIGHT
 TAG:ENEMY 1: CITY GUARD;SKILL 6;STAMINA 6
 TAG:ENEMY 2: CITY GUARD;SKILL 7;STAMINA 5
 TAG:DESTINATION: 74
-TAG:HISTORY
-As the guard slumps to the ground, two more armed men appear 
+TAG:HISTORY As the guard slumps to the ground, two more armed men appear 
 from a stone guardhouse by the gate, obviously attracted by 
 the noise of your battle. There is no time to run so you must
 fight them one at a time.
@@ -1878,8 +1765,7 @@ TAG:CHOICE 2: Tell her you have come to collect old rags
 TAG:ACTION 2: 6
 TAG:CHOICE 3: Tell her you are a tax collector
 TAG:ACTION 3: 179
-TAG:HISTORY
-You walk into a room with sparse furnishings and a polished 
+TAG:HISTORY You walk into a room with sparse furnishings and a polished 
 floor. Silk curtains hang down over an archway on the far wall.
 As you start to walk across the wooden floor, a woman's voice
 calls out 'Who is it?' You may:
@@ -1889,8 +1775,7 @@ TAG:ID: 132
 TAG:ITEM: ADD;SILVER BROOCH;STAMINA 1 AFTER TAG:FIGHT
 TAG:CHOICE 1: Pleased with your purchase, you leave the house and head north.
 TAG:DESTINATION: 334
-TAG:HISTORY
-The creature pins the silver brooch to your leather tunic and
+TAG:HISTORY The creature pins the silver brooch to your leather tunic and
 you pay the price demanded. You have bought an item with 
 healing properties. After surviving any battle, the brooch 
 will immediately restore 1 STAMINA point to your total.
@@ -1901,8 +1786,7 @@ TAG:CHOICE 1: If you wish to walk down the lane
 TAG:ACTION 1: 182
 TAG:CHOICE 2: If you wish to buy some fruit from the barrow-boy
 TAG:ACTION 2: 160
-TAG:HISTORY
-The street ends at a junction with Mill Street, which runs 
+TAG:HISTORY The street ends at a junction with Mill Street, which runs 
 east and west along the city wall. Looking east you see a 
 group of town guards marching towards you and you decide to 
 walk quickly west along Mill Street. On your left you see a 
@@ -1913,8 +1797,7 @@ pushing a barrow laden with fruit.
 TAG:ID: 134
 TAG:CHOICE 1: You stand up and set off west down the street.
 TAG:DESTINATION: 396
-TAG:HISTORY
-You wake up feeling dazed, with a large lump on your head. Your
+TAG:HISTORY You wake up feeling dazed, with a large lump on your head. Your
 backpack lies open by your side and you are annoyed to 
 discover that all your gold has been stolen. Those thieving 
 Dwarfs!
@@ -1925,8 +1808,7 @@ TAG:CHOICE 1: If you still wish to attack him
 TAG:ACTION 1: 229
 TAG:CHOICE 2: If you wish to run of the Shop and go further up Clog Street
 TAG:ACTION 2: 100
-TAG:HISTORY
-When you draw your sword the man cries out and runs into a 
+TAG:HISTORY When you draw your sword the man cries out and runs into a 
 back room. You follow him into the room. He is apparently 
 unarmed, but is holding an egg and a small key in his hands. 
 He warns you that the egg contains a deadly gas and he will 
@@ -1939,8 +1821,7 @@ TAG:CHOICE 1: If you want to fight the innkeeper
 TAG:ACTION 1: 270
 TAG:CHOICE 2: If you want to leave the tavern and head north
 TAG:ACTION 2: 296
-TAG:HISTORY
-You walk over to the bar and order a drink. The old innkeeper
+TAG:HISTORY You walk over to the bar and order a drink. The old innkeeper
 scowls and tells you that he doesn't serve people from out of
 town. He pulls a dagger from his belt and, stabbing it in the
 bar top, tells you to leave.
@@ -1951,8 +1832,7 @@ TAG:DICE: 3;DECREASE;STAMINA
 TAG:STATUS 1: LUCK;DECREASE;2
 TAG:CHOICE 1: If you are still alive, lose 2 LUCK points
 TAG:DESTINATION:  327
-TAG:HISTORY
-As you take your first step forwards you are alarmed to hear the 
+TAG:HISTORY As you take your first step forwards you are alarmed to hear the 
 familiar whistle of arrows flying through the air. They are 
 coming from windows on either side of the street. Roll one dice. 
 This is the number of arrows that will hit you and each will 
@@ -1964,8 +1844,7 @@ TAG:CHOICE 1: If fought the Ape Man
 TAG:ACTION 1: 312
 TAG:CHOICE 2: If you fought any of the other creatures
 TAG:ACTION 2: 283
-TAG:HISTORY
-What is you choice:
+TAG:HISTORY What is you choice:
 </p>
 <p id="h139" hidden>
 TAG:ID: 139
@@ -1973,8 +1852,7 @@ TAG:CHOICE 1: If you wish to enter the house to find out what the argument is ab
 TAG:ACTION 1: 113
 TAG:CHOICE 2: If you would rather ignore the argument and continue east
 TAG:ACTION 2: 375
-TAG:HISTORY
-Walking along the street you are suddenly halted by a plant pot 
+TAG:HISTORY Walking along the street you are suddenly halted by a plant pot 
 smashing on to the cobblestones in front of you. You look to 
 the left and see an open window. Inside, voices can be heard 
 arguing. The door to the house is open.
@@ -1997,8 +1875,7 @@ TAG:CHOICE 1: If you wish to pick up a wooden spoon and drink some of the soup
 TAG:ACTION 1: 68
 TAG:CHOICE 2: If you would rather leave the old ladies and continue east
 TAG:ACTION 2: 375
-TAG:HISTORY
-The women immediately start arguing again over your gift to 
+TAG:HISTORY The women immediately start arguing again over your gift to 
 them, ignoring you completely. You look around the room and 
 see a table set for a meal. There are two bowls of hot soup on 
 top of the table waiting to be drunk.
@@ -2006,8 +1883,7 @@ top of the table waiting to be drunk.
 <p id="h142" hidden>
 TAG:ID: 142
 TAG:GAMEOVER
-TAG:HISTORY
-The crossbow bolt has a poisoned tip. You stagger back from 
+TAG:HISTORY The crossbow bolt has a poisoned tip. You stagger back from 
 the force of the bolt and fall to the ground. The poison 
 spreads through your body quickly and you sink into a deep 
 sleep from which you will not awaken.
@@ -2018,8 +1894,7 @@ TAG:CHOICE 1: If you wish to continue with your feigned illness and tell them th
 TAG:ACTION 1: 306
 TAG:CHOICE 2: If you wish to fight them unarmed
 TAG:ACTION 2: 157
-TAG:HISTORY
-When you hear the guards coming down the stairs, you lie on 
+TAG:HISTORY When you hear the guards coming down the stairs, you lie on 
 the floor and start to groan. They unlock the cell door and 
 enter.
 </p>
@@ -2029,8 +1904,7 @@ TAG:FIGHT
 TAG:ENEMY 1: HAG;SKILL 7;STAMINA 7
 TAG:CHOICE 1: If you win
 TAG:ACTION 1: 303
-TAG:HISTORY
-The Hag screams as your sword cuts deep into her arm. Her 
+TAG:HISTORY The Hag screams as your sword cuts deep into her arm. Her 
 concentration is lost and the spell is broken. Your mind 
 clears and you are able to face her with your senses acute again. 
 From out of her clothing the Hag pulls a dagger with a long 
@@ -2042,8 +1916,7 @@ TAG:CHOICE 1: If you wish to see what she has to offer
 TAG:ACTION 1: 293
 TAG:CHOICE 2: If you wish to leave the shop, refuse politely and head west.
 TAG:ACTION 2: 24
-TAG:HISTORY
-Inside the shop an old woman is busily watering the flowers 
+TAG:HISTORY Inside the shop an old woman is busily watering the flowers 
 and plants. She looks up and smiles, saying, 'Good afternoon.
 my name is Mrs Pipe. Can I interest you in one of my special 
 flowers?'
@@ -2054,8 +1927,7 @@ TAG:CHOICE 1: If you have a key
 TAG:ACTION 1: 220
 TAG:CHOICE 2: If you do not have a key
 TAG:ACTION 2: 388
-TAG:HISTORY
-You walk back into the shop. You try to open the glass 
+TAG:HISTORY You walk back into the shop. You try to open the glass 
 cupboard but it is locked. Inside you see two silver goblets,
 a silver chalice and a silver spoon. Do you have a Skeleton 
 key?
@@ -2066,8 +1938,7 @@ TAG:CHOICE 1: If you wish to drink the liquid
 TAG:ACTION 1: 338
 TAG:CHOICE 2: If you would rather just take the gold and press on northwards
 TAG:ACTION 2: 105
-TAG:HISTORY
-A search through the leather bags of the thieves produces 16 
+TAG:HISTORY A search through the leather bags of the thieves produces 16 
 Gold Pieces and a glass phial containing a green liquid.
 </p>
 <p id="h148" hidden>
@@ -2075,8 +1946,7 @@ TAG:ID: 148
 TAG:MONEY: DECREASE;1
 TAG:CHOICE 1: Unaware of your loss, you walk away from the crowd to look at the various stalls.
 TAG:DESTINATION: 287
-TAG:HISTORY
-As you catch up with the chanting crowd, you see that they are
+TAG:HISTORY As you catch up with the chanting crowd, you see that they are
 carrying eggs and rotten tomatoes. Soon the street opens out 
 into a large market square. All round the edge are stalls with
 vendors, hawkers, musicians and entertainers carrying on their 
@@ -2095,8 +1965,7 @@ TAG:CHOICE 1: If you are still alive and wish to continue picking the lock
 TAG:ACTION 1: 340
 TAG:CHOICE 2: If you would rather leave the room and climb the stairs to the floor above
 TAG:ACTION 2: 60
-TAG:HISTORY
-The dart is poison-tipped. Lose 2 STAMINA points.
+TAG:HISTORY The dart is poison-tipped. Lose 2 STAMINA points.
 </p>
 <p id="h150" hidden>
 TAG:ID: 150
@@ -2104,8 +1973,7 @@ TAG:CHOICE 1: If you wish to pay the fine and out of the city
 TAG:ACTION 1: 367
 TAG:CHOICE 2: If you resist arrest
 TAG:ACTION 2: 73
-TAG:HISTORY
-The Troll bursts out laughing and says, 'Fooled you! There 
+TAG:HISTORY The Troll bursts out laughing and says, 'Fooled you! There 
 isn't a Pepper Street in Port Blacksand!' His face folds into
 a sickly grin and he tells you that you are under arrest for 
 being in Port Blacksand without authorization. He tells you 
@@ -2123,8 +1991,7 @@ TAG:MONEY: DECREASE;10
 TAG:ACTION 1: 351
 TAG:CHOICE 2: If you would rather ignore the old man
 TAG:ACTION 2: 29
-TAG:HISTORY
-The two guards lead you into the guardhouse and take you 
+TAG:HISTORY The two guards lead you into the guardhouse and take you 
 immediately downstairs to the cells below. There are four 
 cells and all are empty except for one which houses a frail, 
 white-haired old man. The guards unlock the cell next to the
@@ -2155,8 +2022,7 @@ Strength.
 TAG:ID: 153
 TAG:CHOICE 1: You decide walk back to the staircase to climb up to the next floor.
 TAG:DESTINATION: 65
-TAG:HISTORY
-Holding the golden owl in your hand, you are able see into the
+TAG:HISTORY Holding the golden owl in your hand, you are able see into the
 pitch-black room. Just in time, you see the trip-wire across 
 the doorway at your feet and the large crossbow pointing at 
 you on the opposite wall. There is nothing else in the room.
@@ -2171,8 +2037,7 @@ TAG:CHOICE 3: Climb the stairs
 TAG:ACTION 3: 80
 TAG:CHOICE 4: Leave the house and head north
 TAG:ACTION 4: 334
-TAG:HISTORY
-Inside the house you find yourself in a room painted red and 
+TAG:HISTORY Inside the house you find yourself in a room painted red and 
 empty apart from a table on top of which are two glass bowls.
 In one there is a small golden scorpion and in the other lies
 a silver scorpion. In far corner of the room are stairs that 
@@ -2193,8 +2058,7 @@ TAG:CHOICE 1: If you have them all and have been tattooed
 TAG:ACTION 1: 201
 TAG:CHOICE 2: If you are missing any of the items or have not been tattooed
 TAG:ACTION 2: 299
-TAG:HISTORY
-Standing on either side of you, the Trolls march you along 
+TAG:HISTORY Standing on either side of you, the Trolls march you along 
 Mill Street until you reach the city's North Gate at the 
 junction with Goose Street. They tell the two guards on duty 
 not to let you back into Port Blacksand. They give you a 
@@ -2210,8 +2074,7 @@ TAG:ENEMY 2: CITY GUARD;SKILL 7;STAMINA 5
 TAG:ATTACK: Attack Strength;DECREASE;3;ROUND
 TAG:CHOICE 1: If you manage to defeat the guards, you leave the cell and climb the stairs, picking up your sword off the table.
 TAG:ACTION 1: 54
-TAG:HISTORY
-You leap up and punch the first guard. He staggers back and 
+TAG:HISTORY You leap up and punch the first guard. He staggers back and 
 draws his sword. You fight them one at a time in the small 
 cell. During each Attack Round you must deduct 3 from your Attack 
 Strength because you are fighting bare handed.
@@ -2222,8 +2085,7 @@ TAG:CHOICE 1: If you wish to open the door in front of you
 TAG:ACTION 1: 122
 TAG:CHOICE 2: If you wish to run back to the staircase and climb up to the next floor
 TAG:ACTION 2: 207
-TAG:HISTORY
-You must react quickly to escape the advancing Suit of Armour.
+TAG:HISTORY You must react quickly to escape the advancing Suit of Armour.
 </p>
 <p id="h159" hidden>
 TAG:ID: 159
@@ -2233,8 +2095,7 @@ TAG:CHOICE 2: Walk through the archway
 TAG:ACTION 2: 107
 TAG:CHOICE 3: Climb the stairs
 TAG:ACTION 3: 60
-TAG:HISTORY
-The owner of the house is obviously quite wealthy. Lavish 
+TAG:HISTORY The owner of the house is obviously quite wealthy. Lavish 
 furnishing and fine objects d'art adorn the marble-floored 
 room in which you stand. An archway leads into a back room 
 and stairs to your right lead up to another floor. Will you:
@@ -2247,8 +2108,7 @@ TAG:ACTION 1: 211
 TAG:CHOICE 2: If you wish to buy a bag of red apples for 1 Gold Piece
 TAG:MONEY: DECREASE;1
 TAG:ACTION 2: 242
-TAG:HISTORY
-The boy puts down his barrow and asks you what you would like
+TAG:HISTORY The boy puts down his barrow and asks you what you would like
 to buy. He recommends his plums as being particularly 
 refreshing.
 </p>
@@ -2258,8 +2118,7 @@ TAG:CHOICE 1: If you wish to enter the house
 TAG:ACTION 1: 245
 TAG:CHOICE 2: If you wish to keep gomg northwards
 TAG:ACTION 2: 282
-TAG:HISTORY
-The street makes a sudden left turn and continues north as far
+TAG:HISTORY The street makes a sudden left turn and continues north as far
 as you can see. However, you notice that round the corner the 
 houses are much bigger, with doorways some four metres high. On
 the left side of the street you see that a door to one of the 
@@ -2272,16 +2131,14 @@ TAG:SUCCESS: If you are Lucky, you manage to cut the pouch loose without waking 
 TAG:DESTINATION: 7
 TAG:FAIL: If you are Unlucky, the man's eyes flick open as you try to cut the cord and he grabs hold of your arm while calling out to his mates for help.
 TAG:DESTINATION: 226
-TAG:HISTORY
-Test your Luck.
+TAG:HISTORY Test your Luck.
 </p>
 <p id="h163" hidden>
 TAG:ID: 163
 TAG:STATUS 1: LUCK;INCREASE;2
 TAG:CHOICE 1: Add 2 LUCK points and leave the room.
 TAG:DESTINATION: 231
-TAG:HISTORY
-The sarcophagus contains a gold ring which has an eye etched 
+TAG:HISTORY The sarcophagus contains a gold ring which has an eye etched 
 into its top. You have found the long-lost Ring of the Golden Eye,
 fabled for its ability to allow its wearer to detect illusions.
 </p>
@@ -2289,8 +2146,7 @@ fabled for its ability to allow its wearer to detect illusions.
 TAG:ID: 164
 TAG:CHOICE 1: After bandaging your wounds you rise to your feet and continue north.
 TAG:DESTINATION: 112
-TAG:HISTORY
-You stagger forward beyond the angle of fire of the unseen 
+TAG:HISTORY You stagger forward beyond the angle of fire of the unseen 
 archers. Ahead you see some sacks lying outside a house and 
 you slump down on top of them. Slowly and painfully you pull 
 the arrows from your body.
@@ -2301,8 +2157,7 @@ TAG:CHOICE 1: Turn right down Candle Street
 TAG:ACTION 1: 139
 TAG:CHOICE 2: Walk back to the junction and go down Harbour Street
 TAG:ACTION 2: 91
-TAG:HISTORY
-You may either turn right down Candle Street or walk back to the junction and go down 
+TAG:HISTORY You may either turn right down Candle Street or walk back to the junction and go down 
 Harbour Street.
 
 </p>
@@ -2312,8 +2167,7 @@ TAG:FIGHT
 TAG:ENEMY 1: GIANT CENTIPEDE;SKILL 10;STAMINA 5
 TAG:CHOICE 1: If you win
 TAG:ACTION 1: 272
-TAG:HISTORY
-You will have to swing your sword with all your might to pierce
+TAG:HISTORY You will have to swing your sword with all your might to pierce
 the armour-like shell of this monster.
 </p>
 <p id="h167" hidden>
@@ -2322,8 +2176,7 @@ TAG:DICE: 1;INCREASE;STAMINA
 TAG:STATUS 1: LUCK;INCREASE;1
 TAG:CHOICE 1: Add 1 LUCK point and turn to 93.
 TAG:DESTINATION: 93
-TAG:HISTORY
-When have paid the Man-Orc the 4 Gold Pieces, he explains that
+TAG:HISTORY When have paid the Man-Orc the 4 Gold Pieces, he explains that
 placing the herbs on a wound will help to heal it. Unfortunately
 the strength of the mixture varies. When required, roll 1 die.
 The number rolled is the number of STAMINA points that will be
@@ -2337,8 +2190,7 @@ TAG:SUCCESS: If the number rolled is equal to or less than your SKILL score, you
 TAG:DESTINATION: 359
 TAG:FAIL: If the number rolled is greater than your SKILL score, the ball goes whistling by your midriff as you swing, and a voice behind you calls, 'You're out!'.
 TAG:DESTINATION: 266
-TAG:HISTORY
-The Bays have difficulty in explaining themselves, but you 
+TAG:HISTORY The Bays have difficulty in explaining themselves, but you 
 manage to understand that one of the other team is going to 
 throw the ball at you. You are handed the wooden stick and 
 told that if you hit the ball over the wall, you will win the
@@ -2351,8 +2203,7 @@ TAG:MONEY: DECREASE;20
 TAG:ACTION 1: 46
 TAG:CHOICE 2: If you wish to leave the stables without buying a coat
 TAG:ACTION 2: 115
-TAG:HISTORY
-The blacksmith removes his gloves and wipes his hands on his 
+TAG:HISTORY The blacksmith removes his gloves and wipes his hands on his 
 apron before asking you what you want. You answer by asking 
 if he makes anything besides horseshoes. He replies that in 
 his spare time he enjoys making chaimail coats. In fact it has 
@@ -2369,8 +2220,7 @@ TAG:CHOICE 1: If you win
 TAG:ACTION 1: 114
 TAG:CHOICE 2: You may Escape by running out of the shop and west along the street.
 TAG:ACTION 2: 196
-TAG:HISTORY
-The man sees you drawing your sword and snatches his battle-axe
+TAG:HISTORY The man sees you drawing your sword and snatches his battle-axe
 off the wall. He walks around the counter to fight you.
 </p>
 <p id="h171" hidden>
@@ -2379,8 +2229,7 @@ TAG:CHOICE 1: If you wish to walk down the jetty to climb on board the ship
 TAG:ACTION 1: 399
 TAG:CHOICE 2: If you wish to walk up Harbour Street
 TAG:ACTION 2: 78
-TAG:HISTORY
-The street gradually starts to run downhill. The houses end at
+TAG:HISTORY The street gradually starts to run downhill. The houses end at
 a tavern called the Black Lobster and the street opens out on 
 to a quayside. A stone jetty runs out to sea and tied to it 
 is an old galleon. It is flying the skull and crossbones and 
@@ -2393,8 +2242,7 @@ you can see.
 TAG:ID: 172
 TAG:CHOICE 1: Outside you set off north along Stable Street.
 TAG:DESTINATION: 333
-TAG:HISTORY
-You take the bunch of flowers out of your backpack and hand it
+TAG:HISTORY You take the bunch of flowers out of your backpack and hand it
 to the Serpent Queen. She thanks you and hands you a tip of 2
 Gold Pieces before showing you to the front door.
 </p>
@@ -2404,8 +2252,7 @@ TAG:CHOICE 1: If you wish to gamble some of your Gold Pieces
 TAG:ACTION 1: 206
 TAG:CHOICE 2: If you would rather leave the smoky tavern and  walk north
 TAG:ACTION 2: 296
-TAG:HISTORY
-The three old bearded Dwarfs are so involved with their game 
+TAG:HISTORY The three old bearded Dwarfs are so involved with their game 
 that they pay you no attention as you sit down at their table. 
 Finally, one turns to you and asks if you would like to join 
 in their game.
@@ -2424,8 +2271,7 @@ TAG:SUCCESS: If you are Lucky, the tail stabs the goblet.
 TAG:DESTINATION: 204
 TAG:FAIL: If you are Unlucky, the barb on its tail sinks into your hand.
 TAG:DESTINATION: 373
-TAG:HISTORY
-Slowly lifting the goblet, you are surprised to see a yellow 
+TAG:HISTORY Slowly lifting the goblet, you are surprised to see a yellow 
 scorpion underneath. It darts forward and tries to sting you 
 on the hand with its poisonous tail. Test your Luck.
 </p>
@@ -2435,8 +2281,7 @@ TAG:CHOICE 1: open the other door if you have not done so already
 TAG:ACTION 1: 271
 TAG:CHOICE 2: or leave the ship and continue your search of Port Blacksand by walking north up Harbour Street
 TAG:ACTION 2: 78
-TAG:HISTORY
-You tell the worried bather that, despite your hatred for 
+TAG:HISTORY You tell the worried bather that, despite your hatred for 
 pirates, you will not harm him if he cooperates with you. You
 ask him if he has any of the items that you are searching for,
 but he replies that as captain of a pirate ship he does not 
@@ -2457,8 +2302,7 @@ TAG:ENEMY 1: ROBBER;SKILL 7;STAMINA 8
 TAG:ENEMY 2: ROBBER;SKILL 8;STAMINA 6
 TAG:CHOICE 1: If you win
 TAG:ACTION 1: 51
-TAG:HISTORY
-You draw your sword and rush to help the old man. He is lying 
+TAG:HISTORY You draw your sword and rush to help the old man. He is lying 
 on the ground and the other two men are beating him and trying
 to take his leather bag. You call out and they turn and attack
 you. Fight them one at a time.
@@ -2471,8 +2315,7 @@ TAG:CHOICE 2: Attack him with your sword
 TAG:ACTION 2: 140
 TAG:CHOICE 3: Leave the house to heed north
 TAG:ACTION 3: 282
-TAG:HISTORY
-The archway leads into a large room in the centre of which 
+TAG:HISTORY The archway leads into a large room in the centre of which 
 crouches a human-like creature, some three metres tall. He 
 looks very worried and is muttering to himself. The lumps on 
 his face are the distinguishing marks of an Ogre. Will you:
@@ -2483,8 +2326,7 @@ TAG:CHOICE 1: If you wish to open the bag
 TAG:ACTION 1: 16
 TAG:CHOICE 2: If you wish to leave the house without the bag and continue north along Stable Street
 TAG:ACTION 2: 333
-TAG:HISTORY
-The silk curtains in front of the archway are pulled aside and
+TAG:HISTORY The silk curtains in front of the archway are pulled aside and
 a brown leather bag flies out and lands in front of you,
 making a dull jingling sound.
 </p>
@@ -2494,8 +2336,7 @@ TAG:CHOICE 1: If you wish to see who it is
 TAG:ACTION 1: 344
 TAG:CHOICE 2: If you would rather hide out of sight behind a barrel and watch the carriage pass by
 TAG:ACTION 2: 34
-TAG:HISTORY
-Ahead you hear the noisy clatter of galloping hooves on the 
+TAG:HISTORY Ahead you hear the noisy clatter of galloping hooves on the 
 cobblestones. You hear the noise of wooden wheels and an 
 urging voice followed by the crack of a whip. Someone is 
 rapidly approaching in a horse-drawn carriage.
@@ -2511,8 +2352,7 @@ TAG:CHOICE 1: If you can afford his high price
 TAG:ACTION 1: 279
 TAG:CHOICE 2: If you cannot
 TAG:ACTION 2: 354
-TAG:HISTORY
-The ends at a small Shop. On the glass-paned door is painted a
+TAG:HISTORY The ends at a small Shop. On the glass-paned door is painted a
 sign: 'Jimmy Quicktint, Best Tattooist in Town'. A tiny bell 
 rings as you push the door open and a fat man wearing purple
 silk smiles in greeting. You are surprised to see that his 
@@ -2531,8 +2371,7 @@ TAG:CHOICE 2: Buy some healing mixture
 TAG:ACTION 2: 167
 TAG:CHOICE 3: Leave the shop and head north
 TAG:ACTION 3: 93
-TAG:HISTORY
-You are told that smoking mixture and a pipe costs 1 Gold 
+TAG:HISTORY You are told that smoking mixture and a pipe costs 1 Gold 
 Piece, and healing mixture costs 4 Gold Pieces per portion. 
 You may:
 </p>
@@ -2542,8 +2381,7 @@ TAG:CHOICE 1: If you do
 TAG:ACTION 1: 55
 TAG:CHOICE 2: If not
 TAG:ACTION 2: 308
-TAG:HISTORY
-Do you have any of Mrs Pipe's golden flowers?
+TAG:HISTORY Do you have any of Mrs Pipe's golden flowers?
 </p>
 <p id="h185" hidden>
 TAG:ID: 185
@@ -2551,8 +2389,7 @@ TAG:CHOICE 1: open the door in front of you
 TAG:ACTION 1: 122
 TAG:CHOICE 2: or walk back to the staircase and climb up to the next floor
 TAG:ACTION 2: 207
-TAG:HISTORY
-The suit of armour breaks up as it crashes on to the floor.
+TAG:HISTORY The suit of armour breaks up as it crashes on to the floor.
 It is no threat to you and you may either
 </p>
 <p id="h186" hidden>
@@ -2561,8 +2398,7 @@ TAG:CHOICE 1: If you wish to pick up the brooch and pin it to your tunic
 TAG:ACTION 1: 387
 TAG:CHOICE 2: If you would rather just take the gold, go back down the stairs and leave the house, heading north
 TAG:ACTION 2: 334
-TAG:HISTORY
-On top of the Lizardine's table you find 4 Gold Pieces and a 
+TAG:HISTORY On top of the Lizardine's table you find 4 Gold Pieces and a 
 scorpion brooch made of copper.
 </p>
 <p id="h187" hidden>
@@ -2571,8 +2407,7 @@ TAG:CHOICE 1: If you wish to give them one of the items they require
 TAG:ACTION 1: 260
 TAG:CHOICE 2: If you do not have any of the items that the guards require
 TAG:ACTION 2: 341
-TAG:HISTORY
-You tell the town guards that you have something special for 
+TAG:HISTORY You tell the town guards that you have something special for 
 them if they let the two of you go. They reply that the 
 prisoner is a murderer and that you should not help him, but 
 they insist that you bribe them or else you too will he taken
@@ -2585,8 +2420,7 @@ TAG:CHOICE 1: If you wish to hack at them with your sword
 TAG:ACTION 1: 253
 TAG:CHOICE 2: If you would rather make a dash for the door
 TAG:ACTION 2: 15
-TAG:HISTORY
-It is gloomy in the house but you can make out the shapes of 
+TAG:HISTORY It is gloomy in the house but you can make out the shapes of 
 abandoned furniture. Litter and rubble is strewn all over the
 floor. You find a broken chair and slump down in it rest.
 Suddenly you notice something slither across the floor, and 
@@ -2601,8 +2435,7 @@ TAG:CHOICE 2: Take the shield with the unicorn crest
 TAG:ACTION 2: 374
 TAG:CHOICE 3: Climb the spiral staircase
 TAG:ACTION 3: 21
-TAG:HISTORY
-You take aim with your bow and fire the arrow at the Spirit 
+TAG:HISTORY You take aim with your bow and fire the arrow at the Spirit 
 Stalker. The arrow plunges into its chest and the agonized 
 look on the face of the Spirit Stalker tells you that the 
 arrow has pierced its heart. It falls to the floor, and smoke
@@ -2624,8 +2457,7 @@ TAG:DESTINATION: 38
 TAG:FAIL: if the number rolled is greater than your SKILL, you are unable to control the fast movement of the dagger and stab one of your fingers. You toss 5 Gold Pieces on the table and stand up to leave the tavern. Outside you head north again.
 TAG:MONEY: DECREASE;5
 TAG:DESTINATION: 296
-TAG:HISTORY
-Sitting down at the table the men invite you to join in their
+TAG:HISTORY Sitting down at the table the men invite you to join in their
 game of pin-finger. You feel obliged to accept their challenge
 and take hold of a dagger offered to you. The men tell you 
 that you must stick the point of the dagger back and forth 
@@ -2653,8 +2485,7 @@ TAG:DESTINATION: 304
 TAG:FAIL: If you are Unlucky, you twist your sword arm badly. Lose 1 SKILL point. Once again, you head north.
 TAG:STATUS 1: SKILL;DECREASE;1
 TAG:DESTINATION: 304
-TAG:HISTORY
-It is a drop of some five metres to the ground and you land 
+TAG:HISTORY It is a drop of some five metres to the ground and you land 
 heavily. Test you Luck.
 </p>
 <p id="h193" hidden>
@@ -2687,8 +2518,7 @@ Which person will you say sent the flowers?  You may:
 TAG:ID: 196
 TAG:CHOICE 1: You decide to follow them.
 TAG:DESTINATION: 148
-TAG:HISTORY
-You arrive at a four-way junction in the street. The Street 
+TAG:HISTORY You arrive at a four-way junction in the street. The Street 
 continuing west changes its name to Key Street, and the street
 running north and south is called Market Street. Looking north
 you see a crowd of people walking up the street cheering 
@@ -2702,8 +2532,7 @@ TAG:CHOICE 2: Open the door
 TAG:ACTION 2: 122
 TAG:CHOICE 3: Carry on up the stairs
 TAG:ACTION 3: 207
-TAG:HISTORY
-On the next landing there is a door with a black tower carved
+TAG:HISTORY On the next landing there is a door with a black tower carved
 in ebony attached to it. There is a black suit of armour 
 standing outside the door. Will you:
 </p>
@@ -2711,8 +2540,7 @@ standing outside the door. Will you:
 TAG:ID: 198
 TAG:CHOICE 1: You take your findings and leave the tavern to head north.
 TAG:DESTINATION: 296
-TAG:HISTORY
-You look around at the rest of the crowd but they remain 
+TAG:HISTORY You look around at the rest of the crowd but they remain 
 seated out of respect for your swordsmanship. You search 
 through the dirty clothing of the Goblins and find 9 Gold 
 Pieces and a small carved ivory skull on a silver chain.
@@ -2721,8 +2549,7 @@ Pieces and a small carved ivory skull on a silver chain.
 TAG:ID: 199
 TAG:CHOICE 1: You decide to head quickly north in case the murderer tries to implicate you.
 TAG:DESTINATION: 222
-TAG:HISTORY
-You the town guards that you are a bounty hunter. They seem 
+TAG:HISTORY You the town guards that you are a bounty hunter. They seem 
 pleased that you have caught their wanted man.  The chief 
 guard walks over to you and hands you 5 Gold Pieces, saying,
 'This murderer won't escape again. Here's your reward.' He 
@@ -2735,8 +2562,7 @@ TAG:CHOICE 1: If you wish to enter the tent
 TAG:ACTION 1: 394
 TAG:CHOICE 2: If you would rather continue north
 TAG:ACTION 2: 117
-TAG:HISTORY
-In the next stall area there is a small, brightly coloured 
+TAG:HISTORY In the next stall area there is a small, brightly coloured 
 tent. Attached to it is a small sign which reads, 'Madame 
 Star, Clairvoyant'.
 </p>
@@ -2753,8 +2579,7 @@ TAG:ENEMY 5: APE MAN;SKILL 7;STAMINA 6
 TAG:ENEMY 6: CAVE TROLL;SKILL 8;STAMINA 7
 TAG:CHOICE 1: If you win
 TAG:ACTION 1: 138
-TAG:HISTORY
-Following Nicodemus's map, you start your long walk north to 
+TAG:HISTORY Following Nicodemus's map, you start your long walk north to 
 the guarded tower of Zanbar Bone, the Night Prince. You walk 
 through woods and fields. You are able to relax a little in 
 the pleasant countryside and breathe the fresh air with its 
@@ -2802,8 +2627,7 @@ TAG:CHOICE 2: Attempt to fight the guards
 TAG:ACTION 2: 69
 TAG:CHOICE 3: Try to bribe the guards
 TAG:ACTION 3: 276
-TAG:HISTORY
-The guard replies that he will send for an escort to take you
+TAG:HISTORY The guard replies that he will send for an escort to take you
 to Nicodemus. He reaches up to a small bell on the wall of the
 guardhouse and rings it three times. Almost immediately two 
 other guards come running out of the house, and you are 
@@ -2845,8 +2669,7 @@ TAG:CHOICE 1: If you wish to walk round the corner
 TAG:ACTION 1: 44
 TAG:CHOICE 2: If wish to walk back to the junction and turn right into Tower Street 
 TAG:ACTION 2: 127
-TAG:HISTORY
-After replacing the manhole cover you set off east again. 
+TAG:HISTORY After replacing the manhole cover you set off east again. 
 Everything seems a little too quiet and you begin to feel 
 nervous. Ahead you see that Stable Street turns sharply to the
 left.
@@ -2862,8 +2685,7 @@ TAG:WIN:  MONEY;INCREASE;6
 TAG:LOSE: MONEY;DECREASE;2
 TAG:CHOICE 1: At the end of the game you leave the tavern yourself to head north.
 TAG:ACTION 1: 296
-TAG:HISTORY
-The Dwarf explains that they are playing a simple winner-takes-all
+TAG:HISTORY The Dwarf explains that they are playing a simple winner-takes-all
 dice game. The stakes are 2 Gold Pieces. Each person will 
 stake 2 Gold Pieces and roll two dice. The person rolling the
 highest number collects the 8 Gold Pieces. To play, roll two 
@@ -2882,8 +2704,7 @@ TAG:ENEMY 1: DEATH HAWK;SKILL 4;STAMINA 5
 TAG:ENEMY 2: DEATH HAWK;SKILL 4;STAMINA 4
 TAG:CHOICE 1: If you win
 TAG:ACTION 1: 314
-TAG:HISTORY
-The staircase ends at a door. You turn the handle slowly and 
+TAG:HISTORY The staircase ends at a door. You turn the handle slowly and 
 the door opens, much to your surprise, into open air. You walk
 outside on to the flat roof of the tower. Suddenly you are 
 aware of movement in the sky and look up to see two large 
@@ -2895,8 +2716,7 @@ fight the DEATH HAWKS.Fight them one at a time.
 TAG:ID: 208
 TAG:CHOICE 1: Take what you wish and head east again along Clog Street.
 TAG:DESTINATION: 317
-TAG:HISTORY
-The Goblin's pockets contain 2 Gold Pieces, a clove of garlic
+TAG:HISTORY The Goblin's pockets contain 2 Gold Pieces, a clove of garlic
 and some old knucklebones.
 </p>
 <p id="h209" hidden>
@@ -2909,16 +2729,14 @@ TAG:CHOICE 3: If you are not interested in the goblets, you may either walk thro
 TAG:ACTION 3: 107
 TAG:CHOICE 4: or climb the stairs
 TAG:ACTION 4: 60
-TAG:HISTORY
-Underneath the goblet lies a small pile of Gold Pieces. You 
+TAG:HISTORY Underneath the goblet lies a small pile of Gold Pieces. You 
 count 12 in all and put them in your backpack. If you have 
 not done so already, you may
 </p>
 <p id="h210" hidden>
 TAG:ID: 210
 TAG:GAMEOVER
-TAG:HISTORY
-Her gaze is so hypnotic that you are unable to look away. You
+TAG:HISTORY Her gaze is so hypnotic that you are unable to look away. You
 are defenceless and cannot resist as she embraces you and 
 slowly sinks her fangs into your neck to drink your blood. You
 drift into an unconscious sleep, and when you awake you are unaware
@@ -2929,15 +2747,13 @@ TAG:ID: 211
 TAG:STATUS 1: STAMINA:INCREASE;1
 TAG:CHOICE 1:
 TAG:DESTINATION: 307
-TAG:HISTORY
-The plums are sweet and juicy and taste delicious. Add 1 
+TAG:HISTORY The plums are sweet and juicy and taste delicious. Add 1 
 STAMINA point.
 </p>
 <p id="h212" hidden>
 TAG:ID: 212
 TAG:DESTINATION: 74
-TAG:HISTORY
-You are relieved that the noise of your fight did not attract
+TAG:HISTORY You are relieved that the noise of your fight did not attract
 any more guards, but not wishing to tempt providence you dash
 into the city.
 </p>
@@ -2949,8 +2765,7 @@ TAG:CHOICE 2: Attack him with your sword
 TAG:ACTION 2: 135
 TAG:CHOICE 3: Leave the shop and continue east
 TAG:ACTION 3: 100
-TAG:HISTORY
-A man wearing a white apron is sitting at a bench busily polishing
+TAG:HISTORY A man wearing a white apron is sitting at a bench busily polishing
 a silver goblet. There are several silver objects in a glass
 cupboard secured by an iron grill at the back of the shop.
 You may:
@@ -2962,8 +2777,7 @@ TAG:SUCCESS: If you are Lucky, you manage to jump back out of reach of the swing
 TAG:DESTINATION: 158
 TAG:FAIL: If you are Unlucky, the blade cuts into your left arm.
 TAG:DESTINATION: 379
-TAG:HISTORY
-As soon as you touch the battle-axe, the Suit of Armour starts
+TAG:HISTORY As soon as you touch the battle-axe, the Suit of Armour starts
 to move. In a series of quick, jerky movements it swings the 
 battle-axe in a attempt to strike you. Test your Luck.
 </p>
@@ -2973,8 +2787,7 @@ TAG:CHOICE 1: If you wish to buy one
 TAG:ACTION 1: 315
 TAG:CHOICE 2: If you would rather refuse politely, go back down the stairs and leave the house to head north
 TAG:ACTION 2: 334
-TAG:HISTORY
-The lizard-like creature starts to speak in a low, hissing
+TAG:HISTORY The lizard-like creature starts to speak in a low, hissing
 voice by asking whether you would like to buy one of its famous
 scorpion brooches.
 </p>
@@ -2984,8 +2797,7 @@ TAG:CHOICE 1: If you wish to stop to help
 TAG:ACTION 1: 72
 TAG:CHOICE 2: If you would rather walk on
 TAG:ACTION 2: 317
-TAG:HISTORY
-Clog Street is very narrow and lined with terraced cottages
+TAG:HISTORY Clog Street is very narrow and lined with terraced cottages
 and the occasional shop. To your left you see what looks like
 a small boy lying face down on the cobblestones, groaning
 loudly. A hood is pulled over his head and you cannot see his
@@ -2998,8 +2810,7 @@ TAG:ENEMY 1: MOON DOG;SKILL 9;STAMINA 10
 TAG:ENEMY 2: MOON DOG;SKILL 11;STAMINA 9
 TAG:CHOICE 1: If you win
 TAG:ACTION 1: 259
-TAG:HISTORY
-You walk all day until you reach the hill shown on Nicodemus'
+TAG:HISTORY You walk all day until you reach the hill shown on Nicodemus'
 map upon which the Night Prince's tower stands. All is quiet
 and there is an unpleasant smell of decay in the air. Shadows
 start to creep along the ground as the moon rises into the
@@ -3015,8 +2826,7 @@ Zanbar Bone's trained killer hounds. Fight them one at a time.
 TAG:ID: 218
 TAG:CHOICE 1: You thank the Dwarf for his infomation and leave his shop to continue west along Key Street.
 TAG:DESTINATION: 300
-TAG:HISTORY
-The Dwarf smiles and extends his arm you, saying, An enemy of
+TAG:HISTORY The Dwarf smiles and extends his arm you, saying, An enemy of
 Nicodemus is a friend of mine. Welcome stranger'. You tell 
 Wraggins that you do not know where Nicodemus lives and he 
 explains that the wizard lives alone in a small hut under 
@@ -3030,8 +2840,7 @@ TAG:CHOICE 1: If you wish to answer 'Yes'
 TAG:ACTION 1: 150
 TAG:CHOICE 2: If you wish to answer 'No'
 TAG:ACTION 2: 393
-TAG:HISTORY
-The larger of the two Trolls tells you that his name is 
+TAG:HISTORY The larger of the two Trolls tells you that his name is 
 Sourbelly and it is his duty to track down unwelcome visitors 
 to Port Blacksand. He looks at the pass and says, 'You don't 
 look much like a merchant to me. Are you one of those fancy 
@@ -3041,8 +2850,7 @@ folk who have been attending the spice sales in Pepper Street?'
 TAG:ID: 220
 TAG:CHOICE 1: You find nothing else of interest in the shop, so you walk outside and continue east.
 TAG:DESTINATION: 100
-TAG:HISTORY
-The key fits the lock securing the grill enclosing the glass 
+TAG:HISTORY The key fits the lock securing the grill enclosing the glass 
 cupboard. It clicks open and you are able to take any of the 
 items you wish.
 </p>
@@ -3051,8 +2859,7 @@ TAG:ID: 221
 TAG:STATUS 1: LUCK;DECREASE;2
 TAG:CHOICE 1: Returning to the street, you turn left and head west.
 TAG:DESTINATION: 396
-TAG:HISTORY
-The alley is narrow and dark and runs south some twenty metres
+TAG:HISTORY The alley is narrow and dark and runs south some twenty metres
 before to a dead end at a wall. The Dwarfs are nowhere to be 
 seen. You start walking slowly back up the alley when suddenly
 a net falls on you from above. It is weighted and you stumble 
@@ -3070,8 +2877,7 @@ TAG:MONEY: DECREASE;1
 TAG:ACTION 1: 370
 TAG:CHOICE 2: If you would rather keep on walking 
 TAG:ACTION 2: 133
-TAG:HISTORY
-On the right-hand side the houses are separated the street by
+TAG:HISTORY On the right-hand side the houses are separated the street by
 a wooden fence with shrubs, trees, bushes and flowers behind it.
 There is a turnstile in the middle of the fence, by the side 
 of which is a sign reading: 'Public Gardens. Entry Fee 1 Gold
@@ -3089,8 +2895,7 @@ TAG:MONEY: INCREASE;20
 TAG:DESTINATION 1: 165
 TAG:CHOICE 2: A roll of 1 means you die quickly from the poisoned pill and your adventure ends here.
 TAG:GAMEOVER
-TAG:HISTORY
-Sweat breaks out on your forehead - you choose a pill and 
+TAG:HISTORY Sweat breaks out on your forehead - you choose a pill and 
 swallow it. Roll one die. If you roll any number 2 and 6, you
 have chosen a harmless pill. The man reaches into a pouch on
 his cord belt and hands you 20 Gold Pieces. He then bids you
@@ -3103,8 +2908,7 @@ TAG:CHOICE 1: You may either ask him if he has any skeleton keys for sale
 TAG:ACTION 1: 66
 TAG:CHOICE 2: or ask him if he knows where Nicodemus lives
 TAG:ACTION 2: 236
-TAG:HISTORY
-Sitting on a stool at the back of the shop is an old bespectacled
+TAG:HISTORY Sitting on a stool at the back of the shop is an old bespectacled
 Dwarf. He is busy cutting a key on a cast-iron treadle machine
 which squeaks and grinds noisily. You cough to get his attention,
 but he does not look up from his work. Finally the machine 
@@ -3118,8 +2922,7 @@ TAG:ENEMY 1: VAGABOND;SKILL 6;STAMINA 7
 TAG:ENEMY 1: VAGABOND;SKILL 5;STAMINA 6
 TAG:CHOICE 1: If you win
 TAG:ACTION 1: 397
-TAG:HISTORY
-Each VAGABOND boasts that he can kill you singlehanded. They 
+TAG:HISTORY Each VAGABOND boasts that he can kill you singlehanded. They 
 decide to fight you one at a time.
 </p>
 <p id="h226" hidden>
@@ -3132,8 +2935,7 @@ TAG:CHOICE 1: If you win
 TAG:ACTION 1: 111
 TAG:CHOICE 2: You may Escape by backing out through the door and fleeing from the ship north up Harbour Street.
 TAG:ACTION 2: 78
-TAG:HISTORY
-You manage to break free from the pirate's grip and draw your
+TAG:HISTORY You manage to break free from the pirate's grip and draw your
 sword. You step backwards towards the door as the PIRATES leap
 from their bunks to grab their cutlasses. The room is cramped
 and you fight them one at a time.
@@ -3144,8 +2946,7 @@ TAG:CHOICE 1: If you wish to try them on
 TAG:ACTION 1: 362
 TAG:CHOICE 2: If you wish to keep walking east
 TAG:ACTION 2: 103
-TAG:HISTORY
-The street soon makes another sharp turn to the right and you
+TAG:HISTORY The street soon makes another sharp turn to the right and you
 find yourself walking east. Outside one of the houses to your
 left is a pile of rubbish and broken objects. On top of the
 pile is a pair of old boots that look about your size.
@@ -3158,8 +2959,7 @@ TAG:CHOICE 2: Take the shield with the unicorn crest
 TAG:ACTION 2: 374
 TAG:CHOICE 3: Climb the spiral staircase
 TAG:ACTION 3: 21
-TAG:HISTORY
-The key fits the lock, which clicks open as you turn it. You 
+TAG:HISTORY The key fits the lock, which clicks open as you turn it. You 
 open the door and enter a beautiful marble-floored hallway.
 On three of the four walls hang portraits of evil-looking men
 and women, but on the far wall hang two iron shields. The 
@@ -3174,8 +2974,7 @@ TAG:SUCCESS: If you are Lucky, the egg misses you and breaks against a wall to r
 TAG:DESTINATION: 23
 TAG:FAIL: If you are Unlucky, the egg breaks against your chest and you breathe in some of the green-coloured gas released.
 TAG:DESTINATION: 342
-TAG:HISTORY
-As you advance towards him the man swallows the key and throws
+TAG:HISTORY As you advance towards him the man swallows the key and throws
 the egg at you. Test your Luck.
 </p>
 <p id="h230" hidden>
@@ -3185,8 +2984,7 @@ TAG:ENEMY 1: CITY GUARD;SKILL 6;STAMINA 6
 TAG:ENEMY 1: CITY GUARD;SKILL 7;STAMINA 5
 TAG:CHOICE 1: If you win, you climb the stairs.
 TAG:ACTION 1: 54
-TAG:HISTORY
-You scratch around in the cracks in the wall and find a loose
+TAG:HISTORY You scratch around in the cracks in the wall and find a loose
 stone. The old man watches intently as you pull the stone out
 of the wall. Peering into the hole you see an iron key. You 
 place it in the lock of your cell and are amazed to feel it 
@@ -3205,8 +3003,7 @@ TAG:CHOICE 1: enter the black door
 TAG:ACTION 1: 96
 TAG:CHOICE 2: or walk back to the stairs to climb up to the next floor
 TAG:ACTION 2: 197
-TAG:HISTORY
-Outside on the landing you may either
+TAG:HISTORY Outside on the landing you may either
 </p>
 <p id="h232" hidden>
 TAG:ID: 232
@@ -3214,8 +3011,7 @@ TAG:CHOICE 1: If you wish to hide behind the door inside the room to see who is 
 TAG:ACTION 1: 12
 TAG:CHOICE 2: If you would rather close the door
 TAG:ACTION 2: 383
-TAG:HISTORY
-The door opens into a small room, in the centre of which stands
+TAG:HISTORY The door opens into a small room, in the centre of which stands
 a steaming tub of hot water.
 </p>
 <p id="h233" hidden>
@@ -3223,16 +3019,14 @@ TAG:ID: 233
 TAG:STATUS 1: STAMINA;INCREASE;1
 TAG:CHOICE 1: You shake your fist at the boy in mock anger, and set off north.
 TAG:DESTINATION: 247
-TAG:HISTORY
-The spaekling water is refreshing but not as medicinal as the
+TAG:HISTORY The spaekling water is refreshing but not as medicinal as the
 small boy claimed. Add 1 STAMINA point to your total.
 </p>
 <p id="h234" hidden>
 TAG:ID: 234
 TAG:CHOICE 1: You breathe in deeply and turnihe handle of the black door.
 TAG:DESTINATION: 96
-TAG:HISTORY
-The tiny man smiles and says, 'Ah well, if that's all you want,
+TAG:HISTORY The tiny man smiles and says, 'Ah well, if that's all you want,
 then that's simple enough. He's on the fourth floor in the 
 room with the black door.' Then he waves his arms at you and 
 disappears in a small puff of smoke. You stand up and walk 
@@ -3243,8 +3037,7 @@ adjacent to each other on the landing.
 TAG:ID: 235
 TAG:CHOICE 1: You stand up, walk over to the staircase and climb up to the next floor.
 TAG:DESTINATION: 65
-TAG:HISTORY
-You decide not to risk any further possible danger to yourself
+TAG:HISTORY You decide not to risk any further possible danger to yourself
 and crawl out of the room.
 </p>
 <p id="h236" hidden>
@@ -3253,8 +3046,7 @@ TAG:CHOICE 1: that you are on a mission from Silverton and need the help of Nico
 TAG:ACTION 1: 57
 TAG:CHOICE 2: or that you want to kill Nicodemus
 TAG:ACTION 2: 218
-TAG:HISTORY
-Your question produces a suspicious look on the face of the 
+TAG:HISTORY Your question produces a suspicious look on the face of the 
 Dwarf and he raises one eyebrow. Then he says, 'I know 
 Nicodemus but what do you want of him?' You may reply by 
 telling him either
@@ -3263,8 +3055,7 @@ telling him either
 TAG:ID: 237
 TAG:CHOICE 1: You run to the turnstile clutching the lotus and make your escape into Stable Street.
 TAG:DESTINATION: 133
-TAG:HISTORY
-You rub the jewel in the ring it at the Leaf Beasts. A blast 
+TAG:HISTORY You rub the jewel in the ring it at the Leaf Beasts. A blast 
 of fire shoots out of the ring and burns a large hole in the
 nearest Leaf Beast. It makes a whistling cry and backs away.
 You seize your opportunity and dash through their broken defence.
@@ -3275,8 +3066,7 @@ TAG:CHOICE 1: If you wish to walk down the alley and open the door
 TAG:ACTION 1: 27
 TAG:CHOICE 2: If you would rather continue east
 TAG:ACTION 2: 139
-TAG:HISTORY
-On the right side of the street you see a small alleyway 
+TAG:HISTORY On the right side of the street you see a small alleyway 
 between two houses. The alley soon ends at a doorway with six
 skulls painted on it; one black and five white.
 </p>
@@ -3286,8 +3076,7 @@ TAG:CHOICE 1: If you have
 TAG:ACTION 1: 201
 TAG:CHOICE 2: If you are missing any of the items, or have not been tattooed
 TAG:ACTION 2: 299
-TAG:HISTORY
-Behind you comes the sound of running feet. You look round and
+TAG:HISTORY Behind you comes the sound of running feet. You look round and
 see a group of town guards chasing after you. As you stop to think
 where to run next, a boy runs out of a house and shouts, 
 'Follow me!' You have no better plan in minds so you run after
@@ -3321,8 +3110,7 @@ TAG:CHOICE 1: If you now wish to inquire about the price of his rings
 TAG:ACTION 1: 36
 TAG:CHOICE 2: If you have had enough of transactions for the time being, you leave the shop and head west.
 TAG:ACTION 2: 196
-TAG:HISTORY
-The man hands you the gold and puts the gems under the counter.
+TAG:HISTORY The man hands you the gold and puts the gems under the counter.
 </p>
 <p id="h241" hidden>
 TAG:ID: 241
@@ -3331,8 +3119,7 @@ TAG:CHOICE 1: If you wish to see one
 TAG:ACTION 1: 63
 TAG:CHOICE 2: If you would rather leave the shop and head east
 TAG:ACTION 2: 280
-TAG:HISTORY
-Inside the shop you see a tall, thin man with pointed ears 
+TAG:HISTORY Inside the shop you see a tall, thin man with pointed ears 
 and fair hair, pouringhot wax from an pan into a mould. The 
 candle-maker is an Elf, As he turns to you to speak, you 
 notice his slanted eyes, which are ice blue. For some reason 
@@ -3346,8 +3133,7 @@ TAG:ID: 242
 TAG:STATUS 1: STAMINA;DECREASE;1
 TAG:CHOICE 1: You throw the other apples away and continue west.
 TAG:DESTINATION: 307
-TAG:HISTORY
-The boy hurriedly picks up his barrow and dashes off, saying 
+TAG:HISTORY The boy hurriedly picks up his barrow and dashes off, saying 
 he is late for market. You eat an apple but it is sour. Your
 stomach starts to hurt and the pain develops into cramp. You
 do not feel very well at all. Lose 1 STAMINA point.
@@ -3357,8 +3143,7 @@ TAG:ID: 243
 TAG:STATUS 1: STAMINA;DECREASE;5
 TAG:CHOICE 1: Hauling yourself to your feet you stagger off up the street
 TAG:DESTINATION: 304
-TAG:HISTORY
-You have suffered a terrible burn. Lose 5 STAMINA points. If 
+TAG:HISTORY You have suffered a terrible burn. Lose 5 STAMINA points. If 
 you are Still alive, you decide to lie and feign death. Behind
 you the fat man is still chortling to himself. You hear him 
 walk over to you and then feel a sharp pain as he kicks you in
@@ -3374,8 +3159,7 @@ TAG:CHOICE 2: Black pearls and lotus flower
 TAG:ACTION 2: 129
 TAG:CHOICE 3: Lotus flower and Hag's hair
 TAG:ACTION 3: 337
-TAG:HISTORY
-The Night Prince is paralysed, but not for long. He can summon
+TAG:HISTORY The Night Prince is paralysed, but not for long. He can summon
 unearthly powers to defend himself, and you must act quickly. 
 What compound will you rub into his eyes? Will you try:
 </p>
@@ -3385,8 +3169,7 @@ TAG:CHOICE 1: If you want to walk through the archway
 TAG:ACTION 1: 178
 TAG:CHOICE 2: If you wish to leave the house and continue north
 TAG:ACTION 2: 282
-TAG:HISTORY
-You enter a large room with brown walls and a straw-covered 
+TAG:HISTORY You enter a large room with brown walls and a straw-covered 
 floor. There is a musty smell hanging in the air which reminds
 you of the dirty old Cave Trolls that live on the northern borders.
 In the middle of the room is a table made from half a barrel 
@@ -3401,8 +3184,7 @@ TAG:MONEY: DECREASE;2
 TAG:ACTION 1: 98
 TAG:CHOICE 2: If you would rather keep going east
 TAG:ACTION 2: 363
-TAG:HISTORY
-As you walk warily down the narrow cobbled street, you are 
+TAG:HISTORY As you walk warily down the narrow cobbled street, you are 
 suddenly confronted by a little old man who dashes out of one
 of the houses. He pulls a dirty bottle out of a canvas bag. As
 he speaks, you can't help staring at the large wart on his nose,
@@ -3416,8 +3198,7 @@ TAG:SUCCESS: If you are Lucky, you manage to duck to avoid the blow.
 TAG:DESTINATION: 384
 TAG:FAIL: If you are Unlucky, the cudgel lands heavily on the back of your head, knocking you unconscious.
 TAG:DESTINATION: 134
-TAG:HISTORY
-The street makes a sharp turn to the left and continues west 
+TAG:HISTORY The street makes a sharp turn to the left and continues west 
 for some distance. Turning the corner, you are suddenly jumped 
 on by three short, stocky assailants who were hiding down an 
 alley. Two grab your legs and one tries to knock you out with 
@@ -3441,8 +3222,7 @@ TAG:FIGHT
 TAG:ENEMY 1: SERPENT QUEEN;SKILL 9;STAMINA 7
 TAG:CHOICE 1: If you win
 TAG:ACTION 1: 295
-TAG:HISTORY
-The Serpent Queen's head darts about you very quickly as she 
+TAG:HISTORY The Serpent Queen's head darts about you very quickly as she 
 tries to bite you with her poisonous fangs. She will be 
 difficult to defeat.
 </p>
@@ -3454,8 +3234,7 @@ TAG:CHOICE 2: Ask if the Man-Orc knows of Nicodemus
 TAG:ACTION 2: 342
 TAG:CHOICE 3: Attack the Man-arc
 TAG:ACTION 3: 5
-TAG:HISTORY
-A small bell rings as the and a creature wearing a brown apron
+TAG:HISTORY A small bell rings as the and a creature wearing a brown apron
 over his clothing hurries through the archway from the back 
 room into the shop to stand behind the counter. He appears 
 human-like but has very ugly facial features and pointed teeth.
@@ -3471,8 +3250,7 @@ TAG:SUCCESS: If you are Lucky, the bolt thuds into the ground at your feet.
 TAG:DESTINATION: 269
 TAG:FAIL: If you are Unlucky, the bolt lodges deeply in your shoulder.
 TAG:DESTINATION: 330
-TAG:HISTORY
-One of the small people Stops and looks down at you. He 
+TAG:HISTORY One of the small people Stops and looks down at you. He 
 mistakes you for a town guard and calls out to his 
 accomplices to run for cover. Then he points a short crossbow
 at you and fires a bolt. Test your Luck.
@@ -3484,8 +3262,7 @@ TAG:SUCCESS: If you are Lucky, you escape injury from the horses as you land in 
 TAG:DESTINATION: 275
 TAG:FAIL: If you are Unlucky, you are trampled underfoot by one of the horses.
 TAG:DESTINATION: 155
-TAG:HISTORY
-The carnage is not going to stop! Suddenly the four horses,
+TAG:HISTORY The carnage is not going to stop! Suddenly the four horses,
 their eves wide with terror, are almost on top of you. You 
 must dive to one side to avoid being run down. Test your Luck.
 </p>
@@ -3496,8 +3273,7 @@ TAG:ENEMY 1: SNAKES;SKILL 5;STAMINA 5
 TAG:STATUS 1: STAMINA;DECREASE;4;WOUND
 TAG:CHOICE 1: If you win, you may leave the house by the front door.
 TAG:ACTION 1: 75
-TAG:HISTORY
-The SNAKES are not very tough opponents for a person trained 
+TAG:HISTORY The SNAKES are not very tough opponents for a person trained 
 in the art of swordsmanship. Treat them as a single creature.
 However, each Attack Round that they inflict a wound on you, 
 4 points must be subtracted from your STAMINA score because 
@@ -3507,8 +3283,7 @@ of their poisonous bite.
 TAG:ID: 254
 TAG:CHOICE 1: You then run over to the staircase and climb the stairs to the next floor.
 TAG:DESTINATION: 310
-TAG:HISTORY
-A horrified look spreads across the Vampire's face when she 
+TAG:HISTORY A horrified look spreads across the Vampire's face when she 
 sees the clove of garlic in your hand. She retreats into a 
 corner of the room trying to escape the pungent smell, which 
 negates her blood-sucking powers. You back out of the room 
@@ -3519,8 +3294,7 @@ outside.
 TAG:ID: 255
 TAG:CHOICE 1: You walk on quickly north.
 TAG:DESTINATION: 227
-TAG:HISTORY
-The guards eye you suspiciously but let you walk on after your
+TAG:HISTORY The guards eye you suspiciously but let you walk on after your
 pass.
 </p>
 <p id="h256" hidden>
@@ -3529,8 +3303,7 @@ TAG:CHOICE 1: If you wish to stop to talk with the women
 TAG:DESTINATION 1: 320
 TAG:CHOICE 2: If you wish to ignore them and walk straight back to the junction
 TAG:DESTINATION 2: 369
-TAG:HISTORY
-The houses on the right-hand side of the street are small and
+TAG:HISTORY The houses on the right-hand side of the street are small and
 weather-beaten. Old women sit outside on the front steps cleaning
 fish and mending fishing nets. They are large and jolly, 
 talking to each other and frequently rolling about, bellowing
@@ -3551,8 +3324,7 @@ TAG:CHOICE 1: If you are wearing an ivory skull around your neck
 TAG:ACTION 1: 318
 TAG:CHOICE 2: If you do not have this item
 TAG:ACTION 2: 47
-TAG:HISTORY
-Stepping over the Fire Imp, you walk back to the stairs to see
+TAG:HISTORY Stepping over the Fire Imp, you walk back to the stairs to see
 if its master is still in the house. You descend the stairs 
 slowly, sword drawn. When you reach the bottom you are somewhat
 surprised to see a fat man, richly dressed, sitting in an 
@@ -3570,24 +3342,21 @@ TAG:CHOICE 2: Otherwise you may either pull on a cord hanging down in front of t
 TAG:ACTION 2: 4
 TAG:CHOICE 3: or attempt to charge the door open with your shoulder.
 TAG:ACTION 3: 365
-TAG:HISTORY
-You wipe the blood from your sword and walk to the wooden door.
+TAG:HISTORY You wipe the blood from your sword and walk to the wooden door.
 You try the handle, but it is locked.
 </p>
 <p id="h260" hidden>
 TAG:ID: 260
 TAG:CHOICE 1: You hurry on in case he tries to implicate you.
 TAG:DESTINATION: 222
-TAG:HISTORY
-The guards take their bribe and let you go. As you walk north
+TAG:HISTORY The guards take their bribe and let you go. As you walk north
 you hear the angry shouts of the captured murderer behind you.
 </p>
 <p id="h261" hidden>
 TAG:ID: 261
 TAG:CHOICE 1: He then makes a sweeping gesture of the arm and you walk past him into the city.
 TAG:DESTINATION: 74
-TAG:HISTORY
-'This city is ruled by Lord Azzur and he is a mean man. When 
+TAG:HISTORY 'This city is ruled by Lord Azzur and he is a mean man. When 
 you preside over the chaotic inhabitants of Port Blacksand you
 have to be mean. And he's the meanest. I should warn you that
 if you are found without a pass, you are as goad as dead. I 
@@ -3607,8 +3376,7 @@ TAG:CHOICE 1: If you have a golden owl
 TAG:ACTION 1: 153
 TAG:CHOICE 2: If you do not
 TAG:ACTION 2: 281
-TAG:HISTORY
-Despite the light from the lanterns on the landing, you are 
+TAG:HISTORY Despite the light from the lanterns on the landing, you are 
 unable to see anything inside the room; it is completely black.
 </p>
 <p id="h264" hidden>
@@ -3618,8 +3386,7 @@ TAG:FOOD: DECREASE;2
 TAG:ACTION 1: 121
 TAG:CHOICE 2: If you wish to refuse his request
 TAG:ACTION 2: 357
-TAG:HISTORY
-Before you are able to speak a word, the Ogre's voice booms out, 
+TAG:HISTORY Before you are able to speak a word, the Ogre's voice booms out, 
 saying, 'Somebody has stolen all my food. Will you give me 
 some of yours?'
 </p>
@@ -3629,8 +3396,7 @@ TAG:CHOICE 1: If you have this item
 TAG:ACTION 1: 82
 TAG:CHOICE 2: If you do not
 TAG:ACTION 2: 390
-TAG:HISTORY
-With your sword still dripping with the blood of the Rats you
+TAG:HISTORY With your sword still dripping with the blood of the Rats you
 walk further along the tunnel. The ledge you are walking along
 is narrow and slippery, and you have to tread carefully so as
 not to fall into the slow-flowing sewage channel. The tunnel 
@@ -3646,8 +3412,7 @@ TAG:ID: 266
 TAG:CHOICE 1: Eventually you climb back over the wall and walk to the junction to head west along Harbour Street.
 TAG:ITEM: DECREASE;2
 TAG:DESTINATION: 91
-TAG:HISTORY
-The Bays on your side are angry with you for losing the match. 
+TAG:HISTORY The Bays on your side are angry with you for losing the match. 
 Some of their supporters rush over and start to jostle you. By
 the time you manage to drag yourself over to the wall, everyone
 in the arena seems to have pushed you around. Lose two items 
@@ -3657,8 +3422,7 @@ from your backpack.
 TAG:ID: 267
 TAG:CHOICE 1: Suppressing an urge to draw your sword, you turn and walk into the city.
 TAG:DESTINATION: 74
-TAG:HISTORY
-The two guards holding you look at each other and then at the
+TAG:HISTORY The two guards holding you look at each other and then at the
 other guard for a decision. He nods at them and they release 
 their grip on you. As you pay him the 10 Gold Pieces he gives
 you a piercing look, saying,'If Lord Azzur finds out that you
@@ -3671,8 +3435,7 @@ TAG:CHOICE 1: If you wish to run to the front door
 TAG:ACTION 1: 32
 TAG:CHOICE 2: If you wish to draw your sword to attack the Serpent Queen
 TAG:ACTION 2: 249
-TAG:HISTORY
-The silk curtains in front of the archway are pulled aside 
+TAG:HISTORY The silk curtains in front of the archway are pulled aside 
 and a strange creature steps into the room. It has a snake's 
 head, which sits oddly on the shoulders of a young woman 
 wearing a lavish gown. Its mouth opens and a forked tongue 
@@ -3685,8 +3448,7 @@ rogue?' You start to panic, deciding what to do next.
 TAG:ID: 269
 TAG:CHOICE 1: There does not appear to be an easy way to catch him, so you walk under the bridge and continue east.
 TAG:DESTINATION: 30
-TAG:HISTORY
-The man with the crossbow curses before ning into the building
+TAG:HISTORY The man with the crossbow curses before ning into the building
 on your left.
 </p>
 <p id="h270" hidden>
@@ -3695,8 +3457,7 @@ TAG:FIGHT
 TAG:ENEMY 1: TROLL;SKILL 8;STAMINA 8
 TAG:CHOICE 1: If you manage to kill the Troll
 TAG:DESTINATION: 26
-TAG:HISTORY
-As you draw your sword the innkeeper lets out a loud whistle. 
+TAG:HISTORY As you draw your sword the innkeeper lets out a loud whistle. 
 A trap-door behind the bar flies open and you hear low grunting. 
 An ugly head pops up through the door and you watch as the 
 large green body of a TROLL emerges from a cellar. He is carrying
@@ -3712,8 +3473,7 @@ TAG:CHOICE 1: If you wish to creep up and try to cut it loose
 TAG:ACTION 1: 162
 TAG:CHOICE 2: If you would rather close the door again, and not take any risks
 TAG:ACTION 2: 284
-TAG:HISTORY
-Asleep in their bunks are three pirates. Their room is small 
+TAG:HISTORY Asleep in their bunks are three pirates. Their room is small 
 and contains only clothing and a few personal possessions. It
 looks as if the pirates have been drinking and gambling - there
 is an uncorked bottle of rum, a mug and a pack of cards on top
@@ -3726,8 +3486,7 @@ TAG:CHOICE 1: If you wish to try to remove the grill
 TAG:ACTION 1: 377
 TAG:CHOICE 2: If you wish to walk back to the entrance hole
 TAG:ACTION 2: 174
-TAG:HISTORY
-You manage to squeeze yourself between the dead Centipede and
+TAG:HISTORY You manage to squeeze yourself between the dead Centipede and
 the roof of the tunnel. You walk further down the tunnel and 
 see that it ends at an iron grill through which the sewage 
 water runs.
@@ -3741,8 +3500,7 @@ TAG:CHOICE 2: If you would rather ignore it you may either climb the stairs
 TAG:ACTION 2: 80
 TAG:CHOICE 3: or leave the house and head north
 TAG:ACTION 3: 334
-TAG:HISTORY
-Inspecting the scorpion you see that it is a brooch. You decide 
+TAG:HISTORY Inspecting the scorpion you see that it is a brooch. You decide 
 top pin it to your leather tunic. It is a lucky charm. Add 2 
 LUCK points to your total. What will you do next?
 </p>
@@ -3750,8 +3508,7 @@ LUCK points to your total. What will you do next?
 TAG:ID: 274
 TAG:CHOICE 1: You watch for a short while as they lead the shouting murderer away, before continuing north along Stable Street.
 TAG:DESTINATION: 222
-TAG:HISTORY
-The guards are pleased that you have caught their wanted man.
+TAG:HISTORY The guards are pleased that you have caught their wanted man.
 They tell you that he is an escaped murderer. The chief guard
 hands you 5 Gold Pieces, saying. 'Here's your reward. But you
 won't be getting another one - he won't escape again.'
@@ -3760,8 +3517,7 @@ won't be getting another one - he won't escape again.'
 TAG:ID: 275
 TAG:CHOICE 1: The carriage races out of view and you set off west again.
 TAG:DESTINATION: 171
-TAG:HISTORY
-You stand up and brush yourself down, thinking that you would
+TAG:HISTORY You stand up and brush yourself down, thinking that you would
 like to meet this Lord Azzur another day.
 </p>
 <p id="h276" hidden>
@@ -3772,8 +3528,7 @@ TAG:CHOICE 2: Ten Gold Pieces
 TAG:ACTION 2: 267
 TAG:CHOICE 3: Fifteen Gold Pieces
 TAG:ACTION 3: 41
-TAG:HISTORY
-You tell the guards that you will make it worth their while if
+TAG:HISTORY You tell the guards that you will make it worth their while if
 they release you and allow you entry into the city. How much 
 will you offer them?
 </p>
@@ -3794,8 +3549,7 @@ TAG:CHOICE 4: Walk through the archway
 TAG:ACTION 4: 107
 TAG:CHOICE 5: Climb the stairs
 TAG:ACTION 5: 60
-TAG:HISTORY
-Although many of the items in the room are extremely valuable,
+TAG:HISTORY Although many of the items in the room are extremely valuable,
 they are not of much use to you on your quest. However, something
 strange catches your eye. On a mahogany card table lie three 
 upturned silver goblets. One is inscribed with the letter A, 
@@ -3805,8 +3559,7 @@ another with B and another with C. Will you:
 TAG:ID: 279
 TAG:CHOICE 1: you then walk back up the lane and turn left into Mill Street.
 TAG:DESTINATION: 307
-TAG:HISTORY
-He takes the money and motions you to sit down on a wooden 
+TAG:HISTORY He takes the money and motions you to sit down on a wooden 
 stool. After a long and painful process of repeatedly pricking
 your forehead with a sharp needle he applies the indelible inks.
 You look in a mirror on the wall and find your new appearance
@@ -3818,8 +3571,7 @@ TAG:CHOICE 1: If you wish to enter the shop
 TAG:ACTION 1: 213
 TAG:CHOICE 2: If you would rather keep going east
 TAG:ACTION 2: 100
-TAG:HISTORY
-Further along the street on the left is another shop. A sign 
+TAG:HISTORY Further along the street on the left is another shop. A sign 
 outside reads 'Ben Borryman, Silversmith'.
 </p>
 <p id="h281" hidden>
@@ -3835,8 +3587,7 @@ TAG:CHOICE 1: If you wish to talk to the boy
 TAG:ACTION 1: 119
 TAG:CHOICE 2: If you wish to keep walking north
 TAG:ACTION 2: 247
-TAG:HISTORY
-On the right-hand side of the street you see a large wooden 
+TAG:HISTORY On the right-hand side of the street you see a large wooden 
 barrel and a small boy sitting beside it on a stool.
 </p>
 <p id="h283" hidden>
@@ -3850,22 +3601,19 @@ TAG:CHOICE 1: open the other door
 TAG:ACTION 1: 232
 TAG:CHOICE 2: or leave the ship to continue your search of Port Blacksand, walking north up Harbour Street.
 TAG:ACTION 2: 78
-TAG:HISTORY
-If you have not done so already, you may either
+TAG:HISTORY If you have not done so already, you may either
 </p>
 <p id="h285" hidden>
 TAG:ID: 285
 TAG:CHOICE 1: Make a note of what you wish to keep and set off north again.
 TAG:DESTINATION: 227
-TAG:HISTORY
-You make a rapid search through the guards' possessions and 
+TAG:HISTORY You make a rapid search through the guards' possessions and 
 find 7 Gold Pieces, a set of keys and a piece of stale bread.
 </p>
 <p id="h286" hidden>
 TAG:ID: 286
 TAG:DESTINATION: 163
-TAG:HISTORY
-You point the ring at the advancing Mummy and rub the jewel.
+TAG:HISTORY You point the ring at the advancing Mummy and rub the jewel.
 A jet of fire flies out of the ring and the Mummy is consumed
 by flames. It drops to the floor and in a few moments there is
 nothing left but a few charred fragments.
@@ -3876,8 +3624,7 @@ TAG:CHOICE 1: If you wish to stop and listen
 TAG:ACTION 1: 3
 TAG:CHOICE 2: If you would rather walk past him
 TAG:ACTION 2: 398
-TAG:HISTORY
-The food stalls are selling fruit, vegetables, meat and hot 
+TAG:HISTORY The food stalls are selling fruit, vegetables, meat and hot 
 soup, corn and chestnuts for hungry shoppers. You may eat some
 hot food if you wish. Pay 1 Gold Piece and increase your STAMINA 
 by 2 points. Walking north along the west side of the square
@@ -3886,8 +3633,7 @@ you see a man dressed in purple velvet playing a lyre.
 <p id="h288" hidden>
 TAG:ID: 288
 TAG:GAMEOVER
-TAG:HISTORY
-Nobody spends a night asleep at Zanbar Bone tower and lives. In
+TAG:HISTORY Nobody spends a night asleep at Zanbar Bone tower and lives. In
 the middle of the night a jet of gas, which poisons you almost
 immediately, is released from the headboard on the bed. Then 
 Zanbar Bone's witches and servants raise you into an undead 
@@ -3899,8 +3645,7 @@ TAG:CHOICE 1: If you wish to fight the impudent Man-Orc
 TAG:ACTION 1: 5
 TAG:CHOICE 2: If you would rather contain your anger, leave the shop and head north again
 TAG:ACTION 2: 93
-TAG:HISTORY
-The Man-Orc takes your Gold Piece and spins it in the air with
+TAG:HISTORY The Man-Orc takes your Gold Piece and spins it in the air with
 a flick of the thumb, catching it in the pocket of his apron.
 He then starts to pick his teeth with a sharpened twig and 
 finally says, 'I know nothing about him.'
@@ -3911,8 +3656,7 @@ TAG:CHOICE 1: If you have a merchant's pass
 TAG:ACTION 1: 219
 TAG:CHOICE 2: If you do not
 TAG:ACTION 2: 335
-TAG:HISTORY
-You try to walk nonchalantly past the Trolls, but they suspect
+TAG:HISTORY You try to walk nonchalantly past the Trolls, but they suspect
 something odd about you and call you over to them. They ask 
 you where you live and you reply that you are in Port Blacksand
 on a trading mission. The Trolls laugh scornfully and ask to 
@@ -3926,8 +3670,7 @@ TAG:DESTINATION: 74
 TAG:FAIL: If you are Unlucky, the pike pierces your arm.
 TAG:STATUS: STAMINA;DECREASE;2
 TAG:DESTINATION: 10
-TAG:HISTORY
-As the guard realizes what you are doing he thrusts his pike 
+TAG:HISTORY As the guard realizes what you are doing he thrusts his pike 
 at you. Test your Luck.
 </p>
 <p id="h292" hidden>
@@ -3936,8 +3679,7 @@ TAG:CHOICE 1: If you have some garlic
 TAG:ACTION 1: 254
 TAG:CHOICE 2: If you do not have any garlic
 TAG:ACTION 2: 210
-TAG:HISTORY
-You walk into a lavishly furnished room containing objets d'art 
+TAG:HISTORY You walk into a lavishly furnished room containing objets d'art 
 and curios. Standing before you is a young woman dressed in a 
 black silk gown. She has long black hair and bright red lips.
 She smiles and motions you to sit down in one of the armchairs.
@@ -3950,8 +3692,7 @@ two fang-like teeth which can only belong to a Vampire.
 TAG:ID: 293
 TAG:CHOICE 1: Whether you trade or not, you then leave the shop and head west.
 TAG:DESTINATION: 24
-TAG:HISTORY
-She explains that she has just picked one of her golden flowers.
+TAG:HISTORY She explains that she has just picked one of her golden flowers.
 There are ten golden petals on the flower, and you are told 
 that if dipped in dog's blood, each petal, plucked and thrown
 on the ground, will change into a Gold Piece. Mrs Pipe asks for
@@ -3965,8 +3706,7 @@ TAG:CHOICE 1: If you wish to walk back down the gangplank, along the jetty and t
 TAG:ACTION 1: 78
 TAG:CHOICE 2: If you wish to draw your sword to deal with this pirate
 TAG:ACTION 2: 386
-TAG:HISTORY
-At the top of the gangplank stands one of the ship's crew. On 
+TAG:HISTORY At the top of the gangplank stands one of the ship's crew. On 
 seeing you he draws his cutlass and tells you to get off the 
 ship.
 </p>
@@ -3976,8 +3716,7 @@ TAG:MONEY: INCREASE;12
 TAG:STATUS: LUCK:INCREASE;1
 TAG:CHOICE 1: ou leave the house and continue your walk along Stable Street.
 TAG:DESTINATION: 333
-TAG:HISTORY
-You sheathe your sword and start to search the Serpent Queen'search
+TAG:HISTORY You sheathe your sword and start to search the Serpent Queen'search
 house. You find a brown leather bag which you pick up and shake.
 The contents make a jingling sound. Inside you find 12 Gold 
 Pieces. Add 1 LUCK point.
@@ -3989,8 +3728,7 @@ TAG:ENEMY 1: THIEF;SKILL 7;STAMINA 7
 TAG:ENEMY 2: THIEF;SKILL 8;STAMINA 6
 TAG:CHOICE 1: If you win
 TAG:DESTINATION: 147
-TAG:HISTORY
-Walking towards you down the street are two men wearing black
+TAG:HISTORY Walking towards you down the street are two men wearing black
 robes which cover them completely except for their eyes. On 
 seeing you they nod at each other and draw their swords; they 
 are THIEVES hoping to rob you of your possessions and you must
@@ -4000,8 +3738,7 @@ defend yourself. Fight them one at a time.
 TAG:ID: 297
 TAG:CHOICE 1: You walk back to the staircase to climb up to the next floor.
 TAG:DESTINATION: 207
-TAG:HISTORY
-There is nothing of use to you in the room. The smell of the 
+TAG:HISTORY There is nothing of use to you in the room. The smell of the 
 Zombies and the debris is terrible, so you decide to leave 
 immediately.  
 </p>
@@ -4010,15 +3747,13 @@ TAG:ID: 298
 TAG:STATUS 1: STAMINA:DECREASE;4
 TAG:CHOICE 1: If you are still alive you manage to reach the door to escape.
 TAG:DESTINATION: 75
-TAG:HISTORY
-You feel the effects of poison creeping through your body. 
+TAG:HISTORY You feel the effects of poison creeping through your body. 
 Lose 4 STAMINA points.
 </p>
 <p id="h299" hidden>
 TAG:ID: 299
 TAG:GAMEOVER
-TAG:HISTORY
-It would be extremely dangerous for you to enter Port Blacksand
+TAG:HISTORY It would be extremely dangerous for you to enter Port Blacksand
 again, especially as many of the town guards would recognize you.
 There is nothing else you can do but to make the long walk back 
 to Silverton to report that you have failed in your mission.
@@ -4030,8 +3765,7 @@ TAG:STATUS 1: LUCK;DECREASE;2
 TAG:ACTION 1: 347
 TAG:CHOICE 2: If you want to keep walking without leaving the gold
 TAG:ACTION 2: 137
-TAG:HISTORY
-The street makes a sudden right turn and heads north. You pass 
+TAG:HISTORY The street makes a sudden right turn and heads north. You pass 
 a cluster of small houses and are aware of unseen people watching 
 walk by. Then the door to one of the houses opens and a small boy 
 dressed in rags runs out and hand a piece of paper. Without 
@@ -4056,8 +3790,7 @@ TAG:MONEY: DECREASE;9
 TAG:ACTION 1: 240
 TAG:CHOICE 2: If you wish to haggle for a better deal
 TAG:ACTION 2: 345
-TAG:HISTORY
-You show the man the two gems. Holding them up to the light he 
+TAG:HISTORY You show the man the two gems. Holding them up to the light he 
 examines them carefully with a small magnifying glass. He 
 turns to face you and offers you 9 Gold Pieces for the two.
 </p>
@@ -4065,15 +3798,13 @@ turns to face you and offers you 9 Gold Pieces for the two.
 TAG:ID: 303
 TAG:CHOICE 1: You put the hair safely in your backpack and walk back down the tunnel to the entrance hole.
 TAG:DESTINATION: 104
-TAG:HISTORY
-You bend over the motionless body of the dead Hag and you cut
+TAG:HISTORY You bend over the motionless body of the dead Hag and you cut
 off a tuft of her hair with your sword.
 </p>
 <p id="h304" hidden>
 TAG:ID: 304
 TAG:DESTINATION: 148
-TAG:HISTORY
-You arrive at a four-way junction in the stree. The street 
+TAG:HISTORY You arrive at a four-way junction in the stree. The street 
 leading west is called Key Street and the street leading east 
 is called Clock Street. Ahead you see that Market Street 
 continues north and a crowd of people are walking up it
@@ -4087,16 +3818,14 @@ TAG:CHOICE 1: If you are still alive, you may either fire your silver arrow at h
 TAG:ACTION 1: 189
 TAG:CHOICE 2: or fire your Ring of Ice at him 
 TAG:ACTION 2: 382
-TAG:HISTORY
-You point the mirror at the Spirit Stalker, but it does not 
+TAG:HISTORY You point the mirror at the Spirit Stalker, but it does not 
 stop him advancing. Again he manages to touch your flesh and 
 burn you.
 </p>
 <p id="h306" hidden>
 TAG:ID: 306
 TAG:DESTINATION: 74
-TAG:HISTORY
-The two guards look at each other in horror and run out of the
+TAG:HISTORY The two guards look at each other in horror and run out of the
 cell up the stairs, screaming 'Plague!' at the top of their 
 voices. Smilling to yourself you walk calmly out of the cell
 and pick up your sword off the table. Upstairs you find that
@@ -4111,8 +3840,7 @@ TAG:CHOICE 1: If you wish to risk walking past the Trolls
 TAG:ACTION 1: 290
 TAG:CHOICE 2: If you wish to climb the tree in order to get over the wall
 TAG:ACTION 2: 11
-TAG:HISTORY
-Walking towards you along the street are two huge guards 
+TAG:HISTORY Walking towards you along the street are two huge guards 
 wearing the black uniform of Azzur. As they get closer you 
 see that they are Trolls, brutal mercenaries employed by Lord
 Azzur as Imperial Elite Guards. To your right there is a tree
@@ -4121,8 +3849,7 @@ which reaches almost to the top of the city wall.
 <p id="h308" hidden>
 TAG:ID: 308
 TAG:DESTINATION: 180
-TAG:HISTORY
-There is nothing to be found in the alleyway so you return to
+TAG:HISTORY There is nothing to be found in the alleyway so you return to
 Harbour Street and turn left. 
 </p>
 <p id="h309" hidden>
@@ -4131,8 +3858,7 @@ TAG:FIGHT
 TAG:ENEMY 1: WOLF;SKILL 5;STAMINA 5
 TAG:CHOICE 1: If you win
 TAG:DESTINATION: 97
-TAG:HISTORY
-You shake the WOLF off your arm and draw your sword. The wolf
+TAG:HISTORY You shake the WOLF off your arm and draw your sword. The wolf
 snarls and leaps at you again.
 </p>
 <p id="h310" hidden>
@@ -4141,8 +3867,7 @@ TAG:CHOICE 1: If you wish to open the door
 TAG:ACTION 1: 263
 TAG:CHOICE 2: If you wish to climb to the next floor
 TAG:ACTION 2: 65
-TAG:HISTORY
-You climb up to the third foor and see another door at the end 
+TAG:HISTORY You climb up to the third foor and see another door at the end 
 of the landing.
 </p>
 <p id="h311" hidden>
@@ -4154,8 +3879,7 @@ TAG:ENEMY 2: CITY GUARD;SKILL 6;STAMINA 6
 TAG:ENEMY 3: CITY GUARD;SKILL 7;STAMINA 5
 TAG:CHOICE 1: If you win
 TAG:ACTION 1: 74
-TAG:HISTORY
-As you start your fight with the GUARD, you see two more armed
+TAG:HISTORY As you start your fight with the GUARD, you see two more armed
 men appear from a stone guardhouse by the gate. They draw their 
 swords and await the outcome of your battle. If you defeat the 
 first city guard, you must now fight the other two as a pair. 
@@ -4171,8 +3895,7 @@ normal way.
 <p id="h312" hidden>
 TAG:ID: 312
 TAG:DESTINATION: 217
-TAG:HISTORY
-You notice that the Ape Man's left hand is curled into a fist. 
+TAG:HISTORY You notice that the Ape Man's left hand is curled into a fist. 
 You prise open the fingers and find a tiny gold trinket in the 
 shape of an owl. It is a magic talisman which will allow you 
 to see in the dark. You place the owl carefully in your pocket
@@ -4181,8 +3904,7 @@ and continue your journey.
 <p id="h313" hidden>
 TAG:ID: 313
 TAG:DESTINATION: 304
-TAG:HISTORY
-You retrieve your sword from the dead man's chest and hurry out
+TAG:HISTORY You retrieve your sword from the dead man's chest and hurry out
 of the house. Relieved to be in the open air again you set off
 north.
 </p>
@@ -4192,8 +3914,7 @@ TAG:CHOICE 1: If you want to ask the whereabouts of Zanbar Bone
 TAG:ACTION 1: 234
 TAG:CHOICE 2: If you wish to ask if he can heal some of your wounds
 TAG:ACTION 2: 94
-TAG:HISTORY
-You sit down to rest and plan what to do next. As you slump 
+TAG:HISTORY You sit down to rest and plan what to do next. As you slump 
 down on the cold stone floor, you inadvertently knock over a 
 glass jar you hadn't seen  before, which rolls against the wall
 and shatters. From the broken jar a small man some fifteen 
@@ -4217,8 +3938,7 @@ buy one.
 <p id="h316" hidden>
 TAG:ID: 316
 TAG:DESTINATION: 279
-TAG:HISTORY
-Once again you walk into the tattooist's shop and are greeted 
+TAG:HISTORY Once again you walk into the tattooist's shop and are greeted 
 by Jimmy Quicktint. He is obviously pleased that you are back
 to give him some business.
 </p>
@@ -4228,15 +3948,13 @@ TAG:CHOICE 1: If you wish to enter the shop
 TAG:ACTION 1: 241
 TAG:CHOICE 2: If you wish to continue east
 TAG:ACTION 2: 280
-TAG:HISTORY
-One of the shops to your left is a candle-maker's. There are 
+TAG:HISTORY One of the shops to your left is a candle-maker's. There are 
 many different coloured candles burning brightly in the window.
 </p>
 <p id="h318" hidden>
 TAG:ID: 318
 TAG:DESTINATION: 304
-TAG:HISTORY
-The skull somehow attracts and absorbs all the power of the 
+TAG:HISTORY The skull somehow attracts and absorbs all the power of the 
 lightning bolt, leaving you unharmed. The fat man is angry but 
 powerless and you are awe to leave the house by the front door. 
 Once outside you set off north again.
@@ -4247,8 +3965,7 @@ TAG:CHOICE 1: If you want to open the sarcophagus
 TAG:ACTION 1: 352
 TAG:CHOICE 2: If you wish to walk outside again
 TAG:ACTION 2: 231
-TAG:HISTORY
-You enter a room which is dark and very cold. The walls and 
+TAG:HISTORY You enter a room which is dark and very cold. The walls and 
 floor are made of rough stone and the room is empty except for 
 a decorated sarcophagus.  There is a strong musty smell in the 
 air.
@@ -4256,8 +3973,7 @@ air.
 <p id="h320" hidden>
 TAG:ID: 320
 TAG:DESTINATION: 216
-TAG:HISTORY
-The jolly fishwives' plump cheeks are as round and shiny as 
+TAG:HISTORY The jolly fishwives' plump cheeks are as round and shiny as 
 red apples. You ask if they own any of the items you need, but 
 they all frown and shake their heads together. Then one tells
 you that there is a tale that Hags have been seen disappearing
@@ -4271,8 +3987,7 @@ TAG:CHOICE 1: If you wish to walk north along the tunnel
 TAG:ACTION 1: 356
 TAG:CHOICE 2: If you wish to walk south
 TAG:ACTION 2: 118
-TAG:HISTORY
-At the bottom of the ladder you realize, much to your disgust,
+TAG:HISTORY At the bottom of the ladder you realize, much to your disgust,
 that you are standing in a sewer. There are torches along the
 tunnel wall, giving a very dim light, and droplets of water 
 make eerie sounds as they fall into the sewage water.
@@ -4280,8 +3995,7 @@ make eerie sounds as they fall into the sewage water.
 <p id="h322" hidden>
 TAG:ID: 322
 TAG:DESTINATION: 93
-TAG:HISTORY
-You walk back into the shop; behind the counter you find a 
+TAG:HISTORY You walk back into the shop; behind the counter you find a 
 small wooden money box. Inside it are 11 Gold Pieces, which 
 you put into your backpack. You decide that it is time to leave
 the shop and head north.
@@ -4295,8 +4009,7 @@ TAG:CHOICE 1: If you win
 TAG:ACTION 1: 395
 TAG:CHOICE 2: You may Escape by running out of the shop and west along the street.
 TAG:ACTION 2: 196
-TAG:HISTORY
-The blacksmith looks surprised at your unprovoked aggression 
+TAG:HISTORY The blacksmith looks surprised at your unprovoked aggression 
 and pulls another red-hot iron bar from the fire with his 
 gloved hand. He is very angry and lunges at you with the bar.
 If the blacksmith wounds you during any Attack Round, you must
@@ -4309,16 +4022,14 @@ TAG:CHOICE 1: If you wish to try on the glove
 TAG:ACTION 1: 89
 TAG:CHOICE 2: If you wish to leave the house, taking only the gems and the gold, and continue north
 TAG:ACTION 2: 282
-TAG:HISTORY
-The box shatters and you see two gems, 15 Gold Pieces and a 
+TAG:HISTORY The box shatters and you see two gems, 15 Gold Pieces and a 
 white silk glove lying amidst the broken pieces of wood.
 </p>
 <p id="h325" hidden>
 TAG:ID: 325
 TAG:STATUS 1: STAMINA;INCREASE;5
 TAG:DESTINATION: 348
-TAG:HISTORY
-You follow the old man through the swinging doors of the Hog 
+TAG:HISTORY You follow the old man through the swinging doors of the Hog 
 and Frog tavern. He tells you to sit down at a small table in
 a corner while he shuffles over to the bar to buy the drinks.
 There are several shifty-looking characters sitting at nearby
@@ -4342,8 +4053,7 @@ TAG:CHOICE 1: If you win
 TAG:ACTION 1: 184
 TAG:CHOICE 2: You may Escape by running backup the alleyway and turning west into Harbour Street.
 TAG:ACTION 2: 180
-TAG:HISTORY
-Ahead the alleyway is strewn with rubbish and discarded 
+TAG:HISTORY Ahead the alleyway is strewn with rubbish and discarded 
 possessions. Suddenly you hear growling and you see movement 
 amongst the rubbish. You draw your sword just in time as two 
 WILD DOGS, each a metre and a half long, leap at you. Fight 
@@ -4362,8 +4072,7 @@ TAG:CHOICE 1: If you wish to enter the house
 TAG:ACTION 1: 126
 TAG:CHOICE 2: If you wish to continue walking north
 TAG:ACTION 2: 164
-TAG:HISTORY
-You feel like a pincushion and although the pain is almost 
+TAG:HISTORY You feel like a pincushion and although the pain is almost 
 unbearable, you manage to stagger down the street. Ahead to 
 your right you see the door of one of the houses opening and 
 a little girl looking out apprehensively. She beckons you to 
@@ -4373,8 +4082,7 @@ enter the house.
 TAG:ID: 328
 TAG:MONEY: INCREASE;2
 TAG:DESTINATION: 333
-TAG:HISTORY
-You take the silver item out of your backpack and hand it to 
+TAG:HISTORY You take the silver item out of your backpack and hand it to 
 the Serpent Queen. She is delighted and thanks you for 
 delivering it to her. She shows you to the front and tips you
 2 Gold Pieces.
@@ -4386,8 +4094,7 @@ TAG:CHOICE 1: If you wish to walk west down Harbour Street
 TAG:ACTION 1: 91
 TAG:CHOICE 2: If you wish to turn east down Candle Street
 TAG:ACTION 2: 238
-TAG:HISTORY
-The smell by the water's edge is terrible. Above, you hear the
+TAG:HISTORY The smell by the water's edge is terrible. Above, you hear the
 sound of footsteps crossing the wooden bridge. Built into the 
 foundations of the bridge is a wooden hut. Drawn curtains 
 obstruct your view into the hut but you know you are not 
@@ -4431,8 +4138,7 @@ continues north a short distance before ending at a junction.
 TAG:ID: 330
 TAG:STATUS 1: STAMINA;DECREASE;3
 TAG:DESTINATION: 30
-TAG:HISTORY
-Lose 3 STAMINA points. If you are still alive you manage with
+TAG:HISTORY Lose 3 STAMINA points. If you are still alive you manage with
 great pain to pull the bolt from your shoulder. As you bandage
 your wound the little man runs off into the building on your 
 left. There does not appear to be an easy way to catch him so
@@ -4444,8 +4150,7 @@ TAG:FIGHT
 TAG:ENEMY 1: MAD MAN;SKILL 5;STAMINA 5
 TAG:CHOICE 1: If you win
 TAG:DESTINATION: 86
-TAG:HISTORY
-As you approach the man, he suddenly springs up and screams
+TAG:HISTORY As you approach the man, he suddenly springs up and screams
 at the top of his voice. He produces a dagger from ragged 
 clothing and leaps at you. His wild eyes belong to a man
 insane or possessed and you must fight him.
@@ -4454,15 +4159,13 @@ insane or possessed and you must fight him.
 TAG:ID: 332
 TAG:STATUS 1: LUCK;INCREASE;1
 TAG:DESTINATION: 124
-TAG:HISTORY
-The beggar tips his hat in gratitude and mumbles a few words.
+TAG:HISTORY The beggar tips his hat in gratitude and mumbles a few words.
 Add 1 LUCK point before continuing west.
 </p>
 <p id="h333" hidden>
 TAG:ID: 333
 TAG:DESTINATION: 76
-TAG:HISTORY
-You soon reach a junction in the street. Stable Street 
+TAG:HISTORY You soon reach a junction in the street. Stable Street 
 continues north and to your left you see Tower Street 
 leading west. You decide to keep going north.
 </p>
@@ -4472,8 +4175,7 @@ TAG:CHOICE 1: If you possess a merchant's pass
 TAG:ACTION 1: 255
 TAG:CHOICE 2: If you do not
 TAG:ACTION 2: 99
-TAG:HISTORY
-Walking towards you down the street are town guards. They stop
+TAG:HISTORY Walking towards you down the street are town guards. They stop
 in front of you and demand to see your papers.
 </p>
 <p id="h335" hidden>
@@ -4482,8 +4184,7 @@ TAG:CHOICE 1: If you wish to pay the fine and be thrown out of the city
 TAG:ACTION 1: 367
 TAG:CHOICE 2: If you wish to resist arrest
 TAG:ACTION 2: 73
-TAG:HISTORY
-The larger of the Trolls tells you that you are under arrest 
+TAG:HISTORY The larger of the Trolls tells you that you are under arrest 
 for being in Port Blacksand without authorization. He tells 
 you that he is feeling generous, however, and offers you a 
 choice. You can pay a fine of all the gold in your backpack 
@@ -4500,8 +4201,7 @@ TAG:CHOICE 2: Offer to sell him gems (if you  have them)
 TAG:ACTION 2: 302
 TAG:CHOICE 3: Attack him with your sword
 TAG:ACTION 3: 170
-TAG:HISTORY
-Once inside the shop you realize why the windows are barred - 
+TAG:HISTORY Once inside the shop you realize why the windows are barred - 
 it is a jeweller's shop. Standing behind the glass counter is
 a huge bald-headed man with an eye-patch covering his left eye. 
 He gives you a welcoming smile but the sight of his ugly mouth 
@@ -4514,8 +4214,7 @@ you are buying or selling. Will you:
 <p id="h337" hidden>
 TAG:ID: 337
 TAG:DESTINATION: 400
-TAG:HISTORY
-Congratulations - you have killed Zanbar Bone, the infamous 
+TAG:HISTORY Congratulations - you have killed Zanbar Bone, the infamous 
 Night Prince. He decays before your eyes, becoming nothing 
 more than a small pile of powder on the floor.
 </p>
@@ -4523,8 +4222,7 @@ more than a small pile of powder on the floor.
 TAG:ID: 338
 TAG:STATUS 1: LUCK;INCREASE;3
 TAG:DESTINATION: 105
-TAG:HISTORY
-You have just swallowed a Potion of Misfortune. Reduce your 
+TAG:HISTORY You have just swallowed a Potion of Misfortune. Reduce your 
 LUCY by 3 points. Hoping for better luck ahead you set off 
 north again.
 </p>
@@ -4534,8 +4232,7 @@ TAG:CHOICE 1: If you wish to lock the door and go to bed
 TAG:ACTION 1: 288
 TAG:CHOICE 2: If you wish to explore the tower after waiting a few minutes
 TAG:ACTION 2: 77
-TAG:HISTORY
-The man looks atyou and smiles, saying, 'We do not get many 
+TAG:HISTORY The man looks atyou and smiles, saying, 'We do not get many 
 visitors in these parts, but I am sure my master would wish 
 you to have a room for the night. Do come in.' He steps back 
 and you follow him into a beautiful marble-noored hallway. 
@@ -4558,8 +4255,7 @@ TAG:CHOICE 1: You may now either climb the stairs to the floor above
 TAG:ACTION 1: 60
 TAG:CHOICE 2: or leave the house to head north
 TAG:ACTION 2: 304
-TAG:HISTORY
-Once more you poke the wire inside the lock and finally it turns.
+TAG:HISTORY Once more you poke the wire inside the lock and finally it turns.
 Add 1 LUCK point. Raising the lid of the chest you see, to your 
 delight, 25 Gold Pieces and a magnificent shield. If you use 
 this shield in battle, it will increase your Attack Strength by
@@ -4569,8 +4265,7 @@ this shield in battle, it will increase your Attack Strength by
 TAG:ID: 341
 TAG:MONEY: DECREASE;5
 TAG:DESTINATION: 222
-TAG:HISTORY
-You decide that you are going to have to make a run for it or
+TAG:HISTORY You decide that you are going to have to make a run for it or
 risk being put in jail. You take 5 Gold Pieces out of your backpack
 and throw them on the floor. The guards bend down to pick them
 up and you run north as fast as you can. As you run off, the 
@@ -4588,8 +4283,7 @@ TAG:MONEY: DECREASE;1
 TAG:ACTION 1: 289
 TAG:CHOICE 2: If you would rather leave the shop and continue your walk north
 TAG:ACTION 2: 93
-TAG:HISTORY
-The Man-Orc tells you that for 1 Gold Piece he will tell you 
+TAG:HISTORY The Man-Orc tells you that for 1 Gold Piece he will tell you 
 all he knows.
 </p>
 <p id="h343" hidden>
@@ -4597,8 +4291,7 @@ TAG:ID: 343
 TAG:ITEMS: SILVER;DECREASE;ALL
 TAG:STATUS 1: STAMINA;DECREASE;3
 TAG:DESTINATION: 100
-TAG:HISTORY
-You fall to the floor, unconscious. Lose 3 STAMINA points. If 
+TAG:HISTORY You fall to the floor, unconscious. Lose 3 STAMINA points. If 
 you are still alive, you awake to find yourself lying outside
 the shop in Clog Street. You will find that any silver items 
 you had are missing. You stand up and set off angrily along 
@@ -4610,8 +4303,7 @@ TAG:CHOICE 1: If you wish to step out of the path of the oncoming carriage
 TAG:ACTION 1: 58
 TAG:CHOICE 2: If you wish to stay where you are
 TAG:ACTION 2: 252
-TAG:HISTORY
-You step out into the middle of the street and wait. Suddenly
+TAG:HISTORY You step out into the middle of the street and wait. Suddenly
 a pair of horses come galloping into view pulling an omate gold
 carriage. The driver sees you and, cracking his whip, yells. 
 'Make way for Lord Azzur!'
@@ -4624,8 +4316,7 @@ TAG:CHOICE 2: Walk out of the shop and head west
 TAG:ACTION 2: 196
 TAG:CHOICE 3: Attack him with your sword
 TAG:ACTION 3: 170
-TAG:HISTORY
-The man frowns and thumps his fist down on top of the counter, 
+TAG:HISTORY The man frowns and thumps his fist down on top of the counter, 
 shouting, 'This is not a bazaar! If you do not like my prices,
 take your custom elsewhere. Now get out of my shop before I 
 slice you in two' Will you:
@@ -4633,16 +4324,14 @@ slice you in two' Will you:
 <p id="h346" hidden>
 TAG:ID: 346
 TAG:GAMEOVER
-TAG:HISTORY
-The distance to the ground is too great even for a great warrior
+TAG:HISTORY The distance to the ground is too great even for a great warrior
 like yourself. You land badly and break your neck. Your 
 adventure ends here.
 </p>
 <p id="h347" hidden>
 TAG:ID: 347
 TAG:DESTINATION: 112
-TAG:HISTORY
-You hurry on down the street but glance back after hearing 
+TAG:HISTORY You hurry on down the street but glance back after hearing 
 cries of jubilation behind you. Some people are linked arm in
 arm and are dancing in a circle round your 10 Gold Pieces. 
 You curse this thieving city and press on north.
@@ -4653,8 +4342,7 @@ TAG:CHOICE 1: If you wish to call out to them
 TAG:ACTION 1: 251
 TAG:CHOICE 2: If you wish to walk under the bridge and continue east
 TAG:ACTION 2: 30
-TAG:HISTORY
-Tower Street makes a sharp turn to the right, going east 
+TAG:HISTORY Tower Street makes a sharp turn to the right, going east 
 between tall buildings. An iron bridge crosses two of the overhead 
 between two of the buildings and you see movement on it. Small
 cloaked people are carrying sacks between the buildings, 
@@ -4668,8 +4356,7 @@ TAG:CHOICE 1: If you win
 TAG:ACTION 1: 258
 TAG:CHOICE 2: You may Escape by jumping out of the window to the street below
 TAG:ACTION 2: 192
-TAG:HISTORY
-Suddenly you are confronted by a small winged creature no more 
+TAG:HISTORY Suddenly you are confronted by a small winged creature no more 
 than a metre in length, hovering before you. It is red in colour
 and has two horns protruding from its head and a small tail 
 hanging down from its back. It will be difficult to defeat as
@@ -4681,8 +4368,7 @@ TAG:CHOICE 1: If you wish to run to the front door
 TAG:ACTION 1: 32
 TAG:CHOICE 2: If you wish to draw your sword to attack the Serpent Queen
 TAG:ACTION 2: 249
-TAG:HISTORY
-You open your backpack and pretend to search for the flowers. 
+TAG:HISTORY You open your backpack and pretend to search for the flowers. 
 The Serpent Queen starts to fidget and you can see her becoming 
 increasingly impatient. You cannot think of a good plan and 
 start to panic.
@@ -4694,8 +4380,7 @@ TAG:ENEMY 1: CITY GUARD;SKILL 6;STAMINA 6
 TAG:ENEMY 1: CITY GUARD;SKILL 7;STAMINA 5
 TAG:CHOICE 1: If you win
 TAG:ACTION 1: 54
-TAG:HISTORY
-You take 10 Gold Pieces out of your backpack and place them on
+TAG:HISTORY You take 10 Gold Pieces out of your backpack and place them on
 the palm of the hand outstretched before you. The old man then 
 reaches into his inner clothing and pulls out an iron key, 
 telling you that it will unlock your cell. Almost in disbelief 
@@ -4714,8 +4399,7 @@ TAG:CHOICE 1: If you wish to fight the Mummy
 TAG:ACTION 1: 193
 TAG:CHOICE 2: If you have a Lantern, you may throw it at the Mummy
 TAG:ACTION 2: 106
-TAG:HISTORY
-You lift the lid of the sarcophagus and see a human body 
+TAG:HISTORY You lift the lid of the sarcophagus and see a human body 
 completely encased in old bandages. The light, although dim,
 has disturbed the sleep of a MUMMY, and it sits up, turning its
 head from side to side. It senses where you are and starts to 
@@ -4730,8 +4414,7 @@ TAG:CHOICE 2: If you do not, you may either try to force the door open
 TAG:ACTION 2: 389
 TAG:CHOICE 3: or return to the street to head north
 TAG:ACTION 3: 304
-TAG:HISTORY
-You try to turn the large brass handle on the door but it is 
+TAG:HISTORY You try to turn the large brass handle on the door but it is 
 locked.
 </p>
 <p id="h354" hidden>
@@ -4740,8 +4423,7 @@ TAG:CHOICE 1: If you have enough money for the price of a tattoo
 TAG:ACTION 1: 316
 TAG:CHOICE 2: If you still cannot afford one, you will have to come back again later. You walk back up the lane and turn left into Mill Street. 
 TAG:ACTION 2: 307
-TAG:HISTORY
-The tattooist looks at you with a bored expression on his face
+TAG:HISTORY The tattooist looks at you with a bored expression on his face
 and says, 'Well, you don't expect me to do it for free, 
 do you? If you've got anything worth selling, go next door. 
 My step-brother lives there and he's a pawnbroker. Tell him I
@@ -4770,8 +4452,7 @@ him farewell and walkoutside.
 <p id="h355" hidden>
 TAG:ID: 355
 TAG:DESTINATION: 74
-TAG:HISTORY
-You turn on the two guards who were holding you and, before 
+TAG:HISTORY You turn on the two guards who were holding you and, before 
 they realize what is happening, you smash their heads together, 
 knocking them unconscious. You dash into the city.
 </p>
@@ -4783,8 +4464,7 @@ TAG:ENEMY 2: RAT;SKILL 5;STAMINA 4
 TAG:ENEMY 3: RAT;SKILL 5;STAMINA 5
 TAG:CHOICE 1: If you win
 TAG:ACTION 1: 28
-TAG:HISTORY
-Ahead you hear the sound of squealing and frantic splashing. 
+TAG:HISTORY Ahead you hear the sound of squealing and frantic splashing. 
 Long shadows are cast by moving objects coming towards you. 
 Then you see the sleek, glistening shapes of three GIANT RATS
 only a few metres away from you. You draw your sword hastily
@@ -4798,8 +4478,7 @@ TAG:CHOICE 1: If you defeat him
 TAG:ACTION 1: 71
 TAG:CHOICE 2: After the third Attack Round, you may Escape by running out of the house and heading north.
 TAG:ACTION 2: 282
-TAG:HISTORY
-The OGRE is mad with hunger and picks up a large bone off the
+TAG:HISTORY The OGRE is mad with hunger and picks up a large bone off the
 floor. He raises it above his head and lumbers towards you.
 </p>
 <p id="h358" hidden>
@@ -4810,8 +4489,7 @@ TAG:CHOICE 2: Fix a Climbing Rope (if you have one) to the wall and climb down t
 TAG:ACTION 2: 108
 TAG:CHOICE 3: Face the oncoming guards
 TAG:ACTION 3: 56
-TAG:HISTORY
-It's a close shave, but you just manage to grip the edge of the 
+TAG:HISTORY It's a close shave, but you just manage to grip the edge of the 
 wall with your fingertips. You pull yourself up and climb on to
 a stone walkway along the top of the city wall. On either side 
 of you are stone towers rising above the battlements, spaced
@@ -4829,8 +4507,7 @@ TAG:ITEM: ADD;silver flute;1
 TAG:ITEM: ADD;eye-patch;1
 TAG:ITEM: ADD;piece of chalk;1
 TAG:DESTINATION: 91
-TAG:HISTORY
-All the bays on your side rush over to you and slap your hands
+TAG:HISTORY All the bays on your side rush over to you and slap your hands
 with theirs. They are overjoyed at their victory. Supporters
 run over and start handing you gifts. Eventually you manage 
 to wriggle free from your admirers and find a place to sit down 
@@ -4848,8 +4525,7 @@ TAG:CHOICE 1: If you wish to stay and search the shop
 TAG:ACTION 1: 123
 TAG:CHOICE 2: If you would rather hurry out and continue west along Key Street
 TAG:ACTION 2: 300
-TAG:HISTORY
-During your fight with the Wolf Dogs, Wraggins runs out of the 
+TAG:HISTORY During your fight with the Wolf Dogs, Wraggins runs out of the 
 front of the shop, perhaps to fetch help.
 </p>
 <p id="h361" hidden>
@@ -4859,16 +4535,14 @@ TAG:ENEMY 1: ZOMBIE;SKILL 6;STAMINA 6
 TAG:ENEMY 1: ZOMBIE;SKILL 6;STAMINA 7
 TAG:CHOICE 1: If you win
 TAG:ACTION 1: 297
-TAG:HISTORY
-The mindless ZOMBIES step slowly towards you with their sticks
+TAG:HISTORY The mindless ZOMBIES step slowly towards you with their sticks
 raised in the air. Fight them one at a time.
 </p>
 <p id="h362" hidden>
 TAG:ID: 362
 TAG:STATUS: SKILL;INCREASE;1
 TAG:DESTINATION: 103
-TAG:HISTORY
-The boots fit perfectly and walking about you feel very sure-footed.
+TAG:HISTORY The boots fit perfectly and walking about you feel very sure-footed.
 They are magic elven boots. Add 1 SKILL point to your total 
 and set off east again.
 </p>
@@ -4878,15 +4552,13 @@ TAG:CHOICE 1: If you wish to lift the manhole cover to see where it leads to
 TAG:ACTION 1: 48
 TAG:CHOICE 2: If you wish to keep walking east
 TAG:ACTION 2: 205
-TAG:HISTORY
-In the middle of the street you see a large manhole cover.
+TAG:HISTORY In the middle of the street you see a large manhole cover.
 </p>
 <p id="h364" hidden>
 TAG:ID: 364
 TAG:MONEY: DECREASE;2
 TAG:DESTINATION: 329
-TAG:HISTORY
-The gaunt-faced man looks thoroughly miserable. He sees you and
+TAG:HISTORY The gaunt-faced man looks thoroughly miserable. He sees you and
 shrinks back, telling you that it is not worth robbing him 
 because he has no money. You tell him that you do not wish to
 rob him but are seeking an old wizard named Nicodemus. He stares
@@ -4905,8 +4577,7 @@ TAG:CHOICE 1: If you wish to apologize and tell him that you are a lost travelle
 TAG:ACTION 1: 339
 TAG:CHOICE 2: If you wish to attack him with your sword
 TAG:ACTION 2: 35
-TAG:HISTORY
-You charge the door several times before it splinters. Unfortunately, 
+TAG:HISTORY You charge the door several times before it splinters. Unfortunately, 
 you injure your shoulder in the process. Lose 1 SKILL point. 
 Through the broken door you see a thin, pale-skinned man with 
 dark, hollow eyes, wearing a servant's uniform. In a cold, 
@@ -4920,8 +4591,7 @@ TAG:CHOICE 1: If you want to go back to the herbalist to complain
 TAG:ACTION 1: 101
 TAG:CHOICE 2: If you would rather walk north again
 TAG:ACTION 2: 93
-TAG:HISTORY
-You pay for the smoking mixture and leave the shop. Outside you
+TAG:HISTORY You pay for the smoking mixture and leave the shop. Outside you
 pack your pipe with the smoking mixture and light it. The 
 smoke is dark and tastes awful. You start to cough and your 
 chest is gripped by a terrible pain. Lose 2 STAMINA points. You 
@@ -4935,8 +4605,7 @@ TAG:CHOICE 1: If you have
 TAG:ACTION 1: 201
 TAG:CHOICE 2: If you are missing any of the items or have not been tattooed
 TAG:ACTION 2: 299
-TAG:HISTORY
-The Trolls watch carefully as you open your backpack. You give
+TAG:HISTORY The Trolls watch carefully as you open your backpack. You give
 them all your gold except for 1 Gold Piece which you manage to 
 palm without their noticing. They then place themselves on 
 either side of you and march you along Mill Street until you 
@@ -4950,8 +4619,7 @@ and have you been tattooed?
 <p id="h368" hidden>
 TAG:ID: 368
 TAG:DESTINATION: 117
-TAG:HISTORY
-Look into a crystal ball, she seems to go into a trance. She 
+TAG:HISTORY Look into a crystal ball, she seems to go into a trance. She 
 tells you that you are searching for a man, a wise man with 
 magical powers. She pauses for a moment and then draws in a 
 deep breath before going on to tell you that the man you are
@@ -4965,8 +4633,7 @@ You decide to leave the tent and head north.
 <p id="h369" hidden>
 TAG:ID: 369
 TAG:DESTINATION: 216
-TAG:HISTORY
-Back at the junction you turn left into Clog Street an walk 
+TAG:HISTORY Back at the junction you turn left into Clog Street an walk 
 eastwards.
 </p>
 <p id="h370" hidden>
@@ -4975,8 +4642,7 @@ TAG:CHOICE 1: If you wish to risk picking on of the flowers
 TAG:ACTION 1: 14
 TAG:CHOICE 2: If you would rather leave the gardens and continue north
 TAG:ACTION 2: 133
-TAG:HISTORY
-You place the coin in the slot and walk through the turnstile. 
+TAG:HISTORY You place the coin in the slot and walk through the turnstile. 
 Although the flowers and shrubs are not outstanding, you are 
 nevertheless surprised that such a place exists in Port Blacksand.
 The gardens are not large, extending back some sixty meters to
@@ -4997,8 +4663,7 @@ TAG:CHOICE 1: If you wish to apply some of it to your wounds (if you suffered an
 TAG:ACTION 1: 83
 TAG:CHOICE 2: If you would continue searching the shop
 TAG:ACTION 2: 322
-TAG:HISTORY
-In the back room of the shop you find a glass jar on a dusty 
+TAG:HISTORY In the back room of the shop you find a glass jar on a dusty 
 shelf labelled 'Healing Mixture'.
 </p>
 <p id="h372" hidden>
@@ -5007,8 +4672,7 @@ TAG:CHOICE 1: If you wish enter the white house
 TAG:ACTION 1: 131
 TAG:CHOICE 2: If you wish to keep walking north
 TAG:ACTION 2: 333
-TAG:HISTORY
-The houses in this section of Stable Street consist of two 
+TAG:HISTORY The houses in this section of Stable Street consist of two 
 rows of terraces. They are apart from one in the middle of the 
 terrace to your right, which is made of brick and is painted 
 white. The door is made of oak and a serpent's head is carved
@@ -5024,8 +4688,7 @@ TAG:CHOICE 3: If you have lost interest in the goblets, you may either walk thro
 TAG:ACTION 3: 107
 TAG:CHOICE 4: or climb the stairs
 TAG:ACTION 4: 60
-TAG:HISTORY
-You grimace as you feel the poison creep up your arm. Lose 4 
+TAG:HISTORY You grimace as you feel the poison creep up your arm. Lose 4 
 STAMINA points and 1 SKILL point. If you are still alive, 
 you may (if you have not done so  already)
 </p>
@@ -5033,8 +4696,7 @@ you may (if you have not done so  already)
 TAG:ID: 374
 TAG:STATUS: SKILL;INCREASE;1
 TAG:DESTINATION: 21
-TAG:HISTORY
-The shield was taken from a goodly knight who died at the hand 
+TAG:HISTORY The shield was taken from a goodly knight who died at the hand 
 of Zanbar Bone. It was forged with good magic. Add 1 SKILL 
 point. You walk over to the  spiral staircase with your new 
 shield and climb to the floor above.
@@ -5045,8 +4707,7 @@ TAG:CHOICE 1: If you wish to climb over the wall
 TAG:ACTION 1: 40
 TAG:CHOICE 2: If you wish to walk back to the junction and head west down Harbor Street
 TAG:ACTION 2: 91
-TAG:HISTORY
-Eventually the street comes to a dead end at a high stone wall.
+TAG:HISTORY Eventually the street comes to a dead end at a high stone wall.
 There are stone steps leading to the top of the wall. On the 
 other side of the wall you can hear grunts, growls and cheering.
 </p>
@@ -5054,8 +4715,7 @@ other side of the wall you can hear grunts, growls and cheering.
 TAG:ID: 377
 TAG:STATUS 1: LUCK;INCREASE;1
 TAG:DESTINATION: 161
-TAG:HISTORY
-The helmet fits on your head perfectly, as had been specially
+TAG:HISTORY The helmet fits on your head perfectly, as had been specially
 made for you. It has magic properties also, and will allow you
 to add 1 point to all future dice rolls when computing your
 Attack Strength during combat as long as you wear it - add 1
@@ -5067,8 +4727,7 @@ TAG:CHOICE 1: If you wish to put your hand into the dark hole
 TAG:ACTION 1: 92
 TAG:CHOICE 2: If you would rather walk back to the entrance hole
 TAG:ACTION 2: 174
-TAG:HISTORY
-The iron grill is securely bolted to the brick wall and you
+TAG:HISTORY The iron grill is securely bolted to the brick wall and you
 are unable to remove it. However, above the grill you notice
 a dark recess where some bricks have been removed from the wall.
 It is too dark to see deep inside the recess.
@@ -5079,8 +4738,7 @@ TAG:GAME: DICE;1
 TAG:WIN: MONEY;INCREASE;5
 TAG:LOSE: MONEY;DECREASE;5
 TAG:DESTINATION: 52
-TAG:HISTORY
-Roll one die alternately for yourself and the bare-chested
+TAG:HISTORY Roll one die alternately for yourself and the bare-chested
 man, to represent the cannon ball passing between you. Repeat
 this process until a 1 is thrown, in which case the cannon ball
 have been dropped and the loser must pay the winner 5 Gold 
@@ -5092,16 +4750,14 @@ TAG:CHOICE 1: If you wish to open the door in front of you
 TAG:ACTION 1: 122
 TAG:CHOICE 2: If you wish to run back to the staircase to climb up to the next floor
 TAG:ACTION 2: 207
-TAG:HISTORY
-Lose 2 STAMINA points. Despite the pain in your arm you must 
+TAG:HISTORY Lose 2 STAMINA points. Despite the pain in your arm you must 
 act quickly to escape the advancing Suit of Armour.
 </p>
 <p id="h380" hidden>
 TAG:ID: 380
 TAG:STATUS: STAMINA;INCREASE;4
 TAG:DESTINATION: 375
-TAG:HISTORY
-Despite its rotten taste, the soup includes herbs blended in 
+TAG:HISTORY Despite its rotten taste, the soup includes herbs blended in 
 an ancient tradition which are beneficial to health. Add 4 
 STAMINA points. Feeling somewhat revitalized you decide to 
 leave the ladies to their argument and head east.
@@ -5113,8 +4769,7 @@ TAG:ACTION 1: 74
 TAG:CHOICE 2: If you wish to buy the guard's advice, make the necessay deduction on your Adventure Sheet.
 TAG:MONEY: DECREASE;3
 TAG:ACTION 2: 261
-TAG:HISTORY
-The guard frowns and says, 'A likely story, I'm sure. But I
+TAG:HISTORY The guard frowns and says, 'A likely story, I'm sure. But I
 suppose you are just the same as all the rest inside this city.
 You may enter at your own peril or buy my advice for 3 Gold Pieces.'
 </p>
@@ -5124,8 +4779,7 @@ TAG:CHOICE 1: fire your silver arrow at him
 TAG:ACTION 1: 189
 TAG:CHOICE 2: or to reflect his stare in your mirror, as your Ring of Ice is useless. 
 TAG:ACTION 2: 305
-TAG:HISTORY
-A jet of gas shoots out oi the ring and turns to on contact with
+TAG:HISTORY A jet of gas shoots out oi the ring and turns to on contact with
 the Spirit Stalker, covering him completely. It does not stop 
 him advancing towards you, but it slows him down. You have time
 either to
@@ -5136,8 +4790,7 @@ TAG:CHOICE 1: open the other door
 TAG:ACTION 1: 271
 TAG:CHOICE 2: or leave the ship to continue your search of Port Blacksand, walking north up Harbour Street.
 TAG:ACTION 2: 78
-TAG:HISTORY
-If you have not done so already you may
+TAG:HISTORY If you have not done so already you may
 </p>
 <p id="h384" hidden>
 TAG:ID: 384
@@ -5145,8 +4798,7 @@ TAG:CHOICE 1: If you wish to chase them down the alley
 TAG:ACTION 1: 221
 TAG:CHOICE 2: If you wish to set off west again
 TAG:ACTION 2: 396
-TAG:HISTORY
-As the cudgel swings through the air above your head, you punch 
+TAG:HISTORY As the cudgel swings through the air above your head, you punch 
 the Dwarf holding it. He lets out a scream and drops the cudgel.
 Feeling his bleeding nose and seeing the blood on his hand, 
 he screams again and runs off down the alley. The other two
@@ -5161,8 +4813,7 @@ TAG:ENEMY 2: SKELETON;SKILL 8;STAMINA 6
 TAG:ENEMY 3: SKELETON;SKILL 7;STAMINA 7
 TAG:CHOICE 1: If you win
 TAG:DESTINATION: 203
-TAG:HISTORY
-A voice in your mind tells you that the chest is an illusion
+TAG:HISTORY A voice in your mind tells you that the chest is an illusion
 and does not exist. Also you see that the black cat is not
 what you thought it was. Before you stands a black-robed skeleton
 with geen, translucid eyes, wearing a golden crown on its skull -
@@ -5177,16 +4828,14 @@ TAG:FIGHT
 TAG:ENEMY 1: PIRATE;SKILL 7;STAMINA 5
 TAG:CHOICE 1: If you win
 TAG:DESTINATION: 20
-TAG:HISTORY
-The PIRATE seems pleased that you wish to fight him and grins,
+TAG:HISTORY The PIRATE seems pleased that you wish to fight him and grins,
 revealing a toothless mouth which unnerves you a little.
 </p>
 <p id="h387" hidden>
 TAG:ID: 387
 TAG:STATUS: SKILL;DECREASE;1
 TAG:DESTINATION: 334
-TAG:HISTORY
-You are now wearing a brooch that slows you down in combat 
+TAG:HISTORY You are now wearing a brooch that slows you down in combat 
 without your realizing it. Reduce your SKILL by 1 point. 
 Finding nothing else of interest in the room you decide to 
 go hick down the stairs and leave the house to head north.
@@ -5194,8 +4843,7 @@ go hick down the stairs and leave the house to head north.
 <p id="h388" hidden>
 TAG:ID: 388
 TAG:DESTINATION: 100
-TAG:HISTORY
-You try with all your might to bend the bars securing the glass
+TAG:HISTORY You try with all your might to bend the bars securing the glass
 cupboard but you are unable to open it. Finding nothing else
 of interest in the shop, you walk outside and continue east.
 </p>
@@ -5206,8 +4854,7 @@ TAG:SUCCESS: If the rolled is less than or equal to your SKILL score, the door f
 TAG:DESTINATION: 159
 TAG:FAIL: If the number rolled is greater than your SKILL, the door remains firmly shut. You decide not to risk injury to yourself and walk back to the street, continuing northwards.
 TAG:DESTINATION: 304
-TAG:HISTORY
-You push the door with your shoulder with ail your might. 
+TAG:HISTORY You push the door with your shoulder with ail your might. 
 Roll two dice.
 </p>
 <p id="h390" hidden>
@@ -5217,8 +4864,7 @@ TAG:SUCCESS: If you are Lucky, a swipe from your sword cuts into the Hag.
 TAG:DESTINATION: 144
 TAG:FAIL: If you are Unlucky, your sword menrely cuts through the air. 
 TAG:DESTINATION: 59
-TAG:HISTORY
-The HAG is conjuring a spell which instils terrible fear in you.
+TAG:HISTORY The HAG is conjuring a spell which instils terrible fear in you.
 Your mind is full of illusions and you think you are being 
 burned alive with a crowd of skeletal faces looking on gleefully.
 You swing your sword around blindly trying to hack at the faces
@@ -5231,8 +4877,7 @@ TAG:SUCCESS: If you are Luck, you trip over the wire and fall on the floor; the 
 TAG:DESTINATION: 235
 TAG:FAIL: If you are Unlucky, the bolt sinks into your chest.
 TAG:DESTINATION: 142
-TAG:HISTORY
-Unbeknown to you, there is a trip-wire across the doorway at 
+TAG:HISTORY Unbeknown to you, there is a trip-wire across the doorway at 
 your feet and a crossbow on the wall opposite, so that as you 
 walk into the room you trigger the wire and this releases the
 crossbow straight at you. Test your Luck.
@@ -5248,8 +4893,7 @@ TAG:ACTION 1: 186
 TAG:CHOICE 2: You may use your LUCK against the fire and you may Escape by running back down the stairs and out of the house to head north.
 TAG:TEST: LUCK
 TAG:ACTION 2: 334
-TAG:HISTORY
-The creature is outraged that you have stolen one of its 
+TAG:HISTORY The creature is outraged that you have stolen one of its 
 brooches. It jumps up and you notice smoke curling up from its
 nostrils as its mounts. Suddenly a blast of fire shoots from 
 its jaw and it moves towards you with outstretched claws. The
@@ -5265,8 +4909,7 @@ TAG:CHOICE 1: If you wish to let them throw you out of city
 TAG:ACTION 1: 156
 TAG:CHOICE 2: If you wish to attack the Trolls
 TAG:ACTION 2: 73
-TAG:HISTORY
-You tell the Trolls that you are a weapon-maker and have been
+TAG:HISTORY You tell the Trolls that you are a weapon-maker and have been
 to the market to sell daggers to a stallholder there. Sourbelly
 sneers at you and says, 'Well in that case you have finished 
 your business in Port Blacksand. Allow us to escort you to the 
@@ -5279,8 +4922,7 @@ TAG:MONEY: DECREASE;2
 TAG:ACTION 1: 368
 TAG:CHOICE 2: If you would rather carry on unaided, leave the tent and head north
 TAG:ACTION 2: 117
-TAG:HISTORY
-Sitting behind a small table is a plump woman wearing bright 
+TAG:HISTORY Sitting behind a small table is a plump woman wearing bright 
 yellow clothes and a shawl over her head. She smiles as you 
 enter, bidding you to sit down. She tells you that a glimpse
 of the future will cost you 2 Gold Pieces.
@@ -5290,8 +4932,7 @@ of the future will cost you 2 Gold Pieces.
 TAG:ID: 395
 TAG:STATUS 1: LUCK;DECREASE4
 TAG:DESTINATION: 115
-TAG:HISTORY
-The blacksmith was a good man. Lose 4 LUCK points. Feeling 
+TAG:HISTORY The blacksmith was a good man. Lose 4 LUCK points. Feeling 
 extrernely guilty, you leave the stable and continue north.
 </p>
 <p id="h396" hidden>
@@ -5300,15 +4941,13 @@ TAG:CHOICE 1: If you wish to enter the Shop
 TAG:ACTION 1: 145
 TAG:CHOICE 2: If you prefer to keep walking west
 TAG:ACTION 2: 24
-TAG:HISTORY
-On the left side of the street is a flower shop. The window 
+TAG:HISTORY On the left side of the street is a flower shop. The window 
 is filled with exotic and colourful flowers.
 </p>
 <p id="h397" hidden>
 TAG:ID: 397
 TAG:DESTINATION: 372
-TAG:HISTORY
-No wonder the vagabonds wanted to rob you - they only have 1 
+TAG:HISTORY No wonder the vagabonds wanted to rob you - they only have 1 
 Gold Piece between them. You find nothing else of interest in
 their pockets and so decide to set off north along Stable Street.
 </p>
@@ -5318,8 +4957,7 @@ TAG:CHOICE 1: If you wish to take him on at his game
 TAG:ACTION 1: 378
 TAG:CHOICE 2: If you would rather walk on
 TAG:ACTION 2: 52
-TAG:HISTORY
-A small circle of people is standing around a bare-chested man.
+TAG:HISTORY A small circle of people is standing around a bare-chested man.
 He is enormous and his muscles look as hard as iron. He is
 asking the crowd for a volunteer to play catch with a cannon
 ball. He states that whoever drops the cannon ball must pay
@@ -5331,16 +4969,14 @@ TAG:CHOICE 1: If you wish to board the ship by climbing the rope ladder
 TAG:ACTION 1: 87
 TAG:CHOICE 2: If you wish to walk straight up the gangplank
 TAG:ACTION 2: 294
-TAG:HISTORY
-A rope ladder hangs down from the stern of the ship to the
+TAG:HISTORY A rope ladder hangs down from the stern of the ship to the
 jetty. There is also a gangplank leading up the side of the
 ship.
 </p>
 <p id="h400" hidden>
 TAG:ID: 400
 CONGRATULATIONS
-TAG:HISTORY
-You leave Zanbar Bone's black tower as quickly as you can, not 
+TAG:HISTORY You leave Zanbar Bone's black tower as quickly as you can, not 
 wishing to spend another moment in the infernal place. Before
 leaving, however, you set it alight so that no evil entity may
 ever again use it for foul deeds. You sleep the rest of the
@@ -5369,7 +5005,10 @@ function loadNext(event)
         child = options.lastElementChild; 
     } 
 	
+	//Possível solução para a quebra de linhas, mas há casos em que é necessária.
+	//document.getElementById('narrative').innerHTML = String(document.getElementById("h" + id).innerHTML.replace(/\n/g, " ")).split("TAG:HISTORY")[1];
 	document.getElementById('narrative').innerHTML = String(document.getElementById("h" + id).innerHTML).split("TAG:HISTORY")[1];
+
 	let tags = document.getElementById("h" + id).innerHTML.split("TAG:");
 	
 	for(let i = 1; i < tags.length; i++)
