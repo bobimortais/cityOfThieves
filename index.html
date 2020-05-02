@@ -107,7 +107,7 @@
 			</div>
 		</div>
 	</head>
-	<body>
+	<body style="background: rgba(196, 216, 93, 0.3);">
 		<div id="gameactions" class="gameactions">
 			<div id="battle" class="battle" disabled>
 				<p>Battle</p>
@@ -145,7 +145,7 @@
 			<p>Adventure Sheet</p>
 			<table class="atts">
 				<tr>
-					<th style="width: 70px;">SKILL</th>
+					<th style="width: 70px;text-align: left;">SKILL</th>
 				</tr>
 				<tr>
 					<td>Initial</td>
@@ -157,7 +157,7 @@
 				</tr>
 
 			</table>
-			<table class="atts" style="margin-left: 5px;">
+			<table class="atts" style="margin-left: 5px;text-align: left;">
 				<tr>
 					<th style="width: 70px;">STAMINA</th>
 				</tr>
@@ -170,7 +170,7 @@
 					<td id="staminacurrent">18</td>
 				</tr>
 			</table>
-			<table class="atts" style="margin-left: 5px;">
+			<table class="atts" style="margin-left: 5px;text-align: left;">
 				<tr>
 					<th style="width: 57px;">LUCK</th>
 				</tr>
@@ -189,7 +189,13 @@
 						<th>EQUIPMENT LIST</th>
 					</tr>
 					<tr>
-						<td>Nada</td>
+						<td>
+							<ul>
+								<li>Pera</li>
+								<li>Uva</li>
+								<li>Maça</li>
+							</ul>
+						</td>
 					</tr>
 				</table>
 			</div>
@@ -5490,6 +5496,7 @@ function battle(tags,options)
 function testAttribute(tags, options)
 {
 	document.getElementById("test").removeAttribute("disabled");
+	document.getElementById("testdices").removeAttribute("disabled");
 	var options = document.getElementById("options");
 	let attribute = tags[2].split(":")[1].trim();
 	
@@ -5543,21 +5550,21 @@ function rollTestDice()
 {	
 	var count = 0;
 	var id = setInterval(roll, 10);
+	document.getElementById("testdices").setAttribute("disabled", true);
+	
 	function roll() 
 	{
 		if (count == 100) 
 		{
 			let dicesValues = document.getElementById("testdicevalue").innerHTML.split(":")[1].trim();
 			let result = parseInt(dicesValues.split(" ")[0]) + parseInt(dicesValues.split(" ")[1]);
-			//Colocar o atributo correto sendo testado
 			var attributeToTest = document.getElementById("attributetest").innerHTML.split(":")[1].trim();
 			var currentAttributeValue;
 	
 			if(attributeToTest == "LUCK")
 				currentAttributeValue = parseInt(document.getElementById("luckcurrent").innerHTML);
 			if(attributeToTest == "SKILL")
-				currentAttributeValue = parseInt(document.getElementById("skillcurrent").innerHTML)
-			
+				currentAttributeValue = parseInt(document.getElementById("skillcurrent").innerHTML);
 			
 			
 			if(result <= currentAttributeValue)
@@ -5575,8 +5582,9 @@ function rollTestDice()
 				document.getElementById("luckcurrent").innerHTML = currentAttributeValue - 1;
 			if(attributeToTest == "SKILL")
 				document.getElementById("skillcurrent").innerHTML = currentAttributeValue - 1;
+				
+			document.getElementById("test").setAttribute("disabled", true);
 
-			document.getElementById("testdices").setAttribute("disabled", true);
 			clearInterval(id);
 		} 
 		else 
