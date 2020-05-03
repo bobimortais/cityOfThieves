@@ -95,7 +95,7 @@
 		}
 		.gametop
 		{
-			 background: rgba(150, 203, 101, 0.6);
+			background: rgba(150, 203, 101, 0.6);
 		}
 		.itemsdiv
 		{
@@ -123,8 +123,10 @@
 		.title
 		{
 			text-align: center;
-			font-size:30;font-family: Old English TEXT MT;
+			font-size:70;
+			font-family: Old English TEXT MT;
 			color: rgba(123, 129, 95, 1);
+			height: 20px;
 		}
 		.listofitems
 		{
@@ -135,13 +137,11 @@
 			max-height:180px;
 		}
 		</style>
-		<div class="gametop" height="200px">
-			<p class="title">City of Thieves</p>
-			<div style="text-align:center">
-				<button onclick="loadStart(this)" class="newgame">New Game</button>
-				<button class="loadgame">Load Game</button>
-				<button class="savegame">Save Game</button>
-			</div>
+		<div class="gametop" height="200px" style="text-align:center">
+			<p class="title">City of Thieves</p>	
+			<button onclick="loadStart(this)" class="newgame">New Game</button>
+			<button class="loadgame">Load Game</button>
+			<button class="savegame">Save Game</button>
 		</div>
 	</head>
 	<body style="background: rgba(196, 216, 93, 0.3);">
