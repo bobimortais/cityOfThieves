@@ -41,10 +41,19 @@
 		{
 			align-items: center;
 			justify-content: center;
+			margin-bottom: 10px;
 		}
 		button
 		{
 			width: 120px;
+			background-color: rgba(169, 47, 36, 1); 
+			color: rgba(255, 255, 0, 1); 
+			border: 2px solid rgba(244, 163, 22, 1);
+		}
+		button[disabled]
+		{
+			pointer-events: none;
+			opacity: 0.3;
 		}
 		.buttonoption
 		{
@@ -111,9 +120,23 @@
 		{
 			display: none;
 		}
+		.title
+		{
+			text-align: center;
+			font-size:30;font-family: Old English TEXT MT;
+			color: rgba(123, 129, 95, 1);
+		}
+		.listofitems
+		{
+			list-style: none;
+			padding: 0;
+			overflow-y:scroll;
+			height: 180px;
+			max-height:180px;
+		}
 		</style>
-		<div class="gametop">
-			<p style="text-align: center;font-size:160%;">City of Thieves</p>
+		<div class="gametop" height="200px">
+			<p class="title">City of Thieves</p>
 			<div style="text-align:center">
 				<button onclick="loadStart(this)" class="newgame">New Game</button>
 				<button class="loadgame">Load Game</button>
@@ -124,7 +147,7 @@
 	<body style="background: rgba(196, 216, 93, 0.3);">
 		<div id="gameactions" class="gameactions">
 			<div id="battle" class="battle" disabled>
-				<p>Battle</p>
+				<p style="font-family: Castellar;">Battle</p>
 				<p id="rounds">Rounds: 0</p>
 				<table id="enemylist">
 					<th>ENEMY</th>
@@ -141,7 +164,7 @@
 				<button disabled>ESCAPE</button>
 			</div>
 			<div id="test" class="test" disabled>
-				<p>Test</p>
+				<p style="font-family: Castellar;">Test</p>
 				<p id="attributetest">Attribute to Test:</p>
 				<p id="testdicevalue">Dices Values: </p>
 				<p id="yourattvalue">Your current attribute value: </p>
@@ -150,13 +173,13 @@
 			</div>
 		</div>
 		<div id="game" class="game">
-			<p>History</p>
-			<textarea class="historytext" id="narrative" rows="20" cols="50" readonly>No Turn Over</textarea>
+			<p style="font-family: Castellar;">History</p>
+			<textarea class="historytext" id="narrative" rows="17" cols="50" readonly>No Turn Over</textarea>
 			<div id="options" class="options">
 			</div>
 		</div>
 		<div id="sheet" class="sheet">
-			<p>Adventure Sheet</p>
+			<p style="font-family: Castellar;">Adventure Sheet</p>
 			<table class="atts">
 				<tr>
 					<th style="width: 70px;text-align: left;">SKILL</th>
@@ -204,12 +227,8 @@
 					</tr>
 					<tr>
 						<td>
-							<ul id="listofitems" style="list-style: none;padding: 0;overflow-y:scroll;max-height:180px;">
-								<!--li style="padding: 5px 10px;background-color: rgba(196, 216, 93, 0.3);">Pera</li-->
+							<ul id="listofitems" class="listofitems">
 								<li style="padding: 5px 10px;" onclick="itemSelected()">Uva</li>
-								<li style="padding: 5px 10px;">Maça</li>
-								<li style="padding: 5px 10px;">Maça</li>
-								<li style="padding: 5px 10px;">Maça</li>
 								<li style="padding: 5px 10px;">Maça</li>
 								<li style="padding: 5px 10px;">Maça</li>
 								<li style="padding: 5px 10px;">Maça</li>
@@ -2054,7 +2073,7 @@ lead to another floor. You may:
 TAG:ID: 155
 TAG:STATUS 1: STAMINA;DECREASE;3
 TAG:DESTINATION: 171
-Lose 3 STAMINA points. If you are still alive, you stand up 
+TAG:HISTORY Lose 3 STAMINA points. If you are still alive, you stand up 
 and brush yourself down. The carriage races out of view and 
 you set off west again, hoping that you will have another 
 opportunity to meet the infamous Lord Azzur.

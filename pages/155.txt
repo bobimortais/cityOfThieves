@@ -2,6 +2,7 @@
 ID: 155
 STATUS 1: STAMINA;DECREASE;3
 DESTINATION: 171
+HISTORY
 Lose 3 STAMINA points. If you are still alive, you stand up 
 and brush yourself down. The carriage races out of view and 
 you set off west again, hoping that you will have another 
