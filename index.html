@@ -5415,7 +5415,7 @@ function loadStart(event)
         child = options.lastElementChild; 
     } 
 
-	document.getElementById('narrative').innerHTML = String(document.getElementById("h1").innerHTML).split("TAG:HISTORY")[1];
+	document.getElementById('narrative').innerHTML = String(document.getElementById("h1").innerHTML.replace(/\n/g, " ")).split("TAG:HISTORY")[1];
 	let tags = document.getElementById("h1").innerHTML.split("TAG:");
 	
 	for(let i = 1; i < tags.length; i++)
