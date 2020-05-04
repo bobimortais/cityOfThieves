@@ -5087,13 +5087,13 @@ function loadNext(event)
 		}
 		if(tag.includes("FIGHT"))
 		{
-			battle(tags,options);
+			battle(tags,options, id);
 			break;
 		}
 	}
 }	
 
-function battle(tags,options)
+function battle(tags,options, id)
 {
 	document.getElementById("battle").removeAttribute("disabled");
 	document.getElementById("yourstamina").innerHTML = "Your Stamina: " + document.getElementById("staminacurrent").innerHTML;
@@ -5130,6 +5130,17 @@ function battle(tags,options)
 			let text = tags[i].split(":")[1];
 			let newOption = document.createElement("button");
 			newOption.className = "buttonoption";
+			newOption.setAttribute("disabled", true);
+			
+			if(id == "10")
+			{
+				if(tags[i].split(":")[0] == "CHOICE 1")
+				{
+					var fightRounds = document.createAttribute("rounds");
+					fightRounds.value = "6";
+					newOption.setAttributeNode(fightRounds); 
+				}
+			}
 			
 			if(tags[i + 1].includes("ACTION") || tags[i + 1].includes("DESTINATION"))
 			{
@@ -5157,6 +5168,7 @@ function battle(tags,options)
 									loadNext(this);
 								};
 			newOption.innerHTML = "Continue";
+			newOption.setAttribute("disabled", true);
 			options.appendChild(newOption);
 		}
 	}
@@ -5389,10 +5401,55 @@ function checkEndOfBattle(enemies, staminaCurrent)
 		} 
 		document.getElementById("battle").setAttribute("disabled", true);
 	}
-	if(enemies != null && enemies.rows.length == 1)
+	else if(enemies != null && enemies.rows.length == 1)
 	{
 		document.getElementById("battle").setAttribute("disabled", true);
+		checkOptionsToEnable();
+		document.getElementById("rounds").innerHTML = "Rounds: 0";
 	}
+	else
+	{
+		checkEnableEscape();
+	}
+
+}
+
+function checkOptionsToEnable()
+{
+	let options = document.getElementById("options");
+	
+	for(let i = 0; i < options.children.length; i++)
+	{
+		let option = options.children[i];
+		
+		if(option.getAttribute("rounds") != null)
+		{
+			let rounds =  parseInt(document.getElementById("rounds").innerHTML.split(":")[1].trim());
+			let optionRounds = parseInt(option.getAttribute("rounds"));
+			
+			if(rounds <= optionRounds)
+			{
+				option.removeAttribute("disabled");
+			}
+			else
+			{
+				options.children[i + 1].removeAttribute("disabled");
+			}
+			break;
+		}
+		else
+		{
+			option.removeAttribute("disabled");
+			break;
+		}
+	}
+	
+	
+}
+
+function checkEnableEscape()
+{
+
 }
 
 function loadGame()
