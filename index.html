@@ -173,13 +173,21 @@
 				<button onclick="rollAttackDices()">Roll Dices</button>
 				<button disabled>ESCAPE</button>
 			</div>
-			<div id="test" class="test" disabled>
-				<p style="font-family: Castellar;">Test</p>
-				<p id="attributetest">Attribute to Test:</p>
-				<p id="testdicevalue">Dices Values: </p>
-				<p id="yourattvalue">Your current attribute value: </p>
-				<p id="testresult"></p>
-				<button id="testdices" onclick="rollTestDice()">Roll Dices</button>
+			<div class="testshopgames" style="float:left;">
+				<div id="test" class="test" disabled>
+					<p style="font-family: Castellar;">Test</p>
+					<p id="attributetest">Attribute to Test:</p>
+					<p id="testdicevalue">Dices Values: </p>
+					<p id="yourattvalue">Your current attribute value: </p>
+					<p id="testresult"></p>
+					<button id="testdices" onclick="rollTestDice()">Roll Dices</button>
+				</div>
+				<div id="shop" class="shop" style="clear: left" hidden>
+					<p>SHOP</p>
+				</div>
+				<div id="minigame" class="game" style="clear: left" hidden>	
+					<p>GAME</p>
+				</div>
 			</div>
 		</div>
 		<div id="game" class="game">
