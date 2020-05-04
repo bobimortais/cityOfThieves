@@ -3392,7 +3392,7 @@ would get one if I were you, pretty quickly.'
 TAG:ID: 262
 TAG:CHOICE 1: Once outside you set off east again.
 TAG:DESTINATION: 375
-Wiping the foul-tasting soup from your lips with the back of
+TAG:HISTORY Wiping the foul-tasting soup from your lips with the back of
 your hand, you storm out of the house, leaving the crazy ladies
 to their argument.
 </p>
@@ -5031,9 +5031,10 @@ function loadNext(event)
         child = options.lastElementChild; 
     } 
 	
-	//Possível solução para a quebra de linhas, mas há casos em que é necessária.
-	//document.getElementById('narrative').innerHTML = String(document.getElementById("h" + id).innerHTML.replace(/\n/g, " ")).split("TAG:HISTORY")[1];
-	document.getElementById('narrative').innerHTML = String(document.getElementById("h" + id).innerHTML).split("TAG:HISTORY")[1];
+	if(id == "52" || id == "354" || id == "201")
+		document.getElementById('narrative').innerHTML = String(document.getElementById("h" + id).innerHTML).split("TAG:HISTORY")[1];
+	else
+		document.getElementById('narrative').innerHTML = String(document.getElementById("h" + id).innerHTML.replace(/\n/g, " ")).split("TAG:HISTORY")[1];
 
 	let tags = document.getElementById("h" + id).innerHTML.split("TAG:");
 	
