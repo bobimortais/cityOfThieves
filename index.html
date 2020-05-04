@@ -5106,6 +5106,7 @@ function battle(tags,options, id)
 {
 	document.getElementById("battle").removeAttribute("disabled");
 	document.getElementById("yourstamina").innerHTML = "Your Stamina: " + document.getElementById("staminacurrent").innerHTML;
+	document.getElementById("battle").setAttribute("style", "border-width: medium;border-color: red");
 	console.log(tags);
 	
 	for(let i = 3; i < tags.length; i++)
@@ -5186,7 +5187,10 @@ function battle(tags,options, id)
 
 function testAttribute(tags, options)
 {
-	document.getElementById("test").removeAttribute("disabled");
+	var testDivElement = document.getElementById("test");
+	testDivElement.removeAttribute("disabled");
+	testDivElement.setAttribute("style", "border-width: medium;border-color: red");
+	
 	document.getElementById("testdices").removeAttribute("disabled");
 	var options = document.getElementById("options");
 	let attribute = tags[2].split(":")[1].trim();
@@ -5275,7 +5279,7 @@ function rollTestDice()
 				document.getElementById("skillcurrent").innerHTML = currentAttributeValue - 1;
 				
 			document.getElementById("test").setAttribute("disabled", true);
-
+			document.getElementById("test").setAttribute("style", "border-width: thin;border-color: black");
 			clearInterval(id);
 		} 
 		else 
@@ -5409,10 +5413,12 @@ function checkEndOfBattle(enemies, staminaCurrent)
 			child = options.lastElementChild; 
 		} 
 		document.getElementById("battle").setAttribute("disabled", true);
+		document.getElementById("battle").setAttribute("style", "border-width: thin;border-color: black");
 	}
 	else if(enemies != null && enemies.rows.length == 1)
 	{
 		document.getElementById("battle").setAttribute("disabled", true);
+		document.getElementById("battle").setAttribute("style", "border-width: thin;border-color: black");
 		checkOptionsToEnable();
 		document.getElementById("rounds").innerHTML = "Rounds: 0";
 	}
