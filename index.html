@@ -1048,7 +1048,7 @@ TAG:CHOICE 2: Open the black door
 TAG:ACTION 2: 96
 TAG:CHOICE 3: Carry on up the stairs
 TAG:ACTION 3: 197
-On the next floor there are two doors adjacent to one another
+TAG:HISTORY On the next floor there are two doors adjacent to one another
 on the landing. One is painted white and the other black. 
 Suddenly a voice calls out from nowhere, saying, 'Oh foolish 
 adventurer, why do you even consider it a remote possibility 
@@ -1511,7 +1511,7 @@ TAG:CHOICE 1: If you wish to try to pick the lock
 TAG:ACTION 1: 163
 TAG:CHOICE 2: If you wish to leave the room and climb the stairs to the floor above
 TAG:ACTION 2: 231
-The back room is as lavishly furnished as the front room. 
+TAG:HISTORY The back room is as lavishly furnished as the front room. 
 In the far corner you see a wooden chest bolted to the floor.
 It is securely locked.
 </p>
@@ -1891,7 +1891,7 @@ TAG:CHOICE 1: If you defeat him
 TAG:ACTION 1: 71
 TAG:CHOICE 2: After the third Attack Round, you may Escape by running out of the house to head north.
 TAG:ACTION 2: 282
-The OGRE looks unimpressed by your aggressive action and, 
+TAG:HISTORY The OGRE looks unimpressed by your aggressive action and, 
 picking up a large bone as a weapon, lumbers towards you. You
 must fight him.
 </p>
@@ -2038,7 +2038,7 @@ TAG:ENEMY 1: PIRATE;SKILL 7;STAMINA 5
 TAG:ATTACK: Attack Strength;DECREASE;2;ROUND
 TAG:CHOICE 1: If you win
 TAG:ACTION 1: 20
-The PIRATE draws his cutlass. As he approaches, his toothless
+TAG:HISTORY The PIRATE draws his cutlass. As he approaches, his toothless
 grin unnerves you a little. You do not have time to draw your 
 sword and must fight the pirate with the wooden stick. During
 each Attack Round you must deduct 2 points from your Attack 
@@ -2185,7 +2185,6 @@ TAG:CHOICE 2: Walk back to the junction and go down Harbour Street
 TAG:ACTION 2: 91
 TAG:HISTORY You may either turn right down Candle Street or walk back to the junction and go down 
 Harbour Street.
-
 </p>
 <p id="h166" hidden>
 TAG:ID: 166
@@ -2289,6 +2288,7 @@ TAG:CHOICE 1: Back at the entrance hole you may either climb up the ladder to th
 TAG:ACTION 1: 205
 TAG:CHOICE 2: or, if you have not done so already, you may walk north along the sewer.
 TAG:ACTION 2: 356
+TAG:HISTORY Back at the entrance hole you may either
 </p>
 <p id="h175" hidden>
 TAG:ID: 175
@@ -2498,7 +2498,7 @@ TAG:FIGHT
 TAG:ENEMY 1: LEAF BEASTS;SKILL 6;STAMINA 6
 TAG:CHOICE 1: If you win, you run back to the turnstile still clutching the lotus and make your getaway into Stable Street.
 TAG:ACTION 1: 133
-You draw your sword to defend yourself against the advancing 
+TAG:HISTORY You draw your sword to defend yourself against the advancing 
 LEAF BEASTS. They all attack you at once, seemingly trying to
 crush and smother you. Treat the Leaf Beasts as a single 
 creature.
@@ -2522,12 +2522,13 @@ TAG:CHOICE 2: Otherwise you must use your sword.
 TAG:FIGHT
 TAG:ENEMY 1: MUMMY;SKILL 7;STAMINA 12
 TAG:ACTION 2: 163
+TAG:HISTORY If you have a Ring Of Fire, it will be the best weapon against the Mummy.
 </p>
 <p id="h194" hidden>
 TAG:ID: 194
 TAG:CHOICE 1: Feeling slightly uneasy about your new treasure you set off east again.
 TAG:DESTINATION: 161
-The smoke in the glass ball appears to vanish as you place it
+TAG:HISTORY The smoke in the glass ball appears to vanish as you place it
 carefully in your backpack.
 </p>
 <p id="h195" hidden>
@@ -2538,7 +2539,7 @@ TAG:CHOICE 2: Tell her it is Mrs Pipe
 TAG:ACTION 2: 268
 TAG:CHOICE 3: Tell her it is Ben Borryman
 TAG:ACTION 3: 53
-Which person will you say sent the flowers?  You may:
+TAG:HISTORY Which person will you say sent the flowers?  You may:
 </p>
 <p id="h196" hidden>
 TAG:ID: 196
@@ -2670,7 +2671,7 @@ TAG:SUCCESS: If you are Lucky, the arrow finds its mark and pierces the Night Pr
 TAG:DESTINATION: 244
 TAG:FAIL: If you are Unlucky, the  arrow misses the Night Prince and he advances to touch your arm. His skeletal fingers are draining your life away. You are now one of his undead Servants.
 TAG:DESTINATION: TAG:GAMEOVER
-Zanbar Bone walks towards you, trying to touch your exposed 
+TAG:HISTORY Zanbar Bone walks towards you, trying to touch your exposed 
 skin. You throw down your sword and notch the silver arrow to
 your bow. You have only one chance.  You take aim and release
 the  string. Test your Luck.
@@ -2685,7 +2686,7 @@ TAG:CHOICE 3: If you have lost interest in the goblets, you may either walk thro
 TAG:ACTION 3: 107
 TAG:CHOICE 4: or climb the stairs
 TAG:ACTION 4: 60
-You drop the goblet and pull your hand away. The scorpion 
+TAG:HISTORY You drop the goblet and pull your hand away. The scorpion 
 scurries a metre across the floor before you step on it with 
 your boot.
 </p>
@@ -3339,10 +3340,11 @@ You turn round and walk back towards the junction.
 </p>
 <p id="h257" hidden>
 TAG:ID: 257
-TAG:CHOICE 1: If you are wearing the Ring Of the Golden Eye
+TAG:CHOICE 1: You are
 TAG:ACTION 1: 385
-TAG:CHOICE 2: If not
+TAG:CHOICE 2: You are not
 TAG:ACTION 2: 70
+TAG:HISTORY If you are wearing the Ring Of the Golden Eye
 </p>
 <p id="h258" hidden>
 TAG:ID: 258
@@ -3562,6 +3564,7 @@ will you offer them?
 TAG:ID: 277
 TAG:CHOICE 1: You walk quickly over to the staircase and climb up to the next floor.
 TAG:DESTINATION: 207
+TAG:HISTORY You walk quickly over to the staircase and climb up to the next floor.
 </p>
 <p id="h278" hidden>
 TAG:ID: 278
@@ -3620,6 +3623,7 @@ barrel and a small boy sitting beside it on a stool.
 TAG:ID: 283
 TAG:CHOICE 1: There is nothing useful to he found on the dead creature, so you decide to press on northwards.
 TAG:DESTINATION: 217
+TAG:HISTORY There is nothing useful to he found on the dead creature, so you decide to press on northwards.
 </p>
 <p id="h284" hidden>
 TAG:ID: 284
@@ -3806,7 +3810,7 @@ TAG:CHOICE 1: If you wish to take the battle—axe
 TAG:ACTION 1: 214
 TAG:CHOICE 2: If you wish to push the suit of armour on to the floor to make sure it is not a booby-trap
 TAG:ACTION 2: 185
-There is a battle-axe held in the iron-plated glove of the 
+TAG:HISTORY There is a battle-axe held in the iron-plated glove of the 
 armour.
 </p>
 <p id="h302" hidden>
@@ -3955,7 +3959,7 @@ TAG:CHOICE 1: If you wish fortune
 TAG:ACTION 1: 8
 TAG:CHOICE 2: If you wish good health
 TAG:ACTION 2: 132
-The Creature leads you downstairs to the room below and asks
+TAG:HISTORY The Creature leads you downstairs to the room below and asks
 if you require fortune or good health. It takes the gold and 
 silver scorpions out of their bowls and tells you that they 
 are magic brooches. Each costs 6 Gold Pieces but you may only
