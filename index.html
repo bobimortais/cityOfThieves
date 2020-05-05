@@ -202,7 +202,20 @@
 				</div>
 				<div id="shop" class="shop" style="clear: left" hidden>
 					<p style="font-family: Castellar;">Shop</p>
-					<p>Your Gold: </p>
+					<table class="items" style="margin-top: 5px;" width="200px">
+					<tr>
+						<th style="width: 70px;text-align: left;">ITEM</th>
+					</tr>
+					<tr>
+						<td>
+							<ul id="itemstobuyname" class="listofitems">
+							</ul>
+						</td>
+					</tr>
+				</table>
+					<p id="itemprice">Price: </p>
+					<p id="shopgold">Your Gold: </p>
+					<button>Buy Item</button>
 				</div>
 				<div id="minigame" class="minigame" style="clear: left" hidden>	
 					<p style="font-family: Castellar;">Minigame</p>
@@ -727,6 +740,7 @@ outstretched, you try to remember what you must do. Will you:
 </p>
 <p id="h36" hidden>
 TAG:ID: 36
+TAG:SHOP: Ring of Invisibility,10;Ring of Fire,8;Ring of Ice,7
 TAG:CHOICE 1: Bidding the man farewell, you slip the ring on your finger and leave the shop to head west.
 TAG:DESTINATION: 196
 TAG:HISTORY The man leans on the counter and tells you that a 
@@ -1091,6 +1105,7 @@ Ha! Ha! Ha!' Will you:
 </p>
 <p id="h66" hidden>
 TAG:ID: 66
+TAG:SHOP: Dwarf Key,10
 TAG:CHOICE 1: Whether or not you buy a key you leave the shop and continue west
 TAG:DESTINATION: 300
 TAG:HISTORY The Dwarf smiles and boasts that he can make a key to open
@@ -2424,6 +2439,7 @@ you 10 Gold Pieces.
 </p>
 <p id="h183" hidden>
 TAG:ID: 183
+TAG:SHOP: Smoking Mixture,1;Healing Mixture,4
 TAG:CHOICE 1: Buy some smoking mixture
 TAG:ACTION 1: 366
 TAG:CHOICE 2: Buy some healing mixture
@@ -3174,7 +3190,7 @@ TAG:HISTORY The man hands you the gold and puts the gems under the counter.
 </p>
 <p id="h241" hidden>
 TAG:ID: 241
-TAG:SHOP: CANDLE;1
+TAG:SHOP: CANDLE,1
 TAG:CHOICE 1: If you wish to see one 
 TAG:ACTION 1: 63
 TAG:CHOICE 2: If you would rather leave the shop and head east
@@ -3683,6 +3699,7 @@ nothing left but a few charred fragments.
 </p>
 <p id="h287" hidden>
 TAG:ID: 287
+TAG:SHOP: HOT FOOD,1
 TAG:CHOICE 1: If you wish to stop and listen
 TAG:ACTION 1: 3
 TAG:CHOICE 2: If you would rather walk past him
@@ -4057,6 +4074,7 @@ make eerie sounds as they fall into the sewage water.
 </p>
 <p id="h322" hidden>
 TAG:ID: 322
+TAG:MONEY: INCREASE;11
 TAG:DESTINATION: 93
 TAG:HISTORY You walk back into the shop; behind the counter you find a 
 small wooden money box. Inside it are 11 Gold Pieces, which 
@@ -5101,7 +5119,7 @@ function loadNext(event)
 				//HANDLE FILE 160, 151
 			}
 		}
-		if(tag.includes("DESTINATION"))
+		else if(tag.includes("DESTINATION"))
 		{
 			let newOption = document.createElement("button");
 			newOption.className = "buttonoption";
@@ -5113,18 +5131,53 @@ function loadNext(event)
 			newOption.innerHTML = "Continue";
 			options.appendChild(newOption);
 		}
-		if(tag.includes("TEST"))
+		else if(tag.includes("TEST"))
 		{
 			testAttribute(tags,options);
 			break;
 		}
-		if(tag.includes("FIGHT"))
+		else if(tag.includes("FIGHT"))
 		{
 			battle(tags,options, id);
 			break;
 		}
+		else if(tag.includes("SHOP"))
+		{
+			loadShop(tag);
+		}
 	}
 }	
+
+function loadShop(tag)
+{
+	document.getElementById("test").setAttribute("hidden", true);
+	document.getElementById("minigame").setAttribute("hidden", true);
+	
+	let shopDiv = document.getElementById("shop");
+	shopDiv.removeAttribute("hidden");
+	shopDiv.setAttribute("style", "border-width: medium;border-color: red");
+	let itemsToBuyName = document.getElementById("itemstobuyname");
+	let itemsPrices = document.getElementById("itemstobuyprice");
+	console.log(tag);
+	console.log(tag.split(":")[1]);
+	var items = tag.split(":")[1].trim().split(";");
+	
+	for(let i = 0;i < items.length;i++)
+	{
+		let listItemName = document.createElement("li");
+		let listItemPrice = document.createElement("li");
+		let itemName = items[i].split(",")[0];
+		let itemPrice = items[i].split(",")[1];
+		listItemName.innerHTML = itemName;
+		listItemPrice.innerHTML = itemPrice;
+		itemsToBuyName.appendChild(listItemName);
+	}
+}
+
+function buyItem()
+{
+
+}
 
 function battle(tags,options, id)
 {

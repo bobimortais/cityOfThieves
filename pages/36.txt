@@ -1,5 +1,6 @@
 <p id="h36" hidden>
 ID: 36
+SHOP: Ring of Invisibility,10;Ring of Fire,8;Ring of Ice,7
 CHOICE 1: Bidding the man farewell, you slip the ring on your finger and leave the shop to head west.
 DESTINATION: 196
 HISTORY
@@ -8,5 +9,4 @@ Ring of Invisibility costs 10 Gold Pieces, a Ring of
 Fire costs 8 Gold Pieces, and a Ring of Ice costs 7 Gold Pieces.
 If you wish to buy one of the rings, make the necessary 
 deduction on your Adventure Sheet.
-
 </p>
