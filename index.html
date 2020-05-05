@@ -213,9 +213,10 @@
 						</td>
 					</tr>
 				</table>
+					<p id="buymessage"> </p>
 					<p id="itemprice">Price: </p>
 					<p id="shopgold">Your Gold: </p>
-					<button>Buy Item</button>
+					<button onclick="buyItem()">Buy Item</button>
 				</div>
 				<div id="minigame" class="minigame" style="clear: left" hidden>	
 					<p style="font-family: Castellar;">Minigame</p>
@@ -290,7 +291,7 @@
 						<th style="width: 120px;text-align: left;">GOLD</th>
 					</tr>
 					<tr>
-						<td id="goldtotal">0</td>
+						<td id="goldtotal">10</td>
 					</tr>
 				</table>
 				<table class="jewels" style="margin-bottom: 5px;">
@@ -5152,6 +5153,7 @@ function loadShop(tag)
 {
 	document.getElementById("test").setAttribute("hidden", true);
 	document.getElementById("minigame").setAttribute("hidden", true);
+	document.getElementById("shopgold").innerHTML = "Your Gold: " + document.getElementById("goldtotal").innerHTML;
 	
 	let shopDiv = document.getElementById("shop");
 	shopDiv.removeAttribute("hidden");
@@ -5176,7 +5178,27 @@ function loadShop(tag)
 									};
 		listItemName.onmouseout = function()
 									{
-										document.getElementById("itemprice").innerHTML = "Price: ";
+										if(this.getAttribute("selected") == null)
+										{
+											document.getElementById("itemprice").innerHTML = "Price: ";
+										}
+									}
+		listItemName.onclick = function()
+									{
+										if(this.getAttribute("selected") == null)
+										{
+											console.log("Setando atributo");
+											var selected = document.createAttribute("selected");
+											selected.value = true;
+											this.setAttributeNode(selected);
+											this.setAttribute("style", "background-color: rgba(196, 216, 93, 0.4)");
+										}
+										else
+										{
+											console.log("Removendo atributo");
+											this.removeAttribute("selected");
+											this.removeAttribute("style");
+										}
 									}
 		itemsToBuyName.appendChild(listItemName);
 	}
@@ -5189,7 +5211,27 @@ function showPrice(element)
 
 function buyItem()
 {
+	let itemPrice = parseInt(document.getElementById("itemprice").innerHTML.split(":")[1].trim());
+	let yourGold = parseInt(document.getElementById("shopgold").innerHTML.split(":")[1].trim());
 
+	
+	if(itemPrice > yourGold)
+	{
+		document.getElementById("buymessage").innerHTML = "You don't have Gold for it!";
+	}
+	else
+	{
+		document.getElementById("buymessage").innerHTML = "Item purchased!";
+		document.getElementById("shopgold").innerHTML = "Your Gold: " + (yourGold - itemPrice);
+		document.getElementById("goldtotal").innerHTML = (yourGold - itemPrice);
+		
+		let listOfItem = document.getElementById("listofitems");
+		let newItem = document.createElement("li");
+		newItem.innerHTML = "Robsu";
+		listOfItem.appendChild(newItem);
+		
+	}
+		
 }
 
 function battle(tags,options, id)
