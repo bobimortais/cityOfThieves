@@ -98,6 +98,24 @@
 			margin-left: 5px;
 			width: 200px;
 		}
+		.shop
+		{
+			float:left; 
+			padding: 5;
+			border-style: solid;
+			border-width: thin;
+			margin-left: 5px;
+			width: 200px;
+		}
+		.minigame
+		{
+			float:left; 
+			padding: 5;
+			border-style: solid;
+			border-width: thin;
+			margin-left: 5px;
+			width: 200px;
+		}
 		div[disabled]
 		{
 			pointer-events: none;
@@ -183,10 +201,11 @@
 					<button id="testdices" onclick="rollTestDice()">Roll Dices</button>
 				</div>
 				<div id="shop" class="shop" style="clear: left" hidden>
-					<p>SHOP</p>
+					<p style="font-family: Castellar;">Shop</p>
+					<p>Your Gold: </p>
 				</div>
-				<div id="minigame" class="game" style="clear: left" hidden>	
-					<p>GAME</p>
+				<div id="minigame" class="minigame" style="clear: left" hidden>	
+					<p style="font-family: Castellar;">Minigame</p>
 				</div>
 			</div>
 		</div>
@@ -246,11 +265,7 @@
 					<tr>
 						<td>
 							<ul id="listofitems" class="listofitems">
-								<li style="padding: 5px 10px;" onclick="itemSelected()">Uva</li>
-								<li style="padding: 5px 10px;">Maça</li>
-								<li style="padding: 5px 10px;">Maça</li>
-								<li style="padding: 5px 10px;">Maça</li>
-								<li style="padding: 5px 10px;">Maça</li>
+								<!--li style="padding: 5px 10px;" onclick="itemSelected()">Uva</li-->
 							</ul>
 						</td>
 					</tr>
