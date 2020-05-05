@@ -5157,7 +5157,6 @@ function loadShop(tag)
 	shopDiv.removeAttribute("hidden");
 	shopDiv.setAttribute("style", "border-width: medium;border-color: red");
 	let itemsToBuyName = document.getElementById("itemstobuyname");
-	let itemsPrices = document.getElementById("itemstobuyprice");
 	console.log(tag);
 	console.log(tag.split(":")[1]);
 	var items = tag.split(":")[1].trim().split(";");
@@ -5165,13 +5164,27 @@ function loadShop(tag)
 	for(let i = 0;i < items.length;i++)
 	{
 		let listItemName = document.createElement("li");
-		let listItemPrice = document.createElement("li");
 		let itemName = items[i].split(",")[0];
 		let itemPrice = items[i].split(",")[1];
 		listItemName.innerHTML = itemName;
-		listItemPrice.innerHTML = itemPrice;
+		var price = document.createAttribute("price");
+		price.value = itemPrice;
+		listItemName.setAttributeNode(price);
+		listItemName.onmouseover = function ()
+									{	
+										showPrice(this);
+									};
+		listItemName.onmouseout = function()
+									{
+										document.getElementById("itemprice").innerHTML = "Price: ";
+									}
 		itemsToBuyName.appendChild(listItemName);
 	}
+}
+
+function showPrice(element)
+{
+	document.getElementById("itemprice").innerHTML = "Price: " + element.getAttribute("price");
 }
 
 function buyItem()
