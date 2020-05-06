@@ -213,7 +213,7 @@
 						</td>
 					</tr>
 				</table>
-					<p id="buymessage"> </p>
+					<p id="buymessage"><br></p>
 					<p id="itemprice">Price: </p>
 					<p id="shopgold">Your Gold: </p>
 					<button onclick="buyItem()">Buy Item</button>
@@ -5178,7 +5178,7 @@ function loadShop(tag)
 									};
 		listItemName.onmouseout = function()
 									{
-										if(this.getAttribute("selected") == null)
+										if(document.getElementById("itemprice").getAttribute("itemname") == null)
 										{
 											document.getElementById("itemprice").innerHTML = "Price: ";
 										}
@@ -5192,12 +5192,17 @@ function loadShop(tag)
 											selected.value = true;
 											this.setAttributeNode(selected);
 											this.setAttribute("style", "background-color: rgba(196, 216, 93, 0.4)");
+											let priceElement = document.getElementById("itemprice");
+											var itemname = document.createAttribute("itemname");
+											itemname.value = itemName;
+											priceElement.setAttributeNode(itemname);
 										}
 										else
 										{
 											console.log("Removendo atributo");
 											this.removeAttribute("selected");
 											this.removeAttribute("style");
+											document.getElementById("itemprice").removeAttribute("itemname");
 										}
 									}
 		itemsToBuyName.appendChild(listItemName);
@@ -5206,7 +5211,10 @@ function loadShop(tag)
 
 function showPrice(element)
 {
-	document.getElementById("itemprice").innerHTML = "Price: " + element.getAttribute("price");
+	let priceToShow = document.getElementById("itemprice");
+	
+	if(priceToShow.getAttribute("itemname") == null)
+		priceToShow.innerHTML = "Price: " + element.getAttribute("price");
 }
 
 function buyItem()
@@ -5221,18 +5229,20 @@ function buyItem()
 	}
 	else
 	{
+		let newGoldValue = yourGold - itemPrice;
 		document.getElementById("buymessage").innerHTML = "Item purchased!";
-		document.getElementById("shopgold").innerHTML = "Your Gold: " + (yourGold - itemPrice);
-		document.getElementById("goldtotal").innerHTML = (yourGold - itemPrice);
+		document.getElementById("shopgold").innerHTML = "Your Gold: " + newGoldValue;
+		document.getElementById("goldtotal").innerHTML = newGoldValue;
 		
 		let listOfItem = document.getElementById("listofitems");
 		let newItem = document.createElement("li");
-		newItem.innerHTML = "Robsu";
+		newItem.innerHTML = document.getElementById("itemprice").getAttribute("itemname");
 		listOfItem.appendChild(newItem);
-		
 	}
 		
 }
+
+
 
 function battle(tags,options, id)
 {
