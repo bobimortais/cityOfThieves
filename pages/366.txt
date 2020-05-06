@@ -1,5 +1,6 @@
 <p id="h366" hidden>
 ID: 366
+STATUS 1: STAMINA;DECREASE;2
 CHOICE 1: If you want to go back to the herbalist to complain
 ACTION 1: 101
 CHOICE 2: If you would rather walk north again

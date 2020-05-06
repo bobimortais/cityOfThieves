@@ -237,11 +237,11 @@
 				</tr>
 				<tr>
 					<td>Initial</td>
-					<td id="skillinitial">8</td>
+					<td id="skillinitial">12</td>
 				</tr>
 				<tr>
 					<td>Current</td>
-					<td id="skillcurrent">8</td>
+					<td id="skillcurrent">12</td>
 				</tr>
 
 			</table>
@@ -251,11 +251,11 @@
 				</tr>
 				<tr>
 					<td>Initial</td>
-					<td id="staminainitial">18</td>
+					<td id="staminainitial">20</td>
 				</tr>
 				<tr>
 					<td>Current</td>
-					<td id="staminacurrent">18</td>
+					<td id="staminacurrent">20</td>
 				</tr>
 			</table>
 			<table class="atts" style="margin-left: 5px;text-align: left;">
@@ -264,11 +264,11 @@
 				</tr>
 				<tr>
 					<td>Initial</td>
-					<td id="luckinitial">8</td>
+					<td id="luckinitial">10</td>
 				</tr>
 				<tr>
 					<td>Current</td>
-					<td id="luckcurrent">0</td>
+					<td id="luckcurrent">10</td>
 				</tr>
 			</table>
 			<div class="itemsdiv">
@@ -2441,10 +2441,11 @@ you 10 Gold Pieces.
 </p>
 <p id="h183" hidden>
 TAG:ID: 183
-TAG:SHOP: Smoking Mixture,1;Healing Mixture,4
 TAG:CHOICE 1: Buy some smoking mixture
+TAG:MONEY: DECREASE;1
 TAG:ACTION 1: 366
 TAG:CHOICE 2: Buy some healing mixture
+TAG:MONEY: DECREASE;4
 TAG:ACTION 2: 167
 TAG:CHOICE 3: Leave the shop and head north
 TAG:ACTION 3: 93
@@ -4670,6 +4671,7 @@ everybody else?'
 </p>
 <p id="h366" hidden>
 TAG:ID: 366
+TAG:STATUS 1: STAMINA;DECREASE;2
 TAG:CHOICE 1: If you want to go back to the herbalist to complain
 TAG:ACTION 1: 101
 TAG:CHOICE 2: If you would rather walk north again
@@ -5098,6 +5100,36 @@ function loadNext(event)
 	for(let i = 1; i < tags.length; i++)
 	{
 		let tag = tags[i];
+		
+		if(tag.includes("STATUS"))
+		{
+			console.log("Change attribute value");
+			let tagValue = tag.split(":")[1].trim();
+			let attribute = tagValue.split(";")[0];
+			let action = tagValue.split(";")[1];
+			let value = parseInt(tagValue.split(";")[2]);
+			let attributeToChange;
+			
+			console.log(attribute);
+			
+			if(attribute == "SKILL")
+				attributeToChange = document.getElementById("skillcurrent");
+			else if(attribute == "LUCK")
+				attributeToChange = document.getElementById("luckcurrent");
+			else if(attribute == "STAMINA")
+				attributeToChange = document.getElementById("staminacurrent");
+			
+			if(action == "INCREASE")
+			{
+				attributeToChange.innerHTML = parseInt(attributeToChange.innerHTML) + value;
+			}
+			else
+			{
+				attributeToChange.innerHTML = parseInt(attributeToChange.innerHTML) - value;
+			}
+			
+			continue;
+		}
 		
 		if(tag.includes("CHOICE"))
 		{
