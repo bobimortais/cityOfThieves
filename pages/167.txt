@@ -1,8 +1,8 @@
 <p id="h167" hidden>
 ID: 167
 DICE: 1;INCREASE;STAMINA
+CHOICE 1: Continue
 STATUS 1: LUCK;INCREASE;1
-CHOICE 1: Add 1 LUCK point and turn to 93.
 DESTINATION: 93
 HISTORY
 When have paid the Man-Orc the 4 Gold Pieces, he explains that

@@ -925,6 +925,7 @@ grateful and offers to buy you a drink at a nearby tavern.
 </p>
 <p id="h52" hidden>
 TAG:ID: 52
+TAG:SHOP: Throwing Knife,4;Climbing Rope,2;Buther's Meat Hook,2;Iron Spike,1;Lantern,3
 TAG:CHOICE 1: You them walk north.
 TAG:DESTINATION: 200
 TAG:HISTORY Behind the next stall is a young man selling small weapons and
@@ -2247,8 +2248,8 @@ the armour-like shell of this monster.
 <p id="h167" hidden>
 TAG:ID: 167
 TAG:DICE: 1;INCREASE;STAMINA
+TAG:CHOICE 1: Continue
 TAG:STATUS 1: LUCK;INCREASE;1
-TAG:CHOICE 1: Add 1 LUCK point and turn to 93.
 TAG:DESTINATION: 93
 TAG:HISTORY When have paid the Man-Orc the 4 Gold Pieces, he explains that
 placing the herbs on a wound will help to heal it. Unfortunately
@@ -5102,7 +5103,45 @@ function loadNext(event)
 		{
 			let text = tag.split(":")[1];
 			let newOption = document.createElement("button");
+			let textToAppend = "";
 			
+			if(tags[i + 1].includes("MONEY"))
+			{
+				let tagValue = tags[i + 1].split(":")[1].trim();
+				let action = tagValue.split(";")[0];
+				let value = tagValue.split(";")[1];
+				
+				if(action == "INCREASE")
+				{
+					action = "gain";
+				}
+				else
+				{
+					action = "lose";
+				}
+				
+				textToAppend = "You " + action + " " + value + " Gold Pieces.";
+				i = i + 1;
+			}
+			if(tags[i + 1].includes("STATUS"))
+			{
+				let tagValue = tags[i + 1].split(":")[1].trim();
+				let attribute = tagValue.split(";")[0];
+				let action = tagValue.split(";")[1];
+				let value = tagValue.split(";")[2];
+				
+				if(action == "INCREASE")
+				{
+					action = "gain";
+				}
+				else
+				{
+					action = "lose";
+				}
+				
+				textToAppend = "You " + action + " " + value + " " + attribute + " points.";
+				i = i + 1;
+			}
 			if(tags[i + 1].includes("ACTION") || tags[i + 1].includes("DESTINATION"))
 			{
 				newOption.id = "id" + tags[i + 1].split(":")[1].trim();
@@ -5114,10 +5153,6 @@ function loadNext(event)
 				newOption.innerHTML = text;
 				options.appendChild(newOption);
 				i = i + 1;
-			}
-			else
-			{
-				//HANDLE FILE 160, 151
 			}
 		}
 		else if(tag.includes("DESTINATION"))
@@ -5242,8 +5277,6 @@ function buyItem()
 		
 }
 
-
-
 function battle(tags,options, id)
 {
 	document.getElementById("battle").removeAttribute("disabled");
@@ -5330,7 +5363,10 @@ function battle(tags,options, id)
 function testAttribute(tags, options)
 {
 	var testDivElement = document.getElementById("test");
+	document.getElementById("shop").setAttribute("hidden", true);
+	document.getElementById("minigame").setAttribute("hidden", true);
 	testDivElement.removeAttribute("disabled");
+	testDivElement.removeAttribute("hidden");
 	testDivElement.setAttribute("style", "border-width: medium;border-color: red");
 	
 	document.getElementById("testdices").removeAttribute("disabled");
