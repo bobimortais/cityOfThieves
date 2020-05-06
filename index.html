@@ -268,7 +268,7 @@
 				</tr>
 				<tr>
 					<td>Current</td>
-					<td id="luckcurrent">8</td>
+					<td id="luckcurrent">0</td>
 				</tr>
 			</table>
 			<div class="itemsdiv">
@@ -5347,18 +5347,40 @@ function testAttribute(tags, options)
 		currentAttributeValue = parseInt(document.getElementById("skillcurrent").innerHTML)
 	
 	document.getElementById("yourattvalue").innerHTML = "Your current attribute value: " + currentAttributeValue;
+	console.log("Test method");
 	
 	for(let i = 3; i < tags.length; i++)
 	{
-		if(!tags[i].includes("HISTORY"))
-		{
+		if(tags[i].includes("SUCCESS") || tags[i].includes("FAIL"))
+		{		
 			let text = tags[i].split(":")[1];
+			let attValue = tags[i].split(":")[0];
 			let newOption = document.createElement("button");
 			newOption.className = "buttonoption";
+			let textToAppend = "";
 			
+			if(tags[i + 1].includes("STATUS"))
+			{
+				let tagValue = tags[i + 1].split(":")[1].trim();
+				let attribute = tagValue.split(";")[0];
+				let action = tagValue.split(";")[1];
+				let value = tagValue.split(";")[2];
+				
+				if(action == "INCREASE")
+				{
+					action = "gain";
+				}
+				else
+				{
+					action = "lose";
+				}
+				
+				textToAppend = "You " + action + " " + value + " " + attribute + " points.";
+				i = i + 1;
+				
+			}
 			if(tags[i + 1].includes("ACTION") || tags[i + 1].includes("DESTINATION"))
 			{
-				let attValue = tags[i].split(":")[0];
 				var testResultAtt = document.createAttribute("testresult");
 				testResultAtt.value = attValue;
 				newOption.setAttributeNode(testResultAtt); 
@@ -5368,7 +5390,7 @@ function testAttribute(tags, options)
 									{	
 										loadNext(this);
 									};
-				newOption.innerHTML = text;
+				newOption.innerHTML = text + textToAppend;
 				newOption.setAttribute("disabled", true);
 				options.appendChild(newOption);
 				i = i + 1;

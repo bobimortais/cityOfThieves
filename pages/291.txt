@@ -3,7 +3,7 @@ ID: 291
 TEST: LUCK
 SUCCESS: If you are Lucky, he misses and you are able to past him into the city
 DESTINATION: 74
-FAIL: If you are Unlucky, the pike pierces your arm.
+FAIL: If you are Unlucky, the pike pierces your arm. You lose 2 STAMINA points.
 STATUS: STAMINA;DECREASE;2
 DESTINATION: 10
 HISTORY
