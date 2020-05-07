@@ -188,7 +188,7 @@
 				<p id="enemyattack">Enemy Attack: </p>
 				<p id="attackresult">Computing Round...</p>
 				<p id="yourstamina">Your Stamina: </p>
-				<button onclick="rollAttackDices()">Roll Dices</button>
+				<button id="attackdices" onclick="rollAttackDices()">Roll Dices</button>
 			</div>
 			<div class="testshopgames" style="float:left;">
 				<div id="test" class="test" disabled>
@@ -5395,8 +5395,10 @@ function buyItem()
 function battle(tags,options, id)
 {
 	document.getElementById("battle").removeAttribute("disabled");
+	document.getElementById("attackdices").removeAttribute("disabled");
 	document.getElementById("yourstamina").innerHTML = "Your Stamina: " + document.getElementById("staminacurrent").innerHTML;
 	document.getElementById("battle").setAttribute("style", "border-width: medium;border-color: red");
+
 	battleActive = true;
 	
 	for(let i = 3; i < tags.length; i++)
@@ -5633,6 +5635,7 @@ function rollAttackDices()
 	var id = setInterval(roll, 10);
 	var yourDiceValues = document.getElementById("yourdicevalues");
 	var enemyDiceValues = document.getElementById("enemydicesvalues");
+	document.getElementById("attackdices").setAttribute("disabled", true);
 	
 	function roll() 
 	{
@@ -5657,6 +5660,7 @@ function rollAttackDices()
 
 function computeDamage(yourDiceValues, enemyDiceValues)
 {
+
 	let yourDamage = yourDiceValues.innerHTML.split(":")[1].trim();
 	let enemyDamage = enemyDiceValues.innerHTML.split(":")[1].trim();
 	yourDamage = parseInt(yourDamage.split(" ")[0]) + parseInt(yourDamage.split(" ")[1]);
@@ -5690,6 +5694,7 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 		else
 		{
 			enemy.children[2].innerHTML = enemyStamina;
+			document.getElementById("attackdices").removeAttribute("disabled");
 		}
 	}
 	if(yourDamage < enemyDamage)
@@ -5700,10 +5705,12 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 		document.getElementById("staminacurrent").innerHTML = staminaCurrent;
 		document.getElementById("yourstamina").innerHTML = "Your Stamina: " + staminaCurrent;
 		checkEndOfBattle(null, staminaCurrent);
+		document.getElementById("attackdices").removeAttribute("disabled");
 	}
 	if(yourDamage == enemyDamage)
 	{
 		computing.innerHTML = "Attacks blocked!";
+		document.getElementById("attackdices").removeAttribute("disabled");
 	}
 }
 
@@ -5711,6 +5718,11 @@ function removeEnemy()
 {
 	let enemies = document.getElementById("enemylist");
 	enemies.removeChild(enemies.rows[1]);
+	
+	if(enemies.rows.length > 1)
+	{
+		document.getElementById("attackdices").removeAttribute("disabled");
+	}
 	checkEndOfBattle(enemies);
 }
 
