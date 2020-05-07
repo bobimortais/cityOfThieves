@@ -5076,6 +5076,8 @@ The people of Silverton are joyous once again.
 	</body>
 </html>
 <script> 
+var battleActive = false;
+
 function loadNext(event)
 { 
 	var id = event.id.split("id")[1];
@@ -5395,7 +5397,7 @@ function battle(tags,options, id)
 	document.getElementById("battle").removeAttribute("disabled");
 	document.getElementById("yourstamina").innerHTML = "Your Stamina: " + document.getElementById("staminacurrent").innerHTML;
 	document.getElementById("battle").setAttribute("style", "border-width: medium;border-color: red");
-	console.log(tags);
+	battleActive = true;
 	
 	for(let i = 3; i < tags.length; i++)
 	{
@@ -5727,6 +5729,7 @@ function checkEndOfBattle(enemies, staminaCurrent)
 		} 
 		document.getElementById("battle").setAttribute("disabled", true);
 		document.getElementById("battle").setAttribute("style", "border-width: thin;border-color: black");
+		battleActive = false;
 	}
 	else if(enemies != null && enemies.rows.length == 1)
 	{
@@ -5734,6 +5737,7 @@ function checkEndOfBattle(enemies, staminaCurrent)
 		document.getElementById("battle").setAttribute("style", "border-width: thin;border-color: black");
 		checkOptionsToEnable();
 		document.getElementById("rounds").innerHTML = "Rounds: 0";
+		battleActive = false;
 	}
 	else
 	{
@@ -5833,7 +5837,7 @@ function consumeProvision()
 {
 	let provisions = document.getElementById("provisionstotal");
 	
-	if(parseInt(provisions.innerHTML) > 0)
+	if(battleActive == false && parseInt(provisions.innerHTML) > 0)
 	{
 		let stamina = document.getElementById("staminacurrent");
 		let currentStamina = parseInt(stamina.innerHTML);
