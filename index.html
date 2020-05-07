@@ -189,7 +189,6 @@
 				<p id="attackresult">Computing Round...</p>
 				<p id="yourstamina">Your Stamina: </p>
 				<button onclick="rollAttackDices()">Roll Dices</button>
-				<button disabled>ESCAPE</button>
 			</div>
 			<div class="testshopgames" style="float:left;">
 				<div id="test" class="test" disabled>
@@ -315,7 +314,7 @@
 						<th style="max-width: 120px;text-align: left;">PROVISIONS REMAINING</th>
 					</tr>
 					<tr>
-						<td id="provisionstotal">0</td>
+						<td id="provisionstotal" onclick="consumeProvision()">10</td>
 					</tr>
 				</table>
 			</div>
@@ -2421,8 +2420,10 @@ rapidly approaching in a horse-drawn carriage.
 </p>
 <p id="h181" hidden>
 TAG:ID: 181
-TAG:CHOICE 1: The key fits the lock and the handle turns.
+TAG:CHOICE 1: Continue
 TAG:DESTINATION: 159
+TAG:HISTORY
+The key fits the lock and the handle turns.
 </p>
 <p id="h182" hidden>
 TAG:ID: 182
@@ -2968,15 +2969,9 @@ Piece'
 <p id="h223" hidden>
 TAG:ID: 223
 TAG:DICE: 1
-TAG:CHOICE 1: If you roll any number 2 and 6, you
-have chosen a harmless pill. The man reaches into a pouch on
-his cord belt and hands you 20 Gold Pieces. He then bids you
-farewell and tells you to come back soon. You leave the room
-and walk back up the alley to Candle Street.
+TAG:CHOICE 1: You leave the room and walk back up the alley to Candle Street.
 TAG:MONEY: INCREASE;20
 TAG:DESTINATION 1: 165
-TAG:CHOICE 2: A roll of 1 means you die quickly from the poisoned pill and your adventure ends here.
-TAG:GAMEOVER
 TAG:HISTORY Sweat breaks out on your forehead - you choose a pill and 
 swallow it. Roll one die. If you roll any number 2 and 6, you
 have chosen a harmless pill. The man reaches into a pouch on
@@ -5832,5 +5827,34 @@ function loadStart(event)
 function itemSelected()
 {
 	console.log("Item selecionado");
+}
+
+function consumeProvision()
+{
+	let provisions = document.getElementById("provisionstotal");
+	
+	if(parseInt(provisions.innerHTML) > 0)
+	{
+		let stamina = document.getElementById("staminacurrent");
+		let currentStamina = parseInt(stamina.innerHTML);
+		let initialStamina = parseInt(document.getElementById("staminainitial").innerHTML);
+		
+		console.log("currentStamina " + currentStamina);
+		console.log("initialStamina " + initialStamina);
+		
+		if(currentStamina < initialStamina)
+		{
+			provisions.innerHTML = parseInt(provisions.innerHTML) - 1;
+			
+			if(initialStamina - currentStamina >= 4)
+			{
+				stamina.innerHTML = currentStamina + 4;
+			}
+			else
+			{
+				stamina.innerHTML = currentStamina + (initialStamina - currentStamina);
+			}
+		}
+	}
 }
 </script> 
