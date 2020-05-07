@@ -761,6 +761,7 @@ Add 2 LUCK points.
 </p>
 <p id="h38" hidden>
 TAG:ID: 38
+TAG:ITEM: ADD;silver insect bracelet;1
 TAG:CHOICE 1: After placing the bracelet on your wrist you leave the tavern and head north again.
 TAG:DESTINATION: 296
 TAG:HISTORY One of the men reaches into a pocket inside his green jacket 
@@ -5186,6 +5187,23 @@ function loadNext(event)
 			else
 			{
 				attributeToChange.innerHTML = parseInt(attributeToChange.innerHTML) - value;
+			}
+			
+			continue;
+		}
+		if(tag.includes("ITEM"))
+		{
+			let tagValue = tag.split(":")[1].trim();
+			let action = tagValue.split(";")[0];
+			let item = tagValue.split(";")[1];
+			let quantity = parseInt(tagValue.split(";")[2]);
+			let itemList = document.getElementById("listofitems");
+			
+			for(let i = 0; i < quantity; i++)
+			{
+				let currentItem = document.createElement("li");
+				currentItem.innerHTML = item;
+				itemList.appendChild(currentItem);
 			}
 			
 			continue;

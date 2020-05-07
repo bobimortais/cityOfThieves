@@ -1,5 +1,6 @@
 <p id="h38" hidden>
 ID: 38
+ITEM: ADD;silver insect bracelet;1
 CHOICE 1: After placing the bracelet on your wrist you leave the tavern and head north again.
 DESTINATION: 296
 HISTORY
