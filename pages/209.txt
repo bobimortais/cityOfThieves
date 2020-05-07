@@ -1,5 +1,6 @@
 <p id="h209" hidden>
 ID: 209
+MONEY: INCREASE;12
 CHOICE 1: lift goblet A
 ACTION 1: 175
 CHOICE 2: or goblet C
