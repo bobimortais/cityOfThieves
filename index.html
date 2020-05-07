@@ -5084,6 +5084,47 @@ function loadNext(event)
 	var options = document.getElementById("options");
 	console.log("History ID " + id);
 	
+	if(event.getAttribute("money") != null)
+	{
+		let tagValue = event.getAttribute("money");
+		let action = tagValue.split(":")[0];
+		let value = parseInt(tagValue.split(":")[1]);
+		let goldValue = document.getElementById("goldtotal");
+		
+		if(action == "INCREASE")
+		{
+			goldValue.innerHTML = parseInt(goldValue.innerHTML) + value; 
+		}
+		else
+		{
+			goldValue.innerHTML = parseInt(goldValue.innerHTML) - value; 
+		}
+	}
+	if(event.getAttribute("status") != null)
+	{
+		let tagValue = event.getAttribute("status");
+		let attribute = tagValue.split(":")[0];
+		let action = tagValue.split(":")[1];
+		let value = parseInt(tagValue.split(":")[2]);
+		let attributeToChange;
+		
+		if(attribute == "SKILL")
+			attributeToChange = document.getElementById("skillcurrent");
+		else if(attribute == "LUCK")
+			attributeToChange = document.getElementById("luckcurrent");
+		else if(attribute == "STAMINA")
+			attributeToChange = document.getElementById("staminacurrent");
+		
+		if(action == "INCREASE")
+		{
+			attributeToChange.innerHTML = parseInt(attributeToChange.innerHTML) + value;
+		}
+		else
+		{
+			attributeToChange.innerHTML = parseInt(attributeToChange.innerHTML) - value;
+		}
+	}
+	
 	var child = options.lastElementChild;  
     while (child) { 
         options.removeChild(child); 
@@ -5101,9 +5142,26 @@ function loadNext(event)
 	{
 		let tag = tags[i];
 		
+		if(tag.includes("MONEY"))
+		{
+			let tagValue = tag.split(":")[1].trim();
+			let action = tagValue.split(";")[0];
+			let value = parseInt(tagValue.split(";")[1]);
+			let goldValue = document.getElementById("goldtotal");
+			
+			if(action == "INCREASE")
+			{
+				goldValue.innerHTML = parseInt(goldValue.innerHTML) + value; 
+			}
+			else
+			{
+				goldValue.innerHTML = parseInt(goldValue.innerHTML) - value; 
+			}
+			
+			continue;
+		}
 		if(tag.includes("STATUS"))
 		{
-			console.log("Change attribute value");
 			let tagValue = tag.split(":")[1].trim();
 			let attribute = tagValue.split(";")[0];
 			let action = tagValue.split(";")[1];
@@ -5143,6 +5201,10 @@ function loadNext(event)
 				let action = tagValue.split(";")[0];
 				let value = tagValue.split(";")[1];
 				
+				var money = document.createAttribute("money");
+				money.value = action + ":" + value;
+				newOption.setAttributeNode(money);
+				
 				if(action == "INCREASE")
 				{
 					action = "gain";
@@ -5161,6 +5223,10 @@ function loadNext(event)
 				let attribute = tagValue.split(";")[0];
 				let action = tagValue.split(";")[1];
 				let value = tagValue.split(";")[2];
+				
+				var status = document.createAttribute("status");
+				status.value = attribute + ":" + action + ":" + value;
+				newOption.setAttributeNode(status);
 				
 				if(action == "INCREASE")
 				{

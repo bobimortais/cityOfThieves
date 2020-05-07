@@ -1,8 +1,10 @@
 <p id="h183" hidden>
 ID: 183
 CHOICE 1: Buy some smoking mixture
+MONEY: DECREASE;1
 ACTION 1: 366
 CHOICE 2: Buy some healing mixture
+MONEY: DECREASE;4
 ACTION 2: 167
 CHOICE 3: Leave the shop and head north
 ACTION 3: 93
