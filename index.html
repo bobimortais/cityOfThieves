@@ -955,6 +955,8 @@ silver gift have you brought me?'
 <p id="h54" hidden>
 TAG:ID: 54
 TAG:CHOICE 1: The guard at the main gate does not see you and you walk into the city.
+TAG:MONEY: INCREASE;2
+TAG:ITEM: ADD;Merchant's Pass;1
 TAG:DESTINATION: 74
 TAG:HISTORY You search the guardhouse and find 2 Gold Pieces and a 
 merchant's pass permitting the holder to trade in Port Blacksand. 
@@ -5103,21 +5105,9 @@ function loadNext(event)
 
 	let tags = document.getElementById("h" + id).innerHTML.split("TAG:");
 	
-			
-	if(id == "183")
-	{
-		console.log(tags);
-	}
-	
 	for(let i = 1; i < tags.length; i++)
 	{
 		let tag = tags[i];
-		
-		if(id == "183")
-		{
-			console.log("Valor de i: " + i);
-			console.log("Tag: " + tag);
-		}
 		
 		if(tag.includes("MONEY") || tag.includes("STATUS") || tag.includes("ITEM"))
 		{
@@ -5414,8 +5404,6 @@ function loadShop(tag)
         child = itemsToBuyName.lastElementChild; 
     } 
 	
-	console.log(tag);
-	console.log(tag.split(":")[1]);
 	var items = tag.split(":")[1].trim().split(";");
 	
 	for(let i = 0;i < items.length;i++)
@@ -5650,7 +5638,6 @@ function rollTestDice()
 	var count = 0;
 	var id = setInterval(roll, 10);
 	document.getElementById("testdices").setAttribute("disabled", true);
-	document.getElementById("yourattvalue").innerHTML = "Current attribute value: " + document.getElementById("luckcurrent").innerHTML;
 	
 	function roll() 
 	{
@@ -5665,7 +5652,6 @@ function rollTestDice()
 				currentAttributeValue = parseInt(document.getElementById("luckcurrent").innerHTML);
 			if(attributeToTest == "SKILL")
 				currentAttributeValue = parseInt(document.getElementById("skillcurrent").innerHTML);
-			
 			
 			if(battleActive == false)
 			{
@@ -5687,10 +5673,10 @@ function rollTestDice()
 					
 				document.getElementById("test").setAttribute("disabled", true);
 				document.getElementById("test").setAttribute("style", "border-width: thin;border-color: black");
-				document.getElementById("yourattvalue").innerHTML = "Current attribute value: " + document.getElementById("luckcurrent").innerHTML;
 			}
 			else
 			{
+				console.log("currentAttributeValue 1: " + currentAttributeValue);
 				if(result <= currentAttributeValue)
 				{
 					if(battleHit == "enemy")
@@ -5736,8 +5722,11 @@ function rollTestDice()
 					}
 				}
 				
+				console.log("currentAttributeValue 2: " + currentAttributeValue);
 				document.getElementById("luckcurrent").innerHTML = currentAttributeValue - 1;
 			}
+			document.getElementById("luckcurrent").innerHTML = currentAttributeValue - 1;
+			document.getElementById("yourattvalue").innerHTML = "Current attribute value: " + (currentAttributeValue - 1);
 			clearInterval(id);
 		} 
 		else 
@@ -5967,13 +5956,6 @@ function loadStart(event)
 { 
 	var id = event.id;
 	var options = document.getElementById("options");
-	
-	var child = options.lastElementChild;  
-    while (child) { 
-        options.removeChild(child); 
-        child = options.lastElementChild; 
-    } 
-
 	document.getElementById('narrative').innerHTML = String(document.getElementById("h1").innerHTML.replace(/\n/g, " ")).split("TAG:HISTORY")[1];
 	let tags = document.getElementById("h1").innerHTML.split("TAG:");
 	
@@ -5993,7 +5975,6 @@ function loadStart(event)
 								};
 			newOption.innerHTML = text;
 			options.appendChild(newOption);
-			
 		}
 	}
 }	

@@ -18,5 +18,4 @@ sword, climb the stairs to the floor above. The two guards are
 relaxing over a game of cards. You wave your sword in the air
 and charge at them. They grab their swords to defend themselves 
 and fight you one at a time.
-
 </p>

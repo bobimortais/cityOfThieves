@@ -1,6 +1,8 @@
 <p id="h54" hidden>
 ID: 54
 CHOICE 1: The guard at the main gate does not see you and you walk into the city.
+MONEY: DECREASE;2
+ITEM: ADD;Merchant's Pass;1
 DESTINATION: 74
 HISTORY
 You search the guardhouse and find 2 Gold Pieces and a 
