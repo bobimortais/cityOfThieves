@@ -1798,7 +1798,7 @@ younger men appear to be attacking an older man with iron bars.
 TAG:ID: 128
 TAG:TEST: LUCK
 TAG:TEST: LUCK
-TAG:SUCCESS: IIf you are Lucky both times, the darts bounce harmlessly off your armour. 
+TAG:SUCCESS: If you are Lucky both times, the darts bounce harmlessly off your armour. 
 TAG:DESTINATION: 340
 TAG:FAIL 1: If you are Unlucky once, a dart flies into your hand.
 TAG:DESTINATION 1: 149
@@ -3570,7 +3570,7 @@ water runs.
 </p>
 <p id="h273" hidden>
 TAG:ID: 273
-TAG:STATUS 1: LUCKY;INCREASE;2
+TAG:STATUS 1: LUCK;INCREASE;2
 TAG:CHOICE 1: You may, if you have not already done so, pick up the silver scorpion
 TAG:ACTION 1: 13
 TAG:CHOICE 2: If you would rather ignore it you may either climb the stairs
@@ -5658,7 +5658,16 @@ function rollTestDice()
 						let enemies = document.getElementById("enemylist");
 						let enemy = enemies.rows[1];
 						let enemyStamina = parseInt(enemy.children[2].innerHTML);
-						enemy.children[2].innerHTML = enemyStamina - 2;
+						
+						if(enemyStamina - 2 <= 0 )
+						{
+							enemy.children[2].innerHTML = 0;
+							setTimeout(removeEnemy, 1000);
+						}
+						else
+						{
+							enemy.children[2].innerHTML = enemyStamina - 2;
+						}
 					}
 					else
 					{
@@ -5682,6 +5691,7 @@ function rollTestDice()
 						document.getElementById("testresult").innerHTML = "You've seriously hit!";
 						let yourCurrentStamina = parseInt(document.getElementById("staminacurrent").innerHTML);
 						document.getElementById("staminacurrent").innerHTML = yourCurrentStamina - 1;
+						checkEndOfBattle(null, yourCurrentStamina - 1);
 					}
 				}
 				

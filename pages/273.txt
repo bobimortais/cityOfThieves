@@ -1,6 +1,6 @@
 <p id="h273" hidden>
 ID: 273
-STATUS 1: LUCKY;INCREASE;2
+STATUS 1: LUCK;INCREASE;2
 CHOICE 1: You may, if you have not already done so, pick up the silver scorpion
 ACTION 1: 13
 CHOICE 2: If you would rather ignore it you may either climb the stairs
