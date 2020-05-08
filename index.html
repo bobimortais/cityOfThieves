@@ -236,11 +236,11 @@
 				</tr>
 				<tr>
 					<td>Initial</td>
-					<td id="skillinitial">12</td>
+					<td id="skillinitial" style="text-align: rigth;">12</td>
 				</tr>
 				<tr>
 					<td>Current</td>
-					<td id="skillcurrent">12</td>
+					<td id="skillcurrent" style="text-align: rigth;">12</td>
 				</tr>
 
 			</table>
@@ -250,11 +250,11 @@
 				</tr>
 				<tr>
 					<td>Initial</td>
-					<td id="staminainitial">20</td>
+					<td id="staminainitial" style="text-align: rigth;">20</td>
 				</tr>
 				<tr>
 					<td>Current</td>
-					<td id="staminacurrent">20</td>
+					<td id="staminacurrent" style="text-align: rigth;">20</td>
 				</tr>
 			</table>
 			<table class="atts" style="margin-left: 5px;text-align: left;">
@@ -263,11 +263,11 @@
 				</tr>
 				<tr>
 					<td>Initial</td>
-					<td id="luckinitial">10</td>
+					<td id="luckinitial" style="text-align: rigth;">10</td>
 				</tr>
 				<tr>
 					<td>Current</td>
-					<td id="luckcurrent">10</td>
+					<td id="luckcurrent" style="text-align: rigth;">10</td>
 				</tr>
 			</table>
 			<div class="itemsdiv">
@@ -278,7 +278,6 @@
 					<tr>
 						<td>
 							<ul id="listofitems" class="listofitems">
-								<!--li style="padding: 5px 10px;" onclick="itemSelected()">Uva</li-->
 							</ul>
 						</td>
 					</tr>
@@ -557,11 +556,11 @@ and barrels on the ship's deck.
 </p>
 <p id="h21" hidden>
 TAG:ID: 21
-TAG:HISTORY TAG:CHOICE 1: If you wish to lock the door and go to sleep for the night
+TAG:CHOICE 1: If you wish to lock the door and go to sleep for the night
 TAG:ACTION 1: 288
 TAG:CHOICE 2: If you wish to explore the tower further
 TAG:ACTION 2: 77
-Looking up, you see that the staircase goes all the way up to 
+TAG:HISTORY Looking up, you see that the staircase goes all the way up to 
 the top of the tower. You stop off at the first floor and walk
 along the landing to a door. The door opens into a large room
 which contains a comfortable, made-up bed.
@@ -809,8 +808,8 @@ yourself.'
 TAG:ID: 42
 TAG:CHOICE 1: Outside you set off east again
 TAG:DESTINATION: 100
-TAG:HISTORY You tell the man that cannot pay the price he is  asking. He 
-shrugs his shoulders and says, 'Well, do you have any food?' 
+TAG:HISTORY You tell the man that cannot pay the price he is asking. He 
+shrugs his shoulders and says,'Well, do you have any food?' 
 You open your backpack and he takes all your remaining 
 Provisions. He then starts to cast the silver arrow and you
 wait patiently as he makes it. Finally he presents you with 
@@ -1437,7 +1436,7 @@ you another wish.
 <p id="h95" hidden>
 TAG:ID: 95
 TAG:CHOICE 1: If you want to enter the shop
-TAG:ACTION 1: 24
+TAG:ACTION 1: 224
 TAG:CHOICE 2: If you would rather continue walking west
 TAG:ACTION 2: 300
 TAG:HISTORY On the left side of the street you see a large iron key 
@@ -3289,7 +3288,7 @@ TAG:CHOICE B: MAGIC ITEM;DECREASE;2
 TAG:ACTION 1: 85
 TAG:CHOICE 2: If you cannot afford to pay the price 
 TAG:ACTION 2: 42
-You ask Ben Borryman if he has silver arrows for sale. He 
+TAG:HISTORY You ask Ben Borryman if he has silver arrows for sale. He 
 replies that he does not, but will make one for you at a cost
 of 10 Gold Pieces or two magic items.
 </p>
@@ -5084,6 +5083,10 @@ function loadNext(event)
 	var options = document.getElementById("options");
 	console.log("History ID " + id);
 	
+	//Disable shop
+	document.getElementById("shop").setAttribute("disabled", true);
+	document.getElementById("shop").setAttribute("style", "border-width: thin;border-color: black");
+	
 	checkEventAttributes(event);
 	
 	var child = options.lastElementChild;  
@@ -5361,6 +5364,7 @@ function loadShop(tag)
 	
 	let shopDiv = document.getElementById("shop");
 	shopDiv.removeAttribute("hidden");
+	shopDiv.removeAttribute("disabled");
 	shopDiv.setAttribute("style", "border-width: medium;border-color: red");
 	let itemsToBuyName = document.getElementById("itemstobuyname");
 	console.log(tag);

@@ -1,7 +1,7 @@
 <p id="h95" hidden>
 ID: 95
 CHOICE 1: If you want to enter the shop
-ACTION 1: 24
+ACTION 1: 224
 CHOICE 2: If you would rather continue walking west
 ACTION 2: 300
 HISTORY
