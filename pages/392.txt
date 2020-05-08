@@ -2,8 +2,7 @@
 ID: 392
 FIGHT
 ENEMY 1: LIZARDINE;SKILL 8;STAMINA 8
-DICE: 1,2,3;DAMAGE
-DICE: 4,5,6;DODGE
+DICE: 1,2,3;DAMAGE:4,5,6;DODGE
 CHOICE 1: If stay and win the battle
 ACTION 1: 186
 CHOICE 2: You may use your LUCK against the fire and you may Escape by running back down the stairs and out of the house to head north.

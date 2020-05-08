@@ -4301,7 +4301,7 @@ more than a small pile of powder on the floor.
 </p>
 <p id="h338" hidden>
 TAG:ID: 338
-TAG:STATUS 1: LUCK;INCREASE;3
+TAG:STATUS 1: LUCK;DECREASE;3
 TAG:DESTINATION: 105
 TAG:HISTORY You have just swallowed a Potion of Misfortune. Reduce your 
 LUCY by 3 points. Hoping for better luck ahead you set off 
@@ -4968,8 +4968,7 @@ crossbow straight at you. Test your Luck.
 TAG:ID: 392
 TAG:FIGHT
 TAG:ENEMY 1: LIZARDINE;SKILL 8;STAMINA 8
-TAG:DICE: 1,2,3;DAMAGE
-TAG:DICE: 4,5,6;DODGE
+TAG:DICE: 1,2,3;DAMAGE:4,5,6;DODGE
 TAG:CHOICE 1: If stay and win the battle
 TAG:ACTION 1: 186
 TAG:CHOICE 2: You may use your LUCK against the fire and you may Escape by running back down the stairs and out of the house to head north.
@@ -5117,7 +5116,7 @@ function loadNext(event)
 			let text = tag.split(":")[1];
 			let newOption = document.createElement("button");
 			
-			let values = findActionOrDestinationTagForChoice(newOption, tags, i);
+			let values = findActionOrDestinationTag(newOption, tags, i);
 			i = values[0];
 			let textToAppend = values[1];
 			
@@ -5163,7 +5162,7 @@ function loadNext(event)
 	}
 }	
 
-function findActionOrDestinationTagForChoice(newOption, tags, i)
+function findActionOrDestinationTag(newOption, tags, i)
 {
 	let j = 0;
 	let textToAppend = "";
@@ -5456,6 +5455,15 @@ function battle(tags,options, id)
 	document.getElementById("attackdices").removeAttribute("disabled");
 	document.getElementById("yourstamina").innerHTML = "Your Stamina: " + document.getElementById("staminacurrent").innerHTML;
 	document.getElementById("battle").setAttribute("style", "border-width: medium;border-color: red");
+	
+	//Enable test for luck to increase attack
+	var testDivElement = document.getElementById("test");
+	document.getElementById("shop").setAttribute("hidden", true);
+	document.getElementById("minigame").setAttribute("hidden", true);
+	testDivElement.removeAttribute("disabled");
+	testDivElement.removeAttribute("hidden");
+	testDivElement.setAttribute("style", "border-width: medium;border-color: red");
+	document.getElementById("testdices").removeAttribute("disabled");
 
 	battleActive = true;
 	
@@ -5513,10 +5521,6 @@ function battle(tags,options, id)
 				options.appendChild(newOption);
 				i = i + 1;
 			}
-			else
-			{
-				//HANDLE FILE 160
-			}
 		}
 		if(tags[i].includes("DESTINATION"))
 		{
@@ -5543,8 +5547,8 @@ function testAttribute(tags, options)
 	testDivElement.removeAttribute("disabled");
 	testDivElement.removeAttribute("hidden");
 	testDivElement.setAttribute("style", "border-width: medium;border-color: red");
-	
 	document.getElementById("testdices").removeAttribute("disabled");
+	
 	var options = document.getElementById("options");
 	let attribute = tags[2].split(":")[1].trim();
 	
@@ -5568,28 +5572,11 @@ function testAttribute(tags, options)
 			let attValue = tags[i].split(":")[0];
 			let newOption = document.createElement("button");
 			newOption.className = "buttonoption";
-			let textToAppend = "";
 			
-			if(tags[i + 1].includes("STATUS"))
-			{
-				let tagValue = tags[i + 1].split(":")[1].trim();
-				let attribute = tagValue.split(";")[0];
-				let action = tagValue.split(";")[1];
-				let value = tagValue.split(";")[2];
-				
-				if(action == "INCREASE")
-				{
-					action = "gain";
-				}
-				else
-				{
-					action = "lose";
-				}
-				
-				textToAppend = "You " + action + " " + value + " " + attribute + " points.";
-				i = i + 1;
-				
-			}
+			let values = findActionOrDestinationTag(newOption, tags, i);
+			i = values[0];
+			let textToAppend = values[1];
+			
 			if(tags[i + 1].includes("ACTION") || tags[i + 1].includes("DESTINATION"))
 			{
 				var testResultAtt = document.createAttribute("testresult");
@@ -5606,14 +5593,8 @@ function testAttribute(tags, options)
 				options.appendChild(newOption);
 				i = i + 1;
 			}
-			else
-			{
-				//HANDLE FILE 160
-			}
 		}
 	}
-	
-	//document.getElementById("test").setAttribute("disabled", true);
 }
 
 function rollTestDice()
@@ -5723,6 +5704,7 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 	let enemyDamage = enemyDiceValues.innerHTML.split(":")[1].trim();
 	yourDamage = parseInt(yourDamage.split(" ")[0]) + parseInt(yourDamage.split(" ")[1]);
 	enemyDamage =  parseInt(enemyDamage.split(" ")[0]) + parseInt(enemyDamage.split(" ")[1]);
+	enemyDamage = enemyDamage + computeAdditionalDamage();
 	
 	let skillCurrent = parseInt(document.getElementById("skillcurrent").innerHTML);
 	let staminaCurrent = parseInt(document.getElementById("staminacurrent").innerHTML);
@@ -5772,6 +5754,11 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 	}
 }
 
+function computeAdditionalDamage()
+{
+	return 0;
+}
+
 function removeEnemy()
 {
 	let enemies = document.getElementById("enemylist");
@@ -5800,6 +5787,8 @@ function checkEndOfBattle(enemies, staminaCurrent)
 		document.getElementById("battle").setAttribute("disabled", true);
 		document.getElementById("battle").setAttribute("style", "border-width: thin;border-color: black");
 		battleActive = false;
+		document.getElementById("test").setAttribute("disabled", true);
+		document.getElementById("test").setAttribute("style", "border-width: thin;border-color: black");
 	}
 	else if(enemies != null && enemies.rows.length == 1)
 	{
@@ -5808,6 +5797,8 @@ function checkEndOfBattle(enemies, staminaCurrent)
 		checkOptionsToEnable();
 		document.getElementById("rounds").innerHTML = "Rounds: 0";
 		battleActive = false;
+		document.getElementById("test").setAttribute("disabled", true);
+		document.getElementById("test").setAttribute("style", "border-width: thin;border-color: black");
 	}
 	else
 	{
