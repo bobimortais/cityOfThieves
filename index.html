@@ -5782,8 +5782,6 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 	document.getElementById("enemyattack").innerHTML = "Enemy Attack: " + enemyDamage;
 	document.getElementById("yourattack").innerHTML = "Your Attack: " + yourDamage;
 	
-	document.getElementById("testdices").removeAttribute("disabled");
-	
 	if(yourDamage > enemyDamage)
 	{
 		computing.innerHTML = "You hit the enemy!";
@@ -5800,6 +5798,7 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 		{
 			enemy.children[2].innerHTML = enemyStamina;
 			document.getElementById("attackdices").removeAttribute("disabled");
+			document.getElementById("testdices").removeAttribute("disabled");
 		}
 	}
 	if(yourDamage < enemyDamage)
@@ -5812,6 +5811,7 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 		document.getElementById("yourstamina").innerHTML = "Your Stamina: " + staminaCurrent;
 		checkEndOfBattle(null, staminaCurrent);
 		document.getElementById("attackdices").removeAttribute("disabled");
+		document.getElementById("testdices").removeAttribute("disabled");
 	}
 	if(yourDamage == enemyDamage)
 	{
@@ -5853,6 +5853,7 @@ function checkEndOfBattle(enemies, staminaCurrent)
 		document.getElementById("battle").setAttribute("disabled", true);
 		document.getElementById("battle").setAttribute("style", "border-width: thin;border-color: black");
 		battleActive = false;
+		document.getElementById("attackdices").removeAttribute("disabled");
 		document.getElementById("test").setAttribute("disabled", true);
 		document.getElementById("test").setAttribute("style", "border-width: thin;border-color: black");
 	}
@@ -5863,6 +5864,7 @@ function checkEndOfBattle(enemies, staminaCurrent)
 		checkOptionsToEnable();
 		document.getElementById("rounds").innerHTML = "Rounds: 0";
 		battleActive = false;
+		document.getElementById("attackdices").removeAttribute("disabled");
 		document.getElementById("test").setAttribute("disabled", true);
 		document.getElementById("test").setAttribute("style", "border-width: thin;border-color: black");
 	}
