@@ -195,7 +195,7 @@
 					<p style="font-family: Castellar;">Test</p>
 					<p id="attributetest">Attribute to Test:</p>
 					<p id="testdicevalue">Dices Values: </p>
-					<p id="yourattvalue">Your current attribute value: </p>
+					<p id="yourattvalue">Current attribute value: </p>
 					<p id="testresult"></p>
 					<button id="testdices" onclick="rollTestDice()">Roll Dices</button>
 				</div>
@@ -5075,6 +5075,7 @@ The people of Silverton are joyous once again.
 </html>
 <script> 
 var battleActive = false;
+var battleHit;
 
 function loadNext(event)
 { 
@@ -5366,6 +5367,13 @@ function loadShop(tag)
 	shopDiv.removeAttribute("disabled");
 	shopDiv.setAttribute("style", "border-width: medium;border-color: red");
 	let itemsToBuyName = document.getElementById("itemstobuyname");
+	
+	var child = itemsToBuyName.lastElementChild;  
+    while (child) { 
+        itemsToBuyName.removeChild(child); 
+        child = itemsToBuyName.lastElementChild; 
+    } 
+	
 	console.log(tag);
 	console.log(tag.split(":")[1]);
 	var items = tag.split(":")[1].trim().split(";");
@@ -5463,7 +5471,8 @@ function battle(tags,options, id)
 	testDivElement.removeAttribute("disabled");
 	testDivElement.removeAttribute("hidden");
 	testDivElement.setAttribute("style", "border-width: medium;border-color: red");
-	document.getElementById("testdices").removeAttribute("disabled");
+	document.getElementById("testdices").setAttribute("disabled", true);
+	document.getElementById("yourattvalue").innerHTML = "Current attribute value: " + document.getElementById("luckcurrent").innerHTML;
 
 	battleActive = true;
 	
@@ -5561,9 +5570,8 @@ function testAttribute(tags, options)
 	if(attribute == "SKILL")
 		currentAttributeValue = parseInt(document.getElementById("skillcurrent").innerHTML)
 	
-	document.getElementById("yourattvalue").innerHTML = "Your current attribute value: " + currentAttributeValue;
-	console.log("Test method");
-	
+	document.getElementById("yourattvalue").innerHTML = "Current attribute value: " + currentAttributeValue;
+	 
 	for(let i = 3; i < tags.length; i++)
 	{
 		if(tags[i].includes("SUCCESS") || tags[i].includes("FAIL"))
@@ -5618,24 +5626,67 @@ function rollTestDice()
 				currentAttributeValue = parseInt(document.getElementById("skillcurrent").innerHTML);
 			
 			
-			if(result <= currentAttributeValue)
+			if(battleActive == false)
 			{
-				document.getElementById("testresult").innerHTML = "You succeded!";
-				handleTestResult("SUCCESS");
+				if(result <= currentAttributeValue)
+				{
+					document.getElementById("testresult").innerHTML = "You succeded!";
+					handleTestResult("SUCCESS");
+				}
+				else
+				{
+					document.getElementById("testresult").innerHTML = "You failed!";
+					handleTestResult("FAIL");
+				}
+				
+				if(attributeToTest == "LUCK")
+					document.getElementById("luckcurrent").innerHTML = currentAttributeValue - 1;
+				if(attributeToTest == "SKILL")
+					document.getElementById("skillcurrent").innerHTML = currentAttributeValue - 1;
+					
+				document.getElementById("test").setAttribute("disabled", true);
+				document.getElementById("test").setAttribute("style", "border-width: thin;border-color: black");
+				document.getElementById("yourattvalue").innerHTML = "Current attribute value: " + document.getElementById("luckcurrent").innerHTML;
 			}
 			else
 			{
-				document.getElementById("testresult").innerHTML = "You failed!";
-				handleTestResult("FAIL");
-			}
-			
-			if(attributeToTest == "LUCK")
-				document.getElementById("luckcurrent").innerHTML = currentAttributeValue - 1;
-			if(attributeToTest == "SKILL")
-				document.getElementById("skillcurrent").innerHTML = currentAttributeValue - 1;
+				if(result <= currentAttributeValue)
+				{
+					if(battleHit == "enemy")
+					{
+						document.getElementById("testresult").innerHTML = "Critical hit!";
+						let enemies = document.getElementById("enemylist");
+						let enemy = enemies.rows[1];
+						let enemyStamina = parseInt(enemy.children[2].innerHTML);
+						enemy.children[2].innerHTML = enemyStamina - 2;
+					}
+					else
+					{
+						document.getElementById("testresult").innerHTML = "You avoided a full blow!";
+						let yourCurrentStamina = parseInt(document.getElementById("staminacurrent").innerHTML);
+						document.getElementById("staminacurrent").innerHTML = yourCurrentStamina + 1;
+					}
+				}
+				else
+				{
+					if(battleHit == "enemy")
+					{
+						document.getElementById("testresult").innerHTML = "You barely hit the enemy!";
+						let enemies = document.getElementById("enemylist");
+						let enemy = enemies.rows[1];
+						let enemyStamina = parseInt(enemy.children[2].innerHTML);
+						enemy.children[2].innerHTML = enemyStamina + 1;
+					}
+					else
+					{
+						document.getElementById("testresult").innerHTML = "You've seriously hit!";
+						let yourCurrentStamina = parseInt(document.getElementById("staminacurrent").innerHTML);
+						document.getElementById("staminacurrent").innerHTML = yourCurrentStamina - 1;
+					}
+				}
 				
-			document.getElementById("test").setAttribute("disabled", true);
-			document.getElementById("test").setAttribute("style", "border-width: thin;border-color: black");
+				document.getElementById("luckcurrent").innerHTML = currentAttributeValue - 1;
+			}
 			clearInterval(id);
 		} 
 		else 
@@ -5666,6 +5717,7 @@ function handleTestResult(result)
 
 function rollAttackDices()
 {	
+	document.getElementById("testdices").setAttribute("disabled", true);
 	let computing = document.getElementById("attackresult");
 	computing.innerHTML = "Computing Round...";
 	let rounds = document.getElementById("rounds");
@@ -5720,9 +5772,12 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 	document.getElementById("enemyattack").innerHTML = "Enemy Attack: " + enemyDamage;
 	document.getElementById("yourattack").innerHTML = "Your Attack: " + yourDamage;
 	
+	document.getElementById("testdices").removeAttribute("disabled");
+	
 	if(yourDamage > enemyDamage)
 	{
 		computing.innerHTML = "You hit the enemy!";
+		battleHit = "enemy";
 		enemyStamina = enemyStamina - 2;
 		
 		if(enemyStamina <= 0)
@@ -5740,6 +5795,7 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 	if(yourDamage < enemyDamage)
 	{
 		computing.innerHTML = "You got wounded!";
+		battleHit = "you";
 		staminaCurrent = staminaCurrent - 2;
 		console.log("Your current stamina: " + staminaCurrent);
 		document.getElementById("staminacurrent").innerHTML = staminaCurrent;
