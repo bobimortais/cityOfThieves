@@ -495,7 +495,7 @@ TAG:CHOICE 1: If you have
 TAG:ACTION 1: 237
 TAG:CHOICE 2: If not
 TAG:ACTION 2: 191
-As soon as you pluck one of the flowers you hear the noise of 
+TAG:HISTORY As soon as you pluck one of the flowers you hear the noise of 
 rustling leaves. Three of the animal-shaped hedges have 
 uprooted themselves and are closing in on you. Do you have a
 Ring Of Fire?
@@ -5084,46 +5084,7 @@ function loadNext(event)
 	var options = document.getElementById("options");
 	console.log("History ID " + id);
 	
-	if(event.getAttribute("money") != null)
-	{
-		let tagValue = event.getAttribute("money");
-		let action = tagValue.split(":")[0];
-		let value = parseInt(tagValue.split(":")[1]);
-		let goldValue = document.getElementById("goldtotal");
-		
-		if(action == "INCREASE")
-		{
-			goldValue.innerHTML = parseInt(goldValue.innerHTML) + value; 
-		}
-		else
-		{
-			goldValue.innerHTML = parseInt(goldValue.innerHTML) - value; 
-		}
-	}
-	if(event.getAttribute("status") != null)
-	{
-		let tagValue = event.getAttribute("status");
-		let attribute = tagValue.split(":")[0];
-		let action = tagValue.split(":")[1];
-		let value = parseInt(tagValue.split(":")[2]);
-		let attributeToChange;
-		
-		if(attribute == "SKILL")
-			attributeToChange = document.getElementById("skillcurrent");
-		else if(attribute == "LUCK")
-			attributeToChange = document.getElementById("luckcurrent");
-		else if(attribute == "STAMINA")
-			attributeToChange = document.getElementById("staminacurrent");
-		
-		if(action == "INCREASE")
-		{
-			attributeToChange.innerHTML = parseInt(attributeToChange.innerHTML) + value;
-		}
-		else
-		{
-			attributeToChange.innerHTML = parseInt(attributeToChange.innerHTML) - value;
-		}
-	}
+	checkEventAttributes(event);
 	
 	var child = options.lastElementChild;  
     while (child) { 
@@ -5142,67 +5103,9 @@ function loadNext(event)
 	{
 		let tag = tags[i];
 		
-		if(tag.includes("MONEY"))
+		if(tag.includes("MONEY") || tag.includes("STATUS") || tag.includes("ITEM"))
 		{
-			let tagValue = tag.split(":")[1].trim();
-			let action = tagValue.split(";")[0];
-			let value = parseInt(tagValue.split(";")[1]);
-			let goldValue = document.getElementById("goldtotal");
-			
-			if(action == "INCREASE")
-			{
-				goldValue.innerHTML = parseInt(goldValue.innerHTML) + value; 
-			}
-			else
-			{
-				goldValue.innerHTML = parseInt(goldValue.innerHTML) - value; 
-			}
-			
-			continue;
-		}
-		if(tag.includes("STATUS"))
-		{
-			let tagValue = tag.split(":")[1].trim();
-			let attribute = tagValue.split(";")[0];
-			let action = tagValue.split(";")[1];
-			let value = parseInt(tagValue.split(";")[2]);
-			let attributeToChange;
-			
-			console.log(attribute);
-			
-			if(attribute == "SKILL")
-				attributeToChange = document.getElementById("skillcurrent");
-			else if(attribute == "LUCK")
-				attributeToChange = document.getElementById("luckcurrent");
-			else if(attribute == "STAMINA")
-				attributeToChange = document.getElementById("staminacurrent");
-			
-			if(action == "INCREASE")
-			{
-				attributeToChange.innerHTML = parseInt(attributeToChange.innerHTML) + value;
-			}
-			else
-			{
-				attributeToChange.innerHTML = parseInt(attributeToChange.innerHTML) - value;
-			}
-			
-			continue;
-		}
-		if(tag.includes("ITEM"))
-		{
-			let tagValue = tag.split(":")[1].trim();
-			let action = tagValue.split(";")[0];
-			let item = tagValue.split(";")[1];
-			let quantity = parseInt(tagValue.split(";")[2]);
-			let itemList = document.getElementById("listofitems");
-			
-			for(let i = 0; i < quantity; i++)
-			{
-				let currentItem = document.createElement("li");
-				currentItem.innerHTML = item;
-				itemList.appendChild(currentItem);
-			}
-			
+			handleSpecialTags(tag);
 			continue;
 		}
 		
@@ -5210,53 +5113,11 @@ function loadNext(event)
 		{
 			let text = tag.split(":")[1];
 			let newOption = document.createElement("button");
-			let textToAppend = "";
 			
-			if(tags[i + 1].includes("MONEY"))
-			{
-				let tagValue = tags[i + 1].split(":")[1].trim();
-				let action = tagValue.split(";")[0];
-				let value = tagValue.split(";")[1];
-				
-				var money = document.createAttribute("money");
-				money.value = action + ":" + value;
-				newOption.setAttributeNode(money);
-				
-				if(action == "INCREASE")
-				{
-					action = "gain";
-				}
-				else
-				{
-					action = "lose";
-				}
-				
-				textToAppend = "You " + action + " " + value + " Gold Pieces.";
-				i = i + 1;
-			}
-			if(tags[i + 1].includes("STATUS"))
-			{
-				let tagValue = tags[i + 1].split(":")[1].trim();
-				let attribute = tagValue.split(";")[0];
-				let action = tagValue.split(";")[1];
-				let value = tagValue.split(";")[2];
-				
-				var status = document.createAttribute("status");
-				status.value = attribute + ":" + action + ":" + value;
-				newOption.setAttributeNode(status);
-				
-				if(action == "INCREASE")
-				{
-					action = "gain";
-				}
-				else
-				{
-					action = "lose";
-				}
-				
-				textToAppend = "You " + action + " " + value + " " + attribute + " points.";
-				i = i + 1;
-			}
+			let values = findActionOrDestinationTagForChoice(newOption, tags, i);
+			i = values[0];
+			let textToAppend = values[1];
+			
 			if(tags[i + 1].includes("ACTION") || tags[i + 1].includes("DESTINATION"))
 			{
 				newOption.id = "id" + tags[i + 1].split(":")[1].trim();
@@ -5298,6 +5159,199 @@ function loadNext(event)
 		}
 	}
 }	
+
+function findActionOrDestinationTagForChoice(newOption, tags, i)
+{
+	let j = 0;
+	let textToAppend = "";
+	let values = [];
+	
+	for(j = i + 1; j < tags.length; j++)
+	{
+		if(tags[j].includes("MONEY"))
+		{
+			let tagValue = tags[i + 1].split(":")[1].trim();
+			let action = tagValue.split(";")[0];
+			let value = tagValue.split(";")[1];
+			
+			var money = document.createAttribute("money");
+			money.value = action + ":" + value;
+			newOption.setAttributeNode(money);
+			
+			if(action == "INCREASE")
+			{
+				action = "gain";
+			}
+			else
+			{
+				action = "lose";
+			}
+			
+			textToAppend = "You " + action + " " + value + " Gold Pieces.";
+			i = j;
+		}
+		else if(tags[j].includes("STATUS"))
+		{
+			let tagValue = tags[i + 1].split(":")[1].trim();
+			let attribute = tagValue.split(";")[0];
+			let action = tagValue.split(";")[1];
+			let value = tagValue.split(";")[2];
+			
+			var status = document.createAttribute("status");
+			status.value = attribute + ":" + action + ":" + value;
+			newOption.setAttributeNode(status);
+			
+			if(action == "INCREASE")
+			{
+				action = "gain";
+			}
+			else
+			{
+				action = "lose";
+			}
+			
+			textToAppend = "You " + action + " " + value + " " + attribute + " points.";
+			i = j;
+		}
+		if(tags[j].includes("FOOD"))
+		{
+			let tagValue = tags[i + 1].split(":")[1].trim();
+			let action = tagValue.split(";")[0];
+			let value = tagValue.split(";")[1];
+			
+			var food = document.createAttribute("food");
+			food.value = action + ":" + value;
+			newOption.setAttributeNode(food);
+			i = j;
+		}
+		else
+		{
+			break;
+		}
+	}
+	values[0] = i;
+	values[1] = textToAppend;
+	return values;
+}
+
+function checkEventAttributes(event)
+{
+	if(event.getAttribute("money") != null)
+	{
+		let tagValue = event.getAttribute("money");
+		let action = tagValue.split(":")[0];
+		let value = parseInt(tagValue.split(":")[1]);
+		let goldValue = document.getElementById("goldtotal");
+		
+		if(action == "INCREASE")
+		{
+			goldValue.innerHTML = parseInt(goldValue.innerHTML) + value; 
+		}
+		else
+		{
+			goldValue.innerHTML = parseInt(goldValue.innerHTML) - value; 
+		}
+	}
+	if(event.getAttribute("status") != null)
+	{
+		let tagValue = event.getAttribute("status");
+		let attribute = tagValue.split(":")[0];
+		let action = tagValue.split(":")[1];
+		let value = parseInt(tagValue.split(":")[2]);
+		let attributeToChange;
+		
+		if(attribute == "SKILL")
+			attributeToChange = document.getElementById("skillcurrent");
+		else if(attribute == "LUCK")
+			attributeToChange = document.getElementById("luckcurrent");
+		else if(attribute == "STAMINA")
+			attributeToChange = document.getElementById("staminacurrent");
+		
+		if(action == "INCREASE")
+		{
+			attributeToChange.innerHTML = parseInt(attributeToChange.innerHTML) + value;
+		}
+		else
+		{
+			attributeToChange.innerHTML = parseInt(attributeToChange.innerHTML) - value;
+		}
+	}
+	if(event.getAttribute("food") != null)
+	{
+		let tagValue = event.getAttribute("food");
+		let action = tagValue.split(":")[0];
+		let value = parseInt(tagValue.split(":")[1]);
+		let foodValue = document.getElementById("provisionstotal");
+		
+		if(action == "INCREASE")
+		{
+			foodValue.innerHTML = parseInt(foodValue.innerHTML) + value;
+		}
+		else
+		{
+			foodValue.innerHTML = parseInt(foodValue.innerHTML) - value;
+		}
+	}
+}
+
+function handleSpecialTags(tag)
+{
+	if(tag.includes("MONEY"))
+	{
+		let tagValue = tag.split(":")[1].trim();
+		let action = tagValue.split(";")[0];
+		let value = parseInt(tagValue.split(";")[1]);
+		let goldValue = document.getElementById("goldtotal");
+		
+		if(action == "INCREASE")
+		{
+			goldValue.innerHTML = parseInt(goldValue.innerHTML) + value; 
+		}
+		else
+		{
+			goldValue.innerHTML = parseInt(goldValue.innerHTML) - value; 
+		}
+	}
+	if(tag.includes("STATUS"))
+	{
+		let tagValue = tag.split(":")[1].trim();
+		let attribute = tagValue.split(";")[0];
+		let action = tagValue.split(";")[1];
+		let value = parseInt(tagValue.split(";")[2]);
+		let attributeToChange;
+		
+		if(attribute == "SKILL")
+			attributeToChange = document.getElementById("skillcurrent");
+		else if(attribute == "LUCK")
+			attributeToChange = document.getElementById("luckcurrent");
+		else if(attribute == "STAMINA")
+			attributeToChange = document.getElementById("staminacurrent");
+		
+		if(action == "INCREASE")
+		{
+			attributeToChange.innerHTML = parseInt(attributeToChange.innerHTML) + value;
+		}
+		else
+		{
+			attributeToChange.innerHTML = parseInt(attributeToChange.innerHTML) - value;
+		}
+	}
+	if(tag.includes("ITEM"))
+	{
+		let tagValue = tag.split(":")[1].trim();
+		let action = tagValue.split(";")[0];
+		let item = tagValue.split(";")[1];
+		let quantity = parseInt(tagValue.split(";")[2]);
+		let itemList = document.getElementById("listofitems");
+		
+		for(let i = 0; i < quantity; i++)
+		{
+			let currentItem = document.createElement("li");
+			currentItem.innerHTML = item;
+			itemList.appendChild(currentItem);
+		}
+	}
+}
 
 function loadShop(tag)
 {

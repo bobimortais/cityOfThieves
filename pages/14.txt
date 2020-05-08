@@ -4,6 +4,7 @@ CHOICE 1: If you have
 ACTION 1: 237
 CHOICE 2: If not
 ACTION 2: 191
+HISTORY
 As soon as you pluck one of the flowers you hear the noise of 
 rustling leaves. Three of the animal-shaped hedges have 
 uprooted themselves and are closing in on you. Do you have a
