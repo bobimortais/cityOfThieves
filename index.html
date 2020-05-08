@@ -5350,7 +5350,6 @@ function handleSpecialTags(tag)
 		let tagValue = tag.split(":")[1].trim();
 		let action = tagValue.split(";")[0];
 		let value = tagValue.split(";")[1] == "ALL" ? "ALL" : parseInt(tagValue.split(";")[1]);
-		
 		let goldValue = document.getElementById("goldtotal");
 		
 		if(action == "INCREASE")
