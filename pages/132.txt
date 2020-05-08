@@ -1,6 +1,6 @@
 <p id="h132" hidden>
 ID: 132
-ITEM: ADD;SILVER BROOCH;STAMINA 1 AFTER FIGHT
+ITEM: ADD;SILVER BROOCH;1;STAMINA 1 AFTER FIGHT
 CHOICE 1: Pleased with your purchase, you leave the house and head north.
 DESTINATION: 334
 HISTORY

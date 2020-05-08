@@ -759,7 +759,7 @@ Add 2 LUCK points.
 </p>
 <p id="h38" hidden>
 TAG:ID: 38
-TAG:ITEM: ADD;silver insect bracelet;1
+TAG:ITEM: ADD;Silver Insect Bracelet;1
 TAG:CHOICE 1: After placing the bracelet on your wrist you leave the tavern and head north again.
 TAG:DESTINATION: 296
 TAG:HISTORY One of the men reaches into a pocket inside his green jacket 
@@ -2448,6 +2448,7 @@ TAG:MONEY: DECREASE;1
 TAG:ACTION 1: 366
 TAG:CHOICE 2: Buy some healing mixture
 TAG:MONEY: DECREASE;4
+TAG:ITEM: ADD;Healing Mixture;1
 TAG:ACTION 2: 167
 TAG:CHOICE 3: Leave the shop and head north
 TAG:ACTION 3: 93
@@ -5102,9 +5103,21 @@ function loadNext(event)
 
 	let tags = document.getElementById("h" + id).innerHTML.split("TAG:");
 	
+			
+	if(id == "183")
+	{
+		console.log(tags);
+	}
+	
 	for(let i = 1; i < tags.length; i++)
 	{
 		let tag = tags[i];
+		
+		if(id == "183")
+		{
+			console.log("Valor de i: " + i);
+			console.log("Tag: " + tag);
+		}
 		
 		if(tag.includes("MONEY") || tag.includes("STATUS") || tag.includes("ITEM"))
 		{
@@ -5171,9 +5184,10 @@ function findActionOrDestinationTag(newOption, tags, i)
 	
 	for(j = i + 1; j < tags.length; j++)
 	{
+		console.log("Destination tag: " + tags[j]);
 		if(tags[j].includes("MONEY"))
 		{
-			let tagValue = tags[i + 1].split(":")[1].trim();
+			let tagValue = tags[j].split(":")[1].trim();
 			let action = tagValue.split(";")[0];
 			let value = tagValue.split(";")[1];
 			
@@ -5195,7 +5209,7 @@ function findActionOrDestinationTag(newOption, tags, i)
 		}
 		else if(tags[j].includes("STATUS"))
 		{
-			let tagValue = tags[i + 1].split(":")[1].trim();
+			let tagValue = tags[j].split(":")[1].trim();
 			let attribute = tagValue.split(";")[0];
 			let action = tagValue.split(";")[1];
 			let value = tagValue.split(";")[2];
@@ -5216,15 +5230,27 @@ function findActionOrDestinationTag(newOption, tags, i)
 			textToAppend = "You " + action + " " + value + " " + attribute + " points.";
 			i = j;
 		}
-		if(tags[j].includes("FOOD"))
+		else if(tags[j].includes("FOOD"))
 		{
-			let tagValue = tags[i + 1].split(":")[1].trim();
+			let tagValue = tags[j].split(":")[1].trim();
 			let action = tagValue.split(";")[0];
 			let value = tagValue.split(";")[1];
 			
 			var food = document.createAttribute("food");
 			food.value = action + ":" + value;
 			newOption.setAttributeNode(food);
+			i = j;
+		}
+		else if(tags[j].includes("ITEM"))
+		{
+			let tagValue = tags[j].split(":")[1].trim();
+			let itemValue = tagValue.split(";")[0];
+			let action = tagValue.split(";")[1];
+			let value = tagValue.split(";")[2];
+			
+			var item = document.createAttribute("item");
+			item.value = itemValue + ":" + action + ":" + value;
+			newOption.setAttributeNode(item);
 			i = j;
 		}
 		else
@@ -5294,6 +5320,20 @@ function checkEventAttributes(event)
 		{
 			foodValue.innerHTML = parseInt(foodValue.innerHTML) - value;
 		}
+	}
+	if(event.getAttribute("item") != null)
+	{
+		let tagValue = event.getAttribute("item");
+		let action = tagValue.split(":")[0];
+		
+		//Implementar ação correta e loop de items
+		let itemName = tagValue.split(":")[1];
+		let value = parseInt(tagValue.split(":")[2]);
+		
+		let listOfItem = document.getElementById("listofitems");
+		let newItem = document.createElement("li");
+		newItem.innerHTML = itemName;
+		listOfItem.appendChild(newItem);
 	}
 }
 
@@ -5610,6 +5650,7 @@ function rollTestDice()
 	var count = 0;
 	var id = setInterval(roll, 10);
 	document.getElementById("testdices").setAttribute("disabled", true);
+	document.getElementById("yourattvalue").innerHTML = "Current attribute value: " + document.getElementById("luckcurrent").innerHTML;
 	
 	function roll() 
 	{
