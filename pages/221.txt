@@ -1,6 +1,7 @@
 <p id="h221" hidden>
 ID: 221
 STATUS 1: LUCK;DECREASE;2
+MONEY 1: DECREASE;ALL
 CHOICE 1: Returning to the street, you turn left and head west.
 DESTINATION: 396
 HISTORY

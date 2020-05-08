@@ -2249,7 +2249,6 @@ the armour-like shell of this monster.
 </p>
 <p id="h167" hidden>
 TAG:ID: 167
-TAG:DICE: 1;INCREASE;STAMINA
 TAG:CHOICE 1: Continue
 TAG:STATUS 1: LUCK;INCREASE;1
 TAG:DESTINATION: 93
@@ -2942,6 +2941,7 @@ items you wish.
 <p id="h221" hidden>
 TAG:ID: 221
 TAG:STATUS 1: LUCK;DECREASE;2
+TAG:MONEY 1: DECREASE;ALL
 TAG:CHOICE 1: Returning to the street, you turn left and head west.
 TAG:DESTINATION: 396
 TAG:HISTORY The alley is narrow and dark and runs south some twenty metres
@@ -3845,6 +3845,7 @@ to Silverton to report that you have failed in your mission.
 TAG:ID: 300
 TAG:CHOICE 1: If you want to obey the instruction, make the necessary deduction on your Adventure Sheet.
 TAG:STATUS 1: LUCK;DECREASE;2
+TAG:MONEY: DECREASE;10
 TAG:ACTION 1: 347
 TAG:CHOICE 2: If you want to keep walking without leaving the gold
 TAG:ACTION 2: 137
@@ -5172,11 +5173,8 @@ function findActionOrDestinationTag(newOption, tags, i)
 	let textToAppend = "";
 	let values = [];
 	
-	console.log("findActionOrDestinationTag");
-	
 	for(j = i + 1; j < tags.length; j++)
 	{
-		console.log("Destination tag: " + tags[j]);
 		if(tags[j].includes("MONEY"))
 		{
 			console.log("TAG: " + tags[j]);
@@ -5187,9 +5185,6 @@ function findActionOrDestinationTag(newOption, tags, i)
 			var money = document.createAttribute("money");
 			money.value = action + ":" + value;
 			newOption.setAttributeNode(money);
-			
-			console.log("Value from tag: " + value);
-			console.log("gold total: " + document.getElementById("goldtotal").innerHTML);
 			
 			if(action == "INCREASE")
 			{
@@ -5272,8 +5267,9 @@ function checkEventAttributes(event)
 	{
 		let tagValue = event.getAttribute("money");
 		let action = tagValue.split(":")[0];
-		let value = parseInt(tagValue.split(":")[1]);
+		let value = tagValue.split(":")[1] == "ALL" ? "ALL" : parseInt(tagValue.split(":")[1]);
 		let goldValue = document.getElementById("goldtotal");
+		
 		
 		if(action == "INCREASE")
 		{
@@ -5281,7 +5277,14 @@ function checkEventAttributes(event)
 		}
 		else
 		{
-			goldValue.innerHTML = parseInt(goldValue.innerHTML) - value; 
+			if(value != "ALL")
+			{
+				goldValue.innerHTML = parseInt(goldValue.innerHTML) - value; 
+			}
+			else
+			{
+				goldValue.innerHTML = 0;
+			}
 		}
 	}
 	if(event.getAttribute("status") != null)
@@ -5346,7 +5349,8 @@ function handleSpecialTags(tag)
 	{
 		let tagValue = tag.split(":")[1].trim();
 		let action = tagValue.split(";")[0];
-		let value = parseInt(tagValue.split(";")[1]);
+		let value = tagValue.split(";")[1] == "ALL" ? "ALL" : parseInt(tagValue.split(";")[1]);
+		
 		let goldValue = document.getElementById("goldtotal");
 		
 		if(action == "INCREASE")
@@ -5355,7 +5359,14 @@ function handleSpecialTags(tag)
 		}
 		else
 		{
-			goldValue.innerHTML = parseInt(goldValue.innerHTML) - value; 
+			if(value != "ALL")
+			{
+				goldValue.innerHTML = parseInt(goldValue.innerHTML) - value; 
+			}
+			else
+			{
+				goldValue.innerHTML = 0;
+			}
 		}
 	}
 	if(tag.includes("STATUS"))
@@ -5512,7 +5523,9 @@ function battle(tags,options, id)
 	testDivElement.removeAttribute("disabled");
 	testDivElement.removeAttribute("hidden");
 	testDivElement.setAttribute("style", "border-width: medium;border-color: red");
+	document.getElementById("testdices");
 	document.getElementById("testdices").setAttribute("disabled", true);
+	document.getElementById("attributetest").innerHTML = "Attribute to Test: LUCK";
 	document.getElementById("yourattvalue").innerHTML = "Current attribute value: " + document.getElementById("luckcurrent").innerHTML;
 
 	battleActive = true;
@@ -5666,7 +5679,7 @@ function rollTestDice()
 			if(attributeToTest == "SKILL")
 				currentAttributeValue = parseInt(document.getElementById("skillcurrent").innerHTML);
 			
-			if(battleActive == false)
+			if(!battleActive)
 			{
 				if(result <= currentAttributeValue)
 				{

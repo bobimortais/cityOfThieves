@@ -2,6 +2,7 @@
 ID: 300
 CHOICE 1: If you want to obey the instruction, make the necessary deduction on your Adventure Sheet.
 STATUS 1: LUCK;DECREASE;2
+MONEY: DECREASE;10
 ACTION 1: 347
 CHOICE 2: If you want to keep walking without leaving the gold
 ACTION 2: 137
