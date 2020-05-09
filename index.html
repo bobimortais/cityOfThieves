@@ -491,13 +491,14 @@ restore 1 STAMINA point to your total. What will you do next?
 <p id="h14" hidden>
 TAG:ID: 14
 TAG:CHOICE 1: If you have
+TAG:ITEM: HAS;Ring of Fire;1
 TAG:ACTION 1: 237
 TAG:CHOICE 2: If not
 TAG:ACTION 2: 191
 TAG:HISTORY As soon as you pluck one of the flowers you hear the noise of 
 rustling leaves. Three of the animal-shaped hedges have 
 uprooted themselves and are closing in on you. Do you have a
-Ring Of Fire?
+Ring of Fire?
 </p>
 <p id="h15" hidden>
 TAG:ID: 15
@@ -721,10 +722,13 @@ four horses as though his life depended on it.
 <p id="h35" hidden>
 TAG:ID: 35
 TAG:CHOICE 1: Fire the silver arrow at him
+TAG:ITEM 1: HAS;Silver Arrow;1
 TAG:ACTION 1: 189
 TAG:CHOICE 2: Reflect his stare in your mirror (if you have one)
+TAG:ITEM 1: HAS;Mirror;1
 TAG:ACTION 2: 305
 TAG:CHOICE 3: Fire your Ring of Ice at him (if you have one)
+TAG:ITEM 1: HAS;Ring of Ice;1
 TAG:ACTION 3: 382
 TAG:HISTORY You push the man through the doorway and run him through with 
 your sword. Much to your surprise he is unaffected by the 
@@ -835,6 +839,7 @@ points.
 <p id="h44" hidden>
 TAG:ID: 44
 TAG:CHOICE 1: If you have a Throwing Knife you may be able to cut one down before they reach you.
+TAG:ITEM: HAS;Throwing Knife;1
 TAG:ACTION 1: 18
 TAG:CHOICE 2: If you do not have Throwing Knife you will have to fight all three with your sword.
 TAG:ACTION 2: 225
@@ -884,7 +889,7 @@ position. Roll two dice.
 TAG:ID: 48
 TAG:CHOICE 1: If you wish to climb down the ladder
 TAG:ACTION 1: 321
-TAG:CHOICE 2: If you wish to replace the manhole cover  and continue east
+TAG:CHOICE 2: If you wish to replace the manhole cover and continue east
 TAG:ACTION 2: 205
 TAG:HISTORY There is an iron ladder secured the rim of a hole, descending 
 into a tunnel below. It is dark, and a very unpleasant smell 
@@ -1031,6 +1036,7 @@ beauty, find the intruder'.
 <p id="h61" hidden>
 TAG:ID: 61
 TAG:CHOICE 1: If you have a bunch Of flowers
+TAG:ITEM: HAS;Flowers;1
 TAG:ACTION 1: 172
 TAG:CHOICE 2: If you do not have a bunch of flowers
 TAG:ACTION 2: 350
@@ -1260,6 +1266,7 @@ still alive, draw your sword to defend yourself.
 <p id="h80" hidden>
 TAG:ID: 80
 TAG:CHOICE 1: If you are
+TAG:ITEM: HAS;Scorpion Brooch;1
 TAG:ACTION 1: 392
 TAG:CHOICE 2: If not
 TAG:ACTION 2: 215
@@ -1284,7 +1291,8 @@ fires another lightning bolt at you. Test your Luck.
 </p>
 <p id="h82" hidden>
 TAG:ID: 82
-TAG:CHOICE 1: YOu throw the Hag into the sewer and walk back to the entrance hole.
+TAG:ITEM: ADD;Hag's Hair;1
+TAG:CHOICE 1: You throw the Hag into the sewer and walk back to the entrance hole.
 TAG:DESTINATION: 104
 TAG:HISTORY Before the Hag can complete her spell, you reach into your 
 backpack and take out the bottle containing the potion. You 
@@ -1408,7 +1416,7 @@ and holds an empty tin in his hand.
 <p id="h92" hidden>
 TAG:ID: 92
 TAG:CHOICE 1: You pack it away and walk back to the entrance hole.
-TAG:ITEM: ADD;MIRROR
+TAG:ITEM: ADD;Mirror;1
 TAG:DESTINATION: 174
 TAG:HISTORY You are slowly feeling your way along the bricks when your 
 hand comes into contact with a smooth flat object. You pull 
@@ -1461,7 +1469,7 @@ table lies an open chest containing a golden skull. Will you:
 </p>
 <p id="h97" hidden>
 TAG:ID: 97
-TAG:ITEM: ADD;KEY
+TAG:ITEM: ADD;Iron Key;1
 TAG:STATUS 1: LUCK;INCREASE;1
 TAG:DESTINATION: 353
 TAG:HISTORY You decide to take a quick look inside the kennel. Hanging on
@@ -1569,6 +1577,10 @@ It is securely locked.
 <p id="h108" hidden>
 TAG:ID: 108
 TAG:CHOICE 1: If you have them all and have been tattooed
+TAG:ITEM: HAS;Hag's Hair;1
+TAG:ITEM: HAS;Lotus Flower;1
+TAG:ITEM: HAS;Black Pearls;1
+TAG:ITEM: HAS;Tattoed;1
 TAG:ACTION 1: 201
 TAG:CHOICE 2: If you lack any of the items or have not been tattooed
 TAG:ACTION 2: 299
@@ -1687,6 +1699,7 @@ noisily in the wind.
 <p id="h118" hidden>
 TAG:ID: 118
 TAG:CHOICE 1: If you do
+TAG:ITEM: HAS;Insect Bracelet;1
 TAG:ACTION 1: 2
 TAG:CHOICE 2: If not
 TAG:ACTION 2: 166
@@ -1849,7 +1862,7 @@ calls out 'Who is it?' You may:
 </p>
 <p id="h132" hidden>
 TAG:ID: 132
-TAG:ITEM: ADD;SILVER BROOCH;STAMINA 1 AFTER TAG:FIGHT
+TAG:ITEM: ADD;Silver Brooch;1
 TAG:CHOICE 1: Pleased with your purchase, you leave the house and head north.
 TAG:DESTINATION: 334
 TAG:HISTORY The creature pins the silver brooch to your leather tunic and
@@ -2001,6 +2014,7 @@ flowers?'
 <p id="h146" hidden>
 TAG:ID: 146
 TAG:CHOICE 1: If you have a key
+TAG:ITEM: HAS;Skeleton Key;1
 TAG:ACTION 1: 220
 TAG:CHOICE 2: If you do not have a key
 TAG:ACTION 2: 388
@@ -2048,6 +2062,7 @@ TAG:HISTORY The dart is poison-tipped. Lose 2 STAMINA points.
 <p id="h150" hidden>
 TAG:ID: 150
 TAG:CHOICE 1: If you wish to pay the fine and out of the city
+TAG:MONEY: DECREASE;ALL
 TAG:ACTION 1: 367
 TAG:CHOICE 2: If you resist arrest
 TAG:ACTION 2: 73
@@ -2133,6 +2148,10 @@ opportunity to meet the infamous Lord Azzur.
 <p id="h156" hidden>
 TAG:ID: 156
 TAG:CHOICE 1: If you have them all and have been tattooed
+TAG:ITEM: HAS;Hag's Hair;1
+TAG:ITEM: HAS;Lotus Flower;1
+TAG:ITEM: HAS;Black Pearls;1
+TAG:ITEM: HAS;Tattoed;1
 TAG:ACTION 1: 201
 TAG:CHOICE 2: If you are missing any of the items or have not been tattooed
 TAG:ACTION 2: 299
@@ -2326,7 +2345,7 @@ Gold Pieces before showing you to the front door.
 TAG:ID: 173
 TAG:CHOICE 1: If you wish to gamble some of your Gold Pieces
 TAG:ACTION 1: 206
-TAG:CHOICE 2: If you would rather leave the smoky tavern and  walk north
+TAG:CHOICE 2: If you would rather leave the smoky tavern and walk north
 TAG:ACTION 2: 296
 TAG:HISTORY The three old bearded Dwarfs are so involved with their game 
 that they pay you no attention as you sit down at their table. 
@@ -2428,6 +2447,7 @@ The key fits the lock and the handle turns.
 <p id="h182" hidden>
 TAG:ID: 182
 TAG:CHOICE 1: If you can afford his high price
+TAG:MONEY: DECREASE;10
 TAG:ACTION 1: 279
 TAG:CHOICE 2: If you cannot
 TAG:ACTION 2: 354
@@ -2460,6 +2480,7 @@ You may:
 <p id="h184" hidden>
 TAG:ID: 184
 TAG:CHOICE 1: If you do
+TAG:ITEM: HAS;Golden Flower;1
 TAG:ACTION 1: 55
 TAG:CHOICE 2: If not
 TAG:ACTION 2: 308
@@ -2572,13 +2593,14 @@ heavily. Test you Luck.
 </p>
 <p id="h193" hidden>
 TAG:ID: 193
-TAG:CHOICE 1: If you have a Ring Of Fire, it will be the best weapon against the Mummy.
+TAG:CHOICE 1: If you have a Ring of Fire, it will be the best weapon against the Mummy.
+TAG:ITEM: HAS;Ring of Fire;1
 TAG:ACTION 1: 286
 TAG:CHOICE 2: Otherwise you must use your sword.
 TAG:FIGHT
 TAG:ENEMY 1: MUMMY;SKILL 7;STAMINA 12
 TAG:ACTION 2: 163
-TAG:HISTORY If you have a Ring Of Fire, it will be the best weapon against the Mummy.
+TAG:HISTORY If you have a Ring of Fire, it will be the best weapon against the Mummy.
 </p>
 <p id="h194" hidden>
 TAG:ID: 194
@@ -2829,7 +2851,7 @@ of your previous existence — you have become a Vampire yourself!
 <p id="h211" hidden>
 TAG:ID: 211
 TAG:STATUS 1: STAMINA:INCREASE;1
-TAG:CHOICE 1:
+TAG:CHOICE 1: Continue
 TAG:DESTINATION: 307
 TAG:HISTORY The plums are sweet and juicy and taste delicious. Add 1 
 STAMINA point.
@@ -3152,6 +3174,10 @@ skulls painted on it; one black and five white.
 <p id="h239" hidden>
 TAG:ID: 239
 TAG:CHOICE 1: If you have
+TAG:ITEM: HAS;Lotus Flower;1
+TAG:ITEM: HAS;Hag's Hair;1
+TAG:ITEM: HAS;Black Pearls;1
+TAG:ITEM: HAS;Tattoed;1
 TAG:ACTION 1: 201
 TAG:CHOICE 2: If you are missing any of the items, or have not been tattooed
 TAG:ACTION 2: 299
@@ -3193,7 +3219,7 @@ TAG:HISTORY The man hands you the gold and puts the gems under the counter.
 </p>
 <p id="h241" hidden>
 TAG:ID: 241
-TAG:SHOP: CANDLE,1
+TAG:SHOP: Candle,1
 TAG:CHOICE 1: If you wish to see one 
 TAG:ACTION 1: 63
 TAG:CHOICE 2: If you would rather leave the shop and head east
@@ -3285,11 +3311,13 @@ a cudgel. Test your Luck.
 </p>
 <p id="h248" hidden>
 TAG:ID: 248
-TAG:CHOICE 1: If you can afford his asking price
-TAG:CHOICE A: MONEY;DECREASE;10
-TAG:CHOICE B: MAGIC ITEM;DECREASE;2
+TAG:CHOICE 1: Pay him 10 Gold Pieces
+TAG:MONEY: DECREASE;10
 TAG:ACTION 1: 85
-TAG:CHOICE 2: If you cannot afford to pay the price 
+TAG:CHOICE 2: Give him two magic items
+TAG:ITEM: DECREASE;Magic Item;DECREASE;2
+TAG:ACTION 2: 85
+TAG:CHOICE 2: You cannot afford to pay the price 
 TAG:ACTION 2: 42
 TAG:HISTORY You ask Ben Borryman if he has silver arrows for sale. He 
 replies that he does not, but will make one for you at a cost
@@ -3401,6 +3429,7 @@ TAG:HISTORY If you are wearing the Ring Of the Golden Eye
 <p id="h258" hidden>
 TAG:ID: 258
 TAG:CHOICE 1: If you are wearing an ivory skull around your neck
+TAG:ITEM: HAS;Ivory Skull;1
 TAG:ACTION 1: 318
 TAG:CHOICE 2: If you do not have this item
 TAG:ACTION 2: 47
@@ -3417,6 +3446,7 @@ outstretched fingers shoot ragged white bolts Of lightning.
 <p id="h259" hidden>
 TAG:ID: 259
 TAG:CHOICE 1: If you have a skeleton key
+TAG:ITEM: HAS;Skeleton Key;1
 TAG:ACTION 1: 228
 TAG:CHOICE 2: Otherwise you may either pull on a cord hanging down in front of the door 
 TAG:ACTION 2: 4
@@ -3453,6 +3483,7 @@ to their argument.
 <p id="h263" hidden>
 TAG:ID: 263
 TAG:CHOICE 1: If you have a golden owl
+TAG:ITEM: HAS;Golden Owl;1
 TAG:ACTION 1: 153
 TAG:CHOICE 2: If you do not
 TAG:ACTION 2: 281
@@ -3473,6 +3504,7 @@ some of yours?'
 <p id="h265" hidden>
 TAG:ID: 265
 TAG:CHOICE 1: If you have this item
+TAG:ITEM: HAS;Potion of Mind Control;1
 TAG:ACTION 1: 82
 TAG:CHOICE 2: If you do not
 TAG:ACTION 2: 390
@@ -3490,7 +3522,7 @@ possess a Potion of Mind Control?
 <p id="h266" hidden>
 TAG:ID: 266
 TAG:CHOICE 1: Eventually you climb back over the wall and walk to the junction to head west along Harbour Street.
-TAG:ITEM: DECREASE;2
+TAG:ITEM: DECREASE;ANY;2
 TAG:DESTINATION: 91
 TAG:HISTORY The Bays on your side are angry with you for losing the match. 
 Some of their supporters rush over and start to jostle you. By
@@ -3603,10 +3635,13 @@ like to meet this Lord Azzur another day.
 <p id="h276" hidden>
 TAG:ID: 276
 TAG:CHOICE 1: Five Gold Pieces
+TAG:MONEY 1: DECREASE;5
 TAG:ACTION 1: 109
 TAG:CHOICE 2: Ten Gold Pieces
+TAG:MONEY 2: DECREASE;10
 TAG:ACTION 2: 267
 TAG:CHOICE 3: Fifteen Gold Pieces
+TAG:MONEY 3: DECREASE;15
 TAG:ACTION 3: 41
 TAG:HISTORY You tell the guards that you will make it worth their while if
 they release you and allow you entry into the city. How much 
@@ -3702,7 +3737,7 @@ nothing left but a few charred fragments.
 </p>
 <p id="h287" hidden>
 TAG:ID: 287
-TAG:SHOP: HOT FOOD,1
+TAG:SHOP: Hot Food,1
 TAG:CHOICE 1: If you wish to stop and listen
 TAG:ACTION 1: 3
 TAG:CHOICE 2: If you would rather walk past him
@@ -3736,6 +3771,7 @@ finally says, 'I know nothing about him.'
 <p id="h290" hidden>
 TAG:ID: 290
 TAG:CHOICE 1: If you have a merchant's pass
+TAG:ITEM: HAS;Merchat's Pass;1
 TAG:ACTION 1: 219
 TAG:CHOICE 2: If you do not
 TAG:ACTION 2: 335
@@ -3759,6 +3795,7 @@ at you. Test your Luck.
 <p id="h292" hidden>
 TAG:ID: 292
 TAG:CHOICE 1: If you have some garlic
+TAG:ITEM: HAS;Garlic;1
 TAG:ACTION 1: 254
 TAG:CHOICE 2: If you do not have any garlic
 TAG:ACTION 2: 210
@@ -3899,8 +3936,10 @@ follow them.
 TAG:ID: 305
 TAG:STATUS 1: STAMINA;DECREASE;2
 TAG:CHOICE 1: If you are still alive, you may either fire your silver arrow at him
+TAG:ITEM: HAS;Silver Arrow;1
 TAG:ACTION 1: 189
 TAG:CHOICE 2: or fire your Ring of Ice at him 
+TAG:ITEM: HAS;Ring of Ice;1
 TAG:ACTION 2: 382
 TAG:HISTORY You point the mirror at the Spirit Stalker, but it does not 
 stop him advancing. Again he manages to touch your flesh and 
@@ -4257,6 +4296,7 @@ leading west. You decide to keep going north.
 <p id="h334" hidden>
 TAG:ID: 334
 TAG:CHOICE 1: If you possess a merchant's pass
+TAG:ITEM: HAS;Merchant's Pass;1
 TAG:ACTION 1: 255
 TAG:CHOICE 2: If you do not
 TAG:ACTION 2: 99
@@ -4373,7 +4413,7 @@ all he knows.
 </p>
 <p id="h343" hidden>
 TAG:ID: 343
-TAG:ITEMS: SILVER;DECREASE;ALL
+TAG:ITEM: DECREASE;Silver;ALL
 TAG:STATUS 1: STAMINA;DECREASE;3
 TAG:DESTINATION: 100
 TAG:HISTORY You fall to the floor, unconscious. Lose 3 STAMINA points. If 
@@ -4483,6 +4523,7 @@ TAG:ID: 352
 TAG:CHOICE 1: If you wish to fight the Mummy
 TAG:ACTION 1: 193
 TAG:CHOICE 2: If you have a Lantern, you may throw it at the Mummy
+TAG:ITEM: HAS;Lantern;1
 TAG:ACTION 2: 106
 TAG:HISTORY You lift the lid of the sarcophagus and see a human body 
 completely encased in old bandages. The light, although dim,
@@ -4505,6 +4546,7 @@ locked.
 <p id="h354" hidden>
 TAG:ID: 354
 TAG:CHOICE 1: If you have enough money for the price of a tattoo
+TAG:MONEY: DECREASE;10
 TAG:ACTION 1: 316
 TAG:CHOICE 2: If you still cannot afford one, you will have to come back again later. You walk back up the lane and turn left into Mill Street. 
 TAG:ACTION 2: 307
@@ -4571,6 +4613,7 @@ TAG:ID: 358
 TAG:CHOICE 1: Jump to freedom
 TAG:ACTION 1: 346
 TAG:CHOICE 2: Fix a Climbing Rope (if you have one) to the wall and climb down the other side	
+TAG:ITEM: HAS;Climbing Rope;1
 TAG:ACTION 2: 108
 TAG:CHOICE 3: Face the oncoming guards
 TAG:ACTION 3: 56
@@ -4588,9 +4631,9 @@ TAG:ID: 359
 TAG:STATUS 1: STAMINA;INCREASE;2
 TAG:MONEY: INCREASE;8
 TAG:ITEM: ADD;Potion of Mind Control;1
-TAG:ITEM: ADD;silver flute;1
-TAG:ITEM: ADD;eye-patch;1
-TAG:ITEM: ADD;piece of chalk;1
+TAG:ITEM: ADD;Silver Flute;1
+TAG:ITEM: ADD;Eye-patch;1
+TAG:ITEM: ADD;Piece of Chalk;1
 TAG:DESTINATION: 91
 TAG:HISTORY All the bays on your side rush over to you and slap your hands
 with theirs. They are overjoyed at their victory. Supporters
@@ -4688,6 +4731,10 @@ barrels and gradually the coughing subsides.
 <p id="h367" hidden>
 TAG:ID: 367
 TAG:CHOICE 1: If you have
+TAG:ITEM: HAS;Lotus Flower;1
+TAG:ITEM: HAS;Hag's Hair;1
+TAG:ITEM: HAS;Black Pearls;1
+TAG:ITEM: HAS;Tattoed;1
 TAG:ACTION 1: 201
 TAG:CHOICE 2: If you are missing any of the items or have not been tattooed
 TAG:ACTION 2: 299
@@ -4861,9 +4908,11 @@ You may enter at your own peril or buy my advice for 3 Gold Pieces.'
 </p>
 <p id="h382" hidden>
 TAG:ID: 382
-TAG:CHOICE 1: fire your silver arrow at him 
+TAG:CHOICE 1: fire your silver arrow at him
+TAG:ITEM: HAS;Silver Arrow;1
 TAG:ACTION 1: 189
 TAG:CHOICE 2: or to reflect his stare in your mirror, as your Ring of Ice is useless. 
+TAG:ITEM: HAS;Mirror;1
 TAG:ACTION 2: 305
 TAG:HISTORY A jet of gas shoots out oi the ring and turns to on contact with
 the Spirit Stalker, covering him completely. It does not stop 
@@ -5242,13 +5291,39 @@ function findActionOrDestinationTag(newOption, tags, i)
 		else if(tags[j].includes("ITEM"))
 		{
 			let tagValue = tags[j].split(":")[1].trim();
-			let itemValue = tagValue.split(";")[0];
-			let action = tagValue.split(";")[1];
+			let action = tagValue.split(";")[0];
+			let itemName = tagValue.split(";")[1];
 			let value = tagValue.split(";")[2];
 			
-			var item = document.createAttribute("item");
-			item.value = itemValue + ":" + action + ":" + value;
-			newOption.setAttributeNode(item);
+			
+			if(action == "HAS")
+			{
+				let listOfItem = document.getElementById("listofitems");
+				let hasItem = false;
+				
+				console.log("Checking if has item: " + itemName);
+				
+				for(let k = 0;k < listOfItem.children.length;k++)
+				{
+					let item = listOfItem.children[k];
+					
+					console.log("Your item: " + item.innerHTML);
+					if(item.innerHTML.includes(itemName))
+					{
+						hasItem = true;
+						break;
+					}					
+				}
+				
+				if(!hasItem)
+					newOption.setAttribute("disabled", true);
+			}
+			else
+			{
+				var item = document.createAttribute("item");
+				item.value = itemName + ":" + action + ":" + value;
+				newOption.setAttributeNode(item);
+			}
 			i = j;
 		}
 		else
@@ -5330,11 +5405,11 @@ function checkEventAttributes(event)
 	if(event.getAttribute("item") != null)
 	{
 		let tagValue = event.getAttribute("item");
-		let action = tagValue.split(":")[0];
+		let itemName = tagValue.split(":")[0];
+		let action = tagValue.split(":")[1];
+		let value = parseInt(tagValue.split(":")[2]);
 		
 		//Implementar ação correta e loop de items
-		let itemName = tagValue.split(":")[1];
-		let value = parseInt(tagValue.split(":")[2]);
 		
 		let listOfItem = document.getElementById("listofitems");
 		let newItem = document.createElement("li");
