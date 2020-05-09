@@ -494,6 +494,7 @@ TAG:CHOICE 1: If you have
 TAG:ITEM: HAS;Ring of Fire;1
 TAG:ACTION 1: 237
 TAG:CHOICE 2: If not
+TAG:ITEM: HASNT;Ring of Fire;1
 TAG:ACTION 2: 191
 TAG:HISTORY As soon as you pluck one of the flowers you hear the noise of 
 rustling leaves. Three of the animal-shaped hedges have 
@@ -842,6 +843,7 @@ TAG:CHOICE 1: If you have a Throwing Knife you may be able to cut one down befor
 TAG:ITEM: HAS;Throwing Knife;1
 TAG:ACTION 1: 18
 TAG:CHOICE 2: If you do not have Throwing Knife you will have to fight all three with your sword.
+TAG:ITEM: HASNT;Throwing Knife;1
 TAG:ACTION 2: 225
 TAG:HISTORY Standing in a line across the street are three tall men each
 armed witha spiked club. You notice that each has a red star 
@@ -1039,6 +1041,7 @@ TAG:CHOICE 1: If you have a bunch Of flowers
 TAG:ITEM: HAS;Flowers;1
 TAG:ACTION 1: 172
 TAG:CHOICE 2: If you do not have a bunch of flowers
+TAG:ITEM: HASNT;Flowers;1
 TAG:ACTION 2: 350
 TAG:HISTORY The silk curtains in front of the archway are pulled iside and
 a strange creature steps into the room. It has a snake's head,
@@ -1269,6 +1272,7 @@ TAG:CHOICE 1: If you are
 TAG:ITEM: HAS;Scorpion Brooch;1
 TAG:ACTION 1: 392
 TAG:CHOICE 2: If not
+TAG:ITEM: HASNT;Scorpion Brooch;1
 TAG:ACTION 2: 215
 TAG:HISTORY The Stairs lead into a small room, again painted red. Sitting 
 at a table is a strange creature with a long snout and deep
@@ -1702,6 +1706,7 @@ TAG:CHOICE 1: If you do
 TAG:ITEM: HAS;Insect Bracelet;1
 TAG:ACTION 1: 2
 TAG:CHOICE 2: If not
+TAG:ITEM: HAS;Insect Bracelet;1
 TAG:ACTION 2: 166
 TAG:HISTORY You can hear some scratching sounds in the tunnel ahead. Then
 you see a long shadow appear on the curved brick wall. In the 
@@ -2017,6 +2022,7 @@ TAG:CHOICE 1: If you have a key
 TAG:ITEM: HAS;Skeleton Key;1
 TAG:ACTION 1: 220
 TAG:CHOICE 2: If you do not have a key
+TAG:ITEM: HASNT;Skeleton Key;1
 TAG:ACTION 2: 388
 TAG:HISTORY You walk back into the shop. You try to open the glass 
 cupboard but it is locked. Inside you see two silver goblets,
@@ -2483,6 +2489,7 @@ TAG:CHOICE 1: If you do
 TAG:ITEM: HAS;Golden Flower;1
 TAG:ACTION 1: 55
 TAG:CHOICE 2: If not
+TAG:ITEM: HASNT;Golden Flower;1
 TAG:ACTION 2: 308
 TAG:HISTORY Do you have any of Mrs Pipe's golden flowers?
 </p>
@@ -2597,6 +2604,7 @@ TAG:CHOICE 1: If you have a Ring of Fire, it will be the best weapon against the
 TAG:ITEM: HAS;Ring of Fire;1
 TAG:ACTION 1: 286
 TAG:CHOICE 2: Otherwise you must use your sword.
+TAG:ITEM: HASNT;Ring of Fire;1
 TAG:FIGHT
 TAG:ENEMY 1: MUMMY;SKILL 7;STAMINA 12
 TAG:ACTION 2: 163
@@ -3432,6 +3440,7 @@ TAG:CHOICE 1: If you are wearing an ivory skull around your neck
 TAG:ITEM: HAS;Ivory Skull;1
 TAG:ACTION 1: 318
 TAG:CHOICE 2: If you do not have this item
+TAG:ITEM: HASNT;Ivory Skull;1
 TAG:ACTION 2: 47
 TAG:HISTORY Stepping over the Fire Imp, you walk back to the stairs to see
 if its master is still in the house. You descend the stairs 
@@ -3486,6 +3495,7 @@ TAG:CHOICE 1: If you have a golden owl
 TAG:ITEM: HAS;Golden Owl;1
 TAG:ACTION 1: 153
 TAG:CHOICE 2: If you do not
+TAG:ITEM: HASNT;Golden Owl;1
 TAG:ACTION 2: 281
 TAG:HISTORY Despite the light from the lanterns on the landing, you are 
 unable to see anything inside the room; it is completely black.
@@ -3507,6 +3517,7 @@ TAG:CHOICE 1: If you have this item
 TAG:ITEM: HAS;Potion of Mind Control;1
 TAG:ACTION 1: 82
 TAG:CHOICE 2: If you do not
+TAG:ITEM: HASNT;Potion of Mind Control;1
 TAG:ACTION 2: 390
 TAG:HISTORY With your sword still dripping with the blood of the Rats you
 walk further along the tunnel. The ledge you are walking along
@@ -3771,9 +3782,10 @@ finally says, 'I know nothing about him.'
 <p id="h290" hidden>
 TAG:ID: 290
 TAG:CHOICE 1: If you have a merchant's pass
-TAG:ITEM: HAS;Merchat's Pass;1
+TAG:ITEM: HAS;Merchant's Pass;1
 TAG:ACTION 1: 219
 TAG:CHOICE 2: If you do not
+TAG:ITEM: HASNT;Merchant's Pass;1
 TAG:ACTION 2: 335
 TAG:HISTORY You try to walk nonchalantly past the Trolls, but they suspect
 something odd about you and call you over to them. They ask 
@@ -3798,6 +3810,7 @@ TAG:CHOICE 1: If you have some garlic
 TAG:ITEM: HAS;Garlic;1
 TAG:ACTION 1: 254
 TAG:CHOICE 2: If you do not have any garlic
+TAG:ITEM: HASNT;Garlic;1
 TAG:ACTION 2: 210
 TAG:HISTORY You walk into a lavishly furnished room containing objets d'art 
 and curios. Standing before you is a young woman dressed in a 
@@ -4299,6 +4312,7 @@ TAG:CHOICE 1: If you possess a merchant's pass
 TAG:ITEM: HAS;Merchant's Pass;1
 TAG:ACTION 1: 255
 TAG:CHOICE 2: If you do not
+TAG:ITEM: HASNT;Merchant's Pass;1
 TAG:ACTION 2: 99
 TAG:HISTORY Walking towards you down the street are town guards. They stop
 in front of you and demand to see your papers.
@@ -5296,7 +5310,7 @@ function findActionOrDestinationTag(newOption, tags, i)
 			let value = tagValue.split(";")[2];
 			
 			
-			if(action == "HAS")
+			if(action == "HAS" || action == "HASNT")
 			{
 				let listOfItem = document.getElementById("listofitems");
 				let hasItem = false;
@@ -5315,8 +5329,14 @@ function findActionOrDestinationTag(newOption, tags, i)
 					}					
 				}
 				
-				if(!hasItem)
+				if(!hasItem && action == "HAS")
+				{
 					newOption.setAttribute("disabled", true);
+				}
+				else if(hasItem && action == "HASNT")
+				{
+					newOption.setAttribute("disabled", true);
+				}
 			}
 			else
 			{
