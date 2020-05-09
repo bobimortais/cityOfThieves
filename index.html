@@ -1195,6 +1195,7 @@ TAG:ENEMY 1: FATNOSE;SKILL 9;STAMINA 10
 TAG:CHOICE 1: If you win
 TAG:ACTION 1: 110
 TAG:CHOICE 2: You may Escape after killing Sourbelly by throwing your shield at Fatnose and running off west along Mill Street.
+TAG:ESCAPE: KILL;SOURBELLY
 TAG:STATUS 1: SKILL;DECREASE;1
 TAG:ACTION 2: 239
 TAG:HISTORY You draw your sword and stand ready to fight the Trolls. They
@@ -1374,6 +1375,7 @@ TAG:ENEMY 1: SERPENT QUEEN;SKILL 8;STAMINA 5
 TAG:CHOICE 1: If you win
 TAG:ACTION 1: 295
 TAG:CHOICE 2: You may Escape after three Attack Rounds by running out of the house and north along Stable Street.
+TAG:ESCAPE: ROUND;3
 TAG:ACTION 2: 333
 TAG:HISTORY You pull back the curtains and walk into a very lavish 
 boudoir. In it is a young woman with her back towards you. As
@@ -1881,6 +1883,7 @@ TAG:ID: 133
 TAG:CHOICE 1: If you wish to walk down the lane
 TAG:ACTION 1: 182
 TAG:CHOICE 2: If you wish to buy some fruit from the barrow-boy
+TAG:MONEY: DECREASE;1
 TAG:ACTION 2: 160
 TAG:HISTORY The street ends at a junction with Mill Street, which runs 
 east and west along the city wall. Looking east you see a 
@@ -1960,6 +1963,7 @@ TAG:ENEMY 1: OGRE;SKILL 8;STAMINA 9
 TAG:CHOICE 1: If you defeat him
 TAG:ACTION 1: 71
 TAG:CHOICE 2: After the third Attack Round, you may Escape by running out of the house to head north.
+TAG:ESCAPE: ROUND;3
 TAG:ACTION 2: 282
 TAG:HISTORY The OGRE looks unimpressed by your aggressive action and, 
 picking up a large bone as a weapon, lumbers towards you. You
@@ -2322,6 +2326,7 @@ TAG:ENEMY 1: JEWELLER;SKILL 9;STAMINA 8
 TAG:CHOICE 1: If you win
 TAG:ACTION 1: 114
 TAG:CHOICE 2: You may Escape by running out of the shop and west along the street.
+TAG:ESCAPE: ALWAYS;
 TAG:ACTION 2: 196
 TAG:HISTORY The man sees you drawing your sword and snatches his battle-axe
 off the wall. He walks around the counter to fight you.
@@ -3047,6 +3052,7 @@ TAG:ENEMY 3: PIRATE;SKILL 7;STAMINA 4
 TAG:CHOICE 1: If you win
 TAG:ACTION 1: 111
 TAG:CHOICE 2: You may Escape by backing out through the door and fleeing from the ship north up Harbour Street.
+TAG:ESCAPE: ALWAYS;
 TAG:ACTION 2: 78
 TAG:HISTORY You manage to break free from the pirate's grip and draw your
 sword. You step backwards towards the door as the PIRATES leap
@@ -4150,6 +4156,7 @@ TAG:DAMAGE: STAMINA;DECREASE;3
 TAG:CHOICE 1: If you win
 TAG:ACTION 1: 395
 TAG:CHOICE 2: You may Escape by running out of the shop and west along the street.
+TAG:ESCAPE: ALWAYS;
 TAG:ACTION 2: 196
 TAG:HISTORY The blacksmith looks surprised at your unprovoked aggression 
 and pulls another red-hot iron bar from the fire with his 
@@ -4194,6 +4201,7 @@ TAG:ENEMY 1: WILD DOG;SKILL 4;STAMINA 3
 TAG:CHOICE 1: If you win
 TAG:ACTION 1: 184
 TAG:CHOICE 2: You may Escape by running backup the alleyway and turning west into Harbour Street.
+TAG:ESCAPE: ALWAYS;
 TAG:ACTION 2: 180
 TAG:HISTORY Ahead the alleyway is strewn with rubbish and discarded 
 possessions. Suddenly you hear growling and you see movement 
@@ -4499,6 +4507,7 @@ TAG:ENEMY 1: FIRE IMP;SKILL 9;STAMINA 4
 TAG:CHOICE 1: If you win
 TAG:ACTION 1: 258
 TAG:CHOICE 2: You may Escape by jumping out of the window to the street below
+TAG:ESCAPE: ALWAYS;
 TAG:ACTION 2: 192
 TAG:HISTORY Suddenly you are confronted by a small winged creature no more 
 than a metre in length, hovering before you. It is red in colour
@@ -4624,6 +4633,7 @@ TAG:ENEMY 1: OGRE;SKILL 8;STAMINA 9
 TAG:CHOICE 1: If you defeat him
 TAG:ACTION 1: 71
 TAG:CHOICE 2: After the third Attack Round, you may Escape by running out of the house and heading north.
+TAG:ESCAPE: ROUND;3
 TAG:ACTION 2: 282
 TAG:HISTORY The OGRE is mad with hunger and picks up a large bone off the
 floor. He raises it above his head and lumbers towards you.
@@ -5150,12 +5160,13 @@ The people of Silverton are joyous once again.
 <script> 
 var battleActive = false;
 var battleHit;
+var historyId = 1;
 
 function loadNext(event)
 { 
-	var id = event.id.split("id")[1];
+	historyId = event.id.split("id")[1];
 	var options = document.getElementById("options");
-	console.log("History ID " + id);
+	console.log("History ID " + historyId);
 	
 	//Disable shop
 	document.getElementById("shop").setAttribute("disabled", true);
@@ -5169,12 +5180,12 @@ function loadNext(event)
         child = options.lastElementChild; 
     } 
 	
-	if(id == "52" || id == "354" || id == "201")
-		document.getElementById('narrative').innerHTML = String(document.getElementById("h" + id).innerHTML).split("TAG:HISTORY")[1];
+	if(historyId == "52" || historyId == "354" || historyId == "201")
+		document.getElementById('narrative').innerHTML = String(document.getElementById("h" + historyId).innerHTML).split("TAG:HISTORY")[1];
 	else
-		document.getElementById('narrative').innerHTML = String(document.getElementById("h" + id).innerHTML.replace(/\n/g, " ")).split("TAG:HISTORY")[1];
+		document.getElementById('narrative').innerHTML = String(document.getElementById("h" + historyId).innerHTML.replace(/\n/g, " ")).split("TAG:HISTORY")[1];
 
-	let tags = document.getElementById("h" + id).innerHTML.split("TAG:");
+	let tags = document.getElementById("h" + historyId).innerHTML.split("TAG:");
 	
 	for(let i = 1; i < tags.length; i++)
 	{
@@ -5227,7 +5238,7 @@ function loadNext(event)
 		}
 		else if(tag.includes("FIGHT"))
 		{
-			battle(tags,options, id);
+			battle(tags,options);
 			break;
 		}
 		else if(tag.includes("SHOP"))
@@ -5689,7 +5700,7 @@ function buyItem()
 		
 }
 
-function battle(tags,options, id)
+function battle(tags,options)
 {
 	document.getElementById("battle").removeAttribute("disabled");
 	document.getElementById("attackdices").removeAttribute("disabled");
@@ -5720,6 +5731,7 @@ function battle(tags,options, id)
 			
 			var enemyList = document.getElementById("enemylist");
 			let enemyRow = document.createElement("tr");
+			enemyRow.id = enemy;
 			
 			let enemyNameValue = document.createElement("td");
 			enemyNameValue.innerHTML = enemy;
@@ -5743,14 +5755,23 @@ function battle(tags,options, id)
 			newOption.className = "buttonoption";
 			newOption.setAttribute("disabled", true);
 			
-			if(id == "10")
+			if(tags[i + 1].includes("ESCAPE"))
 			{
-				if(tags[i].split(":")[0] == "CHOICE 1")
+				let tagValue = tags[i + 1].split(":")[1].trim();
+				let condition = tagValue.split(";")[0];
+				let value = tagValue.split(";")[1];
+				
+				if(condition != "ALWAYS")
 				{
-					var fightRounds = document.createAttribute("rounds");
-					fightRounds.value = "6";
-					newOption.setAttributeNode(fightRounds); 
+					var escapeCondition = document.createAttribute("escape");
+					fightRounds.value = condition + ":" + value;
+					newOption.setAttributeNode(escapeCondition); 
 				}
+				else
+				{
+					newOption.removeAttribute("disabled");
+				}
+				i = i + 1;
 			}
 			
 			if(tags[i + 1].includes("ACTION") || tags[i + 1].includes("DESTINATION"))
@@ -6114,39 +6135,93 @@ function checkEndOfBattle(enemies, staminaCurrent)
 function checkOptionsToEnable()
 {
 	let options = document.getElementById("options");
+	let roundsValue = parseInt(document.getElementById("rounds").innerHTML.split(":")[1].trim());
 	
 	for(let i = 0; i < options.children.length; i++)
 	{
 		let option = options.children[i];
 		
-		if(option.getAttribute("rounds") != null)
+		if(option.getAttribute("escape") != null)
 		{
-			let rounds =  parseInt(document.getElementById("rounds").innerHTML.split(":")[1].trim());
-			let optionRounds = parseInt(option.getAttribute("rounds"));
-			
-			if(rounds <= optionRounds)
-			{
-				option.removeAttribute("disabled");
+			option.setAttribute("disabled", true);
+		}
+		else
+		{	
+			if(historyId == "10")
+			{	
+				if(roundsValue <= 6 && option.id == "id212")
+				{
+					option.removeAttribute("disabled");
+					break;
+				}
+				else if(roundsValue > 6 && option.id == "id130")
+				{
+					option.removeAttribute("disabled");
+					break;
+				}
 			}
 			else
 			{
-				options.children[i + 1].removeAttribute("disabled");
+				option.removeAttribute("disabled");
 			}
-			break;
-		}
-		else
-		{
-			option.removeAttribute("disabled");
-			break;
 		}
 	}
-	
 	
 }
 
 function checkEnableEscape()
 {
-
+	let options = document.getElementById("options");
+	let roundsValue = parseInt(document.getElementById("rounds").innerHTML.split(":")[1].trim());
+	
+	for(let i = 0; i < options.children.length; i++)
+	{
+		let option = options.children[i];
+		
+		if(option.getAttribute("escape") != null)
+		{
+			let condition = document.getElementById("escape").innerHTML.split(":")[0].trim();
+			let value = document.getElementById("escape").innerHTML.split(":")[1].trim();
+			
+			if(condition == "ROUND")
+			{
+				let roundsValue = parseInt(value);
+				if(rounds >= roundsValue)
+				{
+					option.removeAttribute("disabled");
+				}
+			}
+			if(condition == "KILL")
+			{	
+				var enemyList = document.getElementById("enemylist");
+				var enemies = enemyList.children;
+				let enemyStillAlive = false;
+				 
+				for(let i = 0;i < enemies.length;i++)
+				{
+					
+					if(enemies[i].id == value)
+					{	
+						let enemyData = enemies[i].children;
+						for(let j = 0;j < enemyData.length;j++)
+						{
+							if(enemyData[j].id = "enemystamina")
+							{
+								if(parseInt(enemyData[j].innerHTML) > 0)
+								{
+									enemyStillAlive = true;
+									break;
+								}
+							}
+						}	
+					}
+				}
+				
+				if(!enemyStillAlive)
+					option.removeAttribute("disabled");
+			}
+		}
+	}
 }
 
 function loadGame()
