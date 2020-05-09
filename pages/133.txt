@@ -3,6 +3,7 @@ ID: 133
 CHOICE 1: If you wish to walk down the lane
 ACTION 1: 182
 CHOICE 2: If you wish to buy some fruit from the barrow-boy
+MONEY: DECREASE;1
 ACTION 2: 160
 HISTORY
 The street ends at a junction with Mill Street, which runs 

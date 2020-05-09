@@ -1,5 +1,6 @@
 <p id="h160" hidden>
 ID: 160
+MONEY: INCREASE;1
 CHOICE 1: If you wish to pay 1 Gold Piece for a bag of plums
 MONEY: DECREASE;1
 ACTION 1: 211
