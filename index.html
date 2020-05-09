@@ -1583,7 +1583,8 @@ TAG:ID: 108
 TAG:CHOICE 1: If you have them all and have been tattooed
 TAG:ITEM: HAS;Hag's Hair;1
 TAG:ITEM: HAS;Lotus Flower;1
-TAG:ITEM: HAS;Black Pearls;1
+TAG:ITEM: HAS;Black Pearl;1
+TAG:ITEM: HAS;Silver Arrow;1
 TAG:ITEM: HAS;Tattoed;1
 TAG:ACTION 1: 201
 TAG:CHOICE 2: If you lack any of the items or have not been tattooed
@@ -2156,7 +2157,8 @@ TAG:ID: 156
 TAG:CHOICE 1: If you have them all and have been tattooed
 TAG:ITEM: HAS;Hag's Hair;1
 TAG:ITEM: HAS;Lotus Flower;1
-TAG:ITEM: HAS;Black Pearls;1
+TAG:ITEM: HAS;Black Pearl;1
+TAG:ITEM: HAS;Silver Arrow;1
 TAG:ITEM: HAS;Tattoed;1
 TAG:ACTION 1: 201
 TAG:CHOICE 2: If you are missing any of the items or have not been tattooed
@@ -3186,7 +3188,8 @@ TAG:ID: 239
 TAG:CHOICE 1: If you have
 TAG:ITEM: HAS;Lotus Flower;1
 TAG:ITEM: HAS;Hag's Hair;1
-TAG:ITEM: HAS;Black Pearls;1
+TAG:ITEM: HAS;Black Pearl;1
+TAG:ITEM: HAS;Silver Arrow;1
 TAG:ITEM: HAS;Tattoed;1
 TAG:ACTION 1: 201
 TAG:CHOICE 2: If you are missing any of the items, or have not been tattooed
@@ -4750,7 +4753,8 @@ TAG:ID: 367
 TAG:CHOICE 1: If you have
 TAG:ITEM: HAS;Lotus Flower;1
 TAG:ITEM: HAS;Hag's Hair;1
-TAG:ITEM: HAS;Black Pearls;1
+TAG:ITEM: HAS;Black Pearl;1
+TAG:ITEM: HAS;Silver Arrow;1
 TAG:ITEM: HAS;Tattoed;1
 TAG:ACTION 1: 201
 TAG:CHOICE 2: If you are missing any of the items or have not been tattooed
@@ -5375,13 +5379,23 @@ function checkEventAttributes(event)
 		}
 		else
 		{
-			if(value != "ALL")
+			if(parseInt(goldValue.innerHTML) > 0)
 			{
-				goldValue.innerHTML = parseInt(goldValue.innerHTML) - value; 
-			}
-			else
-			{
-				goldValue.innerHTML = 0;
+				if(value != "ALL")
+				{
+					if(parseInt(goldValue.innerHTML) - value >= 0)
+					{
+						goldValue.innerHTML = parseInt(goldValue.innerHTML) - value;
+					}
+					else
+					{
+						goldValue.innerHTML = 0;
+					}
+				}
+				else
+				{
+					goldValue.innerHTML = 0;
+				}
 			}
 		}
 	}
@@ -5392,21 +5406,49 @@ function checkEventAttributes(event)
 		let action = tagValue.split(":")[1];
 		let value = parseInt(tagValue.split(":")[2]);
 		let attributeToChange;
+		let attributeInitialValue;
 		
 		if(attribute == "SKILL")
+		{
 			attributeToChange = document.getElementById("skillcurrent");
+			attributeInitialValue = document.getElementById("skillinitial");
+		}
 		else if(attribute == "LUCK")
+		{
 			attributeToChange = document.getElementById("luckcurrent");
+			attributeInitialValue = document.getElementById("luckinitial");
+		}
 		else if(attribute == "STAMINA")
+		{
 			attributeToChange = document.getElementById("staminacurrent");
+			attributeInitialValue = document.getElementById("staminainitial");
+		}
 		
 		if(action == "INCREASE")
 		{
-			attributeToChange.innerHTML = parseInt(attributeToChange.innerHTML) + value;
+			if(parseInt(attributeToChange.innerHTML) < parseInt(attributeInitialValue.innerHTML))
+			{
+				if(parseInt(attributeToChange.innerHTML) + value <= parseInt(attributeInitialValue.innerHTML))
+				{
+					attributeToChange.innerHTML = parseInt(attributeToChange.innerHTML) + value;
+				}
+				else
+				{
+					value = value - (parseInt(attributeInitialValue.innerHTML) - parseInt(attributeToChange.innerHTML));
+					attributeToChange.innerHTML = parseInt(attributeToChange.innerHTML) + value;
+				}
+			}	
 		}
 		else
 		{
-			attributeToChange.innerHTML = parseInt(attributeToChange.innerHTML) - value;
+			if(parseInt(attributeToChange.innerHTML) - value >= 0)
+			{
+				attributeToChange.innerHTML = parseInt(attributeToChange.innerHTML) - value;
+			}
+			else
+			{
+				attributeToChange.innerHTML = 0;
+			}
 		}
 	}
 	if(event.getAttribute("food") != null)
@@ -5422,7 +5464,10 @@ function checkEventAttributes(event)
 		}
 		else
 		{
-			foodValue.innerHTML = parseInt(foodValue.innerHTML) - value;
+			if(parseInt(foodValue.innerHTML) > 0)
+			{
+				foodValue.innerHTML = parseInt(foodValue.innerHTML) - value;
+			}
 		}
 	}
 	if(event.getAttribute("item") != null)
@@ -5458,7 +5503,14 @@ function handleSpecialTags(tag)
 		{
 			if(value != "ALL")
 			{
-				goldValue.innerHTML = parseInt(goldValue.innerHTML) - value; 
+				if(parseInt(goldValue.innerHTML) - value >= 0)
+				{
+					goldValue.innerHTML = parseInt(goldValue.innerHTML) - value;
+				}
+				else
+				{
+					goldValue.innerHTML = 0;
+				}
 			}
 			else
 			{
@@ -5473,21 +5525,49 @@ function handleSpecialTags(tag)
 		let action = tagValue.split(";")[1];
 		let value = parseInt(tagValue.split(";")[2]);
 		let attributeToChange;
+		let attributeInitialValue;
 		
 		if(attribute == "SKILL")
+		{
 			attributeToChange = document.getElementById("skillcurrent");
+			attributeInitialValue = document.getElementById("skillinitial");
+		}
 		else if(attribute == "LUCK")
+		{
 			attributeToChange = document.getElementById("luckcurrent");
+			attributeInitialValue = document.getElementById("luckinitial");
+		}
 		else if(attribute == "STAMINA")
+		{
 			attributeToChange = document.getElementById("staminacurrent");
+			attributeInitialValue = document.getElementById("staminainitial");
+		}
 		
 		if(action == "INCREASE")
 		{
-			attributeToChange.innerHTML = parseInt(attributeToChange.innerHTML) + value;
+			if(parseInt(attributeToChange.innerHTML) < parseInt(attributeInitialValue.innerHTML))
+			{
+				if(parseInt(attributeToChange.innerHTML) + value <= parseInt(attributeInitialValue.innerHTML))
+				{
+					attributeToChange.innerHTML = parseInt(attributeToChange.innerHTML) + value;
+				}
+				else
+				{
+					value = value - (parseInt(attributeInitialValue.innerHTML) - parseInt(attributeToChange.innerHTML));
+					attributeToChange.innerHTML = parseInt(attributeToChange.innerHTML) + value;
+				}
+			}	
 		}
 		else
 		{
-			attributeToChange.innerHTML = parseInt(attributeToChange.innerHTML) - value;
+			if(parseInt(attributeToChange.innerHTML) - value >= 0)
+			{
+				attributeToChange.innerHTML = parseInt(attributeToChange.innerHTML) - value;
+			}
+			else
+			{
+				attributeToChange.innerHTML = 0;
+			}
 		}
 	}
 	if(tag.includes("ITEM"))
@@ -5583,25 +5663,28 @@ function showPrice(element)
 
 function buyItem()
 {
-	let itemPrice = parseInt(document.getElementById("itemprice").innerHTML.split(":")[1].trim());
-	let yourGold = parseInt(document.getElementById("shopgold").innerHTML.split(":")[1].trim());
-
+	if(document.getElementById("itemprice").getAttribute("itemname") != null)
+	{
+		let itemPrice = parseInt(document.getElementById("itemprice").innerHTML.split(":")[1].trim());
+		let yourGold = parseInt(document.getElementById("shopgold").innerHTML.split(":")[1].trim());
 	
-	if(itemPrice > yourGold)
-	{
-		document.getElementById("buymessage").innerHTML = "You don't have Gold for it!";
-	}
-	else
-	{
-		let newGoldValue = yourGold - itemPrice;
-		document.getElementById("buymessage").innerHTML = "Item purchased!";
-		document.getElementById("shopgold").innerHTML = "Your Gold: " + newGoldValue;
-		document.getElementById("goldtotal").innerHTML = newGoldValue;
 		
-		let listOfItem = document.getElementById("listofitems");
-		let newItem = document.createElement("li");
-		newItem.innerHTML = document.getElementById("itemprice").getAttribute("itemname");
-		listOfItem.appendChild(newItem);
+		if(itemPrice > yourGold)
+		{
+			document.getElementById("buymessage").innerHTML = "You don't have Gold for it!";
+		}
+		else
+		{
+			let newGoldValue = yourGold - itemPrice;
+			document.getElementById("buymessage").innerHTML = "Item purchased!";
+			document.getElementById("shopgold").innerHTML = "Your Gold: " + newGoldValue;
+			document.getElementById("goldtotal").innerHTML = newGoldValue;
+			
+			let listOfItem = document.getElementById("listofitems");
+			let newItem = document.createElement("li");
+			newItem.innerHTML = document.getElementById("itemprice").getAttribute("itemname");
+			listOfItem.appendChild(newItem);
+		}
 	}
 		
 }
