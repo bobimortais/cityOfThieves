@@ -1,8 +1,10 @@
 <p id="h186" hidden>
 ID: 186
 CHOICE 1: If you wish to pick up the brooch and pin it to your tunic
+ITEM: ADD;Copper Scorpion Brooch;1
 ACTION 1: 387
 CHOICE 2: If you would rather just take the gold, go back down the stairs and leave the house, heading north
+MONEY: Increase;4
 ACTION 2: 334
 HISTORY
 On top of the Lizardine's table you find 4 Gold Pieces and a 

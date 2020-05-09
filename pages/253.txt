@@ -11,5 +11,4 @@ in the art of swordsmanship. Treat them as a single creature.
 However, each Attack Round that they inflict a wound on you, 
 4 points must be subtracted from your STAMINA score because 
 of their poisonous bite.
-
 </p>

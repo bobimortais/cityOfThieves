@@ -20,5 +20,4 @@ wants the broadsword that Owen Canalif gave you in payment for
 the healing. You feel obliged to give him your sword, though 
 reluctantly. In exchange he gives you an ordinary fighting 
 sword. Reduce your SKILL score by 1.
-
 </p>
