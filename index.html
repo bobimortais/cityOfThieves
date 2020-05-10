@@ -3035,17 +3035,17 @@ Piece'
 </p>
 <p id="h223" hidden>
 TAG:ID: 223
-TAG:DICEROLL: 1
+TAG:DICEROLL:
 TAG:CHOICE 1: You leave the room and walk back up the alley to Candle Street.
 TAG:MONEY: INCREASE;20
 TAG:DESTINATION 1: 165
 TAG:HISTORY Sweat breaks out on your forehead - you choose a pill and 
-swallow it. Roll one die. If you roll any number 2 and 6, you
+swallow it. Roll one die. If you roll any number bwtween 2 and 6, you
 have chosen a harmless pill. The man reaches into a pouch on
 his cord belt and hands you 20 Gold Pieces. He then bids you
 farewell and tells you to come back soon. You leave the room
 and walk back up the alley to Candle Street. A roll of 1 means you die
-quickly from the poisoned pill
+quickly from the poisoned pill and your adventure ends here.
 </p>
 <p id="h224" hidden>
 TAG:ID: 224
@@ -5851,7 +5851,9 @@ function enableElement(element)
 function battle(tags,options)
 {
 	document.getElementById("battle").removeAttribute("disabled");
-	document.getElementById("attackdices").removeAttribute("disabled");
+	
+	if(historyId != "201")
+		document.getElementById("attackdices").removeAttribute("disabled");
 	document.getElementById("yourstamina").innerHTML = "Your Stamina: " + document.getElementById("staminacurrent").innerHTML;
 	document.getElementById("battle").setAttribute("style", "border-width: medium;border-color: red");
 	
@@ -6651,26 +6653,74 @@ function rollDiceForTest()
 	{
 		if (count == 100) 
 		{	
-			let rollValue = paserInt(rollValueText.innerHTML.split(":")[1].trim());
+			let rollValue = parseInt(rollValueText.innerHTML.split(":")[1].trim());
 			
-			if(testId == "83")
+			if(testId == "83" || testId == "137")
 			{
 				let stamina = document.getElementById("staminacurrent");
 				let currentStamina = parseInt(stamina.innerHTML);
 				let initialStamina = parseInt(document.getElementById("staminainitial").innerHTML);
 				
-				if(currentStamina < initialStamina)
+				if(testId == "83")
 				{
-					if(currentStamina + rollValue > initialStamina)
+					if(currentStamina < initialStamina)
 					{
-						stamina.innerHTML = initialStamina;
-					}
-					else
-					{
-						stamina.innerHTML = currentStamina + rollValue;
+						if(currentStamina + rollValue > initialStamina)
+						{
+							stamina.innerHTML = initialStamina;
+						}
+						else
+						{
+							stamina.innerHTML = currentStamina + rollValue;
+						}
 					}
 				}
-				
+				else if(testId == "137")
+				{
+					stamina.innerHTML = currentStamina - (rollValue * 3);
+				}
+			}
+			else if(testId == "223")
+			{
+				if(rollValue == 1)
+				{
+					document.getElementById('narrative').innerHTML = "YOU DIED!";
+					var options = document.getElementById("options");
+					var child = options.lastElementChild;  
+					while (child) { 
+						options.removeChild(child); 
+						child = options.lastElementChild; 
+					} 
+					enableElement("NONE");
+				}
+			}
+			else if(testId == "201")
+			{
+				if(rollValue == 1)
+				{
+					addEnemyToList("ORC", 5, 4);
+				}
+				else if(rollValue == 2)
+				{
+					addEnemyToList("GIANT SNAKE", 6, 6);
+				}
+				else if(rollValue == 3)
+				{
+					addEnemyToList("WOLF", 5, 5);
+				}
+				else if(rollValue == 4)
+				{
+					addEnemyToList("PYGMY", 4, 4);
+				}
+				else if(rollValue == 5)
+				{
+					addEnemyToList("APE MAN", 7, 6);
+				}
+				else if(rollValue == 6)
+				{
+					addEnemyToList("CAVE TROLL", 8, 7);
+				}	
+				document.getElementById("attackdices").removeAttribute("disabled");
 			}
 			clearInterval(id);
 		} 
@@ -6681,5 +6731,27 @@ function rollDiceForTest()
 			count = count + 1;
 		}
 	}
+}
+
+function addEnemyToList(enemy,enemySkill,enemyStamina)
+{
+	var enemyList = document.getElementById("enemylist");
+	let enemyRow = document.createElement("tr");
+	enemyRow.id = enemy;
+	
+	let enemyNameValue = document.createElement("td");
+	enemyNameValue.innerHTML = enemy;
+	enemyNameValue.id = "enemyname";
+	let enemySkillValue = document.createElement("td");
+	enemySkillValue.innerHTML = enemySkill;
+	enemySkillValue.id = "enemyskill";
+	let enemyStaminaValue = document.createElement("td");
+	enemyStaminaValue.innerHTML = enemyStamina;
+	enemyStaminaValue.id = "enemystamina";
+	enemyRow.appendChild(enemyNameValue);
+	enemyRow.appendChild(enemySkillValue);
+	enemyRow.appendChild(enemyStaminaValue);
+	
+	enemyList.appendChild(enemyRow);
 }
 </script> 
