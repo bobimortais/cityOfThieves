@@ -234,6 +234,12 @@
 					<p id="win" hidden></p>
 					<p id="lose" hidden></p>
 				</div>
+				<div id="diceroll" class="test" hidden>
+					<p style="font-family: Castellar;">Dice Roll</p>
+					<p id="rollvalue">Dice Value: </p>
+					<button id="dicetoroll" onclick="rollDiceForTest()">Roll Dice</button>
+					<p id="rollid" hidden></p>
+				</div>
 			</div>
 		</div>
 		<div id="game" class="game">
@@ -1327,7 +1333,7 @@ necessary to defeat the Night Prince.
 </p>
 <p id="h83" hidden>
 TAG:ID: 83
-TAG:DICE: 1;INCREASE;STAMINA
+TAG:DICEROLL: INCREASE;STAMINA;RESULT
 TAG:CHOICE 1: If you wish to continue searching the shop
 TAG:ACTION 1: 322
 TAG:CHOICE 2: If you would rather leave the shop to head north
@@ -1588,9 +1594,9 @@ and the Mummy is soon consumed by fire.
 <p id="h107" hidden>
 TAG:ID: 107
 TAG:CHOICE 1: If you wish to try to pick the lock
-TAG:ACTION 1: 163
+TAG:ACTION 1: 128
 TAG:CHOICE 2: If you wish to leave the room and climb the stairs to the floor above
-TAG:ACTION 2: 231
+TAG:ACTION 2: 60
 TAG:HISTORY The back room is as lavishly furnished as the front room. 
 In the far corner you see a wooden chest bolted to the floor.
 It is securely locked.
@@ -1941,8 +1947,8 @@ town. He pulls a dagger from his belt and, stabbing it in the
 bar top, tells you to leave.
 </p>
 <p id="h137" hidden>
-TAG:ID: 37
-TAG:DICE: 3;DECREASE;STAMINA
+TAG:ID: 137
+TAG:DICEROLL: DECREASE;STAMINA;3
 TAG:STATUS 1: LUCK;DECREASE;2
 TAG:CHOICE 1: If you are still alive, lose 2 LUCK points
 TAG:DESTINATION:  327
@@ -2260,6 +2266,7 @@ TAG:HISTORY Test your Luck.
 <p id="h163" hidden>
 TAG:ID: 163
 TAG:STATUS 1: LUCK;INCREASE;2
+TAG:ITEM: ADD;Ring of the Golden Eye;1
 TAG:CHOICE 1: Add 2 LUCK points and leave the room.
 TAG:DESTINATION: 231
 TAG:HISTORY The sarcophagus contains a gold ring which has an eye etched 
@@ -2708,7 +2715,7 @@ Star, Clairvoyant'.
 TAG:ID: 201
 TAG:STATUS 1: STAMINA;INCREASE;2
 TAG:FIGHT
-TAG:DICE:
+TAG:DICEROLL:
 TAG:ENEMY 1: ORC;SKILL 5;STAMINA 4
 TAG:ENEMY 2: GIANT SNAKE;SKILL 6;STAMINA 6
 TAG:ENEMY 3: WOLF;SKILL 5;STAMINA 5
@@ -3028,7 +3035,7 @@ Piece'
 </p>
 <p id="h223" hidden>
 TAG:ID: 223
-TAG:DICE: 1
+TAG:DICEROLL: 1
 TAG:CHOICE 1: You leave the room and walk back up the alley to Candle Street.
 TAG:MONEY: INCREASE;20
 TAG:DESTINATION 1: 165
@@ -3037,7 +3044,8 @@ swallow it. Roll one die. If you roll any number 2 and 6, you
 have chosen a harmless pill. The man reaches into a pouch on
 his cord belt and hands you 20 Gold Pieces. He then bids you
 farewell and tells you to come back soon. You leave the room
-and walk back up the alley to Candle Street.
+and walk back up the alley to Candle Street. A roll of 1 means you die
+quickly from the poisoned pill
 </p>
 <p id="h224" hidden>
 TAG:ID: 224
@@ -3459,8 +3467,10 @@ You turn round and walk back towards the junction.
 <p id="h257" hidden>
 TAG:ID: 257
 TAG:CHOICE 1: You are
+TAG:ITEM: HAS;Ring Of the Golden Eye;1
 TAG:ACTION 1: 385
 TAG:CHOICE 2: You are not
+TAG:ITEM: HASNT;Ring Of the Golden Eye;1
 TAG:ACTION 2: 70
 TAG:HISTORY If you are wearing the Ring Of the Golden Eye
 </p>
@@ -5075,7 +5085,7 @@ crossbow straight at you. Test your Luck.
 TAG:ID: 392
 TAG:FIGHT
 TAG:ENEMY 1: LIZARDINE;SKILL 8;STAMINA 8
-TAG:DICE: 1,2,3;DAMAGE:4,5,6;DODGE
+TAG:DICEROLL: 1,2,3;DAMAGE:4,5,6;DODGE
 TAG:CHOICE 1: If stay and win the battle
 TAG:ACTION 1: 186
 TAG:CHOICE 2: You may use your LUCK against the fire and you may Escape by running back down the stairs and out of the house to head north.
@@ -5256,6 +5266,10 @@ function loadNext(event)
 		{
 			testAttribute(tags,options);
 			break;
+		}
+		else if(tag.includes("DICEROLL"))
+		{
+			diceForTest(historyId);
 		}
 		else if(tag.includes("FIGHT"))
 		{
@@ -5780,6 +5794,7 @@ function enableElement(element)
 		document.getElementById("shop").setAttribute("hidden", true);
 		document.getElementById("minigame").setAttribute("hidden", true);
 		document.getElementById("emptydiv").setAttribute("hidden", true);
+		document.getElementById("diceroll").setAttribute("hidden", true);
 		
 		let testDiv = document.getElementById("test");
 		testDiv.removeAttribute("hidden");
@@ -5791,6 +5806,7 @@ function enableElement(element)
 		document.getElementById("test").setAttribute("hidden", true);
 		document.getElementById("minigame").setAttribute("hidden", true);
 		document.getElementById("emptydiv").setAttribute("hidden", true);
+		document.getElementById("diceroll").setAttribute("hidden", true);
 		
 		let shopDiv = document.getElementById("shop");
 		shopDiv.removeAttribute("hidden");
@@ -5802,17 +5818,31 @@ function enableElement(element)
 		document.getElementById("shop").setAttribute("hidden", true);
 		document.getElementById("test").setAttribute("hidden", true);
 		document.getElementById("emptydiv").setAttribute("hidden", true);
+		document.getElementById("diceroll").setAttribute("hidden", true);
 		
 		let minigameDiv = document.getElementById("minigame");
 		minigameDiv.removeAttribute("hidden");
 		minigameDiv.removeAttribute("disabled");
 		minigameDiv.setAttribute("style", "border-width: medium;border-color: red");
 	}
+	else if(element == "DICEROLL")
+	{
+		document.getElementById("shop").setAttribute("hidden", true);
+		document.getElementById("test").setAttribute("hidden", true);
+		document.getElementById("emptydiv").setAttribute("hidden", true);
+		
+		
+		let diceRollDiv = document.getElementById("diceroll");
+		diceRollDiv.removeAttribute("hidden");
+		diceRollDiv.removeAttribute("disabled");
+		diceRollDiv.setAttribute("style", "border-width: medium;border-color: red");
+	}
 	else if("NONE")
 	{
 		document.getElementById("shop").setAttribute("hidden", true);
 		document.getElementById("test").setAttribute("hidden", true);
 		document.getElementById("minigame").setAttribute("hidden", true);
+		document.getElementById("diceroll").setAttribute("hidden", true);
 		document.getElementById("emptydiv").removeAttribute("hidden");
 	}
 	
@@ -6393,20 +6423,17 @@ function consumeProvision()
 		let currentStamina = parseInt(stamina.innerHTML);
 		let initialStamina = parseInt(document.getElementById("staminainitial").innerHTML);
 		
-		console.log("currentStamina " + currentStamina);
-		console.log("initialStamina " + initialStamina);
-		
 		if(currentStamina < initialStamina)
 		{
 			provisions.innerHTML = parseInt(provisions.innerHTML) - 1;
 			
-			if(initialStamina - currentStamina >= 4)
+			if(currentStamina + 4 > initialStamina)
 			{
-				stamina.innerHTML = currentStamina + 4;
+				stamina.innerHTML = initialStamina;
 			}
 			else
 			{
-				stamina.innerHTML = currentStamina + (initialStamina - currentStamina);
+				stamina.innerHTML = currentStamina + 4;
 			}
 		}
 	}
@@ -6601,6 +6628,56 @@ function rollGameDices()
 				}
 			}
 			
+			count = count + 1;
+		}
+	}
+}
+
+function diceForTest(historyId)
+{
+	document.getElementById("rollid").innerHTML = historyId;
+	enableElement("DICEROLL");
+}
+
+function rollDiceForTest()
+{
+	document.getElementById("dicetoroll").setAttribute("disabled", true);
+	let rollValueText = document.getElementById("rollvalue");
+	let testId = document.getElementById("rollid").innerHTML;
+	var count = 0;
+	var id = setInterval(roll, 10);;
+	
+	function roll() 
+	{
+		if (count == 100) 
+		{	
+			let rollValue = paserInt(rollValueText.innerHTML.split(":")[1].trim());
+			
+			if(testId == "83")
+			{
+				let stamina = document.getElementById("staminacurrent");
+				let currentStamina = parseInt(stamina.innerHTML);
+				let initialStamina = parseInt(document.getElementById("staminainitial").innerHTML);
+				
+				if(currentStamina < initialStamina)
+				{
+					if(currentStamina + rollValue > initialStamina)
+					{
+						stamina.innerHTML = initialStamina;
+					}
+					else
+					{
+						stamina.innerHTML = currentStamina + rollValue;
+					}
+				}
+				
+			}
+			clearInterval(id);
+		} 
+		else 
+		{
+			let diceRoll = Math.floor(Math.random() * 6) + 1;
+			rollValueText.innerHTML = "Dice Value:  " + diceRoll;
 			count = count + 1;
 		}
 	}
