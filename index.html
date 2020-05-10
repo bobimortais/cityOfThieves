@@ -219,6 +219,17 @@
 				</div>
 				<div id="minigame" class="minigame" style="clear: left" hidden>	
 					<p style="font-family: Castellar;">Minigame</p>
+					<p id="gamename"></p>
+					<div id="adversarydices">
+					</div>
+					<p id="yourgamedice">Your roll: </p>
+					<p id="gameroundresult">Result:</p>
+					<button id="gamedices" onclick="rollGameDices()">Roll Dices</button>
+					<p id="currentround" hidden>0</p>
+					<p id="endgameround" hidden>0</p>
+					<p id="endgame" hidden></p>
+					<p id="win" hidden></p>
+					<p id="lose" hidden></p>
 				</div>
 			</div>
 		</div>
@@ -476,7 +487,7 @@ with a loud sigh.
 </p>
 <p id="h13" hidden>
 TAG:ID: 13
-TAG:EQUIP 1: SILVER SCORPION;STAMINA;INCREASE AB;1
+TAG:ITEM 1: ADD;Silver Scorpion Brooch;1
 TAG:CHOICE 1: You may, if you have not already done so, pick up the golden scorpion
 TAG:ACTION 1: 273
 TAG:CHOICE 2: If you would rather ignore it, you may either climb the stairs
@@ -1335,6 +1346,7 @@ There is nothing else of interest to you on deck.
 </p>
 <p id="h85" hidden>
 TAG:ID: 85
+TAG:ITEM: ADD;Silver Arrow;1
 TAG:CHOICE 1: Outside you set off east once again.
 TAG:DESTINATION: 100
 TAG:HISTORY You pay the silversmith and wait patiently while he makes a 
@@ -2357,6 +2369,7 @@ Gold Pieces before showing you to the front door.
 <p id="h173" hidden>
 TAG:ID: 173
 TAG:CHOICE 1: If you wish to gamble some of your Gold Pieces
+TAG:MONEY: DECREASE;2
 TAG:ACTION 1: 206
 TAG:CHOICE 2: If you would rather leave the smoky tavern and walk north
 TAG:ACTION 2: 296
@@ -2798,13 +2811,14 @@ left.
 </p>
 <p id="h206" hidden>
 TAG:ID: 206
-TAG:GAME:
-TAG:DICE 1: 2
-TAG:DICE 2: 2
-TAG:DICE 3: 2
-TAG:DICE 4: 2
-TAG:WIN:  MONEY;INCREASE;6
-TAG:LOSE: MONEY;DECREASE;2
+TAG:MINIGAME:
+TAG:MONEY: INCREASE;2
+TAG:DICE 1: Dwarf 1
+TAG:DICE 2: Dwarf 2
+TAG:DICE 3: Dwarf 3
+TAG:ENDGAME: ROUND;4
+TAG:WIN:  GOLD;INCREASE;6
+TAG:LOSE: GOLD;DECREASE;2
 TAG:CHOICE 1: At the end of the game you leave the tavern yourself to head north.
 TAG:ACTION 1: 296
 TAG:HISTORY The Dwarf explains that they are playing a simple winner-takes-all
@@ -2907,6 +2921,7 @@ battle-axe in a attempt to strike you. Test your Luck.
 <p id="h215" hidden>
 TAG:ID: 215
 TAG:CHOICE 1: If you wish to buy one
+TAG:MONEY: DECREASE;6
 TAG:ACTION 1: 315
 TAG:CHOICE 2: If you would rather refuse politely, go back down the stairs and leave the house to head north
 TAG:ACTION 2: 334
@@ -3334,7 +3349,7 @@ TAG:CHOICE 1: Pay him 10 Gold Pieces
 TAG:MONEY: DECREASE;10
 TAG:ACTION 1: 85
 TAG:CHOICE 2: Give him two magic items
-TAG:ITEM: DECREASE;Magic Item;DECREASE;2
+TAG:ITEM: DECREASE;Magic Item;2
 TAG:ACTION 2: 85
 TAG:CHOICE 2: You cannot afford to pay the price 
 TAG:ACTION 2: 42
@@ -4898,7 +4913,9 @@ It is too dark to see deep inside the recess.
 </p>
 <p id="h378" hidden>
 TAG:ID: 378
-TAG:GAME: DICE;1
+TAG:MINIGAME:
+TAG:DICE 1: Bare-chested Man
+TAG:ENDGAME: DICE;1
 TAG:WIN: MONEY;INCREASE;5
 TAG:LOSE: MONEY;DECREASE;5
 TAG:DESTINATION: 52
@@ -5244,6 +5261,10 @@ function loadNext(event)
 		else if(tag.includes("SHOP"))
 		{
 			loadShop(tag);
+		}
+		else if(tag.includes("MINIGAME"))
+		{
+			loadMinigame(tags, i);
 		}
 	}
 }	
@@ -5698,6 +5719,79 @@ function buyItem()
 		}
 	}
 		
+}
+
+function loadMinigame(tags, i)
+{
+	console.log("minigame tags");
+	console.log(tags);
+	let adversaryDices = document.getElementById("adversarydices");
+	
+	for(let j = 3;j < tags.length;j++)
+	{
+		let tag = tags[j];
+		
+		if(tag.includes("DICE"))
+		{
+			let newDice = document.createElement("p");
+			newDice.innerHTML = tag.split(":")[1].trim() + (":");
+			adversaryDices.appendChild(newDice);
+		}
+		if(tag.includes("ENDGAME"))
+		{
+			document.getElementById("endgame").innerHTML = tag.split(":")[1].trim();
+		}
+		if(tag.includes("WIN"))
+		{
+			document.getElementById("win").innerHTML = tag.split(":")[1].trim();
+		}
+		if(tag.includes("LOSE"))
+		{
+			document.getElementById("lose").innerHTML = tag.split(":")[1].trim();
+		}
+		else
+		{
+			i = j;
+		}
+	}
+	
+	enableElement("MINIGAME");
+	return i;
+}
+
+function enableElement(element)
+{
+	if(element == "TEST")
+	{
+		document.getElementById("shop").setAttribute("hidden", true);
+		document.getElementById("minigame").setAttribute("hidden", true);
+		
+		let testDiv = document.getElementById("test");
+		testDiv.removeAttribute("hidden");
+		testDiv.removeAttribute("disabled");
+		testDiv.setAttribute("style", "border-width: medium;border-color: red");
+	}
+	else if(element == "SHOP")
+	{
+		document.getElementById("test").setAttribute("hidden", true);
+		document.getElementById("minigame").setAttribute("hidden", true);
+		
+		let shopDiv = document.getElementById("shop");
+		shopDiv.removeAttribute("hidden");
+		shopDiv.removeAttribute("disabled");
+		shopDiv.setAttribute("style", "border-width: medium;border-color: red");
+	}
+	else if(element == "MINIGAME")
+	{
+		document.getElementById("shop").setAttribute("hidden", true);
+		document.getElementById("test").setAttribute("hidden", true);
+		
+		let minigameDiv = document.getElementById("minigame");
+		minigameDiv.removeAttribute("hidden");
+		minigameDiv.removeAttribute("disabled");
+		minigameDiv.setAttribute("style", "border-width: medium;border-color: red");
+	}
+	
 }
 
 function battle(tags,options)
@@ -6290,6 +6384,126 @@ function consumeProvision()
 			{
 				stamina.innerHTML = currentStamina + (initialStamina - currentStamina);
 			}
+		}
+	}
+}
+
+function rollGameDices()
+{
+	document.getElementById("gamedices").setAttribute("disabled", true);
+	let computing = document.getElementById("gameroundresult");
+	computing.innerHTML = "Computing Rolls...";
+	let yourDice = document.getElementById("yourgamedice");
+	let adversarydices = document.getElementById("adversarydices").children;
+	let winPrize = document.getElementById("win").innerHTML;
+	let loseValue = document.getElementById("lose").innerHTML;
+	let endGameCondition = document.getElementById("endgame").innerHTML;
+	let endGame = false;
+	
+	var count = 0;
+	var id = setInterval(roll, 10);
+	
+	function roll() 
+	{
+		if (count == 100) 
+		{
+			let firstDice = parseInt(yourDice.innerHTML.split(":")[1].trim().split(" ")[0]);
+			let secondDice = parseInt(yourDice.innerHTML.split(":")[1].trim().split(" ")[1]);
+			let youScore = firstDice + secondDice;
+			let result = "WIN";
+			
+			for(let i = 0;i < adversarydices.length;i++)
+			{
+				let adversaryFirstDice = parseInt(adversarydices[i].innerHTML.split(":")[1].trim().split(" ")[0]);
+				let adversarySecondDice = parseInt(adversarydices[i].innerHTML.split(":")[1].trim().split(" ")[1]);
+				let adversaryScore = adversaryFirstDice + adversarySecondDice;
+				
+				if(adversaryScore > youScore)
+				{
+					result = "LOSE";
+					break;
+				}
+				if(adversaryScore == youScore)
+				{
+					result = "DRAW";
+					break;
+				}
+			}
+			
+			if(result == "WIN")
+			{
+				computing.innerHTML = "You won!";
+				
+				let winItem = winPrize.split(";")[0];
+				let winQuantity = winPrize.split(";")[2];
+				
+				if(winItem == "GOLD")
+				{
+					let goldTotal = document.getElementById("goldtotal");
+					goldTotal.innerHTML = parseInt(goldTotal.innerHTML) + parseInt(winQuantity);
+				}
+			}
+			else if(result = "LOSE")
+			{
+				computing.innerHTML = "You lose!";
+				
+				let loseItem = loseValue.split(";")[0];
+				let loseQuantity = loseValue.split(";")[2];
+				
+				if(loseItem == "GOLD")
+				{
+					let goldTotal = document.getElementById("goldtotal");
+					
+					if(parseInt(goldTotal.innerHTML) - parseInt(loseQuantity) >= 0)
+					{
+						goldTotal.innerHTML = parseInt(goldTotal.innerHTML) - parseInt(loseQuantity);
+					}
+					else
+					{
+						goldTotal.innerHTML = 0;
+					}
+				}
+				
+			}
+			else if(result = "DRAW")
+			{
+				computing.innerHTML = "No Winners!";
+			}
+			
+			console.log(endGameCondition);
+			if(endGameCondition.split(";")[0] == "ROUND")
+			{
+				let currentRound = document.getElementById("currentround");
+				currentRound.innerHTML = parseInt(currentRound.innerHTML) + 1;
+				let endGameRound = endGameCondition.split(";")[1];
+				
+				
+				console.log("Current round: " + currentRound.innerHTML);
+				console.log("Endgame round: " + endGameRound);
+				if(currentRound.innerHTML == endGameRound)
+				{
+					endGame = true;
+				}	
+			}
+			
+			if(!endGame)
+				document.getElementById("gamedices").removeAttribute("disabled");
+			clearInterval(id);
+		} 
+		else 
+		{
+			let resultYourDice1 = Math.floor(Math.random() * 6) + 1;
+			let resultYourDice2 = Math.floor(Math.random() * 6) + 1;
+			yourDice.innerHTML = "Your roll: " + resultYourDice1 + " " + resultYourDice2;
+			
+			for(let i = 0;i < adversarydices.length;i++)
+			{
+				let dice1 = Math.floor(Math.random() * 6) + 1;
+				let dice2 = Math.floor(Math.random() * 6) + 1;
+				adversarydices[i].innerHTML = adversarydices[i].innerHTML.split(":")[0] + ": " + dice1 + " " + dice2;
+			}
+			
+			count = count + 1;
 		}
 	}
 }
