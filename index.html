@@ -6432,90 +6432,144 @@ function rollGameDices()
 	{
 		if (count == 100) 
 		{
-			let firstDice = parseInt(yourDice.innerHTML.split(":")[1].trim().split(" ")[0]);
-			let secondDice = parseInt(yourDice.innerHTML.split(":")[1].trim().split(" ")[1]);
-			let youScore = firstDice + secondDice;
-			let result = "WIN";
-			
-			for(let i = 0;i < adversarydices.length;i++)
+			if(adversarydices.length == 1 && adversarydices[0].innerHTML.includes("Bare-chested Man"))
 			{
-				let adversaryFirstDice = parseInt(adversarydices[i].innerHTML.split(":")[1].trim().split(" ")[0]);
-				let adversarySecondDice = parseInt(adversarydices[i].innerHTML.split(":")[1].trim().split(" ")[1]);
-				let adversaryScore = adversaryFirstDice + adversarySecondDice;
+				let yourRoll = yourDice.innerHTML.split(":")[1].trim();
+				let bareChestedRoll = adversarydices[0].innerHTML.split(":")[1].trim();
 				
-				if(adversaryScore > youScore)
+				if(yourRoll == "1" && bareChestedRoll == "1")
 				{
-					result = "LOSE";
-					break;
+					computing.innerHTML = "No winners!";
 				}
-				if(adversaryScore == youScore)
+				else if(yourRoll == "1")
 				{
-					result = "DRAW";
-					break;
-				}
-			}
-			
-			if(result == "WIN")
-			{
-				computing.innerHTML = "You won!";
-				
-				let winItem = winPrize.split(";")[0];
-				let winQuantity = winPrize.split(";")[2];
-				
-				if(winItem == "GOLD")
-				{
-					let goldTotal = document.getElementById("goldtotal");
-					goldTotal.innerHTML = parseInt(goldTotal.innerHTML) + parseInt(winQuantity);
-				}
-			}
-			else if(result = "LOSE")
-			{
-				computing.innerHTML = "You lose!";
-				
-				let loseItem = loseValue.split(";")[0];
-				let loseQuantity = loseValue.split(";")[2];
-				
-				if(loseItem == "GOLD")
-				{
-					let goldTotal = document.getElementById("goldtotal");
+					computing.innerHTML = "You lose!";
 					
-					if(parseInt(goldTotal.innerHTML) - parseInt(loseQuantity) >= 0)
+					let loseItem = loseValue.split(";")[0];
+					let loseQuantity = loseValue.split(";")[2];
+					
+					if(loseItem == "GOLD")
 					{
-						goldTotal.innerHTML = parseInt(goldTotal.innerHTML) - parseInt(loseQuantity);
+						let goldTotal = document.getElementById("goldtotal");
+						
+						if(parseInt(goldTotal.innerHTML) - parseInt(loseQuantity) >= 0)
+						{
+							goldTotal.innerHTML = parseInt(goldTotal.innerHTML) - parseInt(loseQuantity);
+						}
+						else
+						{
+							goldTotal.innerHTML = 0;
+						}
 					}
-					else
-					{
-						goldTotal.innerHTML = 0;
-					}
-				}
-				
-			}
-			else if(result = "DRAW")
-			{
-				computing.innerHTML = "No Winners!";
-			}
-			
-			console.log(endGameCondition);
-			if(endGameCondition.split(";")[0] == "ROUND")
-			{
-				let currentRound = document.getElementById("currentround");
-				currentRound.innerHTML = parseInt(currentRound.innerHTML) + 1;
-				let endGameRound = endGameCondition.split(";")[1];
-				
-				if(currentRound.innerHTML == endGameRound)
-				{
+					
 					endGame = true;
-				}	
-				else if(betValue.split(";")[0] == "GOLD")
+				}
+				else if(bareChestedRoll == "1")
 				{
-					if(parseInt(betValue.split(";")[1]) > parseInt(document.getElementById("goldtotal").innerHTML))
+					computing.innerHTML = "You won!";
+					
+					let winItem = winPrize.split(";")[0];
+					let winQuantity = winPrize.split(";")[2];
+					
+					if(winItem == "GOLD")
 					{
-						computing.innerHTML = "You lost and has no Gold left to bet!";
+						let goldTotal = document.getElementById("goldtotal");
+						goldTotal.innerHTML = parseInt(goldTotal.innerHTML) + parseInt(winQuantity);
+					}
+					
+					endGame = true;
+				}
+				else
+				{
+					computing.innerHTML = "No winners!";
+				}
+			}
+			else
+			{
+				let firstDice = parseInt(yourDice.innerHTML.split(":")[1].trim().split(" ")[0]);
+				let secondDice = parseInt(yourDice.innerHTML.split(":")[1].trim().split(" ")[1]);
+				let youScore = firstDice + secondDice;
+				let result = "WIN";
+				
+				for(let i = 0;i < adversarydices.length;i++)
+				{
+					let adversaryFirstDice = parseInt(adversarydices[i].innerHTML.split(":")[1].trim().split(" ")[0]);
+					let adversarySecondDice = parseInt(adversarydices[i].innerHTML.split(":")[1].trim().split(" ")[1]);
+					let adversaryScore = adversaryFirstDice + adversarySecondDice;
+					
+					if(adversaryScore > youScore)
+					{
+						result = "LOSE";
+						break;
+					}
+					if(adversaryScore == youScore)
+					{
+						result = "DRAW";
+						break;
+					}
+				}
+				
+				if(result == "WIN")
+				{
+					computing.innerHTML = "You won!";
+					
+					let winItem = winPrize.split(";")[0];
+					let winQuantity = winPrize.split(";")[2];
+					
+					if(winItem == "GOLD")
+					{
+						let goldTotal = document.getElementById("goldtotal");
+						goldTotal.innerHTML = parseInt(goldTotal.innerHTML) + parseInt(winQuantity);
+					}
+				}
+				else if(result = "LOSE")
+				{
+					computing.innerHTML = "You lose!";
+					
+					let loseItem = loseValue.split(";")[0];
+					let loseQuantity = loseValue.split(";")[2];
+					
+					if(loseItem == "GOLD")
+					{
+						let goldTotal = document.getElementById("goldtotal");
+						
+						if(parseInt(goldTotal.innerHTML) - parseInt(loseQuantity) >= 0)
+						{
+							goldTotal.innerHTML = parseInt(goldTotal.innerHTML) - parseInt(loseQuantity);
+						}
+						else
+						{
+							goldTotal.innerHTML = 0;
+						}
+					}
+					
+				}
+				else if(result = "DRAW")
+				{
+					computing.innerHTML = "No Winners!";
+				}
+				
+				console.log(endGameCondition);
+				if(endGameCondition.split(";")[0] == "ROUND")
+				{
+					let currentRound = document.getElementById("currentround");
+					currentRound.innerHTML = parseInt(currentRound.innerHTML) + 1;
+					let endGameRound = endGameCondition.split(";")[1];
+					
+					if(currentRound.innerHTML == endGameRound)
+					{
 						endGame = true;
+					}	
+					else if(betValue.split(";")[0] == "GOLD")
+					{
+						if(parseInt(betValue.split(";")[1]) > parseInt(document.getElementById("goldtotal").innerHTML))
+						{
+							computing.innerHTML = "You lost and has no Gold left to bet!";
+							endGame = true;
+						}
 					}
 				}
 			}
-			
 			if(!endGame)
 			{
 				document.getElementById("gamedices").removeAttribute("disabled");
@@ -6524,15 +6578,27 @@ function rollGameDices()
 		} 
 		else 
 		{
-			let resultYourDice1 = Math.floor(Math.random() * 6) + 1;
-			let resultYourDice2 = Math.floor(Math.random() * 6) + 1;
-			yourDice.innerHTML = "Your roll: " + resultYourDice1 + " " + resultYourDice2;
-			
-			for(let i = 0;i < adversarydices.length;i++)
+		
+			if(adversarydices.length == 1 && adversarydices[0].innerHTML.includes("Bare-chested Man"))
 			{
-				let dice1 = Math.floor(Math.random() * 6) + 1;
-				let dice2 = Math.floor(Math.random() * 6) + 1;
-				adversarydices[i].innerHTML = adversarydices[i].innerHTML.split(":")[0] + ": " + dice1 + " " + dice2;
+				let yourRoll = Math.floor(Math.random() * 6) + 1;
+				let manRoll = Math.floor(Math.random() * 6) + 1;
+				
+				yourDice.innerHTML = "Your roll: " + yourRoll;
+				adversarydices[0].innerHTML = adversarydices[0].innerHTML.split(":")[0] + ": " + manRoll;
+			}
+			else
+			{
+				let resultYourDice1 = Math.floor(Math.random() * 6) + 1;
+				let resultYourDice2 = Math.floor(Math.random() * 6) + 1;
+				yourDice.innerHTML = "Your roll: " + resultYourDice1 + " " + resultYourDice2;
+				
+				for(let i = 0;i < adversarydices.length;i++)
+				{
+					let dice1 = Math.floor(Math.random() * 6) + 1;
+					let dice2 = Math.floor(Math.random() * 6) + 1;
+					adversarydices[i].innerHTML = adversarydices[i].innerHTML.split(":")[0] + ": " + dice1 + " " + dice2;
+				}
 			}
 			
 			count = count + 1;
