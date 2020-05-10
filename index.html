@@ -5292,7 +5292,6 @@ function findActionOrDestinationTag(newOption, tags, i)
 	{
 		if(tags[j].includes("MONEY"))
 		{
-			console.log("TAG: " + tags[j]);
 			let tagValue = tags[j].split(":")[1].trim();
 			let action = tagValue.split(";")[0];
 			let value = tagValue.split(";")[1];
@@ -5676,7 +5675,6 @@ function loadShop(tag)
 									{
 										if(this.getAttribute("selected") == null)
 										{
-											console.log("Setando atributo");
 											var selected = document.createAttribute("selected");
 											selected.value = true;
 											this.setAttributeNode(selected);
@@ -5688,7 +5686,6 @@ function loadShop(tag)
 										}
 										else
 										{
-											console.log("Removendo atributo");
 											this.removeAttribute("selected");
 											this.removeAttribute("style");
 											document.getElementById("itemprice").removeAttribute("itemname");
@@ -5736,8 +5733,6 @@ function buyItem()
 
 function loadMinigame(tags, i)
 {
-	console.log("minigame tags");
-	console.log(tags);
 	let adversaryDices = document.getElementById("adversarydices");
 	
 	var child = adversaryDices.lastElementChild;  
@@ -5849,7 +5844,6 @@ function battle(tags,options)
 	document.getElementById("yourstamina").innerHTML = "Your Stamina: " + document.getElementById("staminacurrent").innerHTML;
 	document.getElementById("battle").setAttribute("style", "border-width: medium;border-color: red");
 	
-	
 	if(historyId != "201")
 	{
 		document.getElementById("attackdices").removeAttribute("disabled");
@@ -5874,25 +5868,7 @@ function battle(tags,options)
 			var enemy = tags[i].split(";")[0].split(":")[1].trim();
 			var enemySkill = tags[i].split(";")[1].split(" ")[1];
 			var enemyStamina = tags[i].split(";")[2].split(" ")[1];
-			
-			var enemyList = document.getElementById("enemylist");
-			let enemyRow = document.createElement("tr");
-			enemyRow.id = enemy;
-			
-			let enemyNameValue = document.createElement("td");
-			enemyNameValue.innerHTML = enemy;
-			enemyNameValue.id = "enemyname";
-			let enemySkillValue = document.createElement("td");
-			enemySkillValue.innerHTML = enemySkill;
-			enemySkillValue.id = "enemyskill";
-			let enemyStaminaValue = document.createElement("td");
-			enemyStaminaValue.innerHTML = enemyStamina;
-			enemyStaminaValue.id = "enemystamina";
-			enemyRow.appendChild(enemyNameValue);
-			enemyRow.appendChild(enemySkillValue);
-			enemyRow.appendChild(enemyStaminaValue);
-			
-			enemyList.appendChild(enemyRow);
+			addEnemyToList(enemy, enemySkill, enemyStamina);
 		}
 		if(tags[i].includes("CHOICE"))
 		{
@@ -6053,7 +6029,6 @@ function rollTestDice()
 			}
 			else
 			{
-				console.log("currentAttributeValue 1: " + currentAttributeValue);
 				if(result <= currentAttributeValue)
 				{
 					if(battleHit == "enemy")
@@ -6098,8 +6073,6 @@ function rollTestDice()
 						checkEndOfBattle(null, yourCurrentStamina - 1);
 					}
 				}
-				
-				console.log("currentAttributeValue 2: " + currentAttributeValue);
 				document.getElementById("luckcurrent").innerHTML = currentAttributeValue - 1;
 			}
 			document.getElementById("luckcurrent").innerHTML = currentAttributeValue - 1;
@@ -6168,7 +6141,6 @@ function rollAttackDices()
 
 function computeDamage(yourDiceValues, enemyDiceValues)
 {
-
 	let yourDamage = yourDiceValues.innerHTML.split(":")[1].trim();
 	let enemyDamage = enemyDiceValues.innerHTML.split(":")[1].trim();
 	yourDamage = parseInt(yourDamage.split(" ")[0]) + parseInt(yourDamage.split(" ")[1]);
@@ -6246,8 +6218,6 @@ function removeEnemy()
 
 function checkEndOfBattle(enemies, staminaCurrent)
 {
-	console.log("Check end of battle");
-	
 	if(staminaCurrent <= 0)
 	{
 		document.getElementById('narrative').innerHTML = "YOU DIED!";
