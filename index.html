@@ -430,6 +430,7 @@ other kind of jumble for thal matter.
 </p>
 <p id="h7" hidden>
 TAG:ID: 7
+TAG:ITEM: ADD;Black Pearls;1
 TAG:CHOICE 1: If you have not already done so, you may open the other door
 TAG:ACTION 1: 232
 TAG:CHOICE 2: Leave the ship to continue your search of Port Blacksand by walking north up Harbour Street
@@ -1606,7 +1607,7 @@ TAG:ID: 108
 TAG:CHOICE 1: If you have them all and have been tattooed
 TAG:ITEM: HAS;Hag's Hair;1
 TAG:ITEM: HAS;Lotus Flower;1
-TAG:ITEM: HAS;Black Pearl;1
+TAG:ITEM: HAS;Black Pearls;1
 TAG:ITEM: HAS;Silver Arrow;1
 TAG:ITEM: HAS;Tattoed;1
 TAG:ACTION 1: 201
@@ -2182,7 +2183,7 @@ TAG:ID: 156
 TAG:CHOICE 1: If you have them all and have been tattooed
 TAG:ITEM: HAS;Hag's Hair;1
 TAG:ITEM: HAS;Lotus Flower;1
-TAG:ITEM: HAS;Black Pearl;1
+TAG:ITEM: HAS;Black Pearls;1
 TAG:ITEM: HAS;Silver Arrow;1
 TAG:ITEM: HAS;Tattoed;1
 TAG:ACTION 1: 201
@@ -2716,12 +2717,6 @@ TAG:ID: 201
 TAG:STATUS 1: STAMINA;INCREASE;2
 TAG:FIGHT
 TAG:DICEROLL:
-TAG:ENEMY 1: ORC;SKILL 5;STAMINA 4
-TAG:ENEMY 2: GIANT SNAKE;SKILL 6;STAMINA 6
-TAG:ENEMY 3: WOLF;SKILL 5;STAMINA 5
-TAG:ENEMY 4: PYGMY;SKILL 4;STAMINA 4
-TAG:ENEMY 5: APE MAN;SKILL 7;STAMINA 6
-TAG:ENEMY 6: CAVE TROLL;SKILL 8;STAMINA 7
 TAG:CHOICE 1: If you win
 TAG:ACTION 1: 138
 TAG:HISTORY Following Nicodemus's map, you start your long walk north to 
@@ -3221,7 +3216,7 @@ TAG:ID: 239
 TAG:CHOICE 1: If you have
 TAG:ITEM: HAS;Lotus Flower;1
 TAG:ITEM: HAS;Hag's Hair;1
-TAG:ITEM: HAS;Black Pearl;1
+TAG:ITEM: HAS;Black Pearls;1
 TAG:ITEM: HAS;Silver Arrow;1
 TAG:ITEM: HAS;Tattoed;1
 TAG:ACTION 1: 201
@@ -4792,7 +4787,7 @@ TAG:ID: 367
 TAG:CHOICE 1: If you have
 TAG:ITEM: HAS;Lotus Flower;1
 TAG:ITEM: HAS;Hag's Hair;1
-TAG:ITEM: HAS;Black Pearl;1
+TAG:ITEM: HAS;Black Pearls;1
 TAG:ITEM: HAS;Silver Arrow;1
 TAG:ITEM: HAS;Tattoed;1
 TAG:ACTION 1: 201
@@ -5851,23 +5846,24 @@ function enableElement(element)
 function battle(tags,options)
 {
 	document.getElementById("battle").removeAttribute("disabled");
-	
-	if(historyId != "201")
-		document.getElementById("attackdices").removeAttribute("disabled");
 	document.getElementById("yourstamina").innerHTML = "Your Stamina: " + document.getElementById("staminacurrent").innerHTML;
 	document.getElementById("battle").setAttribute("style", "border-width: medium;border-color: red");
 	
-	//Enable test for luck to increase attack
-	var testDivElement = document.getElementById("test");
-	document.getElementById("shop").setAttribute("hidden", true);
-	document.getElementById("minigame").setAttribute("hidden", true);
-	testDivElement.removeAttribute("disabled");
-	testDivElement.removeAttribute("hidden");
-	testDivElement.setAttribute("style", "border-width: medium;border-color: red");
-	document.getElementById("testdices");
-	document.getElementById("testdices").setAttribute("disabled", true);
-	document.getElementById("attributetest").innerHTML = "Attribute to Test: LUCK";
-	document.getElementById("yourattvalue").innerHTML = "Current attribute value: " + document.getElementById("luckcurrent").innerHTML;
+	
+	if(historyId != "201")
+	{
+		document.getElementById("attackdices").removeAttribute("disabled");
+		var testDivElement = document.getElementById("test");
+		document.getElementById("shop").setAttribute("hidden", true);
+		document.getElementById("minigame").setAttribute("hidden", true);
+		testDivElement.removeAttribute("disabled");
+		testDivElement.removeAttribute("hidden");
+		testDivElement.setAttribute("style", "border-width: medium;border-color: red");
+		document.getElementById("testdices");
+		document.getElementById("testdices").setAttribute("disabled", true);
+		document.getElementById("attributetest").innerHTML = "Attribute to Test: LUCK";
+		document.getElementById("yourattvalue").innerHTML = "Current attribute value: " + document.getElementById("luckcurrent").innerHTML;
+	}
 
 	battleActive = true;
 	
@@ -5914,7 +5910,7 @@ function battle(tags,options)
 				if(condition != "ALWAYS")
 				{
 					var escapeCondition = document.createAttribute("escape");
-					fightRounds.value = condition + ":" + value;
+					escapeCondition.value = condition + ":" + value;
 					newOption.setAttributeNode(escapeCondition); 
 				}
 				else
@@ -5948,6 +5944,10 @@ function battle(tags,options)
 			newOption.innerHTML = "Continue";
 			newOption.setAttribute("disabled", true);
 			options.appendChild(newOption);
+		}
+		else if(tags[i].includes("DICEROLL"))
+		{
+			diceForTest(historyId);
 		}
 	}
 	
@@ -6721,6 +6721,9 @@ function rollDiceForTest()
 					addEnemyToList("CAVE TROLL", 8, 7);
 				}	
 				document.getElementById("attackdices").removeAttribute("disabled");
+				enableElement("TEST");
+				document.getElementById("attributetest").innerHTML = "Attribute to Test: LUCK";
+				document.getElementById("yourattvalue").innerHTML = "Current attribute value: " + document.getElementById("luckcurrent").innerHTML;
 			}
 			clearInterval(id);
 		} 
