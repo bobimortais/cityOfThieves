@@ -191,7 +191,9 @@
 				<button id="attackdices" onclick="rollAttackDices()">Roll Dices</button>
 			</div>
 			<div class="testshopgames" style="float:left;">
-				<div id="test" class="test" disabled>
+				<div id="emptydiv" style="border-width: medium;border-color: black;clear: left;width: 200px;">	
+				</div>
+				<div id="test" class="test" hidden>
 					<p style="font-family: Castellar;">Test</p>
 					<p id="attributetest">Attribute to Test:</p>
 					<p id="testdicevalue">Dices Values: </p>
@@ -228,6 +230,7 @@
 					<p id="currentround" hidden>0</p>
 					<p id="endgameround" hidden>0</p>
 					<p id="endgame" hidden></p>
+					<p id="betvalue" hidden></p>
 					<p id="win" hidden></p>
 					<p id="lose" hidden></p>
 				</div>
@@ -2817,6 +2820,7 @@ TAG:DICE 1: Dwarf 1
 TAG:DICE 2: Dwarf 2
 TAG:DICE 3: Dwarf 3
 TAG:ENDGAME: ROUND;4
+TAG:BETVALUE: GOLD;2
 TAG:WIN:  GOLD;INCREASE;6
 TAG:LOSE: GOLD;DECREASE;2
 TAG:CHOICE 1: At the end of the game you leave the tavern yourself to head north.
@@ -4913,11 +4917,13 @@ It is too dark to see deep inside the recess.
 </p>
 <p id="h378" hidden>
 TAG:ID: 378
+TAG:MONEY: INCREASE;5
 TAG:MINIGAME:
 TAG:DICE 1: Bare-chested Man
-TAG:ENDGAME: DICE;1
-TAG:WIN: MONEY;INCREASE;5
-TAG:LOSE: MONEY;DECREASE;5
+TAG:ENDGAME: ROLL;1
+TAG:WIN: GOLD;INCREASE;5
+TAG:LOSE: GOLD;DECREASE;5
+TAG:BETVALUE: GOLD;5
 TAG:DESTINATION: 52
 TAG:HISTORY Roll one die alternately for yourself and the bare-chested
 man, to represent the cannon ball passing between you. Repeat
@@ -5136,6 +5142,7 @@ their pockets and so decide to set off north along Stable Street.
 <p id="h398" hidden>
 TAG:ID: 398
 TAG:CHOICE 1: If you wish to take him on at his game
+TAG:MONEY: DECREASE;5
 TAG:ACTION 1: 378
 TAG:CHOICE 2: If you would rather walk on
 TAG:ACTION 2: 52
@@ -5184,10 +5191,7 @@ function loadNext(event)
 	historyId = event.id.split("id")[1];
 	var options = document.getElementById("options");
 	console.log("History ID " + historyId);
-	
-	//Disable shop
-	document.getElementById("shop").setAttribute("disabled", true);
-	document.getElementById("shop").setAttribute("style", "border-width: thin;border-color: black");
+	enableElement("NONE");
 	
 	checkEventAttributes(event);
 	
@@ -5727,6 +5731,12 @@ function loadMinigame(tags, i)
 	console.log(tags);
 	let adversaryDices = document.getElementById("adversarydices");
 	
+	var child = adversaryDices.lastElementChild;  
+    while (child) { 
+        adversaryDices.removeChild(child); 
+        child = adversaryDices.lastElementChild; 
+    }
+	
 	for(let j = 3;j < tags.length;j++)
 	{
 		let tag = tags[j];
@@ -5740,6 +5750,10 @@ function loadMinigame(tags, i)
 		if(tag.includes("ENDGAME"))
 		{
 			document.getElementById("endgame").innerHTML = tag.split(":")[1].trim();
+		}
+		if(tag.includes("BETVALUE"))
+		{
+			document.getElementById("betvalue").innerHTML = tag.split(":")[1].trim();
 		}
 		if(tag.includes("WIN"))
 		{
@@ -5765,6 +5779,7 @@ function enableElement(element)
 	{
 		document.getElementById("shop").setAttribute("hidden", true);
 		document.getElementById("minigame").setAttribute("hidden", true);
+		document.getElementById("emptydiv").setAttribute("hidden", true);
 		
 		let testDiv = document.getElementById("test");
 		testDiv.removeAttribute("hidden");
@@ -5775,6 +5790,7 @@ function enableElement(element)
 	{
 		document.getElementById("test").setAttribute("hidden", true);
 		document.getElementById("minigame").setAttribute("hidden", true);
+		document.getElementById("emptydiv").setAttribute("hidden", true);
 		
 		let shopDiv = document.getElementById("shop");
 		shopDiv.removeAttribute("hidden");
@@ -5785,11 +5801,19 @@ function enableElement(element)
 	{
 		document.getElementById("shop").setAttribute("hidden", true);
 		document.getElementById("test").setAttribute("hidden", true);
+		document.getElementById("emptydiv").setAttribute("hidden", true);
 		
 		let minigameDiv = document.getElementById("minigame");
 		minigameDiv.removeAttribute("hidden");
 		minigameDiv.removeAttribute("disabled");
 		minigameDiv.setAttribute("style", "border-width: medium;border-color: red");
+	}
+	else if("NONE")
+	{
+		document.getElementById("shop").setAttribute("hidden", true);
+		document.getElementById("test").setAttribute("hidden", true);
+		document.getElementById("minigame").setAttribute("hidden", true);
+		document.getElementById("emptydiv").removeAttribute("hidden");
 	}
 	
 }
@@ -6398,6 +6422,7 @@ function rollGameDices()
 	let winPrize = document.getElementById("win").innerHTML;
 	let loseValue = document.getElementById("lose").innerHTML;
 	let endGameCondition = document.getElementById("endgame").innerHTML;
+	let betValue = document.getElementById("betvalue").innerHTML;
 	let endGame = false;
 	
 	var count = 0;
@@ -6477,17 +6502,24 @@ function rollGameDices()
 				currentRound.innerHTML = parseInt(currentRound.innerHTML) + 1;
 				let endGameRound = endGameCondition.split(";")[1];
 				
-				
-				console.log("Current round: " + currentRound.innerHTML);
-				console.log("Endgame round: " + endGameRound);
 				if(currentRound.innerHTML == endGameRound)
 				{
 					endGame = true;
 				}	
+				else if(betValue.split(";")[0] == "GOLD")
+				{
+					if(parseInt(betValue.split(";")[1]) > parseInt(document.getElementById("goldtotal").innerHTML))
+					{
+						computing.innerHTML = "You lost and has no Gold left to bet!";
+						endGame = true;
+					}
+				}
 			}
 			
 			if(!endGame)
+			{
 				document.getElementById("gamedices").removeAttribute("disabled");
+			}
 			clearInterval(id);
 		} 
 		else 
