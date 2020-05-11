@@ -4025,6 +4025,8 @@ burn you.
 </p>
 <p id="h306" hidden>
 TAG:ID: 306
+TAG:MONEY: INCREASE;2
+TAG:ITEM: ADD;Merchant's Pass;1
 TAG:DESTINATION: 74
 TAG:HISTORY The two guards look at each other in horror and run out of the
 cell up the stairs, screaming 'Plague!' at the top of their 
@@ -6623,6 +6625,16 @@ function loadGame()
 { 
 	var mySavedGame = localStorage.getItem("robsonsave");
 	let saveGame = JSON.parse(mySavedGame);
+	
+	document.getElementById("skillinitial").innerHtml    = saveGame.skillinitial;
+	document.getElementById("skillcurrent").innerHtml    = saveGame.skillcurrent;
+	document.getElementById("staminainitial").innerHtml  = saveGame.staminainitial;
+	document.getElementById("staminacurrent").innerHtml  = saveGame.staminacurrent;
+	document.getElementById("luckinitial").innerHtml     = saveGame.luckinitial;
+	document.getElementById("luckcurrent").innerHtml     = saveGame.luckcurrent;
+	document.getElementById("goldtotal").innerHtml       = saveGame.goldtotal;
+	document.getElementById("provisionstotal").innerHtml = saveGame.provisionstotal;
+	
 	console.log("Meu game salvo: " + saveGame.skillinitial);}
 
 function saveGame()
