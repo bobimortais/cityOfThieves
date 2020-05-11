@@ -488,6 +488,7 @@ TAG:HISTORY The GUARD is really annoyed and charges at you with his pike.
 TAG:ID: 11
 TAG:STATUS 1: SKILL;DECREASE;1
 TAG:STATUS 2: SKILL;DECREASE;2
+TAG:ITEM: DECREASE;Chainmail Coat;1
 TAG:DESTINATION: 358
 TAG:HISTORY The Trolls see what you are doing and run towards the tree. 
 You are forced to leave your shield behind. After climbing 
@@ -890,7 +891,7 @@ robbing you.
 <p id="h45" hidden>
 TAG:ID: 45
 TAG:CHOICE 1: If you wish to place it on your head
-TAG:ITEM: ADD;Helme;1
+TAG:ITEM: ADD;Helmet;1
 TAG:ACTION 1: 376
 TAG:CHOICE 2: If you would rather leave it alone and set off east again
 TAG:ACTION 2: 161
@@ -2344,6 +2345,7 @@ game for them. Roll two dice.
 TAG:ID: 169
 TAG:CHOICE 1: If you wish to pay 20 Gold Pieces for a chainmail coat
 TAG:MONEY: DECREASE;20
+TAG:ITEM: ADD;Chainmal Coat;1
 TAG:ACTION 1: 46
 TAG:CHOICE 2: If you wish to leave the stables without buying a coat
 TAG:ACTION 2: 115
@@ -2352,7 +2354,7 @@ apron before asking you what you want. You answer by asking
 if he makes anything besides horseshoes. He replies that in 
 his spare time he enjoys making chaimail coats. In fact it has 
 become quite a profitable sideline of his, especially in a 
-place like Port Blacksand. He tells yau in great detail of the
+place like Port Blacksand. He tells you in great detail of the
 skill and labour that goes into making one and finally inquires
 if are interested in buying one. They are not cheap.
 </p>
@@ -3734,6 +3736,7 @@ another with B and another with C. Will you:
 </p>
 <p id="h279" hidden>
 TAG:ID: 279
+TAG>ITEM: ADD;Tattoed;1
 TAG:CHOICE 1: you then walk back up the lane and turn left into Mill Street.
 TAG:ACTION 1: 307
 TAG:HISTORY He takes the money and motions you to sit down on a wooden 
@@ -5678,6 +5681,24 @@ function handleSpecialTags(tag)
 					if(item.includes(item))
 					{
 						itemList.removeChild(item);
+					}
+				}
+			}
+			else
+			{
+				let itemsRemoved = 0;
+				let itemToRemove = parseInt(quantity);
+				for(let i = 0; i < itemList.children.length; i++)
+				{
+					let item = itemList.children[i];
+					
+					if(item.includes(item))
+					{
+						itemList.removeChild(item);
+						itemsRemoved = itemsRemoved + 1;
+						
+						if(itemsRemoved == itemToRemove)
+							break;
 					}
 				}
 			}
