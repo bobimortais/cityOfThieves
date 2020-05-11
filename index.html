@@ -984,8 +984,10 @@ If you wish to buy some or all of the items, make the necessary adjustments on y
 <p id="h53" hidden>
 TAG:ID: 53
 TAG:CHOICE 1: If you have a silver item in your backpack that you wish to give to the Serpent Queen
+TAG:ITEM: HAS;Silver;1
 TAG:ACTION 1: 328
 TAG:CHOICE 2: If you have not got a silver item that you wish to give away
+TAG:ITEM: HASNT;Silver;1
 TAG:ACTION 2: 39
 TAG:HISTORY The silk curtains in front of the archway are pulled aside 
 and a strange creature steps into the room. It has a snake's 
@@ -5686,18 +5688,17 @@ function handleSpecialTags(tag)
 			}
 			else
 			{
-				let itemsRemoved = 0;
 				let itemToRemove = parseInt(quantity);
 				for(let i = 0; i < itemList.children.length; i++)
 				{
 					let item = itemList.children[i];
 					
-					if(item.includes(item))
+					if(item.innerHTML.includes(item))
 					{
 						itemList.removeChild(item);
-						itemsRemoved = itemsRemoved + 1;
+						itemToRemove = itemToRemove - 1;
 						
-						if(itemsRemoved == itemToRemove)
+						if(itemToRemove == 0)
 							break;
 					}
 				}
