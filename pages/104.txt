@@ -4,5 +4,7 @@ CHOICE 1: climb up the ladder to the street in order to continue east
 ACTION 1: 205
 CHOICE 2: or, if you have not done so already, you may walk south along the sewer.
 ACTION 2: 118
-Back at the entrance hole you may either
+HISTORY 
+Back at the entrance hole you may either climb up the ladder to the street in order to continue east
+or, if you have not done so already, you may walk south along the sewer.
 </p>

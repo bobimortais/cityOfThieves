@@ -4,4 +4,6 @@ CHOICE 1: Back at the entrance hole you may either climb up the ladder to the st
 ACTION 1: 205
 CHOICE 2: or, if you have not done so already, you may walk north along the sewer.
 ACTION 2: 356
+HISTORY 
+Back at the entrance hole you may either
 </p>

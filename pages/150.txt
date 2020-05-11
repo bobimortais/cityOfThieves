@@ -1,10 +1,11 @@
 <p id="h150" hidden>
 ID: 150
 CHOICE 1: If you wish to pay the fine and out of the city
+MONEY: DECREASE;ALL
 ACTION 1: 367
 CHOICE 2: If you resist arrest
 ACTION 2: 73
-HISTORY
+HISTORY 
 The Troll bursts out laughing and says, 'Fooled you! There 
 isn't a Pepper Street in Port Blacksand!' His face folds into
 a sickly grin and he tells you that you are under arrest for 
@@ -15,5 +16,4 @@ thrown out of the city, or spend a year with rats and
 cockroaches in a dirty dungeon cell. The other Troll bursts 
 out laughing, saying, 'Generous? Ho! Ho!  Ho! Ah, Sourbelly, 
 you've got such a sense of humour!"
-
 </p>

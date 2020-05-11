@@ -5192,6 +5192,7 @@ var battleActive = false;
 var battleHit;
 var historyId = 1;
 var foughtApeMan = false;
+var arrowsHit = 0;
 
 function loadNext(event)
 { 
@@ -5597,14 +5598,16 @@ function handleSpecialTags(tag)
 		{
 			if(parseInt(attributeToChange.innerHTML) < parseInt(attributeInitialValue.innerHTML))
 			{
+				if(historyId == "126" && tag.includes("ARROW"))
+					value = value * arrowsHit;
+				
 				if(parseInt(attributeToChange.innerHTML) + value <= parseInt(attributeInitialValue.innerHTML))
 				{
 					attributeToChange.innerHTML = parseInt(attributeToChange.innerHTML) + value;
 				}
 				else
 				{
-					value = value - (parseInt(attributeInitialValue.innerHTML) - parseInt(attributeToChange.innerHTML));
-					attributeToChange.innerHTML = parseInt(attributeToChange.innerHTML) + value;
+					attributeToChange.innerHTML = parseInt(attributeInitialValue.innerHTML);
 				}
 			}	
 		}
@@ -6748,6 +6751,7 @@ function rollDiceForTest()
 				}
 				else if(testId == "137")
 				{
+					arrowsHit = rollValue;
 					stamina.innerHTML = currentStamina - (rollValue * 3);
 				}
 			}

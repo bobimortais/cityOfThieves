@@ -4,7 +4,7 @@ CHOICE 1: If you wish to take the battle—axe
 ACTION 1: 214
 CHOICE 2: If you wish to push the suit of armour on to the floor to make sure it is not a booby-trap
 ACTION 2: 185
+HISTORY 
 There is a battle-axe held in the iron-plated glove of the 
 armour.
-
 </p>
