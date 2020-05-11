@@ -2,7 +2,6 @@
 ID: 253
 FIGHT
 ENEMY 1: SNAKES;SKILL 5;STAMINA 5
-STATUS 1: STAMINA;DECREASE;4;WOUND
 CHOICE 1: If you win, you may leave the house by the front door.
 ACTION 1: 75
 HISTORY

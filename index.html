@@ -97,6 +97,7 @@
 			border-width: thin;
 			margin-left: 5px;
 			width: 200px;
+			clear: left;
 		}
 		.shop
 		{
@@ -106,6 +107,7 @@
 			border-width: thin;
 			margin-left: 5px;
 			width: 200px;
+			clear: left;
 		}
 		.minigame
 		{
@@ -115,6 +117,17 @@
 			border-width: thin;
 			margin-left: 5px;
 			width: 200px;
+			clear: left;
+		}
+		.diceroll
+		{
+			float:left; 
+			padding: 5;
+			border-style: solid;
+			border-width: thin;
+			margin-left: 5px;
+			width: 200px;
+			clear: left;
 		}
 		div[disabled]
 		{
@@ -235,9 +248,10 @@
 					<p id="win" hidden></p>
 					<p id="lose" hidden></p>
 				</div>
-				<div id="diceroll" class="test" hidden>
+				<div id="diceroll" class="diceroll" hidden>
 					<p style="font-family: Castellar;">Dice Roll</p>
 					<p id="rollvalue">Dice Value: </p>
+					<p id="rollmessage"></p>
 					<button id="dicetoroll" onclick="rollDiceForTest()">Roll Dice</button>
 					<p id="rollid" hidden></p>
 				</div>
@@ -500,6 +514,7 @@ with a loud sigh.
 TAG:ID: 13
 TAG:ITEM 1: ADD;Silver Scorpion Brooch;1
 TAG:CHOICE 1: You may, if you have not already done so, pick up the golden scorpion
+TAG:ITEM 1: HASNT;Golden Scorpion Brooch;1
 TAG:ACTION 1: 273
 TAG:CHOICE 2: If you would rather ignore it, you may either climb the stairs
 TAG:ACTION 2: 80
@@ -1841,7 +1856,6 @@ younger men appear to be attacking an older man with iron bars.
 </p>
 <p id="h128" hidden>
 TAG:ID: 128
-TAG:TEST: LUCK
 TAG:TEST: LUCK
 TAG:SUCCESS: If you are Lucky both times, the darts bounce harmlessly off your armour. 
 TAG:DESTINATION: 340
@@ -3418,7 +3432,6 @@ must dive to one side to avoid being run down. Test your Luck.
 TAG:ID: 253
 TAG:FIGHT
 TAG:ENEMY 1: SNAKES;SKILL 5;STAMINA 5
-TAG:STATUS 1: STAMINA;DECREASE;4;WOUND
 TAG:CHOICE 1: If you win, you may leave the house by the front door.
 TAG:ACTION 1: 75
 TAG:HISTORY The SNAKES are not very tough opponents for a person trained 
@@ -3651,8 +3664,10 @@ water runs.
 </p>
 <p id="h273" hidden>
 TAG:ID: 273
+TAG:ITEM 1: ADD;Golden Scorpion Brooch;1
 TAG:STATUS 1: LUCK;INCREASE;2
 TAG:CHOICE 1: You may, if you have not already done so, pick up the silver scorpion
+TAG:ITEM: HASNT;Silver Scorpion Brooch;1
 TAG:ACTION 1: 13
 TAG:CHOICE 2: If you would rather ignore it you may either climb the stairs
 TAG:ACTION 2: 80
@@ -3768,10 +3783,20 @@ TAG:HISTORY If you have not done so already, you may either
 </p>
 <p id="h285" hidden>
 TAG:ID: 285
-TAG:CHOICE 1: Make a note of what you wish to keep and set off north again.
+TAG:CHOICE 1: Take the 7 Gold Pieces
+TAG:MONEY: INCREASE;7
+TAG:ACTION 1: 227
+TAG:CHOICE 1: Take the Stale Bread
+TAG:ITEM: ADD;Stale Bread;1
+TAG:ACTION 1: 227
+TAG:CHOICE 1: Take the set of keys
+TAG:ITEM: ADD;Set of Keys;1
+TAG:ACTION 1: 227
+TAG:CHOICE 1: Take nothing and set off north again.
 TAG:ACTION 1: 227
 TAG:HISTORY You make a rapid search through the guards' possessions and 
-find 7 Gold Pieces, a set of keys and a piece of stale bread.
+find 7 Gold Pieces, a set of keys and a piece of stale bread. Make a note 
+of what you wish to keep and set off north again.
 </p>
 <p id="h286" hidden>
 TAG:ID: 286
@@ -5193,6 +5218,7 @@ var battleHit;
 var historyId = 1;
 var foughtApeMan = false;
 var arrowsHit = 0;
+var currentTestAndResult;
 
 function loadNext(event)
 { 
@@ -5628,14 +5654,33 @@ function handleSpecialTags(tag)
 		let tagValue = tag.split(":")[1].trim();
 		let action = tagValue.split(";")[0];
 		let item = tagValue.split(";")[1];
-		let quantity = parseInt(tagValue.split(";")[2]);
+		let quantity = tagValue.split(";")[2];
 		let itemList = document.getElementById("listofitems");
 		
-		for(let i = 0; i < quantity; i++)
+		
+		if(action == "ADD")
 		{
-			let currentItem = document.createElement("li");
-			currentItem.innerHTML = item;
-			itemList.appendChild(currentItem);
+			for(let i = 0; i < parseInt(quantity); i++)
+			{
+				let currentItem = document.createElement("li");
+				currentItem.innerHTML = item;
+				itemList.appendChild(currentItem);
+			}
+		}
+		else if(action == "DECREASE")
+		{	
+			if(quantity == "ALL")
+			{
+				for(let i = 0; i < itemList.children.length; i++)
+				{
+					let item = itemList.children[i];
+					
+					if(item.includes(item))
+					{
+						itemList.removeChild(item);
+					}
+				}
+			}
 		}
 	}
 }
@@ -5959,6 +6004,15 @@ function battle(tags,options)
 		document.getElementById("testdices").setAttribute("disabled", true);
 		document.getElementById("attributetest").innerHTML = "Attribute to Test: LUCK";
 		document.getElementById("yourattvalue").innerHTML = "Current attribute value: " + document.getElementById("luckcurrent").innerHTML;
+	
+		if(historyId == '392')
+		{
+			let diceRollDiv = document.getElementById("diceroll");
+			diceRollDiv.removeAttribute("hidden");
+			diceRollDiv.removeAttribute("disabled");
+			dicetoroll.setAttribute("disabled", true);
+			diceRollDiv.setAttribute("style", "border-width: medium;border-color: red");
+		}
 	}
 	
 	for(let i = 3; i < tags.length; i++)
@@ -6023,7 +6077,14 @@ function battle(tags,options)
 		}
 		else if(tags[i].includes("DICEROLL"))
 		{
-			diceForTest(historyId);
+			if(historyId != '392')
+			{
+				diceForTest(historyId);
+			}
+			else
+			{
+				document.getElementById("rollid").innerHTML = historyId;
+			}
 		}
 	}
 	
@@ -6111,21 +6172,56 @@ function rollTestDice()
 				if(result <= currentAttributeValue)
 				{
 					document.getElementById("testresult").innerHTML = "You succeded!";
-					handleTestResult("SUCCESS");
+					currentTestAndResult
+					if(historyId != "128")
+					{
+						handleTestResult("SUCCESS");
+					}
+					else if(currentTestAndResult == null)
+					{
+						currentTestAndResult = "1,S";
+					}
+					else
+					{
+						currentTestAndResult = currentTestAndResult + ";2,S";
+					}
 				}
 				else
 				{
 					document.getElementById("testresult").innerHTML = "You failed!";
-					handleTestResult("FAIL");
+					if(historyId != "128")
+					{
+						handleTestResult("FAIL");
+					}
+					else if(currentTestAndResult == null)
+					{
+						currentTestAndResult = "1,F";
+					}
+					else
+					{
+						currentTestAndResult = currentTestAndResult + ";2,F";
+					}
 				}
 				
 				if(attributeToTest == "LUCK")
 					document.getElementById("luckcurrent").innerHTML = currentAttributeValue - 1;
 				if(attributeToTest == "SKILL")
 					document.getElementById("skillcurrent").innerHTML = currentAttributeValue - 1;
-					
-				document.getElementById("test").setAttribute("disabled", true);
-				document.getElementById("test").setAttribute("style", "border-width: thin;border-color: black");
+				
+				if(historyId != "128")
+				{
+					document.getElementById("test").setAttribute("disabled", true);
+					document.getElementById("test").setAttribute("style", "border-width: thin;border-color: black");
+				}
+				else
+				{
+					if(currentTestAndResult.includes("2"))
+					{
+						document.getElementById("test").setAttribute("disabled", true);
+						document.getElementById("test").setAttribute("style", "border-width: thin;border-color: black");
+						handleOptionToEnableForDoubleTest(currentTestAndResult);
+					}
+				}
 			}
 			else
 			{
@@ -6205,6 +6301,42 @@ function handleTestResult(result)
 	}
 }
 
+function handleOptionToEnableForDoubleTest(currentTestAndResult)
+{
+	let buttonOptions = document.getElementById("options").children;
+	let resultTest1 = currentTestAndResult.split(";")[0].split(",")[1];
+	let resultTest2 = currentTestAndResult.split(";")[1].split(",")[1];
+	let fails = 0;
+	
+	if(resultTest1 == resultTest2 && resultTest1 == "F")
+	{
+		fails = 2;
+	}
+	if(resultTest1 != resultTest2)
+	{
+		fails = 1;
+	}
+	
+	for(let i = 0; i < buttonOptions.length; i++)
+	{
+		let option = buttonOptions[i];
+		option.removeAttribute("disabled");	
+		
+		if(option.id = "id340" && fails == 0)
+		{
+			option.removeAttribute("disabled");	
+		}
+		else if(option.id = "id149" && fails == 1)
+		{
+			option.removeAttribute("disabled");	
+		}
+		else
+		{
+			option.removeAttribute("disabled");	
+		}
+	}
+}
+
 function rollAttackDices()
 {	
 	document.getElementById("testdices").setAttribute("disabled", true);
@@ -6217,6 +6349,7 @@ function rollAttackDices()
 	var yourDiceValues = document.getElementById("yourdicevalues");
 	var enemyDiceValues = document.getElementById("enemydicesvalues");
 	document.getElementById("attackdices").setAttribute("disabled", true);
+	document.getElementById("rollmessage").innerHTML = "";
 	
 	function roll() 
 	{
@@ -6276,21 +6409,46 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 		else
 		{
 			enemy.children[2].innerHTML = enemyStamina;
-			document.getElementById("attackdices").removeAttribute("disabled");
-			document.getElementById("testdices").removeAttribute("disabled");
+			
+			if(historyId != "392")
+			{
+				document.getElementById("attackdices").removeAttribute("disabled");
+				document.getElementById("testdices").removeAttribute("disabled");
+			}
+			else
+			{
+				document.getElementById("testdices").removeAttribute("disabled");
+				document.getElementById("dicetoroll").removeAttribute("disabled");
+			}
 		}
 	}
 	if(yourDamage < enemyDamage)
 	{
 		computing.innerHTML = "You got wounded!";
 		battleHit = "you";
-		staminaCurrent = staminaCurrent - 2;
+		
+		if(enemy.children[1].innerHTML.trim() == "SNAKES")
+		{
+			staminaCurrent = staminaCurrent - 4;
+		}
+		else 
+		{
+			staminaCurrent = staminaCurrent - 2;
+		}
 		console.log("Your current stamina: " + staminaCurrent);
 		document.getElementById("staminacurrent").innerHTML = staminaCurrent;
 		document.getElementById("yourstamina").innerHTML = "Your Stamina: " + staminaCurrent;
 		checkEndOfBattle(null, staminaCurrent);
-		document.getElementById("attackdices").removeAttribute("disabled");
-		document.getElementById("testdices").removeAttribute("disabled");
+		
+		if(historyId != "392")
+		{
+			document.getElementById("attackdices").removeAttribute("disabled");
+			document.getElementById("testdices").removeAttribute("disabled");
+		}
+		else
+		{
+			document.getElementById("dicetoroll").removeAttribute("disabled");
+		}
 	}
 	if(yourDamage == enemyDamage)
 	{
@@ -6330,20 +6488,15 @@ function checkEndOfBattle(enemies, staminaCurrent)
 		document.getElementById("battle").setAttribute("disabled", true);
 		document.getElementById("battle").setAttribute("style", "border-width: thin;border-color: black");
 		battleActive = false;
-		document.getElementById("attackdices").removeAttribute("disabled");
-		document.getElementById("test").setAttribute("disabled", true);
-		document.getElementById("test").setAttribute("style", "border-width: thin;border-color: black");
+		enableElement("NONE");
 	}
 	else if(enemies != null && enemies.rows.length == 1)
 	{
 		document.getElementById("battle").setAttribute("disabled", true);
 		document.getElementById("battle").setAttribute("style", "border-width: thin;border-color: black");
 		checkOptionsToEnable();
-		document.getElementById("rounds").innerHTML = "Rounds: 0";
+		enableElement("NONE");
 		battleActive = false;
-		document.getElementById("attackdices").removeAttribute("disabled");
-		document.getElementById("test").setAttribute("disabled", true);
-		document.getElementById("test").setAttribute("style", "border-width: thin;border-color: black");
 	}
 	else
 	{
@@ -6722,6 +6875,8 @@ function rollDiceForTest()
 	let testId = document.getElementById("rollid").innerHTML;
 	var count = 0;
 	var id = setInterval(roll, 10);;
+		
+	console.log("History ID on test:" + historyId);
 	
 	function roll() 
 	{
@@ -6767,6 +6922,25 @@ function rollDiceForTest()
 						child = options.lastElementChild; 
 					} 
 					enableElement("NONE");
+				}
+			}
+			else if(testId == "392")
+			{
+				if(rollValue <= 3)
+				{
+					document.getElementById("rollmessage").innerHTML = "You got hit by Lizardine's fiery breath!";
+					let yourCurrentStamina = parseInt(document.getElementById("staminacurrent").innerHTML);
+					document.getElementById("staminacurrent").innerHTML = yourCurrentStamina - 1;
+					document.getElementById("yourstamina").innerHTML = "Your Stamina: " + (yourCurrentStamina - 1);
+					checkEndOfBattle(null, yourCurrentStamina - 1);
+					document.getElementById("attackdices").removeAttribute("disabled");
+					document.getElementById("testdices").setAttribute("disabled", true);
+				}
+				if(rollValue > 3)
+				{
+					document.getElementById("attackdices").removeAttribute("disabled");
+					document.getElementById("testdices").setAttribute("disabled", true);
+					document.getElementById("rollmessage").innerHTML = "You dodge Lizardine's fiery breath!";
 				}
 			}
 			else if(testId == "201")
