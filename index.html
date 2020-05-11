@@ -181,8 +181,8 @@
 		<div class="gametop" height="200px" style="text-align:center">
 			<p class="title">City of Thieves</p>	
 			<button onclick="loadStart(this)" class="newgame">New Game</button>
-			<button class="loadgame">Load Game</button>
-			<button class="savegame">Save Game</button>
+			<button class="loadgame" onclick="loadGame()">Load Game</button>
+			<button class="savegame" onclick="saveGame()">Save Game</button>
 		</div>
 	</head>
 	<body style="background: rgba(196, 216, 93, 0.3);">
@@ -6621,11 +6621,29 @@ function checkEnableEscape()
 
 function loadGame()
 { 
-	localStorage.getItem("robsonsave");}
+	var mySavedGame = localStorage.getItem("robsonsave");
+	let saveGame = JSON.parse(mySavedGame);
+	console.log("Meu game salvo: " + saveGame.skillinitial);}
 
 function saveGame()
 {
-	localStorage.setItem("robsonsave", "current save");
+	let saveGame = 
+	{
+		"skillinitial"     :  document.getElementById("skillinitial").innerHTML,  
+		"skillcurrent"     :  document.getElementById("skillcurrent").innerHTML,
+		"staminainitial"   :  document.getElementById("staminainitial").innerHTML,
+		"staminacurrent"   :  document.getElementById("staminacurrent").innerHTML,
+		"luckinitial"      :  document.getElementById("luckinitial").innerHTML,
+		"luckcurrent"      :  document.getElementById("luckcurrent").innerHTML,
+		"goldtotal"        :  document.getElementById("goldtotal").innerHTML,
+		"provisionstotal"  :  document.getElementById("provisionstotal").innerHTML,
+		"historyId"        :  historyId,
+		"foughtApeMan"     :  foughtApeMan,
+		"arrowsHit"        :  arrowsHit 
+	};
+	
+	localStorage.setItem("robsonsave", JSON.stringify(saveGame));
+	console.log("Jogo salvo." + saveGame.skillinitial);
 }
 
 function loadStart(event)
