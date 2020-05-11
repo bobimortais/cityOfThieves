@@ -209,15 +209,16 @@
 					</tr>
 					<tr>
 						<td>
-							<ul id="itemstobuyname" class="listofitems">
+							<ul id="itemstotradename" class="listofitems">
 							</ul>
 						</td>
 					</tr>
 				</table>
-					<p id="buymessage"><br></p>
+					<p id="trademessage"><br></p>
 					<p id="itemprice">Price: </p>
 					<p id="shopgold">Your Gold: </p>
-					<button onclick="buyItem()">Buy Item</button>
+					<button id="buyitem" onclick="buyItem()">Buy Item</button>
+					<button id="sellitem" onclick="sellItem()" hidden>Sell Item</button>
 				</div>
 				<div id="minigame" class="minigame" style="clear: left" hidden>	
 					<p style="font-family: Castellar;">Minigame</p>
@@ -5635,66 +5636,120 @@ function handleSpecialTags(tag)
 
 function loadShop(tag)
 {
-	document.getElementById("test").setAttribute("hidden", true);
-	document.getElementById("minigame").setAttribute("hidden", true);
+	enableElement("SHOP");
 	document.getElementById("shopgold").innerHTML = "Your Gold: " + document.getElementById("goldtotal").innerHTML;
+	let itemstotradename = document.getElementById("itemstotradename");
 	
-	let shopDiv = document.getElementById("shop");
-	shopDiv.removeAttribute("hidden");
-	shopDiv.removeAttribute("disabled");
-	shopDiv.setAttribute("style", "border-width: medium;border-color: red");
-	let itemsToBuyName = document.getElementById("itemstobuyname");
-	
-	var child = itemsToBuyName.lastElementChild;  
+	var child = itemstotradename.lastElementChild;  
     while (child) { 
-        itemsToBuyName.removeChild(child); 
-        child = itemsToBuyName.lastElementChild; 
+        itemstotradename.removeChild(child); 
+        child = itemstotradename.lastElementChild; 
     } 
 	
-	var items = tag.split(":")[1].trim().split(";");
+	console.log("History ID at shop:" + historyId);
 	
-	for(let i = 0;i < items.length;i++)
+	if(historyId != 354)
 	{
-		let listItemName = document.createElement("li");
-		let itemName = items[i].split(",")[0];
-		let itemPrice = items[i].split(",")[1];
-		listItemName.innerHTML = itemName;
-		var price = document.createAttribute("price");
-		price.value = itemPrice;
-		listItemName.setAttributeNode(price);
-		listItemName.onmouseover = function ()
-									{	
-										showPrice(this);
-									};
-		listItemName.onmouseout = function()
-									{
-										if(document.getElementById("itemprice").getAttribute("itemname") == null)
-										{
-											document.getElementById("itemprice").innerHTML = "Price: ";
-										}
-									}
-		listItemName.onclick = function()
-									{
-										if(this.getAttribute("selected") == null)
-										{
-											var selected = document.createAttribute("selected");
-											selected.value = true;
-											this.setAttributeNode(selected);
-											this.setAttribute("style", "background-color: rgba(196, 216, 93, 0.4)");
-											let priceElement = document.getElementById("itemprice");
-											var itemname = document.createAttribute("itemname");
-											itemname.value = itemName;
-											priceElement.setAttributeNode(itemname);
-										}
-										else
-										{
-											this.removeAttribute("selected");
-											this.removeAttribute("style");
-											document.getElementById("itemprice").removeAttribute("itemname");
-										}
-									}
-		itemsToBuyName.appendChild(listItemName);
+		var items = tag.split(":")[1].trim().split(";");
+		document.getElementById("sellitem").setAttribute("hidden", true);
+		document.getElementById("buyitem").removeAttribute("hidden");
+		
+		for(let i = 0;i < items.length;i++)
+		{
+			addItemToList(itemstotradename, items[i].split(",")[0], items[i].split(",")[1])
+		}
 	}
+	else
+	{
+		let myItems = document.getElementById("listofitems").children;
+		document.getElementById("buyitem").setAttribute("hidden", true);
+		document.getElementById("sellitem").removeAttribute("hidden");
+		
+		for(let j = 0;j < myItems.length;j++)
+		{
+			if(myItems[j].includes("Silver Goblet"))
+			{ 
+				addItemToList(itemstotradename, "Silver Goblet", 8);
+			}
+			else if(myItems[j].includes("Skeleton Key"))
+			{
+				addItemToList(itemstotradename, "Skeleton Key", 15);
+			}
+			else if(myItems[j].includes("Scorpion Brooch"))
+			{	
+				addItemToList(itemstotradename, "Scorpion Brooch", 10);
+			}
+			else if(myItems[j].includes("Magic Ring"))
+			{
+				addItemToList(itemstotradename, "Magic Ring", 12);
+			}
+			else if(myItems[j].includes("Silver Bracelet"))
+			{
+				addItemToList(itemstotradename, "Silver Bracelet", 5);
+			}
+			else if(myItems[j].includes("Helmet"))
+			{
+				addItemToList(itemstotradename, "Helmet", 7);
+			}	
+			else if(myItems[j].includes("Silver Flute"))
+			{
+				addItemToList(itemstotradename, "Silver Flute", 5);
+			}
+			else if(myItems[j].includes("Eye-patch"))
+			{
+				addItemToList(itemstotradename, "Eye-patch", 1);
+			}
+			else if(myItems[j].includes("Knucklebones"))
+			{
+				addItemToList(itemstotradename, "Knucklebones", 1);
+			}
+			else if(myItems[j].includes("Mirror"))
+			{
+				addItemToList(itemstotradename, "Mirror", 1);
+			}
+		}
+	}
+}
+
+function addItemToList(itemstotradename, itemName, itemPrice)
+{
+	let listItemName = document.createElement("li");
+	listItemName.innerHTML = itemName;
+	var price = document.createAttribute("price");
+	price.value = itemPrice;
+	listItemName.setAttributeNode(price);
+	listItemName.onmouseover = function ()
+								{	
+									showPrice(this);
+								};
+	listItemName.onmouseout = function()
+								{
+									if(document.getElementById("itemprice").getAttribute("itemname") == null)
+									{
+										document.getElementById("itemprice").innerHTML = "Price: ";
+									}
+								}
+	listItemName.onclick = function()
+								{
+									if(this.getAttribute("selected") == null)
+									{
+										var selected = document.createAttribute("selected");
+										selected.value = true;
+										this.setAttributeNode(selected);
+										this.setAttribute("style", "background-color: rgba(196, 216, 93, 0.4)");
+										let priceElement = document.getElementById("itemprice");
+										var itemname = document.createAttribute("itemname");
+										itemname.value = itemName;
+										priceElement.setAttributeNode(itemname);
+									}
+									else
+									{
+										this.removeAttribute("selected");
+										this.removeAttribute("style");
+										document.getElementById("itemprice").removeAttribute("itemname");
+									}
+								}
+	itemstotradename.appendChild(listItemName);
 }
 
 function showPrice(element)
@@ -5715,12 +5770,12 @@ function buyItem()
 		
 		if(itemPrice > yourGold)
 		{
-			document.getElementById("buymessage").innerHTML = "You don't have Gold for it!";
+			document.getElementById("trademessage").innerHTML = "You don't have Gold for it!";
 		}
 		else
 		{
 			let newGoldValue = yourGold - itemPrice;
-			document.getElementById("buymessage").innerHTML = "Item purchased!";
+			document.getElementById("trademessage").innerHTML = "Item purchased!";
 			document.getElementById("shopgold").innerHTML = "Your Gold: " + newGoldValue;
 			document.getElementById("goldtotal").innerHTML = newGoldValue;
 			
@@ -5730,7 +5785,45 @@ function buyItem()
 			listOfItem.appendChild(newItem);
 		}
 	}
+}
+
+function sellItem()
+{
+	if(document.getElementById("itemprice").getAttribute("itemname") != null)
+	{
+		let itemName = document.getElementById("itemprice").getAttribute("itemname");
+		let itemPrice = parseInt(document.getElementById("itemprice").innerHTML.split(":")[1].trim());
+		let yourGold = parseInt(document.getElementById("shopgold").innerHTML.split(":")[1].trim());
+		let newGoldValue = yourGold + itemPrice;
+		document.getElementById("trademessage").innerHTML = "Item sold!";
+		document.getElementById("shopgold").innerHTML = "Your Gold: " + newGoldValue;
+		document.getElementById("goldtotal").innerHTML = newGoldValue;
 		
+		let myItems = document.getElementById("listofitems");
+		
+		for(let i = 0; i < myItems.children.length;i++)
+		{
+			let item = myItems.children[i];
+			
+			if(item.innerHTML.includes(itemName))
+			{
+				myItems.removeChild(item);
+				break;
+			}
+		}
+		checkSpecialHandlingsAfterSell();
+	}
+}
+
+function checkSpecialHandlingsAfterSell()
+{
+	if(historyId != 354)
+	{
+		if(parseInt(document.getElementById("goldtotal").innerHTML) >= 10)
+		{
+			document.getElementById("id316").removeAttribute("disabled");
+		}
+	}
 }
 
 function loadMinigame(tags, i)
