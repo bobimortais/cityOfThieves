@@ -313,6 +313,7 @@
 					<tr>
 						<td>
 							<ul id="listofitems" class="listofitems">
+								<li>Broad Sword</li>
 							</ul>
 						</td>
 					</tr>
@@ -324,7 +325,7 @@
 						<th style="width: 120px;text-align: left;">GOLD</th>
 					</tr>
 					<tr>
-						<td id="goldtotal">10</td>
+						<td id="goldtotal">30</td>
 					</tr>
 				</table>
 				<table class="jewels" style="margin-bottom: 5px;">
@@ -6626,14 +6627,14 @@ function loadGame()
 	var mySavedGame = localStorage.getItem("robsonsave");
 	let saveGame = JSON.parse(mySavedGame);
 	
-	document.getElementById("skillinitial").innerHtml    = saveGame.skillinitial;
-	document.getElementById("skillcurrent").innerHtml    = saveGame.skillcurrent;
-	document.getElementById("staminainitial").innerHtml  = saveGame.staminainitial;
-	document.getElementById("staminacurrent").innerHtml  = saveGame.staminacurrent;
-	document.getElementById("luckinitial").innerHtml     = saveGame.luckinitial;
-	document.getElementById("luckcurrent").innerHtml     = saveGame.luckcurrent;
-	document.getElementById("goldtotal").innerHtml       = saveGame.goldtotal;
-	document.getElementById("provisionstotal").innerHtml = saveGame.provisionstotal;
+	document.getElementById("skillinitial").innerHTML    = saveGame.skillinitial;
+	document.getElementById("skillcurrent").innerHTML    = saveGame.skillcurrent;
+	document.getElementById("staminainitial").innerHTML  = saveGame.staminainitial;
+	document.getElementById("staminacurrent").innerHTML  = saveGame.staminacurrent;
+	document.getElementById("luckinitial").innerHTML     = saveGame.luckinitial;
+	document.getElementById("luckcurrent").innerHTML     = saveGame.luckcurrent;
+	document.getElementById("goldtotal").innerHTML       = saveGame.goldtotal;
+	document.getElementById("provisionstotal").innerHTML = saveGame.provisionstotal;
 	
 	console.log("Meu game salvo: " + saveGame.skillinitial);}
 
