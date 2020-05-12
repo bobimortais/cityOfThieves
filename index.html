@@ -177,6 +177,12 @@
 			height: 180px;
 			max-height:180px;
 		}
+		.enemy
+		{
+			opacity: 1;
+			-webkit-transition: opacity 500ms linear;
+			transition: opacity 500ms linear;
+		}
 		</style>
 		<div class="gametop" height="200px" style="text-align:center">
 			<p class="title">City of Thieves</p>	
@@ -5227,6 +5233,8 @@ var historyId = 1;
 var foughtApeMan = false;
 var arrowsHit = 0;
 var currentTestAndResult;
+var alreadyBeenAt232 = false;
+var alreadyBeenAt271 = false;
 
 function loadNext(event)
 { 
@@ -5278,6 +5286,25 @@ function loadNext(event)
 										loadNext(this);
 									};
 				newOption.innerHTML = text;
+				
+				if(historyId == 271)
+				{
+					alreadyBeenAt271 == true;
+				}
+				else if(historyId == 232)
+				{
+					alreadyBeenAt232 = true;
+				}
+				
+				if(tags[i + 1].split(":")[1].trim() == "271" && alreadyBeenAt271)
+				{
+					newOption.setAttribute("disabled", true);
+				}
+				if(tags[i + 1].split(":")[1].trim() == "232" && alreadyBeenAt232)
+				{
+					newOption.setAttribute("disabled", true);
+				}
+				
 				options.appendChild(newOption);
 				i = i + 1;
 			}
@@ -6429,6 +6456,7 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 		{
 			enemyStamina = 0; 
 			enemy.children[2].innerHTML = enemyStamina;
+			enemy.style.opacity = '0';
 			setTimeout(removeEnemy, 1000);
 		}
 		else
@@ -6564,7 +6592,7 @@ function checkOptionsToEnable()
 			}
 		}
 	}
-	
+	document.getElementById("rounds").innerHTML = "Rounds: 0";
 }
 
 function checkEnableEscape()
@@ -7044,6 +7072,8 @@ function addEnemyToList(enemy,enemySkill,enemyStamina)
 	var enemyList = document.getElementById("enemylist");
 	let enemyRow = document.createElement("tr");
 	enemyRow.id = enemy;
+	
+	//enemy.className = "enemy";
 	
 	let enemyNameValue = document.createElement("td");
 	enemyNameValue.innerHTML = enemy;
