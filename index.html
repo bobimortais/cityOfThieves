@@ -6624,7 +6624,14 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 	if(yourDamage == enemyDamage)
 	{
 		computing.innerHTML = "Attacks blocked!";
-		document.getElementById("attackdices").removeAttribute("disabled");
+		if(historyId != "392")
+		{
+			document.getElementById("attackdices").removeAttribute("disabled");
+		}
+		else
+		{
+			document.getElementById("dicetoroll").removeAttribute("disabled");
+		}
 	}
 }
 
