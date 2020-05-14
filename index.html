@@ -96,6 +96,7 @@
 			border-style: solid;
 			border-width: thin;
 			margin-left: 5px;
+			margin-bottom: 5px;
 			width: 200px;
 			clear: left;
 		}
@@ -106,6 +107,7 @@
 			border-style: solid;
 			border-width: thin;
 			margin-left: 5px;
+			margin-bottom: 5px;
 			width: 200px;
 			clear: left;
 		}
@@ -116,6 +118,7 @@
 			border-style: solid;
 			border-width: thin;
 			margin-left: 5px;
+			margin-bottom: 5px;
 			width: 200px;
 			clear: left;
 		}
@@ -126,6 +129,7 @@
 			border-style: solid;
 			border-width: thin;
 			margin-left: 5px;
+			margin-bottom: 5px;
 			width: 200px;
 			clear: left;
 		}
@@ -180,8 +184,7 @@
 		.enemy
 		{
 			opacity: 1;
-			-webkit-transition: opacity 500ms linear;
-			transition: opacity 500ms linear;
+			transition: opacity .6s;
 		}
 		</style>
 		<div class="gametop" height="200px" style="text-align:center">
@@ -197,15 +200,15 @@
 				<p style="font-family: Castellar;">Battle</p>
 				<p id="rounds">Rounds: 0</p>
 				<table id="enemylist">
-					<th style="text-align: left;">ENEMY</th>
-					<th style="text-align: left;">SKILL</td>
-					<th style="text-align: left;">STAMINA</td>
+					<th style="text-align: left;width: 100px;">ENEMY</th>
+					<th style="text-align: left;width: 55px;">SKILL</td>
+					<th style="text-align: left;width: 50px;">STAMINA</td>
 				</table>
 				<p id="yourdicevalues">Your Dice Values: </p>
 				<p id="enemydicesvalues">Enemy Dice Values: </p>
 				<p id="yourattack">Your Attack: </p>
 				<p id="enemyattack">Enemy Attack: </p>
-				<p id="attackresult">Computing Round...</p>
+				<p id="attackresult">Round Result:</p>
 				<p id="yourstamina">Your Stamina: </p>
 				<button id="attackdices" onclick="rollAttackDices()">Roll Dices</button>
 			</div>
@@ -233,11 +236,13 @@
 						</td>
 					</tr>
 				</table>
+					<p id="itemtogive" hidden>Item to Give:</p>
 					<p id="trademessage"><br></p>
 					<p id="itemprice">Price: </p>
 					<p id="shopgold">Your Gold: </p>
 					<button id="buyitem" onclick="buyItem()">Buy Item</button>
 					<button id="sellitem" onclick="sellItem()" hidden>Sell Item</button>
+					<button id="giveitem" onclick="giveItem()" hidden>Give Item</button>
 				</div>
 				<div id="minigame" class="minigame" style="clear: left" hidden>	
 					<p style="font-family: Castellar;">Minigame</p>
@@ -312,9 +317,9 @@
 				</tr>
 			</table>
 			<div class="itemsdiv">
-				<table class="items" style="margin-top: 5px;">
+				<table class="items" style="text-align: left;margin-top: 5px;width: 162px;">
 					<tr>
-						<th>EQUIPMENT LIST</th>
+						<th style="white-space: pre-wrap;">EQUIPMENT LIST</th>
 					</tr>
 					<tr>
 						<td>
@@ -363,11 +368,11 @@
 		<div id="histories" hidden>
 		<p id="h1" hidden>
 TAG:ID: 1
-TAG:CHOICE 1: Tell him you wish to be taken to Nicodemus? 
+TAG:CHOICE 1: Tell him you wish to be taken to Nicodemus
 TAG:ACTION 1: 202
-TAG:CHOICE 2: Tell him you wish to sell some stolen booty? 
+TAG:CHOICE 2: Tell him you wish to sell some stolen booty 
 TAG:ACTION 2: 33 
-TAG:CHOICE 3: Attack him quickly with your sword? 
+TAG:CHOICE 3: Attack him quickly with your sword
 TAG:ACTION 3: 49
 TAG:HISTORY The walk to Port Blacksand takes you west some 
 fifty miles across plains and over hills; fortunately 
@@ -994,7 +999,6 @@ TAG:CHOICE 1: If you have a silver item in your backpack that you wish to give t
 TAG:ITEM: HAS;Silver;1
 TAG:ACTION 1: 328
 TAG:CHOICE 2: If you have not got a silver item that you wish to give away
-TAG:ITEM: HASNT;Silver;1
 TAG:ACTION 2: 39
 TAG:HISTORY The silk curtains in front of the archway are pulled aside 
 and a strange creature steps into the room. It has a snake's 
@@ -3381,7 +3385,7 @@ TAG:CHOICE 1: Pay him 10 Gold Pieces
 TAG:MONEY: DECREASE;10
 TAG:ACTION 1: 85
 TAG:CHOICE 2: Give him two magic items
-TAG:ITEM: DECREASE;Magic Item;2
+TAG:SHOP: GIVE;Magic
 TAG:ACTION 2: 85
 TAG:CHOICE 2: You cannot afford to pay the price 
 TAG:ACTION 2: 42
@@ -3895,8 +3899,14 @@ two fang-like teeth which can only belong to a Vampire.
 </p>
 <p id="h293" hidden>
 TAG:ID: 293
-TAG:CHOICE 1: Whether you trade or not, you then leave the shop and head west.
+TAG:CHOICE 1: Give her a magic item or piece of armour
+TAG:SHOP: GIVE;Magic,Armour
 TAG:ACTION 1: 24
+TAG:CHOICE 2: Give her two provisions
+TAG:FOOD: DECREASE;2
+TAG:ACTION 2: 24
+TAG:CHOICE 3: Leave the shop and head west.
+TAG:ACTION 3: 24
 TAG:HISTORY She explains that she has just picked one of her golden flowers.
 There are ten golden petals on the flower, and you are told 
 that if dipped in dog's blood, each petal, plucked and thrown
@@ -4293,13 +4303,13 @@ enter the house.
 </p>
 <p id="h328" hidden>
 TAG:ID: 328
-TAG:MONEY: INCREASE;2
-TAG:DESTINATION: 333
+TAG:CHOICE 1: Continue
+TAG:SHOP: GIVE;Silver
+TAG:ACTION 1: 333
 TAG:HISTORY You take the silver item out of your backpack and hand it to 
 the Serpent Queen. She is delighted and thanks you for 
 delivering it to her. She shows you to the front and tips you
-2 Gold Pieces.
-Outside you set off north along Stable Street.
+2 Gold Pieces. Outside you set off north along Stable Street.
 </p>
 <p id="h329" hidden>
 TAG:ID: 329
@@ -5233,8 +5243,7 @@ var historyId = 1;
 var foughtApeMan = false;
 var arrowsHit = 0;
 var currentTestAndResult;
-var alreadyBeenAt232 = false;
-var alreadyBeenAt271 = false;
+var alreadyBeenAtt = ";"
 
 function loadNext(event)
 { 
@@ -5242,7 +5251,7 @@ function loadNext(event)
 	var options = document.getElementById("options");
 	console.log("History ID " + historyId);
 	enableElement("NONE");
-	
+	alreadyBeenAtt = alreadyBeenAtt + historyId + ";";	
 	checkEventAttributes(event);
 	
 	var child = options.lastElementChild;  
@@ -5287,26 +5296,22 @@ function loadNext(event)
 									};
 				newOption.innerHTML = text;
 				
-				if(historyId == 271)
-				{
-					alreadyBeenAt271 == true;
-				}
-				else if(historyId == 232)
-				{
-					alreadyBeenAt232 = true;
-				}
-				
-				if(tags[i + 1].split(":")[1].trim() == "271" && alreadyBeenAt271)
+				if(tags[i + 1].split(":")[1].trim() == "271" && alreadyBeenAtt.includes(";" + 271 + ";"))
 				{
 					newOption.setAttribute("disabled", true);
 				}
-				if(tags[i + 1].split(":")[1].trim() == "232" && alreadyBeenAt232)
+				else if(tags[i + 1].split(":")[1].trim() == "232" && alreadyBeenAtt.includes(";" + 232 + ";"))
 				{
 					newOption.setAttribute("disabled", true);
 				}
 				
 				options.appendChild(newOption);
 				i = i + 1;
+			}
+			if(tags[i + 1].includes("SHOP") && tags[i + 1].includes("GIVE"))
+			{
+				let shopTag = tags[i + 1];
+				handleShopToGiveItems(shopTag);
 			}
 			
 			if(tag.includes("Ape Man") && !foughtApeMan)
@@ -5742,13 +5747,6 @@ function loadShop(tag)
 	enableElement("SHOP");
 	document.getElementById("shopgold").innerHTML = "Your Gold: " + document.getElementById("goldtotal").innerHTML;
 	let itemstotradename = document.getElementById("itemstotradename");
-	
-	var child = itemstotradename.lastElementChild;  
-    while (child) { 
-        itemstotradename.removeChild(child); 
-        child = itemstotradename.lastElementChild; 
-    } 
-	
 	console.log("History ID at shop:" + historyId);
 	
 	if(historyId != 354)
@@ -5929,6 +5927,100 @@ function checkSpecialHandlingsAfterSell()
 	}
 }
 
+function handleShopToGiveItems(shopTag)
+{
+	enableElement("SHOP");
+	document.getElementById("giveitem").removeAttribute("hidden");
+	document.getElementById("itemtogive").removeAttribute("hidden");
+	document.getElementById("buyitem").setAttribute("hidden", true);
+	document.getElementById("sellitem").setAttribute("hidden", true);
+	document.getElementById("itemprice").setAttribute("hidden", true);
+	document.getElementById("shopgold").setAttribute("hidden", true);
+	let itemsToNegotiate = document.getElementById("itemstotradename");
+	
+	let myItems = document.getElementById("listofitems").children;
+	let itemToNegotiate = shopTag.split(":")[1].split(";")[1].trim();
+	let quantity = shopTag.split(":")[1].split(";")[2].trim();
+	
+	for(let j = 0;j < myItems.length;j++)
+	{
+		let item = myItems[j];
+		
+		if(itemToNegotiate.includes(item.innerHTML))
+		{
+			addItemsToGiveAwayList(itemsToNegotiate, item);
+			quantity = quantity - 1;
+		}
+		if(quantity ==  0)
+		{
+			break;
+		}
+	}
+}
+
+function addItemsToGiveAwayList(itemsToNegotiate, item)
+{
+	let itemToTrade = document.createElement("li");
+	let itemToGive = document.getElementById("itemtogive");
+	itemToTrade.id = item.innerHTML;
+	itemToTrade.innerHTML = item.innerHTML;
+	itemsToNegotiate.appendChild(itemToTrade);
+	
+	itemToTrade.onmouseover = function ()
+								{	
+									if(itemToGive.innerHTML == "Item to Give: ")
+										itemToGive.innerHTML = "Item to Give: " + itemToTrade.innerHTML;
+								};
+	itemToTrade.onmouseout = function()
+								{
+									if(itemToGive.innerHTML == "Item to Give: " itemToTrade.innerHTML)
+										document.getElementById("itemprice").innerHTML = "Item to Give:";
+								}
+	itemToTrade.onclick = function()
+								{
+									if(this.getAttribute("selected") == null)
+									{
+										var selected = document.createAttribute("selected");
+										selected.value = true;
+										this.setAttributeNode(selected);
+										this.setAttribute("style", "background-color: rgba(196, 216, 93, 0.4)");
+									}
+									else
+									{
+										this.removeAttribute("selected");
+										this.removeAttribute("style");
+									}
+								}
+	itemstotradename.appendChild(itemToTrade);
+}
+
+function giveItem()
+{
+	let itemToGive = document.getElementById("itemtogive").innerHTML.split(":")[1];
+	if(itemToGive != null)
+	{
+		document.getElementById("trademessage").innerHTML = "Item given!";
+		let myItems = document.getElementById("listofitems");
+		
+		for(let i = 0; i < myItems.children.length;i++)
+		{
+			let item = myItems.children[i];
+			
+			if(item.innerHTML.includes(itemToGive))
+			{
+				myItems.removeChild(item);
+				break;
+			}
+		}
+		checkSpecialHandlingsAfterGivingItem();
+	}
+}
+
+function checkSpecialHandlingsAfterGivingItem()
+{
+	let options = document.getElementById("options");
+}
+
 function loadMinigame(tags, i)
 {
 	let adversaryDices = document.getElementById("adversarydices");
@@ -5995,6 +6087,13 @@ function enableElement(element)
 		document.getElementById("minigame").setAttribute("hidden", true);
 		document.getElementById("emptydiv").setAttribute("hidden", true);
 		document.getElementById("diceroll").setAttribute("hidden", true);
+		let itemstotradename = document.getElementById("itemstotradename");
+		
+		var child = itemstotradename.lastElementChild;  
+		while (child) { 
+			itemstotradename.removeChild(child); 
+			child = itemstotradename.lastElementChild; 
+		} 
 		
 		let shopDiv = document.getElementById("shop");
 		shopDiv.removeAttribute("hidden");
@@ -6663,6 +6762,10 @@ function loadGame()
 	document.getElementById("luckcurrent").innerHTML     = saveGame.luckcurrent;
 	document.getElementById("goldtotal").innerHTML       = saveGame.goldtotal;
 	document.getElementById("provisionstotal").innerHTML = saveGame.provisionstotal;
+	historyId      = saveGame.historyId;
+	foughtApeMan   = saveGame.foughtApeMan;
+	arrowsHit      = saveGame.arrowsHit;
+	alreadyBeenAtt = saveGame.alreadyBeenAtt;
 	
 	console.log("Meu game salvo: " + saveGame.skillinitial);}
 
@@ -6680,7 +6783,8 @@ function saveGame()
 		"provisionstotal"  :  document.getElementById("provisionstotal").innerHTML,
 		"historyId"        :  historyId,
 		"foughtApeMan"     :  foughtApeMan,
-		"arrowsHit"        :  arrowsHit 
+		"arrowsHit"        :  arrowsHit,
+		"alreadyBeenAtt"   :  alreadyBeenAtt
 	};
 	
 	localStorage.setItem("robsonsave", JSON.stringify(saveGame));
@@ -7073,7 +7177,7 @@ function addEnemyToList(enemy,enemySkill,enemyStamina)
 	let enemyRow = document.createElement("tr");
 	enemyRow.id = enemy;
 	
-	//enemy.className = "enemy";
+	enemy.className = "enemy";
 	
 	let enemyNameValue = document.createElement("td");
 	enemyNameValue.innerHTML = enemy;
