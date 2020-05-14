@@ -189,6 +189,18 @@
 		</style>
 		<div class="gametop" height="200px" style="text-align:center">
 			<p class="title">City of Thieves</p>	
+			<dialog id="initialdialog" style="text-align: left;">
+				<p style="font-family: Castellar;text-align:center;">Initial Attributes</p>
+				<label for="fname">Your Save Name</label><br>
+				<input type="text" id="savename">
+				<p id="initialskillroll">Your Initial Skill:</p>
+				<p id="initialstaminaroll">Your Initial Stamina:</p>
+				<p id="initialluckroll">Your Initial Luck:</p>
+				<p id="initialluckroll">Dice Roll:</p>
+				<button id="initialdiceroll">Roll Dice</button>
+				<button id="startgame">Start Game</button>
+				<button id="closedialog">Close</button>
+			</dialog>
 			<button onclick="loadStart(this)" class="newgame">New Game</button>
 			<button class="loadgame" onclick="loadGame()">Load Game</button>
 			<button class="savegame" onclick="saveGame()">Save Game</button>
@@ -6777,7 +6789,7 @@ function checkEnableEscape()
 
 function loadGame()
 { 
-	var mySavedGame = localStorage.getItem("robsonsave");
+	let mySavedGame = localStorage.getItem("robsonsave");
 	let saveGame = JSON.parse(mySavedGame);
 	
 	document.getElementById("skillinitial").innerHTML    = saveGame.skillinitial;
@@ -6793,7 +6805,20 @@ function loadGame()
 	arrowsHit      = saveGame.arrowsHit;
 	alreadyBeenAtt = saveGame.alreadyBeenAtt;
 	
-	console.log("Meu game salvo: " + saveGame.skillinitial);}
+	console.log("Meu game salvo: " + mySavedGame);
+	
+	let dialog = document.getElementById('initialdialog');
+	let closeDialog = document.getElementById("closedialog");
+	let initialSkill = document.getElementById("initialskillroll");
+	let initialStamina = document.getElementById("initialstaminaroll");
+	let initialLuck = document.getElementById("initialluckroll");
+
+	closeDialog.addEventListener('click', function() 
+											{
+												dialog.close();
+											});
+	
+	dialog.showModal();}
 
 function saveGame()
 {
