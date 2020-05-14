@@ -196,12 +196,12 @@
 				<p id="initialskillroll">Your Initial Skill:</p>
 				<p id="initialstaminaroll">Your Initial Stamina:</p>
 				<p id="initialluckroll">Your Initial Luck:</p>
-				<p id="initialluckroll">Dice Roll:</p>
+				<p id="initialdicerollvalue">Dice Roll:</p>
 				<button id="initialdiceroll">Roll Dice</button>
-				<button id="startgame">Start Game</button>
+				<button id="startgame" disabled>Start Game</button>
 				<button id="closedialog">Close</button>
 			</dialog>
-			<button onclick="loadStart(this)" class="newgame">New Game</button>
+			<button class="newgame" onclick="newGame()">New Game</button>
 			<button class="loadgame" onclick="loadGame()">Load Game</button>
 			<button class="savegame" onclick="saveGame()">Save Game</button>
 		</div>
@@ -294,11 +294,11 @@
 				</tr>
 				<tr>
 					<td>Initial</td>
-					<td id="skillinitial" style="text-align: rigth;">12</td>
+					<td id="skillinitial" style="text-align: rigth;">0</td>
 				</tr>
 				<tr>
 					<td>Current</td>
-					<td id="skillcurrent" style="text-align: rigth;">12</td>
+					<td id="skillcurrent" style="text-align: rigth;">0</td>
 				</tr>
 
 			</table>
@@ -308,11 +308,11 @@
 				</tr>
 				<tr>
 					<td>Initial</td>
-					<td id="staminainitial" style="text-align: rigth;">20</td>
+					<td id="staminainitial" style="text-align: rigth;">0</td>
 				</tr>
 				<tr>
 					<td>Current</td>
-					<td id="staminacurrent" style="text-align: rigth;">20</td>
+					<td id="staminacurrent" style="text-align: rigth;">0</td>
 				</tr>
 			</table>
 			<table class="atts" style="margin-left: 5px;text-align: left;">
@@ -321,11 +321,11 @@
 				</tr>
 				<tr>
 					<td>Initial</td>
-					<td id="luckinitial" style="text-align: rigth;">10</td>
+					<td id="luckinitial" style="text-align: rigth;">0</td>
 				</tr>
 				<tr>
 					<td>Current</td>
-					<td id="luckcurrent" style="text-align: rigth;">10</td>
+					<td id="luckcurrent" style="text-align: rigth;">0</td>
 				</tr>
 			</table>
 			<div class="itemsdiv">
@@ -6787,6 +6787,28 @@ function checkEnableEscape()
 	}
 }
 
+function newGame()
+{
+	let dialog = document.getElementById('initialdialog');
+	let startGame = document.getElementById("startgame");
+	startGame.addEventListener('click', function() 
+											{
+												dialog.close();
+												loadStart();
+											});
+	let closeDialog = document.getElementById("closedialog");
+	closeDialog.addEventListener('click', function() 
+											{
+												dialog.close();
+											});
+	let diceToRoll = document.getElementById("initialdiceroll");
+	diceToRoll.onclick = function ()
+							{	
+								rollInitialAttributes(this);
+							};
+	dialog.showModal();
+}
+
 function loadGame()
 { 
 	let mySavedGame = localStorage.getItem("robsonsave");
@@ -6805,20 +6827,80 @@ function loadGame()
 	arrowsHit      = saveGame.arrowsHit;
 	alreadyBeenAtt = saveGame.alreadyBeenAtt;
 	
-	console.log("Meu game salvo: " + mySavedGame);
-	
-	let dialog = document.getElementById('initialdialog');
-	let closeDialog = document.getElementById("closedialog");
+	console.log("Meu game salvo: " + mySavedGame);}
+
+function rollInitialAttributes(event)
+{
+	var count = 0;
+	var id = setInterval(roll, 10);
+	let initialDiceRoll = document.getElementById("initialdicerollvalue");
 	let initialSkill = document.getElementById("initialskillroll");
 	let initialStamina = document.getElementById("initialstaminaroll");
 	let initialLuck = document.getElementById("initialluckroll");
-
-	closeDialog.addEventListener('click', function() 
-											{
-												dialog.close();
-											});
+	let attributeToSet = "";
 	
-	dialog.showModal();}
+	
+	if(initialSkill.innerHTML.split(":")[1].length == 0)
+	{
+		attributeToSet = "SKILL";
+	}
+	else if(initialStamina.innerHTML.split(":")[1].length == 0)
+	{
+		attributeToSet = "STAMINA";
+	}
+	else
+	{
+		attributeToSet = "LUCK";
+	}
+	
+	function roll() 
+	{
+		if (count == 100) 
+		{		
+			if(attributeToSet == "SKILL")
+			{
+				let rollValue = parseInt(initialDiceRoll.innerHTML.split(":")[1].trim());
+				initialSkill.innerHTML = "Your Initial Skill: " + (rollValue + 6);
+			}
+			else if(attributeToSet == "STAMINA")
+			{
+				let rollValue = initialDiceRoll.innerHTML.split(":")[1].trim();
+				let dice1 = parseInt(rollValue.split(" ")[0]);
+				let dice2 = parseInt(rollValue.split(" ")[1]);
+				initialStamina.innerHTML = "Your Initial Stamina: " + (dice1 + dice2 + 12);
+			}
+			else
+			{
+				let rollValue = parseInt(initialDiceRoll.innerHTML.split(":")[1].trim());
+				initialLuck.innerHTML = "Your Initial Luck: " + (rollValue + 6);
+				event.setAttribute("disabled", true);
+				document.getElementById("startgame").removeAttribute("disabled");
+				document.getElementById("skillinitial").innerHTML = initialSkill.innerHTML.split(":")[1].trim();
+				document.getElementById("skillcurrent").innerHTML = initialSkill.innerHTML.split(":")[1].trim();
+				document.getElementById("staminainitial").innerHTML = initialStamina.innerHTML.split(":")[1].trim();
+				document.getElementById("staminacurrent").innerHTML = initialStamina.innerHTML.split(":")[1].trim();
+				document.getElementById("luckinitial").innerHTML = rollValue + 6;
+				document.getElementById("luckcurrent").innerHTML = rollValue + 6;
+			}
+			clearInterval(id);
+		} 
+		else 
+		{
+			if(attributeToSet == "STAMINA")
+			{
+				let diceRoll1 = Math.floor(Math.random() * 6) + 1;
+				let diceRoll2 = Math.floor(Math.random() * 6) + 1;
+				initialDiceRoll.innerHTML = "Dice Roll: " + diceRoll1 + " " + diceRoll2;
+			}
+			else
+			{
+				let diceRoll = Math.floor(Math.random() * 6) + 1;
+				initialDiceRoll.innerHTML = "Dice Roll: " + diceRoll;
+			}
+			count = count + 1;
+		}
+	}
+}
 
 function saveGame()
 {
@@ -6842,9 +6924,8 @@ function saveGame()
 	console.log("Jogo salvo." + saveGame.skillinitial);
 }
 
-function loadStart(event)
+function loadStart()
 { 
-	var id = event.id;
 	var options = document.getElementById("options");
 	
 	if(options.children.length > 0)
@@ -7110,7 +7191,7 @@ function rollDiceForTest()
 	let rollValueText = document.getElementById("rollvalue");
 	let testId = document.getElementById("rollid").innerHTML;
 	var count = 0;
-	var id = setInterval(roll, 10);;
+	var id = setInterval(roll, 10);
 		
 	console.log("History ID on test:" + historyId);
 	
