@@ -3385,7 +3385,8 @@ TAG:CHOICE 1: Pay him 10 Gold Pieces
 TAG:MONEY: DECREASE;10
 TAG:ACTION 1: 85
 TAG:CHOICE 2: Give him two magic items
-TAG:SHOP: GIVE;Magic
+TAG:ITEM: HAS;Magic;2
+TAG:SHOP: GIVE;Magic;2
 TAG:ACTION 2: 85
 TAG:CHOICE 2: You cannot afford to pay the price 
 TAG:ACTION 2: 42
@@ -3900,7 +3901,8 @@ two fang-like teeth which can only belong to a Vampire.
 <p id="h293" hidden>
 TAG:ID: 293
 TAG:CHOICE 1: Give her a magic item or piece of armour
-TAG:SHOP: GIVE;Magic,Armour
+TAG:ITEM: HAS;Magic,Armour;1
+TAG:SHOP: GIVE;Magic,Armour;1
 TAG:ACTION 1: 24
 TAG:CHOICE 2: Give her two provisions
 TAG:FOOD: DECREASE;2
@@ -4304,7 +4306,7 @@ enter the house.
 <p id="h328" hidden>
 TAG:ID: 328
 TAG:CHOICE 1: Continue
-TAG:SHOP: GIVE;Silver
+TAG:SHOP: GIVE;Silver;1
 TAG:ACTION 1: 333
 TAG:HISTORY You take the silver item out of your backpack and hand it to 
 the Serpent Queen. She is delighted and thanks you for 
@@ -5444,13 +5446,30 @@ function findActionOrDestinationTag(newOption, tags, i)
 				for(let k = 0;k < listOfItem.children.length;k++)
 				{
 					let item = listOfItem.children[k];
-					
 					console.log("Your item: " + item.innerHTML);
-					if(item.innerHTML.includes(itemName))
+					
+					if(!itemName.includes(";"))
 					{
-						hasItem = true;
-						break;
-					}					
+						if(item.innerHTML.includes(itemName))
+						{
+							hasItem = true;
+							break;
+						}
+					}
+					else
+					{
+						let itemsToCheck = itemName.split(";");
+						
+						for(let l = 0;l < itemsToCheck.length; l++)
+						{
+							let itemToCheck = itemsToCheck[l];
+							if(item.innerHTML.includes(itemToCheck))
+							{
+								hasItem = true;
+								break;
+							}
+						}
+					}
 				}
 				
 				if(!hasItem && action == "HAS")
@@ -5973,7 +5992,7 @@ function addItemsToGiveAwayList(itemsToNegotiate, item)
 								};
 	itemToTrade.onmouseout = function()
 								{
-									if(itemToGive.innerHTML == "Item to Give: " itemToTrade.innerHTML)
+									if(itemToGive.innerHTML == "Item to Give: " + itemToTrade.innerHTML)
 										document.getElementById("itemprice").innerHTML = "Item to Give:";
 								}
 	itemToTrade.onclick = function()
