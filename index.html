@@ -5313,7 +5313,7 @@ function loadNext(event)
 			if(tags[i + 1].includes("SHOP") && tags[i + 1].includes("GIVE"))
 			{
 				let shopTag = tags[i + 1];
-				handleShopToGiveItems(shopTag);
+				handleShopToGiveItems(shopTag, newOption);
 			}
 			
 			if(tag.includes("Ape Man") && !foughtApeMan)
@@ -5946,7 +5946,7 @@ function checkSpecialHandlingsAfterSell()
 	}
 }
 
-function handleShopToGiveItems(shopTag)
+function handleShopToGiveItems(shopTag, newOption)
 {
 	enableElement("SHOP");
 	document.getElementById("giveitem").removeAttribute("hidden");
