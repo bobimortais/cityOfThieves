@@ -5381,7 +5381,7 @@ function loadNext(event)
 			battle(tags,options);
 			break;
 		}
-		else if(tag.includes("SHOP"))
+		else if(tag.includes("SHOP") && !tag.includes("GIVE"))
 		{
 			loadShop(tag);
 		}
@@ -5995,8 +5995,6 @@ function handleShopToGiveItems(shopTag, newOption)
 	{
 		let item = myItems[j];
 		
-		console.log(item);
-		
 		if(item.innerHTML.includes(itemToNegotiate))
 		{
 			addItemsToGiveAwayList(itemsToNegotiate, item);
@@ -6007,10 +6005,9 @@ function handleShopToGiveItems(shopTag, newOption)
 			break;
 		}
 	}
-	
 	if(quantity == 0)
 	{
-		enableElement("SHOP");
+		enableElement("GIVEAWAY");
 		document.getElementById("giveitem").removeAttribute("hidden");
 		document.getElementById("itemtogive").removeAttribute("hidden");
 		document.getElementById("buyitem").setAttribute("hidden", true);
@@ -6018,19 +6015,15 @@ function handleShopToGiveItems(shopTag, newOption)
 		document.getElementById("itemprice").setAttribute("hidden", true);
 		document.getElementById("shopgold").setAttribute("hidden", true);
 	}
-	else
-	{
-		newOption.setAttribute("disabled", true);
-	}
+
+	newOption.setAttribute("disabled", true);
 }
 
 function addItemsToGiveAwayList(itemsToNegotiate, item)
 {
 	let itemToTrade = document.createElement("li");
-	let itemToGive = document.getElementById("itemtogive");
-	itemToTrade.id = item.innerHTML;
 	itemToTrade.innerHTML = item.innerHTML;
-	itemsToNegotiate.appendChild(itemToTrade);
+	let itemToGive = document.getElementById("itemtogive");
 	
 	itemToTrade.onmouseover = function ()
 								{	
@@ -6041,13 +6034,14 @@ function addItemsToGiveAwayList(itemsToNegotiate, item)
 								{
 									if(itemToGive.innerHTML == "Item to Give: " + itemToTrade.innerHTML)
 										document.getElementById("itemprice").innerHTML = "Item to Give:";
-								}
+								};
 	itemToTrade.onclick = function()
 								{
 									if(this.getAttribute("selected") == null)
 									{
 										var selected = document.createAttribute("selected");
 										selected.value = true;
+										itemToGive.innerHTML = "Item to Give: " + itemToTrade.innerHTML;
 										this.setAttributeNode(selected);
 										this.setAttribute("style", "background-color: rgba(196, 216, 93, 0.4)");
 									}
@@ -6055,8 +6049,11 @@ function addItemsToGiveAwayList(itemsToNegotiate, item)
 									{
 										this.removeAttribute("selected");
 										this.removeAttribute("style");
+										itemToGive.innerHTML = "Item to Give: ";
 									}
-								}
+								};
+								
+	itemsToNegotiate.appendChild(itemToTrade);
 }
 
 function giveItem()
@@ -6064,12 +6061,13 @@ function giveItem()
 	let optionToEnable = document.getElementById("optiontoenable").innerHTML;
 	let itemsToNegotiate = document.getElementById("itemstotradename");
 	let itemToGive = document.getElementById("itemtogive").innerHTML.split(":")[1];
+	
+	console.log("Item being give:" + document.getElementById("itemtogive").innerHTML);
+	
 	if(itemToGive != null)
 	{
 		document.getElementById("trademessage").innerHTML = "Item given!";
 		let myItems = document.getElementById("listofitems");
-		
-		itemsToNegotiate
 		
 		for(let i = 0; i < myItems.children.length;i++)
 		{
@@ -6093,6 +6091,7 @@ function giveItem()
 			}
 		}
 		
+		console.log("Things left:" + itemsToNegotiate.children.length);
 		if(itemsToNegotiate.children.length == 0)
 			checkSpecialHandlingsAfterGivingItem(optionToEnable);
 	}
@@ -6167,6 +6166,17 @@ function enableElement(element)
 		testDiv.removeAttribute("hidden");
 		testDiv.removeAttribute("disabled");
 		testDiv.setAttribute("style", "border-width: medium;border-color: red");
+	}
+	else if(element == "GIVEAWAY")
+	{
+		document.getElementById("test").setAttribute("hidden", true);
+		document.getElementById("minigame").setAttribute("hidden", true);
+		document.getElementById("emptydiv").setAttribute("hidden", true);
+		document.getElementById("diceroll").setAttribute("hidden", true);
+		let shopDiv = document.getElementById("shop");
+		shopDiv.removeAttribute("hidden");
+		shopDiv.removeAttribute("disabled");
+		shopDiv.setAttribute("style", "border-width: medium;border-color: red");
 	}
 	else if(element == "SHOP")
 	{
