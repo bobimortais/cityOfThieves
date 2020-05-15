@@ -5477,12 +5477,9 @@ function findActionOrDestinationTag(newOption, tags, i)
 				let listOfItem = document.getElementById("listofitems");
 				let hasItem = false;
 				
-				console.log("Checking if has item: " + itemName);
-				
 				for(let k = 0;k < listOfItem.children.length;k++)
 				{
 					let item = listOfItem.children[k];
-					console.log("Your item: " + item.innerHTML);
 					
 					if(!itemName.includes(";"))
 					{
@@ -5802,7 +5799,6 @@ function loadShop(tag)
 	enableElement("SHOP");
 	document.getElementById("shopgold").innerHTML = "Your Gold: " + document.getElementById("goldtotal").innerHTML;
 	let itemstotradename = document.getElementById("itemstotradename");
-	console.log("History ID at shop:" + historyId);
 	
 	if(historyId != 354)
 	{
@@ -6642,7 +6638,7 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 		{
 			staminaCurrent = staminaCurrent - 2;
 		}
-		console.log("Your current stamina: " + staminaCurrent);
+
 		document.getElementById("staminacurrent").innerHTML = staminaCurrent;
 		document.getElementById("yourstamina").innerHTML = "Your Stamina: " + staminaCurrent;
 		checkEndOfBattle(null, staminaCurrent);
@@ -6899,7 +6895,17 @@ function fillSavedGameInputs(dialog)
 		foughtApeMan   = saveGame.foughtApeMan;
 		arrowsHit      = saveGame.arrowsHit;
 		alreadyBeenAtt = saveGame.alreadyBeenAtt;
-		console.log("History ID loaded: " + historyId);
+		
+		let itemsList = saveGame.listofitems;
+		let listOfItem = document.getElementById("listofitems");
+		
+		for(let i = 0; i < itemsList.length; i++)
+		{
+			console.log("Item carregado: " + itemsList[i]);
+			let currentItem = document.createElement("li");
+			currentItem.innerHTML = itemsList[i];
+			listOfItem.appendChild(currentItem);
+		}
 	}
 	
 	dialog.close();
@@ -7006,6 +7012,15 @@ function saveGame()
 
 function saveGameData()
 {
+	let listOfItem = document.getElementById("listofitems").children;
+	let listOfItemToSave = new Array();
+	
+	for(let i = 0; i < listOfItem.length; i++)
+	{
+		let item = listOfItem[i];
+		listOfItemToSave.push(item.innerHTML);
+	}
+	
 	let saveGame = 
 	{
 		"skillinitial"     :  document.getElementById("skillinitial").innerHTML,  
@@ -7016,13 +7031,13 @@ function saveGameData()
 		"luckcurrent"      :  document.getElementById("luckcurrent").innerHTML,
 		"goldtotal"        :  document.getElementById("goldtotal").innerHTML,
 		"provisionstotal"  :  document.getElementById("provisionstotal").innerHTML,
+		"initialpotion"    :  document.getElementById("initialpotion").innerHTML,
+		"listofitems"      :  listOfItemToSave,
 		"historyId"        :  historyId,
 		"foughtApeMan"     :  foughtApeMan,
 		"arrowsHit"        :  arrowsHit,
 		"alreadyBeenAtt"   :  alreadyBeenAtt
 	};
-	
-	console.log("History ID saved: " + historyId);
 	
 	let savedGames = localStorage.getItem("savedGames");
 	if(!savedGames.includes(";" + loadedGame + ";"))
@@ -7254,7 +7269,6 @@ function rollGameDices()
 					computing.innerHTML = "No Winners!";
 				}
 				
-				console.log(endGameCondition);
 				if(endGameCondition.split(";")[0] == "ROUND")
 				{
 					let currentRound = document.getElementById("currentround");
@@ -7324,8 +7338,6 @@ function rollDiceForTest()
 	let testId = document.getElementById("rollid").innerHTML;
 	var count = 0;
 	var id = setInterval(roll, 10);
-		
-	console.log("History ID on test:" + historyId);
 	
 	function roll() 
 	{
@@ -7461,7 +7473,6 @@ function addEnemyToList(enemy,enemySkill,enemyStamina)
 
 function enableNewGameButton(saveName)
 {
-	console.log(saveName);
 	if(saveName.value != "")
 	{
 		document.getElementById("fillsavenamemessage").setAttribute("hidden", true);
