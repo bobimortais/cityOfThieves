@@ -191,8 +191,15 @@
 			<p class="title">City of Thieves</p>	
 			<dialog id="initialdialog" style="text-align: left;">
 				<p style="font-family: Castellar;text-align:center;">Initial Attributes</p>
-				<label for="fname">Your Save Name</label><br>
-				<input type="text" id="savename">
+				<label for="savename">Your Save Name</label><br>
+				<input type="text" id="savename"><br>
+				<p id="fillsavenamemessage" style="color: red;size: 10;" hidden>*You need to fill you save name</p>
+				<label for="potions" style="margin-top: 10px;">Select One Potion</label><br>
+				<select id="potions">
+					<option value="potionskill" id="potionskill">Potion of Skill</option>
+					<option value="potionstrength" id="potionstrength">Potion of Strength</option>
+					<option value="potionfortune" id="potionfortune">Potion of Fortune</option>
+				</select>
 				<p id="initialskillroll">Your Initial Skill:</p>
 				<p id="initialstaminaroll">Your Initial Stamina:</p>
 				<p id="initialluckroll">Your Initial Luck:</p>
@@ -364,7 +371,7 @@
 						<th style="width: 120px;text-align: left;">POTIONS</th>
 					</tr>
 					<tr>
-						<td>Fortune</td>
+						<td id="initialpotion" onclick="consumePotion()"></td>
 					</tr>
 				</table>
 				<table class="provisions">
@@ -6874,13 +6881,18 @@ function rollInitialAttributes(event)
 				let rollValue = parseInt(initialDiceRoll.innerHTML.split(":")[1].trim());
 				initialLuck.innerHTML = "Your Initial Luck: " + (rollValue + 6);
 				event.setAttribute("disabled", true);
-				document.getElementById("startgame").removeAttribute("disabled");
 				document.getElementById("skillinitial").innerHTML = initialSkill.innerHTML.split(":")[1].trim();
 				document.getElementById("skillcurrent").innerHTML = initialSkill.innerHTML.split(":")[1].trim();
 				document.getElementById("staminainitial").innerHTML = initialStamina.innerHTML.split(":")[1].trim();
 				document.getElementById("staminacurrent").innerHTML = initialStamina.innerHTML.split(":")[1].trim();
 				document.getElementById("luckinitial").innerHTML = rollValue + 6;
 				document.getElementById("luckcurrent").innerHTML = rollValue + 6;
+				document.getElementById("startgame").removeAttribute("disabled");
+				let selectedPotion = document.getElementById("potions").value;
+				document.getElementById("initialpotion").innerHTML = (document.getElementById(selectedPotion).innerHTML);
+				
+				if(document.getElementById("savename").value == "")
+					fillsavenamemessage.removeAttribute("hidden");
 			}
 			clearInterval(id);
 		} 
@@ -6983,6 +6995,29 @@ function consumeProvision()
 			}
 		}
 	}
+}
+
+function consumePotion()
+{
+	let potion = document.getElementById("initialpotion").innerHTML;
+	
+	if(potion == "Potion of Skill")
+	{
+		document.getElementById("skillcurrent").innerHTML = document.getElementById("skillinitial").innerHTML;
+	}
+	else if(potion == "Potion of Strength")
+	{
+		document.getElementById("staminacurrent").innerHTML = document.getElementById("staminainitial").innerHTML;
+	}
+	else
+	{
+		let luckInitial = document.getElementById("luckinitial")
+		let luckInitialValue = parseInt(luckInitial.innerHTML);
+		document.getElementById("luckcurrent").innerHTML = luckInitialValue + 1;
+		luckInitial.innerHTML = luckInitialValue + 1;
+	}
+	
+	document.getElementById("initialpotion").innerHTML = "<br>"
 }
 
 function rollGameDices()
