@@ -270,6 +270,7 @@
 				</table>
 					<p id="itemtogive" hidden>Item to Give:</p>
 					<p id="optiontoenable" hidden></p>
+					<p id="quantitytogive" hidden></p>
 					<p id="trademessage"><br></p>
 					<p id="itemprice">Price: </p>
 					<p id="shopgold">Your Gold: </p>
@@ -5991,6 +5992,8 @@ function handleShopToGiveItems(shopTag, newOption)
 	let myItems = document.getElementById("listofitems").children;
 	let itemToNegotiate = shopTag.split(":")[1].split(";")[1].trim().split(",");
 	let quantity = shopTag.split(":")[1].split(";")[2].trim();
+	document.getElementById("quantitytogive").innerHTML = quantity;
+	let hasItemToTrade = false;
 
 	for(let j = 0;j < myItems.length;j++)
 	{
@@ -6001,16 +6004,12 @@ function handleShopToGiveItems(shopTag, newOption)
 			let currentItem = itemToNegotiate[k];
 			if(item.innerHTML.includes(currentItem))
 			{
+				hasItemToTrade = true;
 				addItemsToGiveAwayList(itemsToNegotiate, item);
-				quantity = quantity - 1;
 			}
 		}
-		if(quantity ==  0)
-		{
-			break;
-		}
 	}
-	if(quantity == 0)
+	if(hasItemToTrade)
 	{
 		enableElement("GIVEAWAY");
 		document.getElementById("giveitem").removeAttribute("hidden");
@@ -6056,9 +6055,12 @@ function giveItem()
 	let optionToEnable = document.getElementById("optiontoenable").innerHTML;
 	let itemsToNegotiate = document.getElementById("itemstotradename");
 	let itemToGive = document.getElementById("itemtogive").innerHTML.split(":")[1].trim();
+	let quantityLeftToGive = document.getElementById("quantitytogive");
 	
 	if(itemToGive != null)
 	{
+		let quantityToGive = quantityLeftToGive.innerHTML;
+		quantityLeftToGive.innerHTML = parseInt(quantityToGive) - 1;
 		document.getElementById("trademessage").innerHTML = "Item given!";
 		let myItems = document.getElementById("listofitems");
 		
@@ -6083,7 +6085,7 @@ function giveItem()
 			}
 		}
 		
-		if(itemsToNegotiate.children.length == 0)
+		if(parseInt(quantityLeftToGive.innerHTML) == 0)
 			checkSpecialHandlingsAfterGivingItem(optionToEnable);
 	}
 }
