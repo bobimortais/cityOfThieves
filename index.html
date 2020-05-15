@@ -269,7 +269,7 @@
 					</tr>
 				</table>
 					<p id="itemtogive" hidden>Item to Give:</p>
-					<p id="optiontoenable"></p>
+					<p id="optiontoenable" hidden></p>
 					<p id="trademessage"><br></p>
 					<p id="itemprice">Price: </p>
 					<p id="shopgold">Your Gold: </p>
@@ -5327,6 +5327,8 @@ function loadNext(event)
 				let shopTag = tags[i + 1];
 				handleShopToGiveItems(shopTag, newOption);
 				i = i + 1;
+				newOption.id = "id" + tags[i + 1].split(":")[1].trim();
+				document.getElementById("optiontoenable").innerHTML = newOption.id;
 			}
 			if(tags[i + 1].includes("ACTION") || tags[i + 1].includes("DESTINATION"))
 			{
@@ -5987,18 +5989,21 @@ function handleShopToGiveItems(shopTag, newOption)
 {	
 	let itemsToNegotiate = document.getElementById("itemstotradename");
 	let myItems = document.getElementById("listofitems").children;
-	let itemToNegotiate = shopTag.split(":")[1].split(";")[1].trim();
+	let itemToNegotiate = shopTag.split(":")[1].split(";")[1].trim().split(",");
 	let quantity = shopTag.split(":")[1].split(";")[2].trim();
-	document.getElementById("optiontoenable").innerHTML = newOption.id;
-	
+
 	for(let j = 0;j < myItems.length;j++)
 	{
 		let item = myItems[j];
 		
-		if(item.innerHTML.includes(itemToNegotiate))
+		for(let k = 0; k < itemToNegotiate.length; k++)
 		{
-			addItemsToGiveAwayList(itemsToNegotiate, item);
-			quantity = quantity - 1;
+			let currentItem = itemToNegotiate[k];
+			if(item.innerHTML.includes(currentItem))
+			{
+				addItemsToGiveAwayList(itemsToNegotiate, item);
+				quantity = quantity - 1;
+			}
 		}
 		if(quantity ==  0)
 		{
@@ -6025,16 +6030,6 @@ function addItemsToGiveAwayList(itemsToNegotiate, item)
 	itemToTrade.innerHTML = item.innerHTML;
 	let itemToGive = document.getElementById("itemtogive");
 	
-	itemToTrade.onmouseover = function ()
-								{	
-									if(itemToGive.innerHTML == "Item to Give: ")
-										itemToGive.innerHTML = "Item to Give: " + itemToTrade.innerHTML;
-								};
-	itemToTrade.onmouseout = function()
-								{
-									if(itemToGive.innerHTML == "Item to Give: " + itemToTrade.innerHTML)
-										document.getElementById("itemprice").innerHTML = "Item to Give:";
-								};
 	itemToTrade.onclick = function()
 								{
 									if(this.getAttribute("selected") == null)
@@ -6060,9 +6055,7 @@ function giveItem()
 {
 	let optionToEnable = document.getElementById("optiontoenable").innerHTML;
 	let itemsToNegotiate = document.getElementById("itemstotradename");
-	let itemToGive = document.getElementById("itemtogive").innerHTML.split(":")[1];
-	
-	console.log("Item being give:" + document.getElementById("itemtogive").innerHTML);
+	let itemToGive = document.getElementById("itemtogive").innerHTML.split(":")[1].trim();
 	
 	if(itemToGive != null)
 	{
@@ -6072,8 +6065,7 @@ function giveItem()
 		for(let i = 0; i < myItems.children.length;i++)
 		{
 			let item = myItems.children[i];
-			
-			if(item.innerHTML.includes(itemToGive))
+			if(item.innerHTML == itemToGive)
 			{
 				myItems.removeChild(item);
 				break;
@@ -6084,14 +6076,13 @@ function giveItem()
 		{
 			let item = itemsToNegotiate.children[j];
 			
-			if(item.innerHTML.includes(itemToGive))
+			if(item.innerHTML == itemToGive)
 			{
 				itemsToNegotiate.removeChild(item);
 				break;
 			}
 		}
 		
-		console.log("Things left:" + itemsToNegotiate.children.length);
 		if(itemsToNegotiate.children.length == 0)
 			checkSpecialHandlingsAfterGivingItem(optionToEnable);
 	}
@@ -6104,7 +6095,6 @@ function checkSpecialHandlingsAfterGivingItem(optionToEnable)
 	for(let i = 0; i < options.children.length;i++)
 	{
 		let option = options.children[i];
-		
 		if(option.id  == optionToEnable)
 		{
 			option.removeAttribute("disabled");
