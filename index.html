@@ -3420,8 +3420,8 @@ TAG:CHOICE 2: Give him two magic items
 TAG:ITEM: HAS;Magic;2
 TAG:SHOP: GIVE;Magic;2
 TAG:ACTION 2: 85
-TAG:CHOICE 2: You cannot afford to pay the price 
-TAG:ACTION 2: 42
+TAG:CHOICE 3: You cannot afford to pay the price 
+TAG:ACTION 3: 42
 TAG:HISTORY You ask Ben Borryman if he has silver arrows for sale. He 
 replies that he does not, but will make one for you at a cost
 of 10 Gold Pieces or two magic items.
@@ -5319,6 +5319,12 @@ function loadNext(event)
 			i = values[0];
 			let textToAppend = values[1];
 			
+			if(tags[i + 1].includes("SHOP") && tags[i + 1].includes("GIVE"))
+			{
+				let shopTag = tags[i + 1];
+				handleShopToGiveItems(shopTag, newOption);
+				i = i + 1;
+			}
 			if(tags[i + 1].includes("ACTION") || tags[i + 1].includes("DESTINATION"))
 			{
 				newOption.id = "id" + tags[i + 1].split(":")[1].trim();
@@ -5340,11 +5346,6 @@ function loadNext(event)
 				
 				options.appendChild(newOption);
 				i = i + 1;
-			}
-			if(tags[i + 1].includes("SHOP") && tags[i + 1].includes("GIVE"))
-			{
-				let shopTag = tags[i + 1];
-				handleShopToGiveItems(shopTag, newOption);
 			}
 			
 			if(tag.includes("Ape Man") && !foughtApeMan)
@@ -5973,16 +5974,8 @@ function checkSpecialHandlingsAfterSell()
 }
 
 function handleShopToGiveItems(shopTag, newOption)
-{
-	enableElement("SHOP");
-	document.getElementById("giveitem").removeAttribute("hidden");
-	document.getElementById("itemtogive").removeAttribute("hidden");
-	document.getElementById("buyitem").setAttribute("hidden", true);
-	document.getElementById("sellitem").setAttribute("hidden", true);
-	document.getElementById("itemprice").setAttribute("hidden", true);
-	document.getElementById("shopgold").setAttribute("hidden", true);
+{	
 	let itemsToNegotiate = document.getElementById("itemstotradename");
-	
 	let myItems = document.getElementById("listofitems").children;
 	let itemToNegotiate = shopTag.split(":")[1].split(";")[1].trim();
 	let quantity = shopTag.split(":")[1].split(";")[2].trim();
@@ -5991,7 +5984,9 @@ function handleShopToGiveItems(shopTag, newOption)
 	{
 		let item = myItems[j];
 		
-		if(itemToNegotiate.includes(item.innerHTML))
+		console.log(item);
+		
+		if(item.innerHTML.includes(itemToNegotiate))
 		{
 			addItemsToGiveAwayList(itemsToNegotiate, item);
 			quantity = quantity - 1;
@@ -6000,6 +5995,21 @@ function handleShopToGiveItems(shopTag, newOption)
 		{
 			break;
 		}
+	}
+	
+	if(quantity == 0)
+	{
+		enableElement("SHOP");
+		document.getElementById("giveitem").removeAttribute("hidden");
+		document.getElementById("itemtogive").removeAttribute("hidden");
+		document.getElementById("buyitem").setAttribute("hidden", true);
+		document.getElementById("sellitem").setAttribute("hidden", true);
+		document.getElementById("itemprice").setAttribute("hidden", true);
+		document.getElementById("shopgold").setAttribute("hidden", true);
+	}
+	else
+	{
+		newOption.setAttribute("disabled", true);
 	}
 }
 
@@ -6036,7 +6046,6 @@ function addItemsToGiveAwayList(itemsToNegotiate, item)
 										this.removeAttribute("style");
 									}
 								}
-	itemstotradename.appendChild(itemToTrade);
 }
 
 function giveItem()
