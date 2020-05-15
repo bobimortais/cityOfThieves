@@ -192,7 +192,7 @@
 			<dialog id="initialdialog" style="text-align: left;">
 				<p style="font-family: Castellar;text-align:center;">Initial Attributes</p>
 				<label for="savename">Your Save Name</label><br>
-				<input type="text" id="savename"><br>
+				<input type="text" id="savename" oninput="enableNewGameButton(this)"><br>
 				<p id="fillsavenamemessage" style="color: red;size: 10;" hidden>*You need to fill you save name</p>
 				<label for="potions" style="margin-top: 10px;">Select One Potion</label><br>
 				<select id="potions">
@@ -6887,12 +6887,17 @@ function rollInitialAttributes(event)
 				document.getElementById("staminacurrent").innerHTML = initialStamina.innerHTML.split(":")[1].trim();
 				document.getElementById("luckinitial").innerHTML = rollValue + 6;
 				document.getElementById("luckcurrent").innerHTML = rollValue + 6;
-				document.getElementById("startgame").removeAttribute("disabled");
 				let selectedPotion = document.getElementById("potions").value;
 				document.getElementById("initialpotion").innerHTML = (document.getElementById(selectedPotion).innerHTML);
 				
 				if(document.getElementById("savename").value == "")
+				{
 					fillsavenamemessage.removeAttribute("hidden");
+				}
+				else
+				{
+					document.getElementById("startgame").removeAttribute("disabled");
+				}
 			}
 			clearInterval(id);
 		} 
@@ -7360,5 +7365,27 @@ function addEnemyToList(enemy,enemySkill,enemyStamina)
 	enemyRow.appendChild(enemyStaminaValue);
 	
 	enemyList.appendChild(enemyRow);
+}
+
+function enableNewGameButton(saveName)
+{
+	console.log(saveName);
+	if(saveName.value != "")
+	{
+		document.getElementById("fillsavenamemessage").setAttribute("hidden", true);
+		let skillFilled = document.getElementById("initialskillroll").innerHTML.split(":")[1].trim().length;
+		let staminaFilled = document.getElementById("initialstaminaroll").innerHTML.split(":")[1].trim().length;
+		let luckFilled = document.getElementById("initialluckroll").innerHTML.split(":")[1].trim().length;
+		
+		if(skillFilled > 0 && staminaFilled > 0 && luckFilled > 0)
+		{
+			document.getElementById("startgame").removeAttribute("disabled");
+		}
+	}
+	else 
+	{
+		document.getElementById("fillsavenamemessage").removeAttribute("hidden");
+		document.getElementById("startgame").setAttribute("disabled", true);
+	}
 }
 </script> 
