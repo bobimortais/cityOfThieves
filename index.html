@@ -1724,7 +1724,8 @@ The door has a 'Welcome' sign hanging from it.
 </p>
 <p id="h113" hidden>
 TAG:ID: 113
-TAG:CHOICE 1: If you wish to give them something from your backpack, make the necessary decuction from your Adventure Sheet 
+TAG:CHOICE 1: If you wish to give them something from your backpack, make the necessary decuction from your Adventure Sheet
+TAG:SHOP: GIVE;ANYTHING;1
 TAG:ACTION 1: 141
 TAG:CHOICE 2: If you would rather leave these strange old ladies and continue east
 TAG:ACTION 2: 375
@@ -6002,7 +6003,13 @@ function handleShopToGiveItems(shopTag, newOption)
 		for(let k = 0; k < itemToNegotiate.length; k++)
 		{
 			let currentItem = itemToNegotiate[k];
-			if(item.innerHTML.includes(currentItem))
+			
+			if(itemToNegotiate[k] == "ANYTHING")
+			{
+				hasItemToTrade = true;
+				addItemsToGiveAwayList(itemsToNegotiate, item);
+			}
+			else if(item.innerHTML.includes(currentItem))
 			{
 				hasItemToTrade = true;
 				addItemsToGiveAwayList(itemsToNegotiate, item);
