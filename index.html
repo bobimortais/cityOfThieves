@@ -189,25 +189,38 @@
 		</style>
 		<div class="gametop" height="200px" style="text-align:center">
 			<p class="title">City of Thieves</p>	
-			<dialog id="initialdialog" style="text-align: left;">
-				<p style="font-family: Castellar;text-align:center;">Initial Attributes</p>
-				<label for="savename">Your Save Name</label><br>
-				<input type="text" id="savename" oninput="enableNewGameButton(this)"><br>
-				<p id="fillsavenamemessage" style="color: red;size: 10;" hidden>*You need to fill you save name</p>
-				<label for="potions" style="margin-top: 10px;">Select One Potion</label><br>
-				<select id="potions">
-					<option value="potionskill" id="potionskill">Potion of Skill</option>
-					<option value="potionstrength" id="potionstrength">Potion of Strength</option>
-					<option value="potionfortune" id="potionfortune">Potion of Fortune</option>
-				</select>
-				<p id="initialskillroll">Your Initial Skill:</p>
-				<p id="initialstaminaroll">Your Initial Stamina:</p>
-				<p id="initialluckroll">Your Initial Luck:</p>
-				<p id="initialdicerollvalue">Dice Roll:</p>
-				<button id="initialdiceroll">Roll Dice</button>
-				<button id="startgame" disabled>Start Game</button>
-				<button id="closedialog">Close</button>
-			</dialog>
+			<div id="dialogs">
+				<dialog id="initialdialog" style="text-align: left;">
+					<p style="font-family: Castellar;text-align:center;">Initial Attributes</p>
+					<label for="savename">Your Save Name</label><br>
+					<input type="text" id="savename" oninput="enableNewGameButton(this)"><br>
+					<p id="fillsavenamemessage" style="color: red;size: 10;" hidden>*You need to fill you save name</p>
+					<label for="potions" style="margin-top: 10px;">Select One Potion</label><br>
+					<select id="potions">
+						<option value="potionskill" id="potionskill">Potion of Skill</option>
+						<option value="potionstrength" id="potionstrength">Potion of Strength</option>
+						<option value="potionfortune" id="potionfortune">Potion of Fortune</option>
+					</select>
+					<p id="initialskillroll">Your Initial Skill:</p>
+					<p id="initialstaminaroll">Your Initial Stamina:</p>
+					<p id="initialluckroll">Your Initial Luck:</p>
+					<p id="initialdicerollvalue">Dice Roll:</p>
+					<button id="initialdiceroll">Roll Dice</button>
+					<button id="startgame" disabled>Start Game</button>
+					<button id="closedialog">Close</button>
+				</dialog>
+				<dialog id="loadgamedialog">
+					<p style="font-family: Castellar;text-align:center;">Load Game</p>
+					<label for="savedgames" style="margin-top: 10px;">Chose saved game</label><br>
+					<select id="savedgames">
+						<option value="nosave" id="nosave"></option>
+					</select><br>
+					<button class="loadsave" id="loadsavedgame">Load Game</button>
+				</dialog>
+				<dialog id="savegamedialog">
+					<p>Game Saved!</p>
+				</dialog>
+			</div>
 			<button class="newgame" onclick="newGame()">New Game</button>
 			<button class="loadgame" onclick="loadGame()">Load Game</button>
 			<button class="savegame" onclick="saveGame()">Save Game</button>
@@ -5260,20 +5273,24 @@ The people of Silverton are joyous once again.
 <script> 
 var battleActive = false;
 var battleHit;
-var historyId = 1;
+var historyId = 0;
 var foughtApeMan = false;
 var arrowsHit = 0;
 var currentTestAndResult;
 var alreadyBeenAtt = ";"
+var loadedGame;
 
 function loadNext(event)
 { 
-	historyId = event.id.split("id")[1];
+	if(event != null)
+	{
+		historyId = event.id.split("id")[1];
+		checkEventAttributes(event);
+	}
 	var options = document.getElementById("options");
 	console.log("History ID " + historyId);
 	enableElement("NONE");
 	alreadyBeenAtt = alreadyBeenAtt + historyId + ";";	
-	checkEventAttributes(event);
 	
 	var child = options.lastElementChild;  
     while (child) { 
@@ -6800,8 +6817,7 @@ function newGame()
 	let startGame = document.getElementById("startgame");
 	startGame.addEventListener('click', function() 
 											{
-												dialog.close();
-												loadStart();
+												saveNewGameData(dialog);
 											});
 	let closeDialog = document.getElementById("closedialog");
 	closeDialog.addEventListener('click', function() 
@@ -6816,25 +6832,79 @@ function newGame()
 	dialog.showModal();
 }
 
+function saveNewGameData(dialog)
+{
+	loadedGame = document.getElementById("savename").value;
+	let savedGames = localStorage.getItem("savedGames");
+	if(savedGames == null)
+	{
+		localStorage.setItem("savedGames", ";" + loadedGame + ";");
+	}
+	historyId = 1;
+	saveGameData();
+	dialog.close();
+	
+	loadStart();
+}
+
 function loadGame()
 { 
-	let mySavedGame = localStorage.getItem("robsonsave");
-	let saveGame = JSON.parse(mySavedGame);
+	let dialog = document.getElementById('loadgamedialog');
+	let loadSavedGame = document.getElementById("loadsavedgame");
+	let savedGamesData = localStorage.getItem("savedGames");
 	
-	document.getElementById("skillinitial").innerHTML    = saveGame.skillinitial;
-	document.getElementById("skillcurrent").innerHTML    = saveGame.skillcurrent;
-	document.getElementById("staminainitial").innerHTML  = saveGame.staminainitial;
-	document.getElementById("staminacurrent").innerHTML  = saveGame.staminacurrent;
-	document.getElementById("luckinitial").innerHTML     = saveGame.luckinitial;
-	document.getElementById("luckcurrent").innerHTML     = saveGame.luckcurrent;
-	document.getElementById("goldtotal").innerHTML       = saveGame.goldtotal;
-	document.getElementById("provisionstotal").innerHTML = saveGame.provisionstotal;
-	historyId      = saveGame.historyId;
-	foughtApeMan   = saveGame.foughtApeMan;
-	arrowsHit      = saveGame.arrowsHit;
-	alreadyBeenAtt = saveGame.alreadyBeenAtt;
+	if(savedGamesData != null)
+	{	
+		let alredyExistingSaves = savedGamesData.split(";");
+		
+		for(let i = 0; i < alredyExistingSaves.length;i++)
+		{
+			let savedGames = document.getElementById("savedgames");			
+			let savedGame = document.createElement("option");
+			savedGame.value = alredyExistingSaves[i];
+			savedGame.id = alredyExistingSaves[i];
+			savedGame.innerHTML = alredyExistingSaves[i];
+			savedGames.appendChild(savedGame);
+		}
+	}
 	
-	console.log("Meu game salvo: " + mySavedGame);}
+	loadSavedGame.addEventListener("click", function()
+												{
+													fillSavedGameInputs(dialog);
+												}
+												);
+	
+	dialog.showModal();
+}
+
+function fillSavedGameInputs(dialog)
+{
+	let selectedOption = document.getElementById("savedgames").value;
+	
+	if(selectedOption != "nosave")
+	{
+		let mySavedGame = localStorage.getItem(selectedOption);
+		loadedGame = selectedOption;
+		let saveGame = JSON.parse(mySavedGame);
+		
+		document.getElementById("skillinitial").innerHTML    = saveGame.skillinitial;
+		document.getElementById("skillcurrent").innerHTML    = saveGame.skillcurrent;
+		document.getElementById("staminainitial").innerHTML  = saveGame.staminainitial;
+		document.getElementById("staminacurrent").innerHTML  = saveGame.staminacurrent;
+		document.getElementById("luckinitial").innerHTML     = saveGame.luckinitial;
+		document.getElementById("luckcurrent").innerHTML     = saveGame.luckcurrent;
+		document.getElementById("goldtotal").innerHTML       = saveGame.goldtotal;
+		document.getElementById("provisionstotal").innerHTML = saveGame.provisionstotal;
+		historyId      = saveGame.historyId;
+		foughtApeMan   = saveGame.foughtApeMan;
+		arrowsHit      = saveGame.arrowsHit;
+		alreadyBeenAtt = saveGame.alreadyBeenAtt;
+		console.log("History ID loaded: " + historyId);
+	}
+	
+	dialog.close();
+	loadNext();
+}
 
 function rollInitialAttributes(event)
 {
@@ -6921,6 +6991,21 @@ function rollInitialAttributes(event)
 
 function saveGame()
 {
+	if(historyId != 0)
+	{
+		saveGameData();
+		
+		let dialog = document.getElementById('savegamedialog');
+		dialog.showModal();
+		setTimeout(function ()
+					{ 
+						dialog.close();
+					}, 1000);
+	}
+}
+
+function saveGameData()
+{
 	let saveGame = 
 	{
 		"skillinitial"     :  document.getElementById("skillinitial").innerHTML,  
@@ -6937,8 +7022,15 @@ function saveGame()
 		"alreadyBeenAtt"   :  alreadyBeenAtt
 	};
 	
-	localStorage.setItem("robsonsave", JSON.stringify(saveGame));
-	console.log("Jogo salvo." + saveGame.skillinitial);
+	console.log("History ID saved: " + historyId);
+	
+	let savedGames = localStorage.getItem("savedGames");
+	if(!savedGames.includes(";" + loadedGame + ";"))
+	{
+		localStorage.setItem("savedGames", savedGames + ";" + loadedGame + ";");
+	}
+	
+	localStorage.setItem(loadedGame, JSON.stringify(saveGame));
 }
 
 function loadStart()
