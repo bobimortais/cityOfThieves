@@ -269,6 +269,7 @@
 					</tr>
 				</table>
 					<p id="itemtogive" hidden>Item to Give:</p>
+					<p id="optiontoenable"></p>
 					<p id="trademessage"><br></p>
 					<p id="itemprice">Price: </p>
 					<p id="shopgold">Your Gold: </p>
@@ -894,6 +895,8 @@ yourself.'
 <p id="h42" hidden>
 TAG:ID: 42
 TAG:CHOICE 1: Outside you set off east again
+TAG:ITEM: ADD;Silver Arrow;1
+TAG:FOOD: DECREASE;ALL
 TAG:ACTION 1: 100
 TAG:HISTORY You tell the man that cannot pay the price he is asking. He 
 shrugs his shoulders and says,'Well, do you have any food?' 
@@ -5629,9 +5632,16 @@ function checkEventAttributes(event)
 		}
 		else
 		{
-			if(parseInt(foodValue.innerHTML) > 0)
+			if(value = "ALL")
 			{
-				foodValue.innerHTML = parseInt(foodValue.innerHTML) - value;
+				foodValue.innerHTML = 0;
+			}
+			else
+			{
+				if(parseInt(foodValue.innerHTML) > 0)
+				{
+					foodValue.innerHTML = parseInt(foodValue.innerHTML) - value;
+				}
 			}
 		}
 	}
@@ -5979,6 +5989,7 @@ function handleShopToGiveItems(shopTag, newOption)
 	let myItems = document.getElementById("listofitems").children;
 	let itemToNegotiate = shopTag.split(":")[1].split(";")[1].trim();
 	let quantity = shopTag.split(":")[1].split(";")[2].trim();
+	document.getElementById("optiontoenable").innerHTML = newOption.id;
 	
 	for(let j = 0;j < myItems.length;j++)
 	{
@@ -6050,11 +6061,15 @@ function addItemsToGiveAwayList(itemsToNegotiate, item)
 
 function giveItem()
 {
+	let optionToEnable = document.getElementById("optiontoenable").innerHTML;
+	let itemsToNegotiate = document.getElementById("itemstotradename");
 	let itemToGive = document.getElementById("itemtogive").innerHTML.split(":")[1];
 	if(itemToGive != null)
 	{
 		document.getElementById("trademessage").innerHTML = "Item given!";
 		let myItems = document.getElementById("listofitems");
+		
+		itemsToNegotiate
 		
 		for(let i = 0; i < myItems.children.length;i++)
 		{
@@ -6066,13 +6081,36 @@ function giveItem()
 				break;
 			}
 		}
-		checkSpecialHandlingsAfterGivingItem();
+		
+		for(let j = 0; j < itemsToNegotiate.children.length;j++)
+		{
+			let item = itemsToNegotiate.children[j];
+			
+			if(item.innerHTML.includes(itemToGive))
+			{
+				itemsToNegotiate.removeChild(item);
+				break;
+			}
+		}
+		
+		if(itemsToNegotiate.children.length == 0)
+			checkSpecialHandlingsAfterGivingItem(optionToEnable);
 	}
 }
 
-function checkSpecialHandlingsAfterGivingItem()
+function checkSpecialHandlingsAfterGivingItem(optionToEnable)
 {
 	let options = document.getElementById("options");
+	
+	for(let i = 0; i < options.children.length;i++)
+	{
+		let option = options.children[i];
+		
+		if(option.id  == optionToEnable)
+		{
+			option.removeAttribute("disabled");
+		}
+	}
 }
 
 function loadMinigame(tags, i)
