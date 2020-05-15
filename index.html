@@ -5288,15 +5288,10 @@ function loadNext(event)
 		checkEventAttributes(event);
 	}
 	var options = document.getElementById("options");
+	removeElementChildren(options);
 	console.log("History ID " + historyId);
 	enableElement("NONE");
 	alreadyBeenAtt = alreadyBeenAtt + historyId + ";";	
-	
-	var child = options.lastElementChild;  
-    while (child) { 
-        options.removeChild(child); 
-        child = options.lastElementChild; 
-    } 
 	
 	if(historyId == "52" || historyId == "354" || historyId == "201")
 		document.getElementById('narrative').innerHTML = String(document.getElementById("h" + historyId).innerHTML).split("TAG:HISTORY")[1];
@@ -5918,7 +5913,6 @@ function buyItem()
 	{
 		let itemPrice = parseInt(document.getElementById("itemprice").innerHTML.split(":")[1].trim());
 		let yourGold = parseInt(document.getElementById("shopgold").innerHTML.split(":")[1].trim());
-	
 		
 		if(itemPrice > yourGold)
 		{
@@ -6075,12 +6069,7 @@ function checkSpecialHandlingsAfterGivingItem()
 function loadMinigame(tags, i)
 {
 	let adversaryDices = document.getElementById("adversarydices");
-	
-	var child = adversaryDices.lastElementChild;  
-    while (child) { 
-        adversaryDices.removeChild(child); 
-        child = adversaryDices.lastElementChild; 
-    }
+	removeElementChildren(adversaryDices);
 	
 	for(let j = 3;j < tags.length;j++)
 	{
@@ -6423,6 +6412,10 @@ function rollTestDice()
 						document.getElementById("test").setAttribute("style", "border-width: thin;border-color: black");
 						handleOptionToEnableForDoubleTest(currentTestAndResult);
 					}
+					else
+					{
+						document.getElementById("testdices").removeAttribute("disabled");
+					}
 				}
 			}
 			else
@@ -6519,22 +6512,26 @@ function handleOptionToEnableForDoubleTest(currentTestAndResult)
 		fails = 1;
 	}
 	
+	console.log("Fails:" + fails);
+	
 	for(let i = 0; i < buttonOptions.length; i++)
 	{
 		let option = buttonOptions[i];
-		option.removeAttribute("disabled");	
 		
-		if(option.id = "id340" && fails == 0)
+		if(option.id == "id340" && fails == 0)
 		{
 			option.removeAttribute("disabled");	
+			break;
 		}
-		else if(option.id = "id149" && fails == 1)
+		else if(option.id == "id149" && fails == 1)
 		{
 			option.removeAttribute("disabled");	
+			break;
 		}
-		else
+		else if(option.id == "id19" && fails == 2)
 		{
 			option.removeAttribute("disabled");	
+			break;
 		}
 	}
 }
@@ -7385,11 +7382,7 @@ function rollDiceForTest()
 				{
 					document.getElementById('narrative').innerHTML = "YOU DIED!";
 					var options = document.getElementById("options");
-					var child = options.lastElementChild;  
-					while (child) { 
-						options.removeChild(child); 
-						child = options.lastElementChild; 
-					} 
+					removeElementChildren(options);
 					enableElement("NONE");
 				}
 			}
