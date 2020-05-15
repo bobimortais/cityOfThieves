@@ -5,13 +5,13 @@ ACTION 1: 141
 CHOICE 2: If you would rather leave these strange old ladies and continue east
 ACTION 2: 375
 HISTORY
-You enter the house and find yourself standing ina room full 
+You enter the house and find yourself standing in a room full 
 of toys. But they are not ordinary toys. These are stuffed 
 creatures with nails through their heads, dolls' houses that 
 are made to look as if they are on fire, and many other 
 unpleasant objects. In the middle of the room stand two old 
-women dressed as thOL1gh they were little girls. They are 
-squatbling over a carved wooden duck. Each looks eager to 
+women dressed as though they were little girls. They are 
+squabbling over a carved wooden duck. Each looks eager to 
 destroy the duck with the knives they are holding. On seeing 
 you the women both start to shout, 'Give us toys! Give us 
 toys!'

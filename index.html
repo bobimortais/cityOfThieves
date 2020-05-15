@@ -213,7 +213,7 @@
 					<p style="font-family: Castellar;text-align:center;">Load Game</p>
 					<label for="savedgames" style="margin-top: 10px;">Chose saved game</label><br>
 					<select id="savedgames">
-						<option value="nosave" id="nosave"></option>
+						<option value="nosave" id="nosave">No games saved</option>
 					</select><br>
 					<button class="loadsave" id="loadsavedgame">Load Game</button>
 				</dialog>
@@ -1724,13 +1724,13 @@ TAG:CHOICE 1: If you wish to give them something from your backpack, make the ne
 TAG:ACTION 1: 141
 TAG:CHOICE 2: If you would rather leave these strange old ladies and continue east
 TAG:ACTION 2: 375
-TAG:HISTORY You enter the house and find yourself standing ina room full 
+TAG:HISTORY You enter the house and find yourself standing in a room full 
 of toys. But they are not ordinary toys. These are stuffed 
 creatures with nails through their heads, dolls' houses that 
 are made to look as if they are on fire, and many other 
 unpleasant objects. In the middle of the room stand two old 
-women dressed as thOL1gh they were little girls. They are 
-squatbling over a carved wooden duck. Each looks eager to 
+women dressed as though they were little girls. They are 
+squabbling over a carved wooden duck. Each looks eager to 
 destroy the duck with the knives they are holding. On seeing 
 you the women both start to shout, 'Give us toys! Give us 
 toys!'
@@ -6848,14 +6848,21 @@ function loadGame()
 	let dialog = document.getElementById('loadgamedialog');
 	let loadSavedGame = document.getElementById("loadsavedgame");
 	let savedGamesData = localStorage.getItem("savedGames");
+	let savedGames = document.getElementById("savedgames");	
+	removeElementChildren(savedGames);
+
+	let noSaveOption = document.createElement("option");
+	noSaveOption.value = "nosave";
+	noSaveOption.id = "nosave";
+	noSaveOption.innerHTML = "Select a saved game";
+	savedGames.appendChild(noSaveOption);
 	
 	if(savedGamesData != null)
 	{	
 		let alredyExistingSaves = savedGamesData.split(";");
 		
-		for(let i = 0; i < alredyExistingSaves.length;i++)
+		for(let i = 1; i < alredyExistingSaves.length - 1;i++)
 		{
-			let savedGames = document.getElementById("savedgames");			
 			let savedGame = document.createElement("option");
 			savedGame.value = alredyExistingSaves[i];
 			savedGame.id = alredyExistingSaves[i];
@@ -6891,6 +6898,7 @@ function fillSavedGameInputs(dialog)
 		document.getElementById("luckcurrent").innerHTML     = saveGame.luckcurrent;
 		document.getElementById("goldtotal").innerHTML       = saveGame.goldtotal;
 		document.getElementById("provisionstotal").innerHTML = saveGame.provisionstotal;
+		document.getElementById("initialpotion").innerHTML   = saveGame.initialpotion;
 		historyId      = saveGame.historyId;
 		foughtApeMan   = saveGame.foughtApeMan;
 		arrowsHit      = saveGame.arrowsHit;
@@ -6898,10 +6906,10 @@ function fillSavedGameInputs(dialog)
 		
 		let itemsList = saveGame.listofitems;
 		let listOfItem = document.getElementById("listofitems");
+		removeElementChildren(listOfItem);
 		
 		for(let i = 0; i < itemsList.length; i++)
 		{
-			console.log("Item carregado: " + itemsList[i]);
 			let currentItem = document.createElement("li");
 			currentItem.innerHTML = itemsList[i];
 			listOfItem.appendChild(currentItem);
@@ -7042,7 +7050,7 @@ function saveGameData()
 	let savedGames = localStorage.getItem("savedGames");
 	if(!savedGames.includes(";" + loadedGame + ";"))
 	{
-		localStorage.setItem("savedGames", savedGames + ";" + loadedGame + ";");
+		localStorage.setItem("savedGames", savedGames + loadedGame + ";");
 	}
 	
 	localStorage.setItem(loadedGame, JSON.stringify(saveGame));
@@ -7490,5 +7498,14 @@ function enableNewGameButton(saveName)
 		document.getElementById("fillsavenamemessage").removeAttribute("hidden");
 		document.getElementById("startgame").setAttribute("disabled", true);
 	}
+}
+
+function removeElementChildren(element)
+{
+	var child = element.lastElementChild;  
+    while (child) { 
+        element.removeChild(child); 
+        child = element.lastElementChild; 
+    } 
 }
 </script> 
