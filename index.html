@@ -1160,7 +1160,7 @@ the customers are human. Will you:
 <p id="h63" hidden>
 TAG:ID: 63
 TAG:MONEY: DECREASE;5
-TAG:ITEM: DECREASE;2
+TAG:ITEM: DECREASE;RAMDOM;2
 TAG:CHOICE 1: Outside you head east again
 TAG:ACTION 1: 280
 TAG:HISTORY The Elf leads you into a room lit by purple candles, which 
@@ -1878,6 +1878,7 @@ undead will suffer if they use it. Lose 1 SKILL point.
 TAG:ID: 126
 TAG:STATUS 1: STAMINA;INCREASE;2;ARROW
 TAG:STATUS 2: SKILL;DECREASE;1
+TAG:ITEM: DECREASE;Broad Sword;1
 TAG:CHOICE 1: You leave the house and head north
 TAG:ACTION 1: 112
 TAG:HISTORY The little girl grabs hold of your arm and leads into a back
@@ -2751,6 +2752,8 @@ standing outside the door. Will you:
 <p id="h198" hidden>
 TAG:ID: 198
 TAG:CHOICE 1: You take your findings and leave the tavern to head north.
+TAG:MONEY: INCREASE;9
+TAG:ITEM: ADD;Ivory Skull Collar;1
 TAG:ACTION 1: 296
 TAG:HISTORY You look around at the rest of the crowd but they remain 
 seated out of respect for your swordsmanship. You search 
@@ -3538,10 +3541,10 @@ TAG:HISTORY If you are wearing the Ring Of the Golden Eye
 <p id="h258" hidden>
 TAG:ID: 258
 TAG:CHOICE 1: If you are wearing an ivory skull around your neck
-TAG:ITEM: HAS;Ivory Skull;1
+TAG:ITEM: HAS;Ivory Skull Collar;1
 TAG:ACTION 1: 318
 TAG:CHOICE 2: If you do not have this item
-TAG:ITEM: HASNT;Ivory Skull;1
+TAG:ITEM: HASNT;Ivory Skull Collar;1
 TAG:ACTION 2: 47
 TAG:HISTORY Stepping over the Fire Imp, you walk back to the stairs to see
 if its master is still in the house. You descend the stairs 
@@ -5775,12 +5778,27 @@ function handleSpecialTags(tag)
 			{
 				for(let i = 0; i < itemList.children.length; i++)
 				{
-					let item = itemList.children[i];
+					let myItem = itemList.children[i];
 					
-					if(item.includes(item))
+					if(myItem.includes(item))
 					{
-						itemList.removeChild(item);
+						itemList.removeChild(myItem);
 					}
+				}
+			}
+			else if(item == "RAMDOM")
+			{
+				let quantityItems = itemList.children.length;
+				let itemToRemove = parseInt(quantity);
+				
+				while(itemToRemove > 0)
+				{
+					let randomItemIndex = Math.floor(Math.random() * (quantityItems - 1)) + 1;
+					itemList.removeChild(itemList.children[randomItemIndex]);
+					itemToRemove = itemToRemove - 1;
+					
+					if(itemList.children.length == 0)
+						break;
 				}
 			}
 			else
@@ -5788,11 +5806,11 @@ function handleSpecialTags(tag)
 				let itemToRemove = parseInt(quantity);
 				for(let i = 0; i < itemList.children.length; i++)
 				{
-					let item = itemList.children[i];
+					let myItem = itemList.children[i];
 					
-					if(item.innerHTML.includes(item))
+					if(myItem.innerHTML.includes(item))
 					{
-						itemList.removeChild(item);
+						itemList.removeChild(myItem);
 						itemToRemove = itemToRemove - 1;
 						
 						if(itemToRemove == 0)
@@ -6659,8 +6677,20 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 		{
 			enemyStamina = 0; 
 			enemy.children[2].innerHTML = enemyStamina;
-			enemy.style.opacity = '0';
-			setTimeout(removeEnemy, 1000);
+			enemy.style.opacity = 1;
+			var id = setInterval(fadeEnemy, 500);
+			
+			function fadeEnemy()
+			{
+				if(parseInt(enemy.style.opacity) <= 0)
+				{
+					clearInterval(id);
+					setTimeout(removeEnemy, 1000);
+				}
+				let enemyOpacity = parseInt(enemy.style.opacity);
+				enemy.style.opacity = enemyOpacity - 0.5;
+				console.log("Enemy opacity: " + enemyOpacity);
+			}
 		}
 		else
 		{
