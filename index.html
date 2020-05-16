@@ -359,6 +359,7 @@
 						<td>
 							<ul id="listofitems" class="listofitems">
 								<li>Broad Sword</li>
+								<li>Leather Armour</li>
 							</ul>
 						</td>
 					</tr>
@@ -1743,6 +1744,7 @@ toys!'
 <p id="h114" hidden>
 TAG:ID: 114
 TAG:CHOICE 1: Take what will and leave the shop to continue west
+TAG:MONEY: INCREASE;13
 TAG:ACTION 1: 196
 TAG:HISTORY There are three bejewelled rings under the counter and 13 Gold 
 Pieces in a drawer.
@@ -1868,6 +1870,7 @@ TAG:HISTORY A narrow alleyway runs south off the street between two houses.
 </p>
 <p id="h125" hidden>
 TAG:ID: 125
+TAG:ITEM: ADD;Tower Crest Shield;1
 TAG:STATUS: SKILL;DECREASE;1
 TAG:CHOICE 1: Unable to rid yourself of this handicap, you walk over to the spiral staircase and climb up it
 TAG:ACTION 1: 21
@@ -2438,6 +2441,8 @@ you can see.
 </p>
 <p id="h172" hidden>
 TAG:ID: 172
+TAG:ITEM: DECREASE;Flower;1
+TAG:MONEY: INCREASE;2
 TAG:CHOICE 1: Outside you set off north along Stable Street.
 TAG:ACTION 1: 333
 TAG:HISTORY You take the bunch of flowers out of your backpack and hand it
@@ -2614,6 +2619,7 @@ scorpion brooch made of copper.
 <p id="h187" hidden>
 TAG:ID: 187
 TAG:CHOICE 1: If you wish to give them one of the items they require
+TAG:SHOP: GIVE;Magic,Potion;1
 TAG:ACTION 1: 260
 TAG:CHOICE 2: If you do not have any of the items that the guards require
 TAG:ACTION 2: 341
@@ -2925,7 +2931,19 @@ fight the DEATH HAWKS.Fight them one at a time.
 </p>
 <p id="h208" hidden>
 TAG:ID: 208
-TAG:CHOICE 1: Take what you wish and head east again along Clog Street.
+TAG:CHOICE 1: Take only the gold and head east again along Clog Street.
+TAG:MONEY: INCREASE;2
+TAG:ACTION 1: 317
+TAG:CHOICE 1: Take only the items and head east again along Clog Street.
+TAG:ITEM: ADD;Garlic;1
+TAG:ITEM: ADD;Knucklebones;1
+TAG:ACTION 1: 317
+TAG:CHOICE 1: Take the gold and the items and head east again along Clog Street.
+TAG:MONEY: INCREASE;2
+TAG:ITEM: ADD;Garlic;1
+TAG:ITEM: ADD;Knucklebones;1
+TAG:ACTION 1: 317
+TAG:CHOICE 1: Take nothing and head east again along Clog Street.
 TAG:ACTION 1: 317
 TAG:HISTORY The Goblin's pockets contain 2 Gold Pieces, a clove of garlic
 and some old knucklebones.
@@ -3062,6 +3080,9 @@ folk who have been attending the spice sales in Pepper Street?'
 <p id="h220" hidden>
 TAG:ID: 220
 TAG:CHOICE 1: You find nothing else of interest in the shop, so you walk outside and continue east.
+TAG:ITEM: ADD;Silver Goblet;2
+TAG:ITEM: ADD;Silver Chalice;1
+TAG:ITEM: ADD;Silver Spoon;1
 TAG:ACTION 1: 100
 TAG:HISTORY The key fits the lock securing the grill enclosing the glass 
 cupboard. It clicks open and you are able to take any of the 
@@ -4876,6 +4897,8 @@ barrels and gradually the coughing subsides.
 </p>
 <p id="h367" hidden>
 TAG:ID: 367
+TAG:MONEY: DECREASE;ALL
+TAG:MONEY: INCREASE;1
 TAG:CHOICE 1: If you have
 TAG:ITEM: HAS;Lotus Flower;1
 TAG:ITEM: HAS;Hag's Hair;1
@@ -4974,6 +4997,7 @@ you may (if you have not done so  already)
 </p>
 <p id="h374" hidden>
 TAG:ID: 374
+TAG:ITEM: ADD;Unicorn Crest Shield;1
 TAG:STATUS: SKILL;INCREASE;1
 TAG:DESTINATION: 21
 TAG:HISTORY The shield was taken from a goodly knight who died at the hand 
@@ -5946,6 +5970,7 @@ function buyItem()
 	{
 		let itemPrice = parseInt(document.getElementById("itemprice").innerHTML.split(":")[1].trim());
 		let yourGold = parseInt(document.getElementById("shopgold").innerHTML.split(":")[1].trim());
+		let itemName = document.getElementById("itemprice").getAttribute("itemname");
 		
 		if(itemPrice > yourGold)
 		{
@@ -5958,10 +5983,31 @@ function buyItem()
 			document.getElementById("shopgold").innerHTML = "Your Gold: " + newGoldValue;
 			document.getElementById("goldtotal").innerHTML = newGoldValue;
 			
-			let listOfItem = document.getElementById("listofitems");
-			let newItem = document.createElement("li");
-			newItem.innerHTML = document.getElementById("itemprice").getAttribute("itemname");
-			listOfItem.appendChild(newItem);
+			if(itemName != "Hot Food")
+			{
+				let listOfItem = document.getElementById("listofitems");
+				let newItem = document.createElement("li");
+				newItem.innerHTML = itemName;
+				listOfItem.appendChild(newItem);
+			}
+			else
+			{
+				let value = 2;
+				let staminaCurrent = document.getElementById("staminacurrent");
+				let staminaInitial = document.getElementById("staminainitial");
+				if(parseInt(staminaCurrent.innerHTML) < parseInt(staminaInitial.innerHTML))
+				{
+					if(parseInt(staminaCurrent.innerHTML) + value <= parseInt(staminaInitial.innerHTML))
+					{
+						staminaCurrent.innerHTML = parseInt(staminaCurrent.innerHTML) + value;
+					}
+					else
+					{
+						staminaCurrent.innerHTML = staminaInitial.innerHTML;
+					}
+				}	
+				document.getElementById("trademessage").innerHTML = "You ate some Hot Food! STAMINA +2";
+			}
 		}
 	}
 }
@@ -6013,6 +6059,14 @@ function handleShopToGiveItems(shopTag, newOption)
 	let quantity = shopTag.split(":")[1].split(";")[2].trim();
 	document.getElementById("quantitytogive").innerHTML = quantity;
 	let hasItemToTrade = false;
+	
+	for(let k = 0; k < itemToNegotiate.length; k++)
+	{
+		if(itemToNegotiate[k].includes("Potion") && document.getElementById("initialpotion").innerHTML.includes("Potion"))
+		{
+			addItemsToGiveAwayList(itemsToNegotiate, document.getElementById("initialpotion"));
+		}
+	}
 
 	for(let j = 0;j < myItems.length;j++)
 	{
@@ -6089,16 +6143,6 @@ function giveItem()
 		document.getElementById("trademessage").innerHTML = "Item given!";
 		let myItems = document.getElementById("listofitems");
 		
-		for(let i = 0; i < myItems.children.length;i++)
-		{
-			let item = myItems.children[i];
-			if(item.innerHTML == itemToGive)
-			{
-				myItems.removeChild(item);
-				break;
-			}
-		}
-		
 		for(let j = 0; j < itemsToNegotiate.children.length;j++)
 		{
 			let item = itemsToNegotiate.children[j];
@@ -6107,6 +6151,23 @@ function giveItem()
 			{
 				itemsToNegotiate.removeChild(item);
 				break;
+			}
+		}
+		
+		if(itemToGive == document.getElementById("initialpotion").innerHTML)
+		{
+			document.getElementById("initialpotion").innerHTML = "<br>";
+		}
+		else
+		{
+			for(let i = 0; i < myItems.children.length;i++)
+			{
+				let item = myItems.children[i];
+				if(item.innerHTML == itemToGive)
+				{
+					myItems.removeChild(item);
+					break;
+				}
 			}
 		}
 		
@@ -6660,6 +6721,20 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 	enemyDamage = enemyDamage + enemySkill;
 	yourDamage = yourDamage + skillCurrent;
 	
+	let yourItems = document.getElementById("listofitems").children;
+		
+	for(let i = 0; i < yourItems.length;i++)
+	{
+		let item = yourItems[i];
+		
+		if(item.innerHTML == "Helmet")
+		{
+			document.getElementById("staminacurrent").innerHTML = staminaCurrent + 1;
+			yourDamage = yourDamage + 1;
+			break;
+		}
+	}
+	
 	let computing = document.getElementById("attackresult");
 	document.getElementById("enemyattack").innerHTML = "Enemy Attack: " + enemyDamage;
 	document.getElementById("yourattack").innerHTML = "Your Attack: " + yourDamage;
@@ -6782,6 +6857,18 @@ function checkEndOfBattle(enemies, staminaCurrent)
 	}
 	else if(enemies != null && enemies.rows.length == 1)
 	{
+		let yourItems = document.getElementById("listofitems").children;
+		
+		for(let i = 0; i < yourItems.length;i++)
+		{
+			let item = yourItems[i];
+			
+			if(item.innerHTML == "Silver Scorpion Brooch" || item.innerHTML == "Silver Brooch")
+			{
+				document.getElementById("staminacurrent").innerHTML = staminaCurrent + 1;
+			}
+		}
+		
 		document.getElementById("battle").setAttribute("disabled", true);
 		document.getElementById("battle").setAttribute("style", "border-width: thin;border-color: black");
 		checkOptionsToEnable();

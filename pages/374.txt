@@ -1,5 +1,6 @@
 <p id="h374" hidden>
 ID: 374
+ITEM: ADD;Unicorn Crest Shield;1
 STATUS: SKILL;INCREASE;1
 DESTINATION: 21
 HISTORY

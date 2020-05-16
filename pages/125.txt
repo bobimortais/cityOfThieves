@@ -1,5 +1,6 @@
 <p id="h125" hidden>
 ID: 125
+ITEM: ADD;Tower Crest Shield;1
 STATUS: SKILL;DECREASE;1
 CHOICE 1: Unable to rid yourself of this handicap, you walk over to the spiral staircase and climb up it
 DESTINATION: 21
