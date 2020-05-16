@@ -6301,14 +6301,11 @@ function battle(tags,options)
 				let tagValue = tags[i + 1].split(":")[1].trim();
 				let condition = tagValue.split(";")[0];
 				let value = tagValue.split(";")[1];
+				var escapeCondition = document.createAttribute("escape");
+				escapeCondition.value = condition + ":" + value;
+				newOption.setAttributeNode(escapeCondition); 
 				
-				if(condition != "ALWAYS")
-				{
-					var escapeCondition = document.createAttribute("escape");
-					escapeCondition.value = condition + ":" + value;
-					newOption.setAttributeNode(escapeCondition); 
-				}
-				else
+				if(condition == "ALWAYS")
 				{
 					newOption.removeAttribute("disabled");
 				}
