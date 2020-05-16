@@ -6794,6 +6794,9 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 			staminaCurrent = staminaCurrent - 2;
 		}
 
+		if(staminaCurrent < 0)
+			stamina = 0;
+
 		document.getElementById("staminacurrent").innerHTML = staminaCurrent;
 		document.getElementById("yourstamina").innerHTML = "Your Stamina: " + staminaCurrent;
 		checkEndOfBattle(null, staminaCurrent);
@@ -7172,7 +7175,7 @@ function rollInitialAttributes(event)
 
 function saveGame()
 {
-	if(historyId != 0)
+	if(historyId != 0 && !battleActive)
 	{
 		saveGameData();
 		
