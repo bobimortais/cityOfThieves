@@ -4542,6 +4542,7 @@ will meet his master at breakfast.
 <p id="h340" hidden>
 TAG:ID: 340
 TAG:STATUS 1: LUCK;INCREASE;1
+TAG:ITEM: ADD;Magnificent Shield;1
 TAG:MONEY: INCREASE;25
 TAG:CHOICE 1: You may now either climb the stairs to the floor above
 TAG:ACTION 1: 60
@@ -5323,6 +5324,16 @@ function loadNext(event)
 { 
 	if(event != null)
 	{
+		if(event.getAttribute("escape") != null)
+		{
+			let staminaCurrent = parseInt(document.getElementById("staminacurrent").innerHTML);
+			document.getElementById("staminacurrent").innerHTML = staminaCurrent - 2;
+			checkEndOfBattle(null, staminaCurrent);
+			document.getElementById("battle").setAttribute("disabled", true);
+			document.getElementById("battle").setAttribute("style", "border-width: thin;border-color: black");
+			battleActive = false;
+			enableElement("NONE");
+		}
 		historyId = event.id.split("id")[1];
 		checkEventAttributes(event);
 	}
@@ -6719,8 +6730,20 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 		{
 			document.getElementById("staminacurrent").innerHTML = staminaCurrent + 1;
 			yourDamage = yourDamage + 1;
-			break;
 		}
+		else if(item.innerHTML == "Magnificent Shield")
+		{
+			yourDamage = yourDamage + 1;
+		}
+	}
+	
+	if(historyId == "152")
+	{
+		yourDamage = yourDamage - 2;
+	}
+	else if(historyId == "157")
+	{
+		yourDamage = yourDamage - 3;
 	}
 	
 	let computing = document.getElementById("attackresult");
@@ -6781,6 +6804,9 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 		{
 			staminaCurrent = staminaCurrent - 2;
 		}
+		
+		if(historyId == "323")
+			staminaCurrent = staminaCurrent - 3;
 
 		if(staminaCurrent < 0)
 			stamina = 0;
