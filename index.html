@@ -1710,7 +1710,7 @@ finding more guards.
 </p>
 <p id="h111" hidden>
 TAG:ID: 111
-TAG:STATUS 1; LUCK;INCREASE;2
+TAG:STATUS 1: LUCK;INCREASE;2
 TAG:CHOICE 1: open the other door if you have not done so already
 TAG:ACTION 1: 232
 TAG:CHOICE 2: or leave the ship and continue your search of Port Blacksand, walking north up Harbour  Street
@@ -6916,8 +6916,8 @@ function checkEnableEscape()
 		
 		if(option.getAttribute("escape") != null)
 		{
-			let condition = document.getElementById("escape").innerHTML.split(":")[0].trim();
-			let value = document.getElementById("escape").innerHTML.split(":")[1].trim();
+			let condition = option.getAttribute("escape").split(":")[0].trim();
+			let value = option.getAttribute("escape").split(":")[1].trim();
 			
 			if(condition == "ROUND")
 			{
