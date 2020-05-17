@@ -807,6 +807,7 @@ four horses as though his life depended on it.
 </p>
 <p id="h35" hidden>
 TAG:ID: 35
+TAG:STATUS 1: STAMINA;DECREASE;2
 TAG:CHOICE 1: Fire the silver arrow at him
 TAG:ITEM 1: HAS;Silver Arrow;1
 TAG:ACTION 1: 189
@@ -964,6 +965,7 @@ Add 2 SKILL points.
 </p>
 <p id="h47" hidden>
 TAG:ID: 47
+TAG:STATUS: STAMINA;DECREASE;3
 TAG:TEST: SKILL
 TAG:SUCCESS: If the number rolled is less than or equal to your SKILL score, the sword pierces the chest of the man and kills him.
 TAG:DESTINATION: 313
@@ -1339,6 +1341,8 @@ metres before arriving at a junction.
 </p>
 <p id="h79" hidden>
 TAG:ID: 79
+TAG:STATUS 1: STAMINA;DECREASE;1
+TAG:STATUS 2: SKILL;DECREASE;1
 TAG:FIGHT
 TAG:ENEMY 1: SERPENT QUEEN;SKILL 9;STAMINA 7
 TAG:DESTINATION: 295
@@ -1457,6 +1461,8 @@ stairs leading down to the lower decks.
 </p>
 <p id="h88" hidden>
 TAG:ID: 88
+TAG:STATUS 1: STAMINA;DECREASE;4
+TAG:STATUS 2: SKILL;DECREASE;1
 TAG:FIGHT
 TAG:ENEMY 1: SERPENT QUEEN;SKILL 8;STAMINA 5
 TAG:CHOICE 1: If you win
@@ -1704,6 +1710,7 @@ finding more guards.
 </p>
 <p id="h111" hidden>
 TAG:ID: 111
+TAG:STATUS 1; LUCK;INCREASE;2
 TAG:CHOICE 1: open the other door if you have not done so already
 TAG:ACTION 1: 232
 TAG:CHOICE 2: or leave the ship and continue your search of Port Blacksand, walking north up Harbour  Street
@@ -4291,9 +4298,6 @@ TAG:ENEMY 1: BLACKSMITH;SKILL 9;STAMINA 9
 TAG:DAMAGE: STAMINA;DECREASE;3
 TAG:CHOICE 1: If you win
 TAG:ACTION 1: 395
-TAG:CHOICE 2: You may Escape by running out of the shop and west along the street.
-TAG:ESCAPE: ALWAYS;
-TAG:ACTION 2: 196
 TAG:HISTORY The blacksmith looks surprised at your unprovoked aggression 
 and pulls another red-hot iron bar from the fire with his 
 gloved hand. He is very angry and lunges at you with the bar.
@@ -4983,6 +4987,8 @@ into it.
 </p>
 <p id="h373" hidden>
 TAG:ID: 373
+TAG:STATUS 1: STAMINA;DECREASE;4
+TAG:STATUS 2: SKILL;DECREASE;1
 TAG:CHOICE 1: lift goblet B
 TAG:ACTION 1: 209
 TAG:CHOICE 2: or goblet C 
@@ -5054,6 +5060,7 @@ Pieces. After finishing the game you walk on a bit further.
 </p>
 <p id="h379" hidden>
 TAG:ID: 379
+TAG:STATUS 1: STAMINA;DECREASE;2
 TAG:CHOICE 1: If you wish to open the door in front of you
 TAG:ACTION 1: 122
 TAG:CHOICE 2: If you wish to run back to the staircase to climb up to the next floor
@@ -5683,8 +5690,6 @@ function checkEventAttributes(event)
 		let action = tagValue.split(":")[1];
 		let value = parseInt(tagValue.split(":")[2]);
 		
-		//Implementar ação correta e loop de items
-		
 		let listOfItem = document.getElementById("listofitems");
 		let newItem = document.createElement("li");
 		newItem.innerHTML = itemName;
@@ -5992,14 +5997,13 @@ function buyItem()
 			}
 			else
 			{
-				let value = 2;
 				let staminaCurrent = document.getElementById("staminacurrent");
 				let staminaInitial = document.getElementById("staminainitial");
 				if(parseInt(staminaCurrent.innerHTML) < parseInt(staminaInitial.innerHTML))
 				{
-					if(parseInt(staminaCurrent.innerHTML) + value <= parseInt(staminaInitial.innerHTML))
+					if(parseInt(staminaCurrent.innerHTML) + 2 <= parseInt(staminaInitial.innerHTML))
 					{
-						staminaCurrent.innerHTML = parseInt(staminaCurrent.innerHTML) + value;
+						staminaCurrent.innerHTML = parseInt(staminaCurrent.innerHTML) + 2;
 					}
 					else
 					{
@@ -6023,7 +6027,6 @@ function sellItem()
 		document.getElementById("trademessage").innerHTML = "Item sold!";
 		document.getElementById("shopgold").innerHTML = "Your Gold: " + newGoldValue;
 		document.getElementById("goldtotal").innerHTML = newGoldValue;
-		
 		let myItems = document.getElementById("listofitems");
 		
 		for(let i = 0; i < myItems.children.length;i++)
@@ -6239,7 +6242,6 @@ function enableElement(element)
 		document.getElementById("minigame").setAttribute("hidden", true);
 		document.getElementById("emptydiv").setAttribute("hidden", true);
 		document.getElementById("diceroll").setAttribute("hidden", true);
-		
 		let testDiv = document.getElementById("test");
 		testDiv.removeAttribute("hidden");
 		testDiv.removeAttribute("disabled");
@@ -6263,13 +6265,6 @@ function enableElement(element)
 		document.getElementById("emptydiv").setAttribute("hidden", true);
 		document.getElementById("diceroll").setAttribute("hidden", true);
 		let itemstotradename = document.getElementById("itemstotradename");
-		
-		var child = itemstotradename.lastElementChild;  
-		while (child) { 
-			itemstotradename.removeChild(child); 
-			child = itemstotradename.lastElementChild; 
-		} 
-		
 		let shopDiv = document.getElementById("shop");
 		shopDiv.removeAttribute("hidden");
 		shopDiv.removeAttribute("disabled");
@@ -6281,7 +6276,6 @@ function enableElement(element)
 		document.getElementById("test").setAttribute("hidden", true);
 		document.getElementById("emptydiv").setAttribute("hidden", true);
 		document.getElementById("diceroll").setAttribute("hidden", true);
-		
 		let minigameDiv = document.getElementById("minigame");
 		minigameDiv.removeAttribute("hidden");
 		minigameDiv.removeAttribute("disabled");
@@ -6292,8 +6286,6 @@ function enableElement(element)
 		document.getElementById("shop").setAttribute("hidden", true);
 		document.getElementById("test").setAttribute("hidden", true);
 		document.getElementById("emptydiv").setAttribute("hidden", true);
-		
-		
 		let diceRollDiv = document.getElementById("diceroll");
 		diceRollDiv.removeAttribute("hidden");
 		diceRollDiv.removeAttribute("disabled");
@@ -6709,18 +6701,14 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 	let enemyDamage = enemyDiceValues.innerHTML.split(":")[1].trim();
 	yourDamage = parseInt(yourDamage.split(" ")[0]) + parseInt(yourDamage.split(" ")[1]);
 	enemyDamage =  parseInt(enemyDamage.split(" ")[0]) + parseInt(enemyDamage.split(" ")[1]);
-	enemyDamage = enemyDamage + computeAdditionalDamage();
-	
 	let skillCurrent = parseInt(document.getElementById("skillcurrent").innerHTML);
 	let staminaCurrent = parseInt(document.getElementById("staminacurrent").innerHTML);
-	
 	let enemies = document.getElementById("enemylist");
 	let enemy = enemies.rows[1];
 	let enemySkill = parseInt(enemy.children[1].innerHTML);
 	let enemyStamina = parseInt(enemy.children[2].innerHTML);
 	enemyDamage = enemyDamage + enemySkill;
 	yourDamage = yourDamage + skillCurrent;
-	
 	let yourItems = document.getElementById("listofitems").children;
 		
 	for(let i = 0; i < yourItems.length;i++)
@@ -6823,11 +6811,6 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 			document.getElementById("dicetoroll").removeAttribute("disabled");
 		}
 	}
-}
-
-function computeAdditionalDamage()
-{
-	return 0;
 }
 
 function removeEnemy()
@@ -7020,7 +7003,6 @@ function loadGame()
 	let savedGamesData = localStorage.getItem("savedGames");
 	let savedGames = document.getElementById("savedgames");	
 	removeElementChildren(savedGames);
-
 	let noSaveOption = document.createElement("option");
 	noSaveOption.value = "nosave";
 	noSaveOption.id = "nosave";
@@ -7099,7 +7081,6 @@ function rollInitialAttributes(event)
 	let initialStamina = document.getElementById("initialstaminaroll");
 	let initialLuck = document.getElementById("initialluckroll");
 	let attributeToSet = "";
-	
 	
 	if(initialSkill.innerHTML.split(":")[1].length == 0)
 	{
@@ -7626,9 +7607,7 @@ function addEnemyToList(enemy,enemySkill,enemyStamina)
 	var enemyList = document.getElementById("enemylist");
 	let enemyRow = document.createElement("tr");
 	enemyRow.id = enemy;
-	
 	enemy.className = "enemy";
-	
 	let enemyNameValue = document.createElement("td");
 	enemyNameValue.innerHTML = enemy;
 	enemyNameValue.id = "enemyname";
@@ -7641,7 +7620,6 @@ function addEnemyToList(enemy,enemySkill,enemyStamina)
 	enemyRow.appendChild(enemyNameValue);
 	enemyRow.appendChild(enemySkillValue);
 	enemyRow.appendChild(enemyStaminaValue);
-	
 	enemyList.appendChild(enemyRow);
 }
 
