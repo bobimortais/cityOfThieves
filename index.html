@@ -5319,6 +5319,7 @@ var arrowsHit = 0;
 var currentTestAndResult;
 var alreadyBeenAtt = ";"
 var loadedGame;
+var attackType = "NORMAL";
 
 function loadNext(event)
 { 
@@ -6316,6 +6317,7 @@ function enableElement(element)
 function battle(tags,options)
 {
 	battleActive = true;
+	attackType = "NORMAL";
 	document.getElementById("battle").removeAttribute("disabled");
 	document.getElementById("yourstamina").innerHTML = "Your Stamina: " + document.getElementById("staminacurrent").innerHTML;
 	document.getElementById("battle").setAttribute("style", "border-width: medium;border-color: red");
@@ -6715,7 +6717,18 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 	let skillCurrent = parseInt(document.getElementById("skillcurrent").innerHTML);
 	let staminaCurrent = parseInt(document.getElementById("staminacurrent").innerHTML);
 	let enemies = document.getElementById("enemylist");
-	let enemy = enemies.rows[1];
+	let enemy;
+	let enemyRows = enemies.rows.length;
+		
+	if(attackType == "NORMAL")
+	{
+		enemy = enemies.children[1];
+	}
+	else if(attackType == "PARRY")
+	{
+		enemy = enemies.children[2];
+	}
+	
 	let enemySkill = parseInt(enemy.children[1].innerHTML);
 	let enemyStamina = parseInt(enemy.children[2].innerHTML);
 	enemyDamage = enemyDamage + enemySkill;
@@ -6752,26 +6765,34 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 	
 	if(yourDamage > enemyDamage)
 	{
-		computing.innerHTML = "You hit the enemy!";
-		battleHit = "enemy";
-		enemyStamina = enemyStamina - 2;
+		if(attackType == "NORMAL")
+		{
+			computing.innerHTML = "You hit the enemy!";
+			battleHit = "enemy";
+			enemyStamina = enemyStamina - 2;
+		}
+		else
+		{
+			computing.innerHTML = "You parried the second enemy's attack!";
+		}
 		
 		if(enemyStamina <= 0)
 		{
 			enemyStamina = 0; 
 			enemy.children[2].innerHTML = enemyStamina;
 			enemy.style.opacity = 1;
-			var id = setInterval(fadeEnemy, 500);
+			var id = setInterval(fadeEnemy, 200);
+			enemyRows = enemyRows - 1;
 			
 			function fadeEnemy()
 			{
 				if(parseInt(enemy.style.opacity) <= 0)
 				{
 					clearInterval(id);
-					setTimeout(removeEnemy, 1000);
+					setTimeout(removeEnemy, 500);
 				}
 				let enemyOpacity = parseInt(enemy.style.opacity);
-				enemy.style.opacity = enemyOpacity - 0.5;
+				enemy.style.opacity = enemyOpacity - 0.25;
 				console.log("Enemy opacity: " + enemyOpacity);
 			}
 		}
@@ -6793,7 +6814,14 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 	}
 	if(yourDamage < enemyDamage)
 	{
-		computing.innerHTML = "You got wounded!";
+		if(attackType == "NORMAL")
+		{
+			computing.innerHTML = "You got wounded!";
+		}
+		else
+		{
+			computing.innerHTML = "You got wounded by the second enemy!";
+		}
 		battleHit = "you";
 		
 		if(enemy.children[1].innerHTML.trim() == "SNAKES")
@@ -6827,7 +6855,15 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 	}
 	if(yourDamage == enemyDamage)
 	{
-		computing.innerHTML = "Attacks blocked!";
+		if(attackType == "NORMAL")
+		{
+			computing.innerHTML = "Attacks blocked!";
+		}
+		else
+		{
+			computing.innerHTML = "You parried the second enemy's attack!";
+		}
+
 		if(historyId != "392")
 		{
 			document.getElementById("attackdices").removeAttribute("disabled");
@@ -6836,6 +6872,14 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 		{
 			document.getElementById("dicetoroll").removeAttribute("disabled");
 		}
+	}
+	
+	if(enemyRows == 3 && (historyId == "311" || historyId == "326"))
+	{
+		if(attackType == "NORMAL")
+			attackType = "PARRY";
+		else
+			attackType = "NORMAL";
 	}
 }
 
@@ -6891,7 +6935,6 @@ function checkEndOfBattle(enemies, staminaCurrent)
 	{
 		checkEnableEscape();
 	}
-
 }
 
 function checkOptionsToEnable()
