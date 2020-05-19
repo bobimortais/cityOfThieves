@@ -4719,31 +4719,34 @@ TAG:MONEY: DECREASE;10
 TAG:ACTION 1: 316
 TAG:CHOICE 2: If you still cannot afford one, you will have to come back again later. You walk back up the lane and turn left into Mill Street. 
 TAG:ACTION 2: 307
-TAG:HISTORY The tattooist looks at you with a bored expression on his face
-and says, 'Well, you don't expect me to do it for free, 
-do you? If you've got anything worth selling, go next door. 
-My step-brother lives there and he's a pawnbroker. Tell him I
-sent you and maybe he'll give you a good price.' You walk 
-outside and knock on the wooden door of the next house. A 
-squint-eyed man opens the door and you tell him that you want
-to sell some items so that you can afford to have a tattoo. The 
-man asks you to come into his house and you enter a room piled 
-high with all kinds of objects, furniture, armour, curios and
-pottery. He explains that he has a stall in the market which
-he rents once a week. He then tells you what he is currently 
-interested in buying, and the prices he is offering:
+TAG:HISTORY The tattooist looks at you with a bored expression on his 
+face and says, 'Well, you don't expect me to do it for free, do 
+you? If you've got anything worth selling, go next door. My 
+step-brother lives there and he's a pawnbroker. Tell him I sent you 
+and maybe he'll give you a good price.' You walk outside and knock on the wooden door 
+of the next house. A squint-eyed man opens the door and you tell him 
+that you want to sell some items so that you can afford to have a tattoo.
+The man asks you to come into his house and you enter a room piled high
+with all kinds of objects, furniture, armour, curios and pottery. He 
+explains that he has a stall in the market which he rents once a week.
+He then tells you what he is currently interested in buying, and the prices
+he is offering:
+</p>
+<p id="h354_1">
 Silver Goblet 	        8 Gold Pieces
-Skeleton Key	       15 Gold Pieces
-Scorpion Brooch	       10 Gold Pieces
-Magic Ring	           12 Gold Pieces
+Skeleton Key	      15 Gold Pieces
+Scorpion Brooch	      10 Gold Pieces
+Magic Ring	              12 Gold Pieces
 Silver Bracelet	        5 Gold Pieces
 Helmet	                7 Gold Pieces
 Silver Flute	        5 Gold Pieces
-Eye-Patch	            1 Gold Piece
+Eye-Patch	                1 Gold Piece
 Knucklebones          	1 Gold Piece
-Mirror	                1 Gold Piece 
-You may sell the pawnbroker any of your passessions. You bid 
-him farewell and walkoutside.
+Mirror	                1 Gold Piece
+</p>
+<p id="h354_2">
+You may sell the pawnbroker any of your passessions. You 
+bid him farewell and walkoutside.
 </p>
 <p id="h355" hidden>
 TAG:ID: 355
@@ -5344,10 +5347,23 @@ function loadNext(event)
 	alreadyBeenAtt = alreadyBeenAtt + historyId + ";";	
 	
 	if(historyId == "52" || historyId == "354" || historyId == "201")
-		document.getElementById('narrative').innerHTML = String(document.getElementById("h" + historyId).innerHTML).split("TAG:HISTORY")[1];
+	{
+		if(historyId == "354")
+		{
+			document.getElementById('narrative').innerHTML = String(document.getElementById("h" + historyId).innerHTML.replace(/\n/g, " ")).split("TAG:HISTORY")[1];
+			document.getElementById('narrative').innerHTML = document.getElementById('narrative').innerHTML + document.getElementById("h354_1").innerHTML;
+			document.getElementById('narrative').innerHTML = document.getElementById('narrative').innerHTML + document.getElementById("h354_2").innerHTML;
+		}
+		else
+		{
+			document.getElementById('narrative').innerHTML = String(document.getElementById("h" + historyId).innerHTML).split("TAG:HISTORY")[1];
+		}
+	}
 	else
+	{
 		document.getElementById('narrative').innerHTML = String(document.getElementById("h" + historyId).innerHTML.replace(/\n/g, " ")).split("TAG:HISTORY")[1];
-
+	}
+	
 	let tags = document.getElementById("h" + historyId).innerHTML.split("TAG:");
 	
 	for(let i = 1; i < tags.length; i++)
