@@ -2815,18 +2815,19 @@ white dove sitting on a low branch near by. There is a small
 piece of paper attached to its foot which it lets you remove 
 without flying off. There is a message on the paper which 
 reads:
+</p>
+<p id="h201_1" hidden>
 
 Dear Friend, 
 l am afraid I must be getting old to be of use to anybody. I 
-regret that I have misinformed you about the compound needed 
-to kill Zanbar Bone. You must use only two of the three 
-ingredients I told you, but cannot remember which two. I can 
-only suggest you try Hag's hair and black pearls together, or
-the Hag's hair and lotus flower together, or the black pearls
-and lotus flower together. Apologies. 
+regret that I have misinformed you about the compound needed to kill Zanbar Bone. You must use only two of the 
+three ingredients I told you, but cannot remember which two. I can only suggest you try Hag's hair and black pearls 
+together, or the Hag's hair and lotus flower together, or the black pearls and lotus flower together. Apologies. 
 Good luck,
 N.
 
+</p>
+<p id="h201_2" hidden>
 You throw the message on the ground and curse. You change 
 your mind a dozen times before making a decision. Finally 
 you make your choice, and grind the two ingredients together
@@ -4732,7 +4733,7 @@ explains that he has a stall in the market which he rents once a week.
 He then tells you what he is currently interested in buying, and the prices
 he is offering:
 </p>
-<p id="h354_1">
+<p id="h354_1" hidden>
 Silver Goblet 	        8 Gold Pieces
 Skeleton Key	      15 Gold Pieces
 Scorpion Brooch	      10 Gold Pieces
@@ -4744,7 +4745,7 @@ Eye-Patch	                1 Gold Piece
 Knucklebones          	1 Gold Piece
 Mirror	                1 Gold Piece
 </p>
-<p id="h354_2">
+<p id="h354_2" hidden>
 You may sell the pawnbroker any of your passessions. You 
 bid him farewell and walkoutside.
 </p>
@@ -5353,6 +5354,12 @@ function loadNext(event)
 			document.getElementById('narrative').innerHTML = String(document.getElementById("h" + historyId).innerHTML.replace(/\n/g, " ")).split("TAG:HISTORY")[1];
 			document.getElementById('narrative').innerHTML = document.getElementById('narrative').innerHTML + document.getElementById("h354_1").innerHTML;
 			document.getElementById('narrative').innerHTML = document.getElementById('narrative').innerHTML + document.getElementById("h354_2").innerHTML;
+		}
+		else if(historyId == "201")
+		{
+			document.getElementById('narrative').innerHTML = String(document.getElementById("h" + historyId).innerHTML.replace(/\n/g, " ")).split("TAG:HISTORY")[1];
+			document.getElementById('narrative').innerHTML = document.getElementById('narrative').innerHTML + document.getElementById("h201_1").innerHTML;
+			document.getElementById('narrative').innerHTML = document.getElementById('narrative').innerHTML + document.getElementById("h201_2").innerHTML.replace(/\n/g, " ");
 		}
 		else
 		{
