@@ -6063,24 +6063,37 @@ function sellItem()
 		document.getElementById("shopgold").innerHTML = "Your Gold: " + newGoldValue;
 		document.getElementById("goldtotal").innerHTML = newGoldValue;
 		let myItems = document.getElementById("listofitems");
+		let itemsToNegotiate = document.getElementById("itemstotradename");
 		
 		for(let i = 0; i < myItems.children.length;i++)
 		{
 			let item = myItems.children[i];
 			
-			if(item.innerHTML.includes(itemName))
+			if(item.innerHTML == itemName)
 			{
 				myItems.removeChild(item);
 				break;
 			}
 		}
+		
+		for(let j = 0; j < itemsToNegotiate.children.length;j++)
+		{
+			let item = itemsToNegotiate.children[j];
+			
+			if(item.innerHTML == itemName)
+			{
+				itemsToNegotiate.removeChild(item);
+				break;
+			}
+		}
+		
 		checkSpecialHandlingsAfterSell();
 	}
 }
 
 function checkSpecialHandlingsAfterSell()
 {
-	if(historyId != 354)
+	if(historyId == 354)
 	{
 		if(parseInt(document.getElementById("goldtotal").innerHTML) >= 10)
 		{
