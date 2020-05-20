@@ -5891,6 +5891,7 @@ function loadShop(tag)
 	enableElement("SHOP");
 	document.getElementById("shopgold").innerHTML = "Your Gold: " + document.getElementById("goldtotal").innerHTML;
 	let itemstotradename = document.getElementById("itemstotradename");
+	removeElementChildren(itemstotradename);
 	
 	if(historyId != 354)
 	{
@@ -6022,6 +6023,20 @@ function buyItem()
 			document.getElementById("trademessage").innerHTML = "Item purchased!";
 			document.getElementById("shopgold").innerHTML = "Your Gold: " + newGoldValue;
 			document.getElementById("goldtotal").innerHTML = newGoldValue;
+			let itemsToNegotiate = document.getElementById("itemstotradename");
+		
+			for(let i = 0; i < itemsToNegotiate.children.length;i++)
+			{
+				let item = itemsToNegotiate.children[i];
+				
+				if(item.innerHTML == itemName)
+				{
+					item.removeAttribute("selected");
+					item.removeAttribute("style");
+					document.getElementById("itemprice").removeAttribute("itemname");
+					break;
+				}
+			}
 			
 			if(itemName != "Hot Food")
 			{
@@ -6184,6 +6199,7 @@ function giveItem()
 {
 	let optionToEnable = document.getElementById("optiontoenable").innerHTML;
 	let itemsToNegotiate = document.getElementById("itemstotradename");
+	removeElementChildren(itemsToNegotiate);
 	let itemToGive = document.getElementById("itemtogive").innerHTML.split(":")[1].trim();
 	let quantityLeftToGive = document.getElementById("quantitytogive");
 	
@@ -6962,11 +6978,8 @@ function checkEndOfBattle(enemies, staminaCurrent)
 			}
 		}
 		
-		document.getElementById("battle").setAttribute("disabled", true);
-		document.getElementById("battle").setAttribute("style", "border-width: thin;border-color: black");
+		disableElements();
 		checkOptionsToEnable();
-		enableElement("NONE");
-		battleActive = false;
 	}
 	else
 	{
@@ -7173,7 +7186,7 @@ function fillSavedGameInputs(dialog)
 			listOfItem.appendChild(currentItem);
 		}
 	}
-	
+	disableElements();
 	dialog.close();
 	loadNext();
 }
@@ -7316,6 +7329,7 @@ function saveGameData()
 function loadStart()
 { 
 	var options = document.getElementById("options");
+	disableElements();
 	
 	if(options.children.length > 0)
 		return;
@@ -7342,11 +7356,6 @@ function loadStart()
 		}
 	}
 }	
-
-function itemSelected()
-{
-	console.log("Item selecionado");
-}
 
 function consumeProvision()
 {
@@ -7757,5 +7766,19 @@ function removeElementChildren(element)
         element.removeChild(child); 
         child = element.lastElementChild; 
     } 
+}
+
+function disableElements()
+{
+	document.getElementById("yourdicevalues").innerHTML = "Your Dice Values:";
+	document.getElementById("enemydicesvalues").innerHTML = "Enemy Dice Values:";
+	document.getElementById("yourattack").innerHTML = "Your Attack:";
+	document.getElementById("enemyattack").innerHTML = "Enemy Attack:";
+	document.getElementById("attackresult").innerHTML = "Round Result:";
+	document.getElementById("battle").setAttribute("disabled", true);
+	document.getElementById("yourstamina").innerHTML = "Your Stamina:";
+	document.getElementById("battle").setAttribute("style", "border-width: thin;border-color: black");
+	enableElement("NONE");
+	battleActive = false;
 }
 </script> 
