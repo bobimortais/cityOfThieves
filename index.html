@@ -41,7 +41,7 @@
 		{
 			align-items: center;
 			justify-content: center;
-			margin-bottom: 10px;
+			margin-bottom: 5px;
 		}
 		button
 		{
@@ -59,8 +59,8 @@
 		.buttonoption
 		{
 			display: block;
-			width: 350px;
-			margin-left: 60px;
+			width: 437px;
+			margin-left: 18px;
 			margin-top: 5px;
 		}
 		.options
@@ -221,9 +221,11 @@
 					<p>Game Saved!</p>
 				</dialog>
 			</div>
-			<button class="newgame" onclick="newGame()">New Game</button>
-			<button class="loadgame" onclick="loadGame()">Load Game</button>
-			<button class="savegame" onclick="saveGame()">Save Game</button>
+			<div style="margin-top: -6px;">
+				<button class="newgame" onclick="newGame()">New Game</button>
+				<button class="loadgame" onclick="loadGame()">Load Game</button>
+				<button class="savegame" onclick="saveGame()">Save Game</button>
+			</div>
 		</div>
 	</head>
 	<body style="background: rgba(196, 216, 93, 0.3);">
@@ -304,15 +306,34 @@
 		</div>
 		<div id="game" class="game">
 			<p style="font-family: Castellar;">History</p>
-			<textarea class="historytext" id="narrative" rows="17" cols="50" readonly>No Turn Over</textarea>
+			<textarea class="historytext" id="narrative" rows="17" cols="50" readonly>
+				
+				
+				
+				
+				
+				
+				
+				 NOW TURN OVER
+			</textarea>
 			<div id="options" class="options">
+			<p id="gameovertext" hidden>
+				
+				
+				
+				
+				
+				
+				
+				 YOU DIED!
+			</p>
 			</div>
 		</div>
 		<div id="sheet" class="sheet">
 			<p style="font-family: Castellar;">Adventure Sheet</p>
-			<table class="atts">
+			<table class="atts" style="text-align: left;width: 98px;max-width: 98px;">
 				<tr>
-					<th style="width: 70px;text-align: left;">SKILL</th>
+					<th style="text-align: left;">SKILL</th>
 				</tr>
 				<tr>
 					<td>Initial</td>
@@ -324,9 +345,9 @@
 				</tr>
 
 			</table>
-			<table class="atts" style="margin-left: 5px;text-align: left;">
+			<table class="atts" style="margin-left: 5px;text-align: left;width: 94px;max-width: 94px;">
 				<tr>
-					<th style="width: 70px;">STAMINA</th>
+					<th style="text-align: left;">STAMINA</th>
 				</tr>
 				<tr>
 					<td>Initial</td>
@@ -337,9 +358,9 @@
 					<td id="staminacurrent" style="text-align: rigth;">0</td>
 				</tr>
 			</table>
-			<table class="atts" style="margin-left: 5px;text-align: left;">
+			<table class="atts" style="margin-left: 5px;text-align: left;width: 85px;max-width: 85px;">
 				<tr>
-					<th style="width: 57px;">LUCK</th>
+					<th style="text-align: left;">LUCK</th>
 				</tr>
 				<tr>
 					<td>Initial</td>
@@ -351,7 +372,7 @@
 				</tr>
 			</table>
 			<div class="itemsdiv">
-				<table class="items" style="text-align: left;margin-top: 5px;width: 162px;">
+				<table class="items" style="text-align: left;margin-top: 5px;width: 162px;max-width: 162px;">
 					<tr>
 						<th style="white-space: pre-wrap;">EQUIPMENT LIST</th>
 					</tr>
@@ -366,33 +387,33 @@
 				</table>
 			</div>
 			<div class="belongings" style="margin-left: 5px;margin-top: 5px;">
-				<table class="golds" style="margin-bottom: 5px;">
+				<table class="golds" style="margin-bottom: 5px;width: 122px;max-width: 122px;">
 					<tr>
-						<th style="width: 120px;text-align: left;">GOLD</th>
+						<th style="width: 122px;max-width: 122px;text-align: left;">GOLD</th>
 					</tr>
 					<tr>
 						<td id="goldtotal">30</td>
 					</tr>
 				</table>
-				<table class="jewels" style="margin-bottom: 5px;">
+				<table class="jewels" style="margin-bottom: 5px;width: 122px;max-width: 122px;">
 					<tr>
-						<th style="width: 120px;text-align: left;">JEWELS</th>
+						<th style="width: 122px;max-width: 122px;text-align: left;">JEWELS</th>
 					</tr>
 					<tr>
 						<td>0</td>
 					</tr>
 				</table>
-				<table class="potions" style="margin-bottom: 5px;">
+				<table class="potions" style="margin-bottom: 5px;width: 122px;max-width: 122px;">
 					<tr>
-						<th style="width: 120px;text-align: left;">POTIONS</th>
+						<th style="width: 122px;max-width: 122px;text-align: left;">POTIONS</th>
 					</tr>
 					<tr>
 						<td id="initialpotion" onclick="consumePotion()"></td>
 					</tr>
 				</table>
-				<table class="provisions">
+				<table class="provisions" style="width: 122px;max-width: 122px;">
 					<tr>
-						<th style="max-width: 120px;text-align: left;">PROVISIONS REMAINING</th>
+						<th style="width: 122px;max-width: 122px;text-align: left;">PROVISIONS REMAINING</th>
 					</tr>
 					<tr>
 						<td id="provisionstotal" onclick="consumeProvision()">10</td>
@@ -683,11 +704,11 @@ is. You try the handle on the door and it turns.
 </p>
 <p id="h25" hidden>
 TAG:ID: 25
-TAG:CHOICE 1: Make conversation with the blacksmith?
+TAG:CHOICE 1: Make conversation with the blacksmith
 TAG:ACTION 1: 169
-TAG:CHOICE 2: Attack him with your sword?
+TAG:CHOICE 2: Attack him with your sword
 TAG:ACTION 2: 323
-TAG:CHOICE 3: Leave him to his labours and and continue north?
+TAG:CHOICE 3: Leave him to his labours and and continue north
 TAG:ACTION 3: 115
 TAG:HISTORY You soon realize you are in a stable when you see a large, 
 bare-chested man wearing a grubby white apron busy at work at
@@ -6958,7 +6979,7 @@ function checkEndOfBattle(enemies, staminaCurrent)
 {
 	if(staminaCurrent <= 0)
 	{
-		document.getElementById('narrative').innerHTML = "YOU DIED!";
+		document.getElementById('narrative').innerHTML = document.getElementById("gameovertext").innerHTML;
 		var options = document.getElementById("options");
 		var child = options.lastElementChild;  
 		while (child) { 
@@ -7660,7 +7681,7 @@ function rollDiceForTest()
 			{
 				if(rollValue == 1)
 				{
-					document.getElementById('narrative').innerHTML = "YOU DIED!";
+					document.getElementById('narrative').innerHTML = document.getElementById("gameovertext").innerHTML;
 					var options = document.getElementById("options");
 					removeElementChildren(options);
 					enableElement("NONE");
