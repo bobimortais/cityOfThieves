@@ -278,7 +278,7 @@
 					<button id="sellitem" onclick="sellItem()" hidden>Sell Item</button>
 					<button id="giveitem" onclick="giveItem()" hidden>Give Item</button>
 				</div>
-				<div id="minigame" class="minigame" style="clear: left" hidden>	
+				<div id="littlegame" class="minigame" style="clear: left" hidden>	
 					<p style="font-family: Castellar;">Minigame</p>
 					<p id="gamename"></p>
 					<div id="adversarydices">
@@ -6262,7 +6262,7 @@ function loadMinigame(tags, i)
 	let adversaryDices = document.getElementById("adversarydices");
 	removeElementChildren(adversaryDices);
 	
-	for(let j = 3;j < tags.length;j++)
+	for(let j = i + 1;j < tags.length;j++)
 	{
 		let tag = tags[j];
 		
@@ -6303,7 +6303,7 @@ function enableElement(element)
 	if(element == "TEST")
 	{
 		document.getElementById("shop").setAttribute("hidden", true);
-		document.getElementById("minigame").setAttribute("hidden", true);
+		document.getElementById("littlegame").setAttribute("hidden", true);
 		document.getElementById("emptydiv").setAttribute("hidden", true);
 		document.getElementById("diceroll").setAttribute("hidden", true);
 		let testDiv = document.getElementById("test");
@@ -6314,7 +6314,7 @@ function enableElement(element)
 	else if(element == "GIVEAWAY")
 	{
 		document.getElementById("test").setAttribute("hidden", true);
-		document.getElementById("minigame").setAttribute("hidden", true);
+		document.getElementById("littlegame").setAttribute("hidden", true);
 		document.getElementById("emptydiv").setAttribute("hidden", true);
 		document.getElementById("diceroll").setAttribute("hidden", true);
 		let shopDiv = document.getElementById("shop");
@@ -6325,7 +6325,7 @@ function enableElement(element)
 	else if(element == "SHOP")
 	{
 		document.getElementById("test").setAttribute("hidden", true);
-		document.getElementById("minigame").setAttribute("hidden", true);
+		document.getElementById("littlegame").setAttribute("hidden", true);
 		document.getElementById("emptydiv").setAttribute("hidden", true);
 		document.getElementById("diceroll").setAttribute("hidden", true);
 		let itemstotradename = document.getElementById("itemstotradename");
@@ -6336,11 +6336,15 @@ function enableElement(element)
 	}
 	else if(element == "MINIGAME")
 	{
+		console.log("enabling minigame");
 		document.getElementById("shop").setAttribute("hidden", true);
 		document.getElementById("test").setAttribute("hidden", true);
 		document.getElementById("emptydiv").setAttribute("hidden", true);
 		document.getElementById("diceroll").setAttribute("hidden", true);
-		let minigameDiv = document.getElementById("minigame");
+		document.getElementById("yourgamedice").innerHTML = "Your roll:";
+		document.getElementById("gameroundresult").innerHTML = "Result:";
+		document.getElementById("gamedices").removeAttribute("disabled");
+		let minigameDiv = document.getElementById("littlegame");
 		minigameDiv.removeAttribute("hidden");
 		minigameDiv.removeAttribute("disabled");
 		minigameDiv.setAttribute("style", "border-width: medium;border-color: red");
@@ -6349,6 +6353,7 @@ function enableElement(element)
 	{
 		document.getElementById("shop").setAttribute("hidden", true);
 		document.getElementById("test").setAttribute("hidden", true);
+		document.getElementById("littlegame").setAttribute("hidden", true);
 		document.getElementById("emptydiv").setAttribute("hidden", true);
 		let diceRollDiv = document.getElementById("diceroll");
 		diceRollDiv.removeAttribute("hidden");
@@ -6359,7 +6364,7 @@ function enableElement(element)
 	{
 		document.getElementById("shop").setAttribute("hidden", true);
 		document.getElementById("test").setAttribute("hidden", true);
-		document.getElementById("minigame").setAttribute("hidden", true);
+		document.getElementById("littlegame").setAttribute("hidden", true);
 		document.getElementById("diceroll").setAttribute("hidden", true);
 		document.getElementById("emptydiv").removeAttribute("hidden");
 	}
@@ -6379,11 +6384,10 @@ function battle(tags,options, i)
 		document.getElementById("attackdices").removeAttribute("disabled");
 		var testDivElement = document.getElementById("test");
 		document.getElementById("shop").setAttribute("hidden", true);
-		document.getElementById("minigame").setAttribute("hidden", true);
+		document.getElementById("littlegame").setAttribute("hidden", true);
 		testDivElement.removeAttribute("disabled");
 		testDivElement.removeAttribute("hidden");
 		testDivElement.setAttribute("style", "border-width: medium;border-color: red");
-		document.getElementById("testdices");
 		document.getElementById("testdices").setAttribute("disabled", true);
 		document.getElementById("attributetest").innerHTML = "Attribute to Test: LUCK";
 		document.getElementById("yourattvalue").innerHTML = "Current attribute value: " + document.getElementById("luckcurrent").innerHTML;
@@ -6475,7 +6479,7 @@ function testAttribute(tags, options)
 {
 	var testDivElement = document.getElementById("test");
 	document.getElementById("shop").setAttribute("hidden", true);
-	document.getElementById("minigame").setAttribute("hidden", true);
+	document.getElementById("littlegame").setAttribute("hidden", true);
 	testDivElement.removeAttribute("disabled");
 	testDivElement.removeAttribute("hidden");
 	testDivElement.setAttribute("style", "border-width: medium;border-color: red");
@@ -6890,7 +6894,8 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 			staminaCurrent = staminaCurrent - 3;
 
 		if(staminaCurrent < 0)
-			stamina = 0;
+			staminaCurrent = 0;
+
 
 		document.getElementById("staminacurrent").innerHTML = staminaCurrent;
 		document.getElementById("yourstamina").innerHTML = "Your Stamina: " + staminaCurrent;
@@ -6903,6 +6908,7 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 		}
 		else
 		{
+			document.getElementById("testdices").removeAttribute("disabled");
 			document.getElementById("dicetoroll").removeAttribute("disabled");
 		}
 	}
@@ -7612,6 +7618,11 @@ function rollDiceForTest()
 	let testId = document.getElementById("rollid").innerHTML;
 	var count = 0;
 	var id = setInterval(roll, 10);
+	
+	if(testId == "392")
+	{
+		document.getElementById("testdices").setAttribute("disabled", true);
+	}
 	
 	function roll() 
 	{
