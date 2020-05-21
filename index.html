@@ -234,9 +234,9 @@
 				<p style="font-family: Castellar;">Battle</p>
 				<p id="rounds">Rounds: 0</p>
 				<table id="enemylist">
-					<th style="text-align: left;width: 100px;">ENEMY</th>
-					<th style="text-align: left;width: 55px;">SKILL</td>
-					<th style="text-align: left;width: 50px;">STAMINA</td>
+					<th class="enemyatt" style="text-align: left;width: 100px;">ENEMY</th>
+					<th class="enemyatt" style="text-align: left;width: 55px;">SKILL</td>
+					<th class="enemyatt" style="text-align: left;width: 50px;">STAMINA</td>
 				</table>
 				<p id="yourdicevalues">Your Dice Values: </p>
 				<p id="enemydicesvalues">Enemy Dice Values: </p>
@@ -2715,6 +2715,7 @@ TAG:ID: 191
 TAG:FIGHT
 TAG:ENEMY 1: LEAF BEASTS;SKILL 6;STAMINA 6
 TAG:CHOICE 1: If you win, you run back to the turnstile still clutching the lotus and make your getaway into Stable Street.
+TAG:ITEM: ADD;Lotus Flower;1
 TAG:ACTION 1: 133
 TAG:HISTORY You draw your sword to defend yourself against the advancing 
 LEAF BEASTS. They all attack you at once, seemingly trying to
@@ -3314,6 +3315,7 @@ telling him either
 <p id="h237" hidden>
 TAG:ID: 237
 TAG:CHOICE 1: You run to the turnstile clutching the lotus and make your escape into Stable Street.
+TAG:ITEM: ADD;Lotus Flower;1
 TAG:ACTION 1: 133
 TAG:HISTORY You rub the jewel in the ring it at the Leaf Beasts. A blast 
 of fire shoots out of the ring and burns a large hole in the
@@ -4104,6 +4106,7 @@ turns to face you and offers you 9 Gold Pieces for the two.
 </p>
 <p id="h303" hidden>
 TAG:ID: 303
+TAG:ITEM: ADD;Hag's Hair;1
 TAG:CHOICE 1: You put the hair safely in your backpack and walk back down the tunnel to the entrance hole.
 TAG:ACTION 1: 104
 TAG:HISTORY You bend over the motionless body of the dead Hag and you cut
@@ -5363,6 +5366,7 @@ function loadNext(event)
 		historyId = event.id.split("id")[1];
 		checkEventAttributes(event);
 	}
+	disableElements();
 	var options = document.getElementById("options");
 	removeElementChildren(options);
 	console.log("History ID " + historyId);
