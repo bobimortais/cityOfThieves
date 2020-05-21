@@ -2712,10 +2712,10 @@ you a magic item. If you do stab yourself you  must give them
 </p>
 <p id="h191" hidden>
 TAG:ID: 191
+TAG:ITEM: ADD;Lotus Flower;1
 TAG:FIGHT
 TAG:ENEMY 1: LEAF BEASTS;SKILL 6;STAMINA 6
 TAG:CHOICE 1: If you win, you run back to the turnstile still clutching the lotus and make your getaway into Stable Street.
-TAG:ITEM: ADD;Lotus Flower;1
 TAG:ACTION 1: 133
 TAG:HISTORY You draw your sword to defend yourself against the advancing 
 LEAF BEASTS. They all attack you at once, seemingly trying to
@@ -3314,8 +3314,8 @@ telling him either
 </p>
 <p id="h237" hidden>
 TAG:ID: 237
-TAG:CHOICE 1: You run to the turnstile clutching the lotus and make your escape into Stable Street.
 TAG:ITEM: ADD;Lotus Flower;1
+TAG:CHOICE 1: You run to the turnstile clutching the lotus and make your escape into Stable Street.
 TAG:ACTION 1: 133
 TAG:HISTORY You rub the jewel in the ring it at the Leaf Beasts. A blast 
 of fire shoots out of the ring and burns a large hole in the
@@ -4208,6 +4208,7 @@ normal way.
 </p>
 <p id="h312" hidden>
 TAG:ID: 312
+TAG:ITEM: ADD;Golden Owl;1
 TAG:DESTINATION: 217
 TAG:HISTORY You notice that the Ape Man's left hand is curled into a fist. 
 You prise open the fingers and find a tiny gold trinket in the 
@@ -5939,43 +5940,43 @@ function loadShop(tag)
 		{
 			if(myItems[j].innerHTML.includes("Silver Goblet"))
 			{ 
-				addItemToList(itemstotradename, "Silver Goblet", 8);
+				addItemToList(itemstotradename, myItems[j].innerHTML, 8);
 			}
 			else if(myItems[j].innerHTML.includes("Skeleton Key"))
 			{
-				addItemToList(itemstotradename, "Skeleton Key", 15);
+				addItemToList(itemstotradename, myItems[j].innerHTML, 15);
 			}
 			else if(myItems[j].innerHTML.includes("Scorpion Brooch"))
 			{	
-				addItemToList(itemstotradename, "Scorpion Brooch", 10);
+				addItemToList(itemstotradename, myItems[j].innerHTML, 10);
 			}
 			else if(myItems[j].innerHTML.includes("Magic Ring"))
 			{
-				addItemToList(itemstotradename, "Magic Ring", 12);
+				addItemToList(itemstotradename, myItems[j].innerHTML, 12);
 			}
 			else if(myItems[j].innerHTML.includes("Silver Bracelet"))
 			{
-				addItemToList(itemstotradename, "Silver Bracelet", 5);
+				addItemToList(itemstotradename, myItems[j].innerHTML, 5);
 			}
 			else if(myItems[j].innerHTML.includes("Helmet"))
 			{
-				addItemToList(itemstotradename, "Helmet", 7);
+				addItemToList(itemstotradename, myItems[j].innerHTML, 7);
 			}	
 			else if(myItems[j].innerHTML.includes("Silver Flute"))
 			{
-				addItemToList(itemstotradename, "Silver Flute", 5);
+				addItemToList(itemstotradename, myItems[j].innerHTML, 5);
 			}
 			else if(myItems[j].innerHTML.includes("Eye-patch"))
 			{
-				addItemToList(itemstotradename, "Eye-patch", 1);
+				addItemToList(itemstotradename, myItems[j].innerHTML, 1);
 			}
 			else if(myItems[j].innerHTML.includes("Knucklebones"))
 			{
-				addItemToList(itemstotradename, "Knucklebones", 1);
+				addItemToList(itemstotradename, myItems[j].innerHTML, 1);
 			}
 			else if(myItems[j].innerHTML.includes("Mirror"))
 			{
-				addItemToList(itemstotradename, "Mirror", 1);
+				addItemToList(itemstotradename, myItems[j].innerHTML, 1);
 			}
 		}
 	}
@@ -6361,7 +6362,6 @@ function enableElement(element)
 	}
 	else if(element == "MINIGAME")
 	{
-		console.log("enabling minigame");
 		document.getElementById("shop").setAttribute("hidden", true);
 		document.getElementById("test").setAttribute("hidden", true);
 		document.getElementById("emptydiv").setAttribute("hidden", true);
@@ -6429,7 +6429,6 @@ function battle(tags,options, i)
 	
 	for(let j = i + 1; j < tags.length; j++)
 	{
-		console.log(tags[j]);
 		if(tags[j].includes("ENEMY"))
 		{
 			var enemy = tags[j].split(";")[0].split(":")[1].trim();
@@ -6731,8 +6730,6 @@ function handleOptionToEnableForDoubleTest(currentTestAndResult)
 		fails = 1;
 	}
 	
-	console.log("Fails:" + fails);
-	
 	for(let i = 0; i < buttonOptions.length; i++)
 	{
 		let option = buttonOptions[i];
@@ -6875,7 +6872,6 @@ function computeDamage(yourDiceValues, enemyDiceValues)
 				}
 				let enemyOpacity = parseInt(enemy.style.opacity);
 				enemy.style.opacity = enemyOpacity - 0.25;
-				console.log("Enemy opacity: " + enemyOpacity);
 			}
 		}
 		else
@@ -7005,7 +7001,10 @@ function checkEndOfBattle(enemies, staminaCurrent)
 			
 			if(item.innerHTML == "Silver Scorpion Brooch" || item.innerHTML == "Silver Brooch")
 			{
-				document.getElementById("staminacurrent").innerHTML = staminaCurrent + 1;
+				let staminaCurrent = parseInt(document.getElementById("staminacurrent").innerHTML);
+				let staminaInitial = parseInt(document.getElementById("staminainitial").innerHTML);
+				if(staminaCurrent < staminaInitial)
+					document.getElementById("staminacurrent").innerHTML = staminaCurrent + 1;
 			}
 		}
 		
@@ -7016,6 +7015,7 @@ function checkEndOfBattle(enemies, staminaCurrent)
 	{
 		checkEnableEscape();
 	}
+	console.log("staminaCurrent 2: " + staminaCurrent);
 }
 
 function checkOptionsToEnable()
