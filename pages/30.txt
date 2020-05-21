@@ -1,8 +1,0 @@
-<p id="h30" hidden>
-ID: 30
-CHOICE 1: You decide to go north.
-DESTINATION: 76
-HISTORY
-Tower Street soon ends at a junction, where it meets Stable 
-Street running north and south.
-</p>

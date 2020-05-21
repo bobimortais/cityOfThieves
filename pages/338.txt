@@ -1,9 +1,0 @@
-<p id="h338" hidden>
-ID: 338
-STATUS 1: LUCK;DECREASE;3
-DESTINATION: 105
-HISTORY
-You have just swallowed a Potion of Misfortune. Reduce your 
-LUCY by 3 points. Hoping for better luck ahead you set off 
-north again.
-</p>

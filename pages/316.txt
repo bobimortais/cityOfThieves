@@ -1,8 +1,0 @@
-<p id="h316" hidden>
-ID: 316
-DESTINATION: 279
-HISTORY
-Once again you walk into the tattooist's shop and are greeted 
-by Jimmy Quicktint. He is obviously pleased that you are back
-to give him some business.
-</p>

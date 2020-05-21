@@ -1,9 +1,0 @@
-<p id="h184" hidden>
-ID: 184
-CHOICE 1: If you do
-ACTION 1: 55
-CHOICE 2: If not
-ACTION 2: 308
-HISTORY
-Do you have any of Mrs Pipe's golden flowers?
-</p>

@@ -1,9 +1,0 @@
-<p id="h124" hidden>
-ID: 124
-CHOICE 1: If you wish to walk down the alleyway
-ACTION 1: 326
-CHOICE 2: If you would rather continue along Harbour Street
-ACTION 2: 180
-HISTORY
-A narrow alleyway runs south off the street between two houses.
-</p>

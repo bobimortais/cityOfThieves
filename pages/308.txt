@@ -1,7 +1,0 @@
-<p id="h308" hidden>
-ID: 308
-DESTINATION: 180
-HISTORY
-There is nothing to be found in the alleyway so you return to
-Harbour Street and turn left. 
-</p>

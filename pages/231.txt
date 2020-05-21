@@ -1,9 +1,0 @@
-<p id="h231" hidden>
-ID: 231
-CHOICE 1: enter the black door
-ACTION 1: 96
-CHOICE 2: or walk back to the stairs to climb up to the next floor
-ACTION 2: 197
-HISTORY
-Outside on the landing you may either
-</p>

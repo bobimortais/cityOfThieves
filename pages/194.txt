@@ -1,8 +1,0 @@
-<p id="h194" hidden>
-ID: 194
-CHOICE 1: Feeling slightly uneasy about your new treasure you set off east again.
-ACTION 1: 161
-HISTORY 
-The smoke in the glass ball appears to vanish as you place it
-carefully in your backpack.
-</p>

@@ -1,9 +1,0 @@
-<p id="h220" hidden>
-ID: 220
-CHOICE 1: You find nothing else of interest in the shop, so you walk outside and continue east.
-DESTINATION: 100
-HISTORY
-The key fits the lock securing the grill enclosing the glass 
-cupboard. It clicks open and you are able to take any of the 
-items you wish.
-</p>

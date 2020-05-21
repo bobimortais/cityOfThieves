@@ -1,9 +1,0 @@
-<p id="h55" hidden>
-ID: 55
-CHOICE 1: You pick up the gold and walk back up the alleyway to Harbour Street, where you turn left
-DESTINATION: 180
-HISTORY
-You dip the petals of the flower in the spilled blood of the
-dead dogs. On contact with blood the petals sparkle and make 
-a popping noise. On the floor are 10 Gold Pieces.
-</p>

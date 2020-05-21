@@ -1,8 +1,0 @@
-<p id="h255" hidden>
-ID: 255
-CHOICE 1: You walk on quickly north.
-DESTINATION: 227
-HISTORY
-The guards eye you suspiciously but let you walk on after your
-pass.
-</p>

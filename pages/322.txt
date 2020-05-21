@@ -1,9 +1,0 @@
-<p id="h322" hidden>
-ID: 322
-DESTINATION: 93
-HISTORY
-You walk back into the shop; behind the counter you find a 
-small wooden money box. Inside it are 11 Gold Pieces, which 
-you put into your backpack. You decide that it is time to leave
-the shop and head north.
-</p>

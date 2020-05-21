@@ -1,6 +1,0 @@
-<p id="h283" hidden>
-ID: 283
-CHOICE 1: Continue
-ACTION 1: 217
-HISTORY There is nothing useful to he found on the dead creature, so you decide to press on northwards.
-</p>

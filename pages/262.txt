@@ -1,9 +1,0 @@
-<p id="h262" hidden>
-ID: 262
-CHOICE 1: Once outside you set off east again.
-DESTINATION: 375
-HISTORY
-Wiping the foul-tasting soup from your lips with the back of
-your hand, you storm out of the house, leaving the crazy ladies
-to their argument.
-</p>

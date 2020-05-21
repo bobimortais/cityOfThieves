@@ -1,8 +1,0 @@
-<p id="h395" hidden>
-ID: 395
-STATUS 1: LUCK;DECREASE4
-DESTINATION: 115
-HISTORY
-The blacksmith was a good man. Lose 4 LUCK points. Feeling 
-extrernely guilty, you leave the stable and continue north.
-</p>

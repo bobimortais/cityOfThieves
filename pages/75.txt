@@ -1,6 +1,0 @@
-<p id="h75" hidden>
-ID: 75
-DESTINATION: 31
-HISTORY
-Outside the rain has stopped and you set off north again.
-</p>

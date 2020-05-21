@@ -1,9 +1,0 @@
-<p id="h362" hidden>
-ID: 362
-STATUS: SKILL;INCREASE;1
-DESTINATION: 103
-HISTORY
-The boots fit perfectly and walking about you feel very sure-footed.
-They are magic elven boots. Add 1 SKILL point to your total 
-and set off east again.
-</p>

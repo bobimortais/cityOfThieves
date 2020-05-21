@@ -1,7 +1,0 @@
-<p id="h281" hidden>
-ID: 281
-CHOICE 1: If you wish to grope your way into the room
-ACTION 1: 391
-CHOICE 2: If you wish to walk hack to the staircase to climb to the next floor
-ACTION 2: 65
-</p>

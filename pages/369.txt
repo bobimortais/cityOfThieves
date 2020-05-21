@@ -1,7 +1,0 @@
-<p id="h369" hidden>
-ID: 369
-DESTINATION: 216
-HISTORY
-Back at the junction you turn left into Clog Street an walk 
-eastwards.
-</p>

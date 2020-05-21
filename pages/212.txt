@@ -1,8 +1,0 @@
-<p id="h212" hidden>
-ID: 212
-DESTINATION: 74
-HISTORY
-You are relieved that the noise of your fight did not attract
-any more guards, but not wishing to tempt providence you dash
-into the city.
-</p>

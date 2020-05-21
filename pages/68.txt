@@ -1,9 +1,0 @@
-<p id="h68" hidden>
-ID: 68
-CHOICE 1: If you wish to swallow it
-ACTION 1: 380
-CHOICE 2: If you wish to spit it out
-ACTION 2: 262
-HISTORY
-The soup tastes absolutely disgusting.
-</p>

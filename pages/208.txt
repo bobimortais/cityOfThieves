@@ -1,8 +1,0 @@
-<p id="h208" hidden>
-ID: 208
-CHOICE 1: Take what you wish and head east again along Clog Street.
-DESTINATION: 317
-HISTORY
-The Goblin's pockets contain 2 Gold Pieces, a clove of garlic
-and some old knucklebones.
-</p>

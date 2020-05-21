@@ -1,9 +1,0 @@
-<p id="h286" hidden>
-ID: 286
-DESTINATION: 163
-HISTORY
-You point the ring at the advancing Mummy and rub the jewel.
-A jet of fire flies out of the ring and the Mummy is consumed
-by flames. It drops to the floor and in a few moments there is
-nothing left but a few charred fragments.
-</p>

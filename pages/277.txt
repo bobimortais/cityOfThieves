@@ -1,7 +1,0 @@
-<p id="h277" hidden>
-ID: 277
-CHOICE 1: You walk quickly over to the staircase and climb up to the next floor.
-ACTION 1: 207
-HISTORY 
-You walk quickly over to the staircase and climb up to the next floor.
-</p>

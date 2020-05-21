@@ -1,9 +1,0 @@
-<p id="h298" hidden>
-ID: 298
-STATUS 1: STAMINA:DECREASE;4
-CHOICE 1: If you are still alive you manage to reach the door to escape.
-DESTINATION: 75
-HISTORY
-You feel the effects of poison creeping through your body. 
-Lose 4 STAMINA points.
-</p>
