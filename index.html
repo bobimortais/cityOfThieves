@@ -6151,6 +6151,7 @@ function checkSpecialHandlingsAfterSell()
 function handleShopToGiveItems(shopTag, newOption)
 {	
 	let itemsToNegotiate = document.getElementById("itemstotradename");
+	removeElementChildren(itemsToNegotiate);
 	let myItems = document.getElementById("listofitems").children;
 	let itemToNegotiate = shopTag.split(":")[1].split(";")[1].trim().split(",");
 	let quantity = shopTag.split(":")[1].split(";")[2].trim();
@@ -7125,7 +7126,11 @@ function newGame()
 											});
 	let closeDialog = document.getElementById("closedialog");
 	closeDialog.addEventListener('click', function() 
-											{
+											{	
+												document.getElementById("initialskillroll").innerHTML = "Your Initial Skill:";
+												document.getElementById("initialstaminaroll").innerHTML = "Your Initial Stamina:";
+												document.getElementById("initialluckroll").innerHTML = "Your Initial Luck:";
+												document.getElementById("initialdicerollvalue").innerHTML = "Dice Roll:";
 												dialog.close();
 											});
 	let diceToRoll = document.getElementById("initialdiceroll");
@@ -7822,6 +7827,11 @@ function disableElements()
 	document.getElementById("battle").setAttribute("disabled", true);
 	document.getElementById("yourstamina").innerHTML = "Your Stamina:";
 	document.getElementById("battle").setAttribute("style", "border-width: thin;border-color: black");
+	
+	let enemies = document.getElementById("enemylist");
+	while(enemies.rows.length > 1)
+		enemies.removeChild(enemies.rows[1]);
+		
 	enableElement("NONE");
 	battleActive = false;
 }
