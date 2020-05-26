@@ -431,7 +431,6 @@ TAG:ID: BACKGROUND
 TAG:CHOICE 1: Continue
 TAG:ACTION 1: 1
 TAG:HISTORY
-BACKGROUND
 You are an adventurer in world of monsters and magic, living by quickness of wit and skill of sword. 
 You earn your gold as a hired warrior, usually in the employ of rich nobles and barons on missions too dangerous 
 or difficult for their own men. Slaying monsters and beasts in pursuit of some fabled treasure comes as second nature to you.
@@ -500,6 +499,10 @@ backpack and furs and climb the wooden stairs to your room. You sleep uneasily d
 new broadsword as you are more than once woken by the sniffing, scratching and howling of the roaming Moon Dogs outside.
 By dawn, you are already awake and dressed, and determined to reach Port Blacksand quickly to find this man Nicodemus. 
 As you leave the tavern, a black cat scurries past your feet and you almost trip;a bad omen perhaps?
+		</p>
+		<p id="backgroundtext">                                 BACKGROUND
+
+		
 		</p>
 		<p id="h1" hidden>
 TAG:ID: 1
@@ -7453,7 +7456,9 @@ function loadStart()
 	if(options.children.length > 0)
 		return;
 	
-	document.getElementById('narrative').innerHTML = String(document.getElementById("background").innerHTML.replace(/\n/g, " ")).split("TAG:HISTORY")[1];
+	let narrative = document.getElementById("narrative");
+	narrative.innerHTML = document.getElementById("backgroundtext").innerHTML;
+	narrative.innerHTML = narrative.innerHTML + String(document.getElementById("background").innerHTML.replace(/\n/g, " ")).split("TAG:HISTORY")[1];
 	let tags = document.getElementById("background").innerHTML.split("TAG:");
 	
 	for(let i = 1; i < tags.length; i++)
